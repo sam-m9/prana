@@ -45,14 +45,14 @@ Because it's fully static, you can also just drag the folder into **Pages → Di
 2. Share button → **Add to Home Screen**.
 3. Launch from the Home Screen — it opens full-screen (no Safari chrome), works offline.
 
-## Swap in your own logo
+## App icon
 
-The icons in `/icons` are a stand-in. To use your exact logo, either:
+The home-screen / favicon / manifest icons in `/icons` are generated from **`LOGO.PNG`** (your
+artwork, kept at the repo root and mirrored to `icons/logo.png`). All icon sizes composite the logo
+onto a dark square so nothing clips and iOS renders it cleanly.
 
-- **Simplest:** replace `icons/apple-touch-icon.png`, `icons/icon-512.png`, `icons/icon-256.png`,
-  and `icons/icon-512-maskable.png` with your artwork at those sizes (square PNGs), then redeploy. No code change needed.
-- **Or** drop a single square `icons/logo.png` into the repo and point `apple-touch-icon`, the
-  `<link rel="icon">`, and the manifest `icons` at it.
+To change the logo later: replace `LOGO.PNG`, then regenerate the sized PNGs
+(`icon-1024/512/256`, `apple-touch-icon`, `icon-512-maskable`, `favicon`) from it and redeploy.
 
 ## Regenerate the catalog
 
