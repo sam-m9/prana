@@ -58,7 +58,7 @@ input{font-family:inherit}
 .nav{position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:480px; z-index:9999;
   background:#0b0b0d; box-sizing:border-box; border-top:1px solid rgba(255,255,255,.06);
   display:flex; align-items:flex-start; justify-content:space-around;
-  padding-top:12px; padding-bottom:calc(env(safe-area-inset-bottom) + 10px)}
+  padding-top:10px; padding-bottom:calc(env(safe-area-inset-bottom) + 4px)}
 @media (max-width:520px), (display-mode:standalone){
   #device{max-width:none}
   .nav{max-width:none; left:0; right:0; transform:none}
@@ -161,9 +161,9 @@ input{font-family:inherit}
 .swap.open{max-height:300px}
 
 /* overlays */
-.backdrop{position:fixed;inset:0;z-index:70;background:rgba(4,3,6,.62);backdrop-filter:blur(3px);opacity:0;transition:opacity .3s}
+.backdrop{position:fixed;inset:0;z-index:10000;background:rgba(4,3,6,.62);backdrop-filter:blur(3px);opacity:0;transition:opacity .3s}
 .backdrop.show{opacity:1}
-.sheet{position:fixed;left:0;right:0;margin:0 auto;max-width:440px;bottom:0;z-index:71;max-height:90%;overflow-y:auto;
+.sheet{position:fixed;left:0;right:0;margin:0 auto;max-width:440px;bottom:0;z-index:10001;max-height:90%;overflow-y:auto;
   background:linear-gradient(180deg,#151319,#0c0b10);border:1px solid var(--line2);border-bottom:none;
   border-radius:28px 28px 0 0;padding:22px 20px calc(30px + env(safe-area-inset-bottom));
   transform:translateY(100%);transition:transform .34s cubic-bezier(.2,.9,.25,1.1)}
@@ -179,15 +179,17 @@ input{font-family:inherit}
 .btn-bone{background:linear-gradient(160deg,var(--bone1),var(--bone3));color:var(--ink);font-weight:700;letter-spacing:1px;padding:15px;border-radius:15px;text-align:center;width:100%}
 .btn-ghost{background:#141218;border:1px solid var(--line2);color:#cfccd7;font-weight:700;letter-spacing:1px;padding:15px;border-radius:15px;text-align:center;width:100%}
 .mic-halo{width:120px;height:120px;border-radius:50%;margin:8px auto;display:flex;align-items:center;justify-content:center;font-size:44px;
-  background:radial-gradient(circle,rgba(207,154,74,.22),transparent 70%);position:relative}
-.mic-halo:before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(207,154,74,.5);animation:pulse 1.8s infinite}
+  background:radial-gradient(circle,rgba(207,154,74,.18),transparent 70%);position:relative;border:none;cursor:pointer;transition:background .25s}
+.mic-halo:before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(207,154,74,.28)}
+.mic-halo.live{background:radial-gradient(circle,rgba(207,154,74,.44),transparent 70%)}
+.mic-halo.live:before{border-color:rgba(207,154,74,.6);animation:pulse 1.8s infinite}
 @keyframes pulse{0%{transform:scale(.8);opacity:.9}100%{transform:scale(1.5);opacity:0}}
 @keyframes spin{to{transform:rotate(360deg)}}
 .spin{width:46px;height:46px;border-radius:50%;border:3px solid rgba(207,154,74,.18);border-top-color:var(--copper);animation:spin .9s linear infinite;margin:14px auto}
 .note{font-size:11px;color:var(--mute);text-align:center;line-height:1.6}
 .reduce *{animation:none!important;transition:none!important}
 a.link{color:var(--copper-l);text-decoration:none;border-bottom:1px solid rgba(207,154,74,.35)}
-.toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%) translateY(20px);z-index:90;
+.toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%) translateY(20px);z-index:10002;
   background:#1a1820;border:1px solid rgba(207,154,74,.5);color:#efeee6;padding:11px 18px;border-radius:12px;font-size:12px;
   opacity:0;transition:.3s;pointer-events:none;white-space:nowrap;max-width:88%}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -357,7 +359,7 @@ function homeHTML(){
       <button class="btn-ghost" onclick="exportData()">EXPORT BACKUP</button>
       <button class="btn-ghost" onclick="document.getElementById('importfile').click()">RESTORE</button>
     </div>
-    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v15</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v16</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <div style="height:8px"></div>
   </div>`;
@@ -728,11 +730,11 @@ function removeFromList(id){ S.listIds=S.listIds.filter(x=>x!==id); render(); }
 function openDrawer(id){ OV={kind:'drawer',id,step:1,data:{}}; renderOverlay(true); }
 function openScience(){ OV={kind:'science'}; renderOverlay(true); }
 function openIngest(){ OV={kind:'ingest',step:1,data:{q:'',cands:[],pick:null,scanned:false}}; renderOverlay(true); }
-function openVoice(){ OV={kind:'voice',step:1,data:{transcript:'',items:[],total:0}}; renderOverlay(true); startRecognition(); }
+function openVoice(){ OV={kind:'voice',step:1,data:{transcript:'',items:[],total:0}}; renderOverlay(true); /* mic stays OFF until the user taps it */ }
 function openWeight(){ OV={kind:'weight',data:{lb: S.weightLb||'', }}; renderOverlay(true); }
 function openAddFood(){ OV={kind:'edit',id:null,data:blankFood()}; renderOverlay(true); }
 function openEditFood(id){ const p=byId(id); OV={kind:'edit',id,data:Object.assign({},p)}; renderOverlay(true); }
-function closeOverlay(){ const bd=document.getElementById('overlays'); const s=bd.querySelector('.sheet'),b=bd.querySelector('.backdrop');
+function closeOverlay(){ stopMic(); const bd=document.getElementById('overlays'); const s=bd.querySelector('.sheet'),b=bd.querySelector('.backdrop');
   if(s)s.classList.remove('show'); if(b)b.classList.remove('show'); setTimeout(()=>{OV={kind:null};bd.innerHTML='';},320); }
 function renderOverlay(animate){
   const box=document.getElementById('overlays');
@@ -796,10 +798,25 @@ function drawerHTML(){
 function toggleOverride(id){ if(S.overrides[id]) delete S.overrides[id]; else S.overrides[id]=true; renderOverlay(); render(); }
 
 /* SCIENCE */
+// The UNIVERSAL evidence ladder — the same four rules run on every product in every
+// category. This is the actual ranking engine (mirrors levels() in the drawer). The
+// category deep-dives below are just illustrations of these rules in specific foods.
+const LADDER=[
+  {t:'L1 · SETTLED SCIENCE / BANS', d:'Settled-science harm or an outright regulatory ban — industrial trans fat / partially hydrogenated oil. An automatic hard fail, whatever the category.'},
+  {t:'L2 · REGULATORY-GAP SIGNAL', d:'Additives banned or warning-labeled abroad but still legal in the US — potassium bromate, synthetic dyes, synthetic preservatives, plus hidden added sugar in savory foods. A downgrade signal in every category.'},
+  {t:'L3 · GUT MECHANISM', d:'A mechanistic path to gut-barrier disruption or GI distress — emulsifiers / gums, oxidised seed oils, engineered isolates & sugar alcohols. Flags the item for your review in every category.'},
+  {t:'L4 · MACRO MATH', d:'The one ranking number applied to everything that clears L1–L3: (protein per serving × servings) ÷ price = grams of protein per dollar. Higher g/$ ranks higher.'},
+];
 function scienceHTML(){
   return `<div class="disp" style="font-family:var(--disp);font-weight:900;font-size:26px">${esc(SCIENCE.title)}</div>
     <div style="font-size:12.5px;line-height:1.65;margin-top:12px;color:#c3c0cb">${esc(SCIENCE.intro)}</div>
-    <div class="kicker" style="margin:22px 0 4px">THE MECHANISMS</div>
+    <div class="kicker" style="margin:22px 0 4px;color:var(--copper-l)">THE EVIDENCE LADDER · RUNS ON EVERY CATEGORY</div>
+    <div class="note" style="text-align:left;margin-bottom:6px">These four universal rules run on every product, in every category — that is how PRANA ranks. The category notes further down are just the same rules playing out in specific foods.</div>
+    ${LADDER.map((l,i)=>`<div class="ladder" style="border-color:rgba(207,154,74,.28)"><div style="display:flex;gap:11px;align-items:baseline">
+      <span class="big-num" style="font-size:19px;color:var(--copper-l);flex:0 0 auto">${i+1}</span>
+      <div style="flex:1"><div style="font-weight:700;font-size:11.5px;letter-spacing:1px;color:#e9e7ef">${esc(l.t)}</div>
+      <div style="font-size:12px;line-height:1.6;margin-top:6px;color:var(--mute2)">${esc(l.d)}</div></div></div>`).join('')}
+    <div class="kicker" style="margin:26px 0 4px">CATEGORY DEEP-DIVES · THE SAME RULES, BY FOOD</div>
     ${SCIENCE.sections.map(s=>`<div class="ladder"><div style="font-weight:700;font-size:13px;color:#e9e7ef">${esc(s.h)}</div>
       <div style="font-size:12px;line-height:1.6;margin-top:7px;color:var(--mute2)">${esc(s.p)}</div></div>`).join('')}
     <div class="kicker" style="margin:22px 0 4px;color:var(--crimson-t)">WHAT PRANA IGNORES · PSEUDOSCIENCE</div>
@@ -852,27 +869,38 @@ function ingestPick(id){ OV.data.pick=id; OV.step=3; renderOverlay();
     if(!S.ingested.includes(id)) S.ingested.push(id); S.qIndex=S.ingested.length-1; closeOverlay(); go('queue'); toast('Added to review queue'); },1300); }
 
 /* VOICE */
-let recog=null;
+let recog=null, _listening=false;
 function micSvg(s){ return `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="#cf9a4a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3" fill="#cf9a4a" stroke="none"/><path d="M5 11a7 7 0 0 0 14 0"/><line x1="12" y1="18" x2="12" y2="21.2"/><line x1="8.4" y1="21.2" x2="15.6" y2="21.2"/></svg>`; }
+function setMicUI(){
+  const h=document.getElementById('micHalo'); if(h) h.classList.toggle('live',_listening);
+  const l=document.getElementById('micLabel'); if(l) l.textContent=_listening?'● LISTENING — TAP THE MIC TO STOP':'TAP THE MIC TO SPEAK · OR JUST TYPE';
+}
 function startRecognition(){
   // Best-effort speech-to-text. iOS standalone PWAs often don't support it, so the
   // text field below always works as a manual fallback — we never block on this.
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SR) return;
+  if(!SR){ toast('Speech not supported here — type instead'); return; }
   try{ recog=new SR(); recog.continuous=true; recog.interimResults=true; recog.lang='en-US';
     recog.onresult=e=>{ let t=''; for(let i=0;i<e.results.length;i++) t+=e.results[i][0].transcript;
       OV.data.transcript=t; const el=document.getElementById('voiceInput'); if(el) el.value=t; };
-    recog.onerror=()=>{}; recog.onend=()=>{}; recog.start();
-  }catch(e){ recog=null; }
+    recog.onerror=()=>{ _listening=false; setMicUI(); };
+    recog.onend=()=>{ _listening=false; setMicUI(); };
+    recog.start(); _listening=true; setMicUI();
+  }catch(e){ recog=null; _listening=false; setMicUI(); }
 }
+// Stop and fully tear down recognition (called on toggle-off AND whenever a sheet closes).
+function stopMic(){ _listening=false;
+  try{ if(recog){ recog.onresult=null; recog.onerror=null; recog.onend=null; recog.stop(); recog=null; } }catch(e){} }
+// The mic is a toggle: tap once to start, tap again to stop. It never turns itself on.
+function toggleMic(){ if(_listening){ stopMic(); setMicUI(); } else { startRecognition(); } }
 function voiceHTML(){
   const d=OV.data;
   if(OV.step===1){
-    return `<div style="text-align:center"><div class="mic-halo">${micSvg(46)}</div>
-      <div class="kicker">SPEAK OR TYPE WHAT YOU ATE</div>
+    return `<div style="text-align:center"><button id="micHalo" class="mic-halo${_listening?' live':''}" onclick="toggleMic()" aria-label="Toggle voice recording" title="Tap to start or stop recording">${micSvg(46)}</button>
+      <div class="kicker" id="micLabel">${_listening?'● LISTENING — TAP THE MIC TO STOP':'TAP THE MIC TO SPEAK · OR JUST TYPE'}</div>
       <textarea id="voiceInput" rows="3" placeholder="e.g. two boiled eggs and a scoop of whey" oninput="OV.data.transcript=this.value" style="width:100%;margin-top:14px;background:#0e0c12;border:1px solid var(--line2);border-radius:14px;padding:14px;color:#e9e7ef;font-size:16px;font-family:var(--mono);resize:none">${esc(d.transcript)}</textarea>
       <button class="btn-bone" style="margin-top:14px" onclick="stopVoice()">■ ANALYZE</button>
-      <div class="note" style="margin-top:12px">On-device only — nothing leaves your phone. Speech is used when your device supports it; otherwise just type.</div></div>`;
+      <div class="note" style="margin-top:12px">On-device only — nothing leaves your phone. The mic records only while it's lit; iOS remembers your permission after the first time. If speech isn't supported, just type.</div></div>`;
   }
   if(OV.step===2){
     return `<div style="text-align:center;padding:10px 0"><div class="spin"></div>
@@ -890,12 +918,12 @@ function voiceHTML(){
     <div class="note" style="margin-top:10px">Tap outside to dismiss without logging.</div>`;
 }
 function stopVoice(){
-  try{ if(recog){ recog.onresult=null; recog.onerror=null; recog.stop(); recog=null; } }catch(e){}
   const el=document.getElementById('voiceInput'); if(el) OV.data.transcript=el.value;
+  stopMic();
   OV.step=2; renderOverlay();
   setTimeout(()=>{ if(OV.kind!=='voice') return; try{ localParse(OV.data.transcript||''); }catch(e){ OV.data.items=[]; OV.data.total=0; } OV.step=3; renderOverlay(); }, 700);
 }
-function editVoice(){ OV.step=1; renderOverlay(); startRecognition(); }
+function editVoice(){ OV.step=1; renderOverlay(); /* mic stays OFF until tapped */ }
 function confirmVoice(){ S.dailyProtein+=OV.data.total; closeOverlay(); render(); toast('Logged +'+OV.data.total+'g protein'); }
 const FOODTBL=[['whey',24],['protein shake',24],['protein powder',24],['egg',6],['eggs',6],['chicken',31],['beef',26],['steak',26],['salmon',22],['tuna',26],['greek yogurt',17],['yogurt',9],['cottage cheese',14],['cheese',7],['milk',8],['lentil',18],['beans',15],['tofu',10],['peanut butter',7],['oats',5],['bar',20],['almonds',6],['turkey',29]];
 const QTY={'a':1,'an':1,'one':1,'two':2,'three':3,'four':4,'five':5,'six':6,'half':.5,'scoop':1,'cup':1,'bowl':1};
