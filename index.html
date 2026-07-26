@@ -55,8 +55,9 @@ input{font-family:inherit}
   box-shadow:0 0 0 11px #131117, 0 0 0 13px #241f2a, 0 40px 120px -20px rgba(0,0,0,.9), 0 0 90px -30px rgba(207,154,74,.10);
 }
 @media (max-width:520px), (display-mode:standalone){
-  html,body{position:fixed;inset:0;overflow:hidden;display:block;background:#060506}
-  #device{position:fixed;inset:0;width:auto;height:auto;max-height:none;border-radius:0;box-shadow:none}
+  html{height:100%;background:#060506}
+  body{display:block;background:#060506;height:100vh;height:100dvh;overflow:hidden}
+  #device{position:relative;width:100vw;height:100vh;height:100dvh;max-height:none;border-radius:0;box-shadow:none}
 }
 .statusbar{position:absolute;top:0;left:0;right:0;height:calc(46px + env(safe-area-inset-top));
   padding-top:env(safe-area-inset-top); z-index:60; display:flex;align-items:center;justify-content:space-between;
@@ -68,7 +69,7 @@ input{font-family:inherit}
 .sb-glyphs i.s{width:22px;height:11px;border-radius:2px;background:linear-gradient(90deg,#efeee6 60%,#5f5c68 60%)}
 
 .scrollwrap{position:absolute;inset:0;bottom:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;
-  padding-top:calc(46px + env(safe-area-inset-top)); padding-bottom:96px}
+  padding-top:calc(46px + env(safe-area-inset-top)); padding-bottom:calc(94px + env(safe-area-inset-bottom))}
 .scrollwrap::-webkit-scrollbar{display:none}
 #app{overflow-x:hidden}
 .pad{padding:0 18px;max-width:100%}
@@ -137,11 +138,14 @@ input{font-family:inherit}
 .chips{display:flex;gap:8px;justify-content:center}
 .chip{font-size:11px;letter-spacing:2px;font-weight:700;padding:9px 18px;border-radius:12px;border:1px solid var(--line2);color:var(--mute2)}
 .chip.on{border-color:var(--copper);color:var(--copper-l);background:rgba(207,154,74,.10)}
-.flow{position:relative;height:220px;perspective:1150px;margin-top:4px;overflow:hidden}
-.flow-inner{position:absolute;inset:0;transform-style:preserve-3d}
-.fcard{position:absolute;top:18px;left:50%;width:150px;height:172px;margin-left:-75px;border-radius:22px;padding:16px 14px;
-  display:flex;flex-direction:column;will-change:transform;backface-visibility:hidden}
-.ptr{position:absolute;left:50%;bottom:2px;transform:translateX(-50%);color:var(--copper);font-size:15px}
+.flow{position:relative;margin-top:8px;display:flex;gap:13px;overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:6px calc(50% - 78px) 10px;scrollbar-width:none}
+.flow::-webkit-scrollbar{display:none}
+.fcard{scroll-snap-align:center;flex:0 0 156px;width:156px;min-width:0;max-width:156px;height:176px;border-radius:22px;padding:16px 14px;
+  display:flex;flex-direction:column;box-sizing:border-box;overflow:hidden;transition:transform .2s,opacity .2s}
+.fcard.sel{transform:scale(1.03)}
+.fcard:not(.sel){opacity:.5}
+.ptr{text-align:center;color:var(--copper);font-size:15px;margin-top:-2px}
 
 /* DATA */
 .search{width:100%;background:#0e0c12;border:1px solid var(--line2);border-radius:16px;padding:15px 16px 15px 42px;color:#e9e7ef;font-size:16px}
@@ -166,7 +170,7 @@ input{font-family:inherit}
 .gt-heb{background:rgba(207,154,74,.12);color:var(--copper-l);border:1px solid rgba(207,154,74,.4)}
 .gt-wf{background:rgba(147,179,154,.12);color:var(--sage-l);border:1px solid rgba(147,179,154,.4)}
 .gt-other{background:rgba(184,192,224,.12);color:var(--peri);border:1px solid rgba(184,192,224,.4)}
-.lpill{display:flex;align-items:center;gap:12px;padding:11px 16px;border-radius:15px;background:linear-gradient(180deg,#121016,#0c0b10);border:1px solid var(--line2)}
+.lpill{display:flex;align-items:center;gap:10px;padding:8px 13px;border-radius:13px;background:linear-gradient(180deg,#121016,#0c0b10);border:1px solid var(--line2)}
 .pname{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif;font-weight:500;letter-spacing:0}
 .lpill.oos{border-color:rgba(200,90,84,.55)}
 .xrm{width:44px;height:44px;margin:-7px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--mute3);font-size:16px;flex:0 0 auto}
@@ -234,7 +238,7 @@ const STORE_SHORT = {heb:'H·E·B', wf:'WHOLE FOODS', other:'ONLINE'};
 /* ---------- persistence ---------- */
 const PKEY='prana.appdata.v1';
 const DEFAULT = {
-  screen:'home', stores:['heb','wf','other'], dailyProtein:96,
+  screen:'home', stores:['heb','wf','other'], dailyProtein:0,
   listIds:[], outStock:{}, overrides:{}, decisions:{}, history:[], qIndex:0,
   ingested:[], rankTier:'ALL', dbCats:[], dbSort:'gd', dbQuery:'',
   catExtra:[], prodEdits:{}, prodAdds:[], prodDeleted:[],
@@ -243,14 +247,9 @@ const DEFAULT = {
 let S = load();
 function load(){
   try{ const j=JSON.parse(localStorage.getItem(PKEY)); if(j&&j._p) return Object.assign({}, DEFAULT, j); }catch(e){}
-  // seed a starter shopping list + demo out-of-stock
-  const seed = Object.assign({}, DEFAULT);
-  const pick = (frag)=>{ const p=RAW.find(x=>x.name.toLowerCase().includes(frag)); return p?p.id:null; };
-  seed.listIds = [pick('fage total'),pick('vital farms extra'),pick('seriously sharp'),pick('einkorn'),pick('outer aisle')].filter(Boolean);
-  const oos = pick('fage total'); if(oos) seed.outStock[oos]=true;
-  // seed a review queue so the demo lands populated (mix of tiers)
-  seed.ingested = [pick('good culture'),pick('oikos triple'),pick('banza chickpea pizza'),pick('rustic crust'),pick('barilla protein'),pick('deep indian')].filter(Boolean);
-  return seed;
+  // No demo/seed data: the app starts empty. Only the real 341-product catalog
+  // (from the uploaded category doc) exists; list/queue/log are all user-built.
+  return Object.assign({}, DEFAULT);
 }
 let saveT;
 function save(){ clearTimeout(saveT); saveT=setTimeout(()=>{ const o=Object.assign({_p:1,_savedAt:new Date().toISOString()},S); try{localStorage.setItem(PKEY,JSON.stringify(o));}catch(e){} },120); }
@@ -293,7 +292,6 @@ function render(){
   renderOverlay();
   // release gesture listeners for surfaces that aren't the active screen
   if(scr!=='queue'&&_qMove){ window.removeEventListener('pointermove',_qMove); window.removeEventListener('pointerup',_qUp); _qMove=_qUp=null; }
-  if(scr!=='rank'&&_fMove){ window.removeEventListener('pointermove',_fMove); window.removeEventListener('pointerup',_fUp); _fMove=_fUp=null; }
   if(scr==='queue') bindQueue();
   if(scr==='rank') bindFlow();
   save();
@@ -501,7 +499,7 @@ function bindQueue(){
 function pt(e){ const t=e.touches&&e.touches[0]; return {x: e.clientX!=null?e.clientX:(t?t.clientX:0), y: e.clientY!=null?e.clientY:(t?t.clientY:0)}; }
 
 /* ---------------- RANK ---------------- */
-let flowSel=0, flowDrag=0, flowDragging=false;
+let flowSel=0;
 function rankedView(){
   let list=products().sort((a,b)=>b.gd-a.gd);
   if(S.rankTier!=='ALL'){ const t=+S.rankTier[1]; list=list.filter(p=>p.effTier===t); }
@@ -517,27 +515,28 @@ function rankHTML(){
     <div class="chips" style="margin-top:18px">
       ${['ALL','T1','T2','T3'].map(k=>`<button class="chip ${S.rankTier===k?'on':''}" onclick="setRankTier('${k}')">${k}</button>`).join('')}
     </div>
-    <div style="text-align:center;font-size:9px;letter-spacing:3px;color:var(--mute3);margin-top:14px">◄ DRAG TO SORT ►</div>
-    <div class="flow" id="flow"><div class="flow-inner" id="flowInner">
+    <div style="text-align:center;font-size:9px;letter-spacing:3px;color:var(--mute3);margin-top:14px">◄ SWIPE TO BROWSE ►</div>
+    ${total===0?`<div class="note" style="padding:40px 0">No products in this tier.</div>`:`
+    <div class="flow" id="flow">
       ${list.map((p,i)=>fcard(p,i)).join('')}
-    </div><div class="ptr">▲</div></div>
-    ${sel?detailCard(sel,maxgd):''}
+    </div><div class="ptr">▲</div>
+    <div id="rankDetail">${sel?detailCard(sel,maxgd):''}</div>`}
     <div style="display:flex;justify-content:space-between;align-items:center;margin:22px 0 10px">
       <div class="kicker">TAP TO SELECT</div><div class="kicker">${total} ITEMS</div>
     </div>
-    ${list.map((p,i)=>`<button class="drow" style="margin-bottom:8px;width:100%;${i===flowSel?'border-color:rgba(207,154,74,.55)':''}" onclick="selFlow(${i})">
+    <div id="rankList">${list.map((p,i)=>`<button class="drow" style="margin-bottom:8px;width:100%;${i===flowSel?'border-color:rgba(207,154,74,.55)':''}" onclick="selFlow(${i})">
       <span style="font-family:var(--disp);font-weight:800;color:var(--mute3);width:26px">${String(i+1).padStart(2,'0')}</span>
       <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
       <span class="pname" style="flex:1;text-align:left;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">${esc(p.name)}</span>
       <span style="font-size:10px;color:var(--mute3)">${cpgStr(p.cpg)}/g</span>
       <span class="big-num" style="font-size:22px;width:52px;text-align:right">${p.gd.toFixed(1)}</span>
-    </button>`).join('')}
+    </button>`).join('')}</div>
     <div style="height:6px"></div>
   </div>`;
 }
 function fcard(p,i){
   const t=p.effTier;
-  return `<div class="fcard ${surfClass(t)}" data-i="${i}">
+  return `<div class="fcard ${surfClass(t)}${i===flowSel?' sel':''}" data-i="${i}" onclick="selFlow(${i})">
     <div style="display:flex;justify-content:space-between;font-size:8px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'}">
       <span>${String(i+1).padStart(2,'0')}/${rankedView().length}</span><span class="tag t${t}" style="padding:2px 6px;font-size:7px">T${t}</span></div>
     <div class="big-num" style="font-size:42px;text-align:center;margin-top:22px;color:${t===2?'var(--copper-l)':(t===1?'var(--ink)':'#efeee6')}">${p.gd.toFixed(1)}</div>
@@ -576,37 +575,28 @@ function commentary(p){
   const t=p.effTier;
   return `${p.band[0]} value at ${p.gd.toFixed(1)}g/$, but Tier ${t}: ${m?m.summary:'flagged.'} ${t===3?'A functional tool at best — not a clean-surplus staple.':'Passes hard-safety; flagged for review.'}`;
 }
-function setRankTier(k){ S.rankTier=k; flowSel=0; flowDrag=0; render(); }
+function setRankTier(k){ S.rankTier=k; flowSel=0; render(); }
 function selFlow(i){ flowSel=i; render(); }
-let _fMove=null,_fUp=null;
+let _flowScrollT=null;
 function bindFlow(){
-  if(_fMove){ window.removeEventListener('pointermove',_fMove); window.removeEventListener('pointerup',_fUp); _fMove=_fUp=null; }
-  positionFlow();
-  const flow=document.getElementById('flow'); if(!flow||S.reduceMotion) return;
-  let sx=0,drag=false,moved=false,startSel=flowSel;
-  const STEP=118;
-  const down=e=>{drag=true;moved=false;sx=pt(e).x;startSel=flowSel;flowDragging=true;};
-  const move=e=>{ if(!drag)return; const dx=pt(e).x-sx; if(Math.abs(dx)>5)moved=true; flowDrag=dx; positionFlow(dx,startSel); };
-  const up=e=>{ if(!drag)return; drag=false;flowDragging=false; const dx=pt(e).x-sx;
-    let ns=startSel-Math.round(dx/STEP); ns=Math.max(0,Math.min(rankedView().length-1,ns));
-    flowSel=ns; flowDrag=0; if(!moved){ const el=e.target.closest('.fcard'); if(el){flowSel=+el.dataset.i;} }
-    render(); };
-  _fMove=move; _fUp=up;
-  flow.addEventListener('pointerdown',down); window.addEventListener('pointermove',move); window.addEventListener('pointerup',up);
+  const flow=document.getElementById('flow'); if(!flow) return;
+  const cards=[...flow.children];
+  // center the selected card (instant on (re)render)
+  const c=cards[flowSel]; if(c){ flow.scrollLeft = c.offsetLeft - (flow.clientWidth - c.clientWidth)/2; }
+  flow.onscroll=()=>{ clearTimeout(_flowScrollT); _flowScrollT=setTimeout(()=>{
+    const mid=flow.scrollLeft + flow.clientWidth/2; let best=0,bd=1e9;
+    cards.forEach((el,i)=>{ const cc=el.offsetLeft+el.clientWidth/2; const d=Math.abs(cc-mid); if(d<bd){bd=d;best=i;} });
+    if(best!==flowSel){ flowSel=best; refreshRankSel(cards); }
+  }, 80); };
 }
-function positionFlow(dx=0,base=flowSel){
-  const inner=document.getElementById('flowInner'); if(!inner) return;
-  const STEP=118;
-  [...inner.children].forEach(c=>{
-    const i=+c.dataset.i;
-    const off=i-base - dx/STEP;
-    const a=Math.abs(off);
-    if(a>3){ c.style.opacity=0; c.style.pointerEvents='none'; c.style.transform='translateX(-9999px)'; return; }
-    c.style.pointerEvents='auto';
-    c.style.opacity=Math.max(0,1-a*.34);
-    c.style.zIndex=100-Math.round(a*10);
-    c.style.transform=`translateX(${off*88}px) translateZ(${-a*130}px) rotateY(${off*-26}deg) scale(${1-a*.08})`;
-  });
+// surgical update on snap — avoids re-rendering the whole 341-row list
+function refreshRankSel(cards){
+  cards.forEach((el,i)=>el.classList.toggle('sel', i===flowSel));
+  const sel=rankedView()[flowSel];
+  const maxgd=Math.max(...products().map(p=>p.gd),1);
+  const d=document.getElementById('rankDetail'); if(d&&sel) d.innerHTML=detailCard(sel,maxgd);
+  document.querySelectorAll('#rankList .drow').forEach((r,i)=>{ r.style.borderColor = (i===flowSel)?'rgba(207,154,74,.55)':''; });
+  save();
 }
 
 /* ---------------- DATA ---------------- */
@@ -691,10 +681,11 @@ function listHTML(){
   const order=['heb','wf','other'];
   return `<div class="pad" style="padding-top:20px">
     <div class="h-title">SHOPPING LIST</div><div class="h-sub">${items.length} VERIFIED ITEMS · ${stores.length} STORE${stores.length>1?'S':''}</div>
-    <div style="margin-top:20px">
+    <div class="note" style="margin-top:8px;font-size:10px">Tap an item to mark it out of stock — PRANA suggests clean swaps.</div>
+    <div style="margin-top:12px">
     ${order.filter(st=>items.some(p=>p.store===st)).map(st=>{
       const g=items.filter(p=>p.store===st);
-      return `<div style="display:flex;align-items:center;gap:14px;margin:22px 0 12px">
+      return `<div style="display:flex;align-items:center;gap:12px;margin:14px 0 8px">
         <span class="grouptag gt-${st}">${STORE_LABEL[st]}</span><div style="flex:1;height:1px;background:var(--line2)"></div>
         <span style="font-size:10px;letter-spacing:2px;color:var(--mute3)">${g.length} ITEM${g.length>1?'S':''}</span></div>
       ${g.map(p=>listItem(p)).join('')}`;
@@ -705,25 +696,25 @@ function listHTML(){
 function listItem(p){
   const oos=S.outStock[p.id];
   const swaps=oos?products().filter(x=>x.cat===p.cat&&x.id!==p.id&&x.effTier<3).sort((a,b)=>b.gd-a.gd).slice(0,3):[];
-  return `<div style="margin-bottom:10px">
-    <div class="lpill ${oos?'oos':''}" onclick="${oos?`toggleSwap(${p.id})`:''}">
+  return `<div style="margin-bottom:6px">
+    <div class="lpill ${oos?'oos':''}" onclick="toggleOOS(${p.id})">
       <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
-      <div style="flex:1;min-width:0"><div class="pname" style="font-size:16px;${oos?'color:var(--crimson-t)':''}">${esc(p.name)}</div>
-      <div style="font-size:10px;color:${oos?'var(--crimson)':'var(--mute3)'};margin-top:2px">${esc(p.size||'—')} · pack $${p.price.toFixed(2)}${oos?' · OUT OF STOCK':''}</div></div>
-      <span class="big-num" style="font-size:22px">${p.gd.toFixed(1)}</span>
+      <div style="flex:1;min-width:0"><div class="pname" style="font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;${oos?'color:var(--crimson-t)':''}">${esc(p.name)}</div>
+      <div style="font-size:9px;color:${oos?'var(--crimson)':'var(--mute3)'};margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.size||'—')} · $${p.price.toFixed(2)}${oos?' · OUT OF STOCK':''}</div></div>
+      <span class="big-num" style="font-size:18px">${p.gd.toFixed(1)}</span>
       <button class="xrm" onclick="event.stopPropagation();removeFromList(${p.id})">✕</button>
     </div>
-    ${oos?`<div class="swap ${OV.swapId===p.id?'open':''}"><div style="background:#0d0b11;border:1px solid rgba(200,90,84,.3);border-radius:14px;padding:14px;margin-top:8px">
-      <div style="font-size:9px;letter-spacing:1.5px;color:var(--crimson-t);margin-bottom:8px">OUT OF STOCK · APPROVED SWAPS BY g/$</div>
-      ${swaps.map(s=>`<button style="display:flex;align-items:center;gap:10px;width:100%;padding:9px 0;border-bottom:1px solid var(--line)" onclick="doSwap(${p.id},${s.id})">
+    ${oos?`<div class="swap open"><div style="background:#0d0b11;border:1px solid rgba(200,90,84,.3);border-radius:12px;padding:12px;margin-top:6px">
+      <div style="font-size:9px;letter-spacing:1.5px;color:var(--crimson-t);margin-bottom:6px">APPROVED SWAPS BY g/$</div>
+      ${swaps.map(s=>`<button style="display:flex;align-items:center;gap:10px;width:100%;padding:7px 0;border-bottom:1px solid var(--line)" onclick="event.stopPropagation();doSwap(${p.id},${s.id})">
         <span class="dot-t" style="background:${tierDotColor(s.effTier)}"></span>
-        <span style="flex:1;text-align:left;font-size:13px">${esc(s.name)}</span>
-        <span class="big-num" style="font-size:16px">${s.gd.toFixed(1)}</span><span style="color:var(--copper-l)">⇄</span></button>`).join('')||'<div class="note">No clean same-category swaps.</div>'}
+        <span class="pname" style="flex:1;text-align:left;font-size:13px">${esc(s.name)}</span>
+        <span class="big-num" style="font-size:15px">${s.gd.toFixed(1)}</span><span style="color:var(--copper-l)">⇄</span></button>`).join('')||'<div class="note">No clean same-category swaps.</div>'}
     </div></div>`:''}
   </div>`;
 }
-function toggleSwap(id){ OV.swapId=OV.swapId===id?null:id; render(); }
-function doSwap(oldId,newId){ S.listIds=S.listIds.map(x=>x===oldId?newId:x); delete S.outStock[oldId]; OV.swapId=null; render(); toast('Swapped'); }
+function toggleOOS(id){ if(S.outStock[id]) delete S.outStock[id]; else S.outStock[id]=true; render(); }
+function doSwap(oldId,newId){ S.listIds=S.listIds.map(x=>x===oldId?newId:x); delete S.outStock[oldId]; render(); toast('Swapped'); }
 function removeFromList(id){ S.listIds=S.listIds.filter(x=>x!==id); render(); }
 
 /* =====================================================================
