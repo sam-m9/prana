@@ -349,7 +349,7 @@ function homeHTML(){
     <button class="row-item" onclick="openScience()">
       <span style="font-size:20px">🧬</span>
       <div style="flex:1"><div style="font-weight:600">Why these rules exist</div>
-      <div style="font-size:10px;color:var(--mute3);margin-top:2px">A2 casein · sourdough · seed oils · the evidence ladder</div></div>
+      <div style="font-size:10px;color:var(--mute3);margin-top:2px">5 universal principles · 3 tiers · the hard exclusions</div></div>
       <span style="color:var(--mute3)">→</span>
     </button>
 
@@ -359,7 +359,7 @@ function homeHTML(){
       <button class="btn-ghost" onclick="exportData()">EXPORT BACKUP</button>
       <button class="btn-ghost" onclick="document.getElementById('importfile').click()">RESTORE</button>
     </div>
-    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v16</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v17</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <div style="height:8px"></div>
   </div>`;
@@ -744,27 +744,50 @@ function renderOverlay(animate){
   requestAnimationFrame(()=>{ box.querySelector('.backdrop').classList.add('show'); box.querySelector('.sheet').classList.add('show'); });
 }
 
-/* EVIDENCE DRAWER */
-function levels(p){
-  const eff=p.effTier, over=!!S.overrides[p.id];
+/* EVIDENCE DRAWER
+   The audit is the LOGIC: five universal, category-agnostic biological principles.
+   Protein-per-dollar is the ranking metric (shown in the tiles) — it is NOT a
+   pass/fail rule and is deliberately kept out of this audit. */
+function principlesAudit(p){
+  const over=!!S.overrides[p.id];
   const flags=new Set(p.flags);
-  const has=c=>flags.has(c);
-  const L=[];
-  // L1 settled science / bans
-  L.push({t:'L1 · SETTLED SCIENCE / BANS', s: has('pho')&&!over?'fail':'pass',
-    d: has('pho')&&!over?'Contains partially hydrogenated oil / industrial trans fat — banned from the US food supply.':'No banned trans fats / PHO.'});
-  // L2 regulatory gap
-  const l2 = ['brom','dye','sugar','preserv'].some(has) && !over;
-  L.push({t:'L2 · REGULATORY-GAP SIGNAL', s: l2?(eff===3?'fail':'flag'):'pass',
-    d: l2? (MECH[['brom','dye','sugar','preserv'].find(has)]||{}).summary : 'No bromate, synthetic dyes, or hidden savory sugar.'});
-  // L3 gut mechanism
-  const l3=['emul','seed','tool'].some(has)&&!over;
-  L.push({t:'L3 · GUT MECHANISM', s: over?'pass': l3?'flag':'pass',
-    d: over?'Manually cleared by you.': l3? (MECH[['emul','seed','tool'].find(has)]||{}).summary : 'No gut-barrier emulsifiers, seed oils, or engineered isolates.'});
-  // L4 macro math
-  L.push({t:'L4 · MACRO MATH', s:'pass',
-    d:`(${p.protein}g × ${p.servings} servings) ÷ $${p.price.toFixed(2)} = ${p.gd.toFixed(1)} g protein / $`});
-  return L;
+  const t=over?1:p.effTier;
+  // A flag only bites when not overridden. Its SEVERITY tracks the product's tier, so
+  // the audit never contradicts the badge: a triggered principle is a hard ✕ FAIL on a
+  // Tier-3 item, a ▲ FLAG on a Tier-2 item (e.g. sugar where it naturally belongs, or a
+  // mild additive the catalog still clears). Tier is set from the same five principles.
+  const bite=f=> !over && flags.has(f);
+  const sev=on=> !on?'pass':(t===3?'fail':'flag');
+  const A=[];
+  { const s=sev(bite('emul'));
+    A.push({t:'01 · MUCOSAL SHIELDING', s,
+      d: s==='fail'?'Contains synthetic emulsifiers / gums that act like detergents on the gut lining, stripping the mucin layer — a hard exclusion.'
+        : s==='flag'?'Carries a stabiliser / gum in a supporting role — flagged, though the catalog still clears it as a practical Tier-2 pick.'
+        :'No synthetic emulsifiers, gums, polysorbates or carrageenan — the intestinal barrier stays intact.'}); }
+  { const s= bite('tool')?'flag':'pass';       // engineered isolate caps at Tier 2 — a flag, never a hard fail
+    A.push({t:'02 · PROTEIN NATIVE STATE', s,
+      d: s==='flag'?'Relies on chemically isolated / engineered protein rather than a whole-food matrix — digestible, but not native. Caps the item at Tier 2.'
+        :'Whole-food protein in its native (or fermented / A2 pre-digested) matrix — cleaved cleanly, no inflammatory peptide fragments.'}); }
+  { const s=sev(bite('seed')||bite('pho'));
+    A.push({t:'03 · LIPID STABILITY', s,
+      d: s==='fail'?'Contains industrial seed oils / hydrogenated fat — oxidised omega-6 and aldehydes embed in cell membranes and drive inflammation. A hard exclusion.'
+        : s==='flag'?'Uses a refined / blended oil in a supporting role — flagged, though the catalog still rates it a practical Tier-2 pick.'
+        :'No refined seed oils or trans fats — only oxidatively stable, structurally intact lipids.'}); }
+  { const s=sev(bite('sugar'));
+    A.push({t:'04 · GLYCEMIC INFLUX', s,
+      d: s==='fail'?'Added sugar in a savory / staple food floods the liver → de novo lipogenesis (visceral & liver fat). A hard exclusion.'
+        : s==='flag'?'Added sugar, but in an inherently sweet item where it is expected — not the savory-staple disqualifier, so it stays a Tier-2 tool.'
+        :'No hidden added sugar in a savory or staple item — no rapid hepatic fructose flood.'}); }
+  A.push({t:'05 · ENZYMATIC PRE-DIGESTION', s: t===1?'pass':(t===2?'flag':'idle'),
+    d: t===1?'Biologically pre-digested — long fermentation, wild culturing or sprouting has attenuated FODMAPs and antinutrients before you eat it.'
+      : t===2?'Clean, but fast-tracked — skips the fermentation / sprouting that pre-digests FODMAPs and antinutrients (the Tier 1 edge).'
+      : 'Not assessed — the item already fails a hard filter above.'});
+  // Tier-3 with no specific principle tripped (e.g. synthetic dyes / polyols) → degraded base
+  if(t===3 && !bite('emul') && !bite('seed') && !bite('pho') && !bite('sugar')){
+    A.push({t:'△ · DEGRADED / ULTRA-PROCESSED BASE', s:'fail',
+      d:'Synthetic dyes, polyols or other ultra-processed markers place this on a compromised, degraded ingredient base.'});
+  }
+  return A;
 }
 function drawerHTML(){
   const p=byId(OV.id); if(!p) return '';
@@ -781,10 +804,10 @@ function drawerHTML(){
       <div class="tile"><div class="big-num" style="font-size:32px">${cpgStr(p.cpg)}</div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:2px">PER GRAM PROTEIN</div></div>
     </div>
     <div style="font-size:12.5px;line-height:1.6;margin-top:16px;color:#c3c0cb">${esc(commentary(p))}</div>
-    <div class="kicker" style="margin:18px 0 2px">EVIDENCE LADDER</div>
-    ${levels(p).map(l=>`<div class="ladder"><div style="display:flex;justify-content:space-between;align-items:center">
+    <div class="kicker" style="margin:18px 0 2px">FIVE-PRINCIPLE AUDIT · CATEGORY-AGNOSTIC</div>
+    ${principlesAudit(p).map(l=>`<div class="ladder"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
       <span style="font-size:10px;letter-spacing:1.5px;font-weight:700;color:#cfccd7">${l.t}</span>
-      <span class="lvl-${l.s}" style="font-size:10px;letter-spacing:1px;font-weight:700">${l.s==='pass'?'✓ PASS':l.s==='fail'?'✕ FAIL':'▲ FLAG'}</span></div>
+      <span class="lvl-${l.s}" style="font-size:10px;letter-spacing:1px;font-weight:700;flex:0 0 auto">${l.s==='pass'?'✓ PASS':l.s==='fail'?'✕ FAIL':l.s==='idle'?'— N/A':'▲ FLAG'}</span></div>
       <div style="font-size:11.5px;line-height:1.5;color:var(--mute2);margin-top:7px">${esc(l.d)}</div></div>`).join('')}
     ${m?`<div class="ladder" style="border-color:rgba(207,154,74,.35)"><div class="kicker" style="color:var(--copper-l)">MECHANISM SUMMARY</div>
       <div style="font-size:12px;line-height:1.6;margin-top:8px;color:#d4d1db">${esc(m.mechanism)}</div>
@@ -798,28 +821,58 @@ function drawerHTML(){
 function toggleOverride(id){ if(S.overrides[id]) delete S.overrides[id]; else S.overrides[id]=true; renderOverlay(); render(); }
 
 /* SCIENCE */
-// The UNIVERSAL evidence ladder — the same four rules run on every product in every
-// category. This is the actual ranking engine (mirrors levels() in the drawer). The
-// category deep-dives below are just illustrations of these rules in specific foods.
-const LADDER=[
-  {t:'L1 · SETTLED SCIENCE / BANS', d:'Settled-science harm or an outright regulatory ban — industrial trans fat / partially hydrogenated oil. An automatic hard fail, whatever the category.'},
-  {t:'L2 · REGULATORY-GAP SIGNAL', d:'Additives banned or warning-labeled abroad but still legal in the US — potassium bromate, synthetic dyes, synthetic preservatives, plus hidden added sugar in savory foods. A downgrade signal in every category.'},
-  {t:'L3 · GUT MECHANISM', d:'A mechanistic path to gut-barrier disruption or GI distress — emulsifiers / gums, oxidised seed oils, engineered isolates & sugar alcohols. Flags the item for your review in every category.'},
-  {t:'L4 · MACRO MATH', d:'The one ranking number applied to everything that clears L1–L3: (protein per serving × servings) ÷ price = grams of protein per dollar. Higher g/$ ranks higher.'},
+// THE LOGIC — five universal, category-agnostic biological principles. Every product,
+// in any aisle, is audited against these and sorted into three tiers. Protein-per-dollar
+// is the RANKING METRIC, applied separately — it is deliberately not one of the rules.
+const PRINCIPLES_DOC=[
+  {n:'01', h:'Mucosal Shielding & Barrier Integrity',
+   m:'The gut lining is a single epithelial layer sealed by tight-junction proteins under a protective mucin coat. Synthetic emulsifiers, gums, polysorbates and carrageenan act like detergents on it.',
+   c:'Breached junctions let bacterial LPS and undigested peptides cross into the blood (metabolic endotoxemia) → fluid retention, systemic inflammation, and fat storage favoured over muscle synthesis.',
+   rule:'HARD EXCLUSION · any additive that exists only to bind water/fat or extend texture degrades shielding and drops the tier — in every category.'},
+  {n:'02', h:'Protein Native State & Peptide Recognition',
+   m:'Digestive enzymes recognise native, whole-food protein structures. Extreme processing — flash-drying, chemical isolation, A1 β-casein, added vital wheat gluten — alters that structure or yields fragments the gut cannot cleave.',
+   c:'Fragments like BCM-7 or undigested isolate / gluten slow gut motility, pull water into the lumen (osmotic bloat) and delay amino-acid uptake.',
+   rule:'TIER 1 · native / fermented / A2 whole-food protein. Engineered isolates & denatured concentrates cap the item at Tier 2.'},
+  {n:'03', h:'Lipid Stability & Membrane Dynamics',
+   m:'Polyunsaturated fats oxidise under industrial heat and solvent (hexane) extraction, generating toxic aldehydes such as 4-HNE.',
+   c:'In a surplus these oxidised fats embed in cell and mitochondrial membranes, skew the ω-6:ω-3 ratio toward inflammation, and divert energy toward visceral fat.',
+   rule:'HARD EXCLUSION · refined seed oils (canola, soybean, sunflower, safflower, corn, cottonseed, vegetable, peanut) and hydrogenated fats. TIER 1 · cold-pressed EVOO, grass-fed butter/ghee, intact whole-food fats.'},
+  {n:'04', h:'Glycemic Influx & Hepatic Lipogenesis',
+   m:'Isolated sugars and juice concentrates with no fibrous or protein matrix flood the hepatic portal vein faster than the liver can process.',
+   c:'In an anabolic surplus this directly triggers de novo lipogenesis — sugar converted to visceral and liver fat — plus insulin spikes and water retention.',
+   rule:'HARD EXCLUSION · added sugar / syrup / juice concentrate in any savory or staple food. ALLOWED · complex starch feeding a wild ferment (barley malt) and sugars bound inside whole fruit.'},
+  {n:'05', h:'Enzymatic Pre-Digestion & Antinutrient Attenuation',
+   m:'Grains, legumes, nuts and seeds carry phytic acid, lectins, enzyme inhibitors and FODMAPs. Traditional fermentation, culturing and sprouting activate enzymes (phytase) that pre-digest them; fast manufacturing skips this step.',
+   c:'Skipping it leaves antinutrients and FODMAPs to ferment in the colon → gas (H₂, CH₄), the "distended bulking gut", and blocked mineral absorption.',
+   rule:'TIER 1 · authentic long-ferment / wild-culture / sprouted. Quick-yeast, dough conditioners and un-sprouted raw matrices skip the step.'},
+];
+const TIERS_DOC=[
+  {t:1, name:'TIER 1 · GOLD STANDARD',
+   d:'Zero seed oils, zero hidden sugar, zero emulsifiers/gums — plus a native matrix, slow low-temp processing and authentic pre-digestion (long ferment / sprouted / cultured), A2 casein, bronze-die, single-origin unheated fats.'},
+  {t:2, name:'TIER 2 · PRACTICAL SURPLUS TOOL',
+   d:'Passes every hard filter (no seed oils, no hidden savory sugar) but leans on mild conventional processing or engineered protein / fibre isolates. Macro-dense and accessible — without the pre-digestive edge of Tier 1.'},
+  {t:3, name:'TIER 3 · COMPROMISED / DISQUALIFIED',
+   d:'Fails one or more hard filters — seed oils, hidden sugar in savory staples, chemical emulsifiers/gums, polyols / artificial sweeteners, or a degraded ultra-processed base. Drives bloat, inflammation and fat storage.'},
 ];
 function scienceHTML(){
   return `<div class="disp" style="font-family:var(--disp);font-weight:900;font-size:26px">${esc(SCIENCE.title)}</div>
-    <div style="font-size:12.5px;line-height:1.65;margin-top:12px;color:#c3c0cb">${esc(SCIENCE.intro)}</div>
-    <div class="kicker" style="margin:22px 0 4px;color:var(--copper-l)">THE EVIDENCE LADDER · RUNS ON EVERY CATEGORY</div>
-    <div class="note" style="text-align:left;margin-bottom:6px">These four universal rules run on every product, in every category — that is how PRANA ranks. The category notes further down are just the same rules playing out in specific foods.</div>
-    ${LADDER.map((l,i)=>`<div class="ladder" style="border-color:rgba(207,154,74,.28)"><div style="display:flex;gap:11px;align-items:baseline">
-      <span class="big-num" style="font-size:19px;color:var(--copper-l);flex:0 0 auto">${i+1}</span>
-      <div style="flex:1"><div style="font-weight:700;font-size:11.5px;letter-spacing:1px;color:#e9e7ef">${esc(l.t)}</div>
-      <div style="font-size:12px;line-height:1.6;margin-top:6px;color:var(--mute2)">${esc(l.d)}</div></div></div>`).join('')}
+    <div style="font-size:12.5px;line-height:1.65;margin-top:12px;color:#c3c0cb">Building a dense, muscular frame in a caloric surplus needs 1.6–2.2 g/kg of bioavailable protein. But in a surplus the daily volume of food is high, so any inflammatory or gut-disrupting agent is <b>amplified</b> — a food that is merely annoying at maintenance becomes real bloat and fat gain in bulking quantities. So PRANA ranks by protein-per-dollar, then audits every product — in <b>any</b> category — against five universal biological principles that sort it into three tiers.</div>
+    <div class="kicker" style="margin:22px 0 6px;color:var(--copper-l)">THE FIVE UNIVERSAL PRINCIPLES · CATEGORY-AGNOSTIC</div>
+    ${PRINCIPLES_DOC.map(p=>`<div class="ladder" style="border-color:rgba(207,154,74,.24)">
+      <div style="display:flex;gap:11px;align-items:baseline"><span class="big-num" style="font-size:19px;color:var(--copper-l);flex:0 0 auto">${p.n}</span>
+      <div style="flex:1;font-weight:700;font-size:13px;color:#e9e7ef;letter-spacing:.2px">${esc(p.h)}</div></div>
+      <div style="font-size:11.5px;line-height:1.6;margin-top:9px;color:var(--mute2)"><b style="color:#cfccd7">Mechanism.</b> ${esc(p.m)}</div>
+      <div style="font-size:11.5px;line-height:1.6;margin-top:6px;color:var(--mute2)"><b style="color:#cfccd7">Consequence.</b> ${esc(p.c)}</div>
+      <div style="font-size:10.5px;line-height:1.55;margin-top:9px;color:var(--copper-l);font-weight:700;letter-spacing:.3px">${esc(p.rule)}</div></div>`).join('')}
+    <div class="kicker" style="margin:26px 0 6px">THE THREE TIERS · SAME RULES, EVERY AISLE</div>
+    ${TIERS_DOC.map(t=>`<div class="ladder"><div style="display:flex;align-items:center;gap:9px">
+      <span class="dot-t" style="background:${tierDotColor(t.t)}"></span>
+      <span style="font-weight:700;font-size:12px;letter-spacing:.5px;color:#e9e7ef">${esc(t.name)}</span></div>
+      <div style="font-size:11.5px;line-height:1.6;margin-top:8px;color:var(--mute2)">${esc(t.d)}</div></div>`).join('')}
     <div class="kicker" style="margin:26px 0 4px">CATEGORY DEEP-DIVES · THE SAME RULES, BY FOOD</div>
     ${SCIENCE.sections.map(s=>`<div class="ladder"><div style="font-weight:700;font-size:13px;color:#e9e7ef">${esc(s.h)}</div>
       <div style="font-size:12px;line-height:1.6;margin-top:7px;color:var(--mute2)">${esc(s.p)}</div></div>`).join('')}
-    <div class="kicker" style="margin:22px 0 4px;color:var(--crimson-t)">WHAT PRANA IGNORES · PSEUDOSCIENCE</div>
+    <div class="kicker" style="margin:22px 0 4px;color:var(--crimson-t)">SCIENTIFIC GUARDRAILS · WHAT PRANA IGNORES</div>
     ${SCIENCE.debunk.map(s=>`<div class="ladder" style="border-color:rgba(200,90,84,.25)"><div style="font-weight:700;font-size:13px;color:var(--crimson-t)">✕ “${esc(s.h)}”</div>
       <div style="font-size:12px;line-height:1.6;margin-top:7px;color:var(--mute2)">${esc(s.p)}</div></div>`).join('')}
     <button class="btn-ghost" style="margin-top:18px" onclick="closeOverlay()">CLOSE</button>`;
