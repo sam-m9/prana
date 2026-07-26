@@ -58,9 +58,11 @@ input{font-family:inherit}
 @media (max-width:520px), (display-mode:standalone){
   html{background:#060506}
   body{margin:0;background:#060506;overflow:hidden}
-  /* iOS standalone + viewport-fit=cover: position:fixed + height:100vh is the
-     only combo that truly fills the screen (100% breaks cover; dvh under-reports). */
-  #device{position:fixed;top:0;left:0;width:100vw;height:100vh;max-height:none;border-radius:0;box-shadow:none}
+  #device{position:fixed;top:0;left:0;right:0;bottom:0;width:auto;height:auto;max-height:none;border-radius:0;box-shadow:none}
+  /* Pin the nav to the true visible bottom, independent of device-box height.
+     max() guards the iOS bug where safe-area-inset-bottom reports 0. */
+  .nav{position:fixed;left:0;right:0;bottom:0;padding-bottom:max(env(safe-area-inset-bottom),14px)}
+  .scrollwrap{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 }
 /* installed app: real status bar overlays the top, so drop the fake-bar reserve */
 @media (display-mode:standalone){
@@ -381,7 +383,7 @@ function homeHTML(){
       <button class="btn-ghost" onclick="exportData()">EXPORT BACKUP</button>
       <button class="btn-ghost" onclick="document.getElementById('importfile').click()">RESTORE</button>
     </div>
-    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v12</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v13</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <div style="height:8px"></div>
   </div>`;
