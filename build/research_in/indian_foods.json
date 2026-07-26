@@ -1,0 +1,216 @@
+{
+  "category": "Indian Foods",
+  "count": 12,
+  "products": [
+    {
+      "id": 294,
+      "name": "Masala Mama Tikka Masala Indian Simmer Sauce",
+      "cat": "Indian Foods",
+      "size": "10 oz",
+      "price": 8.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 17,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Water, Organic Tomatoes, Cream, Onions, Coconut Milk, Cashews, Garlic, Ginger, Spices, Sea Salt, Ghee. AUDIT: 100% Seed-Oil Free; 0g added sugar; zero gums or emulsifiers. Clean fat base for pairing with fresh pasture-raised chicken or paneer. Tag: Whole-Food Clean Base."
+    },
+    {
+      "id": 295,
+      "name": "Central Market Fresh Artisanal Paneer Cheese",
+      "cat": "Indian Foods",
+      "size": "8 oz",
+      "price": 6.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 13.6,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Pasteurized Whole Milk, Culture, Enzymes, Vinegar. AUDIT: 100% Seed-Oil Free; 0g added sugar; zero gums or stabilizers. Acid-set milk curd providing 18g intact casein protein per 100g serving with high digestive tolerance. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 296,
+      "name": "Masala Mama Goa Coconut Curry Simmer Sauce",
+      "cat": "Indian Foods",
+      "size": "10 oz",
+      "price": 8.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 17,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Organic Coconut Milk, Tomato Paste, Onion, Tamarind, Coconut Oil, Garlic, Ginger, Spices, Sea Salt. AUDIT: 100% Seed-Oil Free; 0g added sugar; 0 industrial additives. Highly dense coconut oil/MCT base ideal for caloric surplus. Tag: Whole-Food Clean Base."
+    },
+    {
+      "id": 297,
+      "name": "Organic Valley Grassmilk Organic Ghee",
+      "cat": "Indian Foods",
+      "size": "13 oz",
+      "price": 13.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 22.1,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Organic Grass-Fed Butterfat (Milk). AUDIT: 100% Seed-Oil Free; 0g added sugar; 0 UPF load. Clarified butterfat stripped of lactose and whey, rich in butyric acid and fat-soluble vitamins to support gut mucosa. Tag: Whole-Food Clean Base."
+    },
+    {
+      "id": 298,
+      "name": "Central Market Organics Whole Black Gram Lentils (Urad Dal)",
+      "cat": "Indian Foods",
+      "size": "16 oz",
+      "price": 3.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 13.6,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "100% Organic Whole Black Gram Lentils. AUDIT: Single-ingredient raw legume; 100% Seed-Oil Free; 0g added sugar. Provides 24g pulse protein per 100g dry weight. Soaking hydrolyzes phytic acid for bloat-free fiber delivery. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 299,
+      "name": "Central Market Organics Organic Split Red Lentils (Masoor Dal)",
+      "cat": "Indian Foods",
+      "size": "16 oz",
+      "price": 2.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 13.6,
+      "servings": 2,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "100% Organic Red Lentils. AUDIT: Single-ingredient raw legume; 100% Seed-Oil Free; 0g added sugar. High surplus efficiency delivering 22g whole-food protein per 100g dry weight with rapid cook times. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 300,
+      "name": "365 by Whole Foods Market Organic Brown Basmati Rice",
+      "cat": "Indian Foods",
+      "size": "32 oz",
+      "price": 4.29,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 18.1,
+      "servings": 3,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "100% Organic Long Grain Brown Basmati Rice. AUDIT: Single-ingredient whole grain; 100% Seed-Oil Free; 0g added sugar. High-fiber carbohydrate base delivering sustained energy replenishment for heavy resistance training. Tag: Whole-Food Clean Base."
+    },
+    {
+      "id": 301,
+      "name": "Royal Organic Traditional Aged Basmati Rice",
+      "cat": "Indian Foods",
+      "size": "32 oz",
+      "price": 5.48,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 18.1,
+      "servings": 3,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "100% Organic Aged White Basmati Rice. AUDIT: 100% Seed-Oil Free; 0g added sugar; zero additives. Aged long-grain rice with low starch viscosity allowing rapid gastric emptying and zero post-prandial bloating during high-calorie surplus phases. Tag: Whole-Food Clean Base."
+    },
+    {
+      "id": 302,
+      "name": "Kevin's Natural Foods Paleo Chicken Tikka Masala",
+      "cat": "Indian Foods",
+      "size": "16 oz",
+      "price": 9.78,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 13.6,
+      "servings": 2,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Chicken, Coconut Milk, Tomato Paste, Spices, Coconut Nectar, Coconut Sugar, High Oleic Sunflower Oil, Tapioca Starch, Yeast Extract. DISQUALIFIED FROM TIER 1/2: Contains industrial seed oil (Sunflower Oil) and added sugar (Coconut Sugar/Nectar). 21g protein per serving."
+    },
+    {
+      "id": 303,
+      "name": "Saffron Road Frozen Chicken Tikka Masala with Basmati Rice",
+      "cat": "Indian Foods",
+      "size": "10 oz",
+      "price": 6.29,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 17,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Basmati Rice, Chicken, Tomato Paste, Yogurt, Cream, Expeller Pressed Sunflower Oil, Cane Sugar, Native Corn Starch. DISQUALIFIED FROM TIER 1/2: Contains Sunflower Oil and added Cane Sugar. Provides 26g protein per meal. Tag: Engineered High Protein / Functional Tool."
+    },
+    {
+      "id": 304,
+      "name": "Sukhi's Chicken Tikka Masala Frozen Meal with Naan",
+      "cat": "Indian Foods",
+      "size": "11 oz",
+      "price": 6.48,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 18.7,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "White Chicken, Tomato Paste, Cream, Cane Sugar, Expeller Pressed Canola Oil, Butter, Rice Flour, Wheat Flour (Naan), Dextrose. DISQUALIFIED FROM TIER 1/2: Contains Canola Oil, added Cane Sugar, and Dextrose. 20g protein per tray. Tag: Engineered High Protein / Functional Tool."
+    },
+    {
+      "id": 305,
+      "name": "Brooklyn Delhi Cashew Butter Masala Simmer Sauce",
+      "cat": "Indian Foods",
+      "size": "12 oz",
+      "price": 5.48,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 20.4,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Water, Coconut Cream, Tomato Paste, Onions, Non-GMO Expeller Pressed Canola Oil, Cashew Butter, Brown Sugar, Tamarind, Spices. DISQUALIFIED FROM TIER 1/2: Primary added fat is Canola Oil; contains Added Brown Sugar. Minimal protein (1g). Tag: Compromised Base."
+    }
+  ]
+}

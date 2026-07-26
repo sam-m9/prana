@@ -1,0 +1,211 @@
+{
+  "category": "Olive Oil",
+  "count": 12,
+  "products": [
+    {
+      "id": 129,
+      "name": "Central Market Tuscany Italy Extra Virgin Olive Oil (16.9 oz)",
+      "cat": "Olive Oil",
+      "size": "$1.18/fl oz",
+      "price": 19.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: 100% Tuscan Extra Virgin Olive Oil. Single-origin estate Tuscan olives, cold-extracted. Audit: 0g seed oils, 0g added sugars. UPF Status: Minimal/Unprocessed Whole Food. Protein/Lipid Tag: Whole-Food Unrefined Lipid (0g Protein)."
+    },
+    {
+      "id": 130,
+      "name": "Lucini Premium Select Extra Virgin Olive Oil (16.9 oz)",
+      "cat": "Olive Oil",
+      "size": "$1.30/fl oz",
+      "price": 21.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 0,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: 100% Italian Extra Virgin Olive Oil. First cold pressed from hillside estate olives within hours of harvest; free acidity <0.2%. Audit: 0g seed oils, 0g added sugars. UPF Status: Unprocessed Whole Food. Protein/Lipid Tag: Whole-Food Unrefined Lipid (0g Protein)."
+    },
+    {
+      "id": 131,
+      "name": "Central Market Koroneiki Extra Virgin Olive Oil (16.9 oz)",
+      "cat": "Olive Oil",
+      "size": "$0.71/fl oz",
+      "price": 11.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: 100% Greek Koroneiki Extra Virgin Olive Oil. Single-variety cold-processed Greek oil. Audit: 0g seed oils, 0g added sugars. UPF Status: Unprocessed Whole Food. Protein/Lipid Tag: Whole-Food Unrefined Lipid (0g Protein)."
+    },
+    {
+      "id": 132,
+      "name": "California Olive Ranch 100% California Extra Virgin Olive Oil (25.4 oz)",
+      "cat": "Olive Oil",
+      "size": "$0.78/fl oz",
+      "price": 19.74,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: 100% California Extra Virgin Olive Oil. Expeller cold pressed from single-origin California orchards. Audit: 0g seed oils, 0g added sugars. UPF Status: Unprocessed Whole Food. Protein/Lipid Tag: Whole-Food Unrefined Lipid (0g Protein)."
+    },
+    {
+      "id": 133,
+      "name": "Central Market Kalamata Greece Extra Virgin Olive Oil (16.9 oz)",
+      "cat": "Olive Oil",
+      "size": "$0.71/fl oz",
+      "price": 11.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: 100% Peloponnese Kalamata Extra Virgin Olive Oil. Single-region Greek origin, cold pressed. Audit: 0g seed oils, 0g added sugars. UPF Status: Unprocessed Whole Food. Protein/Lipid Tag: Whole-Food Unrefined Lipid (0g Protein). Smooth digestive profile with high oleic acid concentration."
+    },
+    {
+      "id": 134,
+      "name": "Central Market Extra Virgin Olive Oil Tin (2 L / 67.6 oz)",
+      "cat": "Olive Oil",
+      "size": "$0.34/fl oz",
+      "price": 22.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0,
+      "servings": 5,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: 100% Spanish Hojiblanca Extra Virgin Olive Oil. Cold pressed; packaged in a non-BPA light-proof tin. Audit: 0g seed oils, 0g added sugars. UPF Status: Unprocessed Whole Food. Protein/Lipid Tag: Whole-Food Unrefined Lipid (0g Protein). High bulk efficiency ($0."
+    },
+    {
+      "id": 135,
+      "name": "Graza Sizzle Extra Virgin Olive Oil (750 mL / 25.3 oz)",
+      "cat": "Olive Oil",
+      "size": "$0.53/fl oz",
+      "price": 13.48,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0,
+      "servings": 5,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: 100% Spanish Picual Extra Virgin Olive Oil. Single-origin peak harvest. Audit: 0g seed oils, 0g added sugars. UPF Status: Unprocessed Whole Food. Protein/Lipid Tag: Whole-Food Unrefined Lipid (0g Protein). High thermal stability for stove-top cooking without lipid oxidation."
+    },
+    {
+      "id": 136,
+      "name": "Central Market Organics Extra Virgin Olive Oil (16.9 oz)",
+      "cat": "Olive Oil",
+      "size": "$0.71/fl oz",
+      "price": 11.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0,
+      "servings": 5,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: 100% Organic Extra Virgin Olive Oil. USDA Organic certified, cold processed. Audit: 0g seed oils, 0g added sugars. UPF Status: Unprocessed Whole Food. Protein/Lipid Tag: Whole-Food Unrefined Lipid (0g Protein). Well-balanced driver for dressings and low-heat finishing."
+    },
+    {
+      "id": 137,
+      "name": "365 Whole Foods Market Organic EVOO Mediterranean Blend (16.9 oz)",
+      "cat": "Olive Oil",
+      "size": "$0.53/fl oz",
+      "price": 8.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 0,
+      "servings": 5,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: 100% Organic Extra Virgin Olive Oil. USDA Organic Mediterranean blend. Audit: 0g seed oils, 0g added sugars. UPF Status: Unprocessed Whole Food. Protein/Lipid Tag: Whole-Food Unrefined Lipid (0g Protein). Cost-effective organic lipid baseline for daily caloric targets."
+    },
+    {
+      "id": 138,
+      "name": "H-E-B Extra Virgin Olive Oil (17 oz)",
+      "cat": "Olive Oil",
+      "size": "$0.49/fl oz",
+      "price": 8.28,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0,
+      "servings": 5,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: 100% Extra Virgin Olive Oil. Expeller pressed, Select Ingredients certified. Audit: 0g seed oils, 0g added sugars. UPF Status: Unprocessed Whole Food. Protein/Lipid Tag: Whole-Food Unrefined Lipid (0g Protein). Expeller pressed, highly accessible budget driver."
+    },
+    {
+      "id": 139,
+      "name": "Bertolli Extra Light Tasting Olive Oil (25.4 oz)",
+      "cat": "Olive Oil",
+      "size": "$0.39/fl oz",
+      "price": 9.97,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0,
+      "servings": 5,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Refined Olive Oil, Virgin Olive Oil. Industrially processed blend. Audit: 0g seed oils, 0g added sugars. UPF Status: Ultra-Processed Food (UPF). Protein/Lipid Tag: Refined Processed Lipid (0g Protein). Thermal/chemical refining strips polyphenols and antioxidants."
+    },
+    {
+      "id": 140,
+      "name": "Pompeian Smooth Extra Virgin Olive Oil (24 oz)",
+      "cat": "Olive Oil",
+      "size": "$0.50/fl oz",
+      "price": 11.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0,
+      "servings": 5,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: First Cold Pressed Extra Virgin Olive Oil (Multi-Country Blend). Audit: 0g seed oils, 0g added sugars. UPF Status: Minimal Processing, but compromised packaging. Protein/Lipid Tag: Whole-Food Lipid (0g Protein)."
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "category": "Pizza Bases",
+  "count": 12,
+  "products": [
+    {
+      "id": 13,
+      "name": "Against the Grain Three Cheese Gourmet Pizza Shell",
+      "cat": "Pizza Bases",
+      "size": "",
+      "price": 8.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 11,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Tapioca starch, eggs, olive oil and/or avocado oil, cheddar cheese, mozzarella cheese, milk, parmesan cheese. Zero seed oils, zero added sugars, zero gums, zero soy or grains. Exceptional whole-food protein density (35 g total protein per pie) derived entirely from real dairy and eggs."
+    },
+    {
+      "id": 14,
+      "name": "Outer Aisle Gourmet Cauliflower Pizza Crust",
+      "cat": "Pizza Bases",
+      "size": "",
+      "price": 6.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 11,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Fresh cauliflower, whole cage-free eggs, parmesan cheese, pure nutritional yeast, garlic, basil, oregano. Completely free of grains, flours, gums, industrial seed oils, and added sugars. Provides 10–13 g of highly bioavailable protein per crust. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 15,
+      "name": "Cappello's Grain-Free Almond Flour Naked Pizza Crust",
+      "cat": "Pizza Bases",
+      "size": "",
+      "price": 7.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 11,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Cage-free eggs, almond flour, arrowroot flour, cassava flour, organic coconut milk, coconut oil, extra virgin olive oil, psyllium husk, sea salt, apple cider vinegar, honey (1 g). Formulated with clean lipid sources; zero seed oils, zero synthetic gums or preservatives."
+    },
+    {
+      "id": 16,
+      "name": "365 by Whole Foods Market Grain-Free Cauliflower Crust",
+      "cat": "Pizza Bases",
+      "size": "",
+      "price": 5.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 11,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Cauliflower puree, mozzarella cheese, cage-free egg whites, tapioca starch, extra virgin olive oil, sea salt. Zero industrial seed oils, zero added sugars, zero synthetic binders. Clean dairy and egg-white protein structure. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 17,
+      "name": "Food For Life Ezekiel 4:9 Sprouted Grain English Muffins",
+      "cat": "Pizza Bases",
+      "size": "",
+      "price": 4.68,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 11,
+      "servings": 3,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: Organic sprouted wheat, organic sprouted barley, organic sprouted beans, organic sprouted lentils, organic sprouted millet, organic sprouted spelt, yeast, sea salt. Zero seed oils, zero added sugars, zero gums. Enzymatic sprouting neutralizes phytic acid and optimizes protein digestibility."
+    },
+    {
+      "id": 18,
+      "name": "Central Market Fresh Bakery Sourdough Pizza Dough",
+      "cat": "Pizza Bases",
+      "size": "",
+      "price": 1.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 11,
+      "servings": 3,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: Cultured sourdough flour starter (wheat flour, water), extra virgin olive oil, sea salt, yeast. Prepared fresh daily in bakery. Long sourdough fermentation degrades gluten proteins and FODMAPs. Zero seed oils, zero added sugars. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 19,
+      "name": "Simple Mills Almond Flour Pizza Dough Mix",
+      "cat": "Pizza Bases",
+      "size": "",
+      "price": 8.49,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 11,
+      "servings": 3,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: Almond flour, arrowroot, organic flaxseed, tapioca starch, organic oregano, garlic powder, sea salt, cream of tartar, baking soda. Requires user-added olive oil and water. Zero seed oils, zero added sugars, zero gums. High nutrient density and clean carbohydrate delivery."
+    },
+    {
+      "id": 20,
+      "name": "Banza Plain Chickpea Pizza Crust (2-Pack)",
+      "cat": "Pizza Bases",
+      "size": "2-Pack",
+      "price": 8.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 11,
+      "servings": 3,
+      "current_flags": [
+        "emul"
+      ],
+      "current_audit": "Audit: Chickpeas, tapioca starch, pea starch, olive oil, yeast, oregano, garlic, xanthan gum. Zero industrial seed oils, zero added sugars. Reaches high protein targets using chickpea flour and legume starches; contains xanthan gum as a binder. Tag: [Engineered High Protein]"
+    },
+    {
+      "id": 21,
+      "name": "Rustic Crust Old World Flatbreads Sourdough Pizza Crust",
+      "cat": "Pizza Bases",
+      "size": "",
+      "price": 5.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 11,
+      "servings": 3,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Audit: Unbleached enriched wheat flour, water, yeast, non-GMO canola oil, salt, garlic powder, onion powder, basil, enzymes. Disqualified from Tier 1 & 2 due to canola oil inclusion. Contains real sourdough culture, but physiological utility is compromised by seed oil load."
+    },
+    {
+      "id": 22,
+      "name": "Central Market Frozen Pizza Dough (16 oz)",
+      "cat": "Pizza Bases",
+      "size": "16 oz",
+      "price": 2.48,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 10,
+      "servings": 5,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Audit: Unbleached enriched wheat flour, water, canola oil, yeast, sugar, salt. Disqualified from Tier 1 & 2 due to canola oil and added sugar. Standard commercial frozen formulation lacking extended sourdough fermentation benefits. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 23,
+      "name": "Vicolo Organic Cornmeal Pizza Crust",
+      "cat": "Pizza Bases",
+      "size": "",
+      "price": 7.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 11,
+      "servings": 3,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Audit: Unbleached wheat flour, water, cornmeal, non-GMO organic soybean oil, yeast, salt. Disqualified from Tier 1 & 2 due to organic soybean oil. Elevated polyunsaturated fatty acid (PUFA) profile from seed oil despite the organic grain base. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 24,
+      "name": "Boboli 12\" Original Pizza Crust",
+      "cat": "Pizza Bases",
+      "size": "",
+      "price": 4.97,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 11,
+      "servings": 3,
+      "current_flags": [
+        "seed",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Audit: Enriched wheat flour, water, palm oil, soybean oil, sugar, milk casein, salt, yeast, mozzarella cheese, preservatives (calcium propionate, sorbic acid), mono- and diglycerides. Severe UPF load, industrial seed oils, refined sugar, synthetic dough conditioners, and added isolated casein."
+    }
+  ]
+}

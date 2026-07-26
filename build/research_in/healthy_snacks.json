@@ -1,0 +1,205 @@
+{
+  "category": "Healthy Snacks",
+  "count": 11,
+  "products": [
+    {
+      "id": 283,
+      "name": "Good Culture 2% Low Fat Classic Cottage Cheese (16 oz)",
+      "cat": "Healthy Snacks",
+      "size": "16 oz",
+      "price": 3.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 9.1,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Seed Oils: NONE (Pass). Added Sugar: 0g (Pass). UPF Evaluation: Zero gums, carrageenan, or artificial thickeners. Live active cultures (L. paracasei) support gut mucosal health. Tagged as [Whole-Food Clean High Protein] (14g protein per serving)."
+    },
+    {
+      "id": 284,
+      "name": "La Traversetolese Parmigiano Reggiano DOP (0.5 lb Wedge)",
+      "cat": "Healthy Snacks",
+      "size": "$23.99/lb",
+      "price": 11.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.5,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Seed Oils: NONE (Pass). Added Sugar: 0g (Pass). UPF Evaluation: 100% traditional Italian aging (24+ months). Raw cow's milk, salt, animal rennet. Naturally zero lactose due to complete enzymatic degradation. Tagged as [Whole-Food Clean High Protein] (10g protein per oz)."
+    },
+    {
+      "id": 285,
+      "name": "Wild Planet Wild Sardines in Organic Extra Virgin Olive Oil (4.38 oz)",
+      "cat": "Healthy Snacks",
+      "size": "4.38 oz",
+      "price": 2.96,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 12.4,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Seed Oils: NONE (Pass - Organic EVOO used). Added Sugar: 0g (Pass). UPF Evaluation: Whole wild-caught fish, scale-free, aqueous natural smoke. Rich in bioavailable EPA/DHA and marine minerals. Tagged as [Whole-Food Clean High Protein] (18g protein per can)."
+    },
+    {
+      "id": 286,
+      "name": "EPIC Provisions Venison Sea Salt & Pepper Bar (1.5 oz)",
+      "cat": "Healthy Snacks",
+      "size": "1.5 oz",
+      "price": 2.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 4.3,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Seed Oils: NONE (Pass). Added Sugar: 0g (Pass). UPF Evaluation: 100% grass-fed venison, sea salt, black pepper, garlic, onion, encapsulated lactic acid. Zero synthetic nitrites or fillers. Tagged as [Whole-Food Clean High Protein] (12g protein, 1g carb)."
+    },
+    {
+      "id": 287,
+      "name": "Chomps Original Grass-Fed Beef Meat Stick (1.15 oz)",
+      "cat": "Healthy Snacks",
+      "size": "1.15 oz",
+      "price": 2.25,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 3.3,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Seed Oils: NONE (Pass). Added Sugar: 0g (Pass). UPF Evaluation: 100% grass-fed beef, sea salt, citric acid, celery powder, spices. Clean dehydrated meat stick with zero binders. Tagged as [Whole-Food Clean High Protein] (10g protein)."
+    },
+    {
+      "id": 288,
+      "name": "Eden Foods Organic Sea Salt Dry Roasted Soybeans (4 oz)",
+      "cat": "Healthy Snacks",
+      "size": "4 oz",
+      "price": 3.49,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 11.3,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Seed Oils: NONE (Pass - dry roasted). Added Sugar: 0g (Pass). UPF Evaluation: Whole organic soybeans, sea salt. Unadulterated plant protein source with complete amino acid profile. Tagged as [Whole-Food Clean High Protein] (14g protein per 1/4 cup)."
+    },
+    {
+      "id": 289,
+      "name": "Vital Farms Pasture-Raised Hard Boiled Eggs (2 ct)",
+      "cat": "Healthy Snacks",
+      "size": "2 ct",
+      "price": 2.49,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 10,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Seed Oils: NONE (Pass). Added Sugar: 0g (Pass). UPF Evaluation: Whole pasture-raised eggs, sea salt. Intact lipid-protein matrix providing high bioavailable choline and microelements. Tagged as [Whole-Food Clean High Protein] (12g protein per 2 eggs)."
+    },
+    {
+      "id": 290,
+      "name": "Brami Italian Snacking Lupini Beans - Sea Salt (5.3 oz)",
+      "cat": "Healthy Snacks",
+      "size": "5.3 oz",
+      "price": 3.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 7.5,
+      "servings": 2,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Seed Oils: NONE (Pass - EVOO used). Added Sugar: 0g (Pass). UPF Evaluation: Pickled whole Mediterranean lupini beans, water, EVOO, sea salt, lactic acid. High-fiber legume snack with minimal net carbohydrates. Tagged as [Whole-Food Clean High Protein] (7g plant protein per serving)."
+    },
+    {
+      "id": 291,
+      "name": "H-E-B Organics Raw Almonds & Pumpkin Seeds (8 oz)",
+      "cat": "Healthy Snacks",
+      "size": "8 oz",
+      "price": 4.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 11.3,
+      "servings": 2,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Seed Oils: NONE (Pass - raw unroasted). Added Sugar: 0g (Pass). UPF Evaluation: Whole raw unadulterated nuts and seeds. High caloric density for bulking surplus, though possessing a lower protein-to-fat ratio. Tagged as [Whole-Food Clean High Protein] (8g protein per 1/4 cup)."
+    },
+    {
+      "id": 292,
+      "name": "EPIC Provisions Bison Bacon Cranberry Bar (1.5 oz)",
+      "cat": "Healthy Snacks",
+      "size": "1.5 oz",
+      "price": 3.19,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 4.3,
+      "servings": 1,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Seed Oils: NONE (Pass). Added Sugar: FAIL (4g added sugar from apple juice concentrate). UPF Evaluation: Whole meat base compromised by added fruit juice concentrates. Illustrative marketing trap within savory meat snacks. Tagged as [Whole-Food Clean High Protein] (7g protein)."
+    },
+    {
+      "id": 293,
+      "name": ":ratio Protein 25g High Protein Dairy Snack (5.3 oz)",
+      "cat": "Healthy Snacks",
+      "size": "5.3 oz",
+      "price": 1.66,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.5,
+      "servings": 2,
+      "current_flags": [
+        "seed",
+        "emul",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Seed Oils: NONE (Pass). Added Sugar: 0g refined sugar (Uses sucralose). UPF Evaluation: Ultra-filtered nonfat milk, whey protein isolate, corn starch, gums, artificial sweeteners. Highly engineered matrix designed strictly for isolated macro targeting."
+    }
+  ]
+}

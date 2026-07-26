@@ -1,0 +1,213 @@
+{
+  "category": "Dried Fruit",
+  "count": 12,
+  "products": [
+    {
+      "id": 117,
+      "name": "Organic Dried Mango Strips with Chili and Salt — Solely",
+      "cat": "Dried Fruit",
+      "size": "2.8 oz",
+      "price": 4.49,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 2.4,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Mango, Organic Chili, Sea Salt. Audit: Whole-Food Clean Carbohydrate Matrix. Zero added cane sugar, zero seed oils, zero synthetic preservatives, and zero UPF load. Highly digestible post-workout carbohydrate source."
+    },
+    {
+      "id": 118,
+      "name": "365 Fruit Bites, Mango Chili Lime — 365 by Whole Foods Market",
+      "cat": "Dried Fruit",
+      "size": "6 oz",
+      "price": 6.79,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 2.5,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Dried Mango, Lime Juice, Chili Pepper, Sea Salt. Audit: Whole-Food Clean Carbohydrate Matrix. Pure dried fruit seasoned with real citrus and spices. Completely free from vegetable oils, refined cane sugar, gums, and synthetic flavorings."
+    },
+    {
+      "id": 119,
+      "name": "SunRidge Farms Chile Spiced Dried Mango — SunRidge Farms",
+      "cat": "Dried Fruit",
+      "size": "",
+      "price": 14.58,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 3.4,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Dried Mango, Chile Seasoning, Sea Salt. Audit: Whole-Food Clean Carbohydrate Matrix. Bulk-sourced whole dried fruit. Zero seed oils, zero refined sugar coating, and zero anti-caking chemical additives. High energy-to-cost yield for bulking."
+    },
+    {
+      "id": 120,
+      "name": "Fresh Cut Mango with Lime & Tajín — H-E-B",
+      "cat": "Dried Fruit",
+      "size": "0.7 lb",
+      "price": 6.29,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 3.2,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Mango, Limes, Tajín Seasoning (Chile Peppers, Sea Salt, Citric Acid, Lime Juice, Silicon Dioxide). Audit: Whole-Food Fresh Carbohydrate Matrix. Zero added refined sugar, zero seed oils."
+    },
+    {
+      "id": 121,
+      "name": "Organic Cacao Drizzled Mango Strips — Solely",
+      "cat": "Dried Fruit",
+      "size": "2.8 oz",
+      "price": 4.19,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 2.4,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Dried Mango, Organic Unsweetened Cacao. Audit: Whole-Food Clean Carbohydrate Matrix. Two unadulterated whole-food ingredients. Zero added cane sugar, zero sunflower lecithin, zero seed oils, and zero emulsifiers. Rich in fruit carbohydrates and cacao polyphenols."
+    },
+    {
+      "id": 122,
+      "name": "Mountain Man Spicy Thai Mango — Mountain Man",
+      "cat": "Dried Fruit",
+      "size": "6 oz",
+      "price": 5.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 2.5,
+      "servings": 2,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Dried Mango, Thai Chili Spices, Salt. Audit: Whole-Food Clean Carbohydrate Matrix (Surplus Efficiency). Unprocessed dried fruit base spiced with real peppers. Zero industrial seed oils and zero artificial colorings or preservatives. High caloric yield per dollar."
+    },
+    {
+      "id": 123,
+      "name": "Mountain Man Chili Mango — Mountain Man",
+      "cat": "Dried Fruit",
+      "size": "6 oz",
+      "price": 5.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 2.5,
+      "servings": 2,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Dried Mango, Chili Powder, Sea Salt. Audit: Whole-Food Clean Carbohydrate Matrix (Surplus Efficiency). High energy density whole fruit without seed oil coats or synthetic flavor enhancers. Excellent alternative for caloric accumulation."
+    },
+    {
+      "id": 124,
+      "name": "Chili Mango — Nutty & Fruity",
+      "cat": "Dried Fruit",
+      "size": "16 oz",
+      "price": 6.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 2.7,
+      "servings": 5,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Dried Mango, Citric Acid, Sulfur Dioxide, Cane Sugar, Chamoy Powder, Paprika, Chili Pepper, Salt, Cayenne. Audit: Whole-Food Base with Added Sugar (Compromised Surplus Tool). Contains added cane sugar and sulfur dioxide preservative. Zero seed oils."
+    },
+    {
+      "id": 125,
+      "name": "CHUZA Spicy Dried Mango — CHUZA",
+      "cat": "Dried Fruit",
+      "size": "4.5 oz",
+      "price": 4.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 3.8,
+      "servings": 1,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Dried Mango, Cane Sugar, Chili Powder, Salt. Audit: Compromised Tool (Sugar Trap). Disqualified from Tier 1 and 2 due to 14g of added refined cane sugar per serving. Zero seed oils. Acts as a rapid intra-workout glycemic supplement rather than a clean staple."
+    },
+    {
+      "id": 126,
+      "name": "CHUZA Spicy Dried Pineapple — CHUZA",
+      "cat": "Dried Fruit",
+      "size": "4.5 oz",
+      "price": 4.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 3.8,
+      "servings": 1,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Dried Pineapple, Cane Sugar, Chili Seasoning, Salt. Audit: Compromised Tool. Fails clean criteria with 10g of added refined sugar per serving. Free of seed oils, but elevated simple sugar processing reduces whole-food value."
+    },
+    {
+      "id": 127,
+      "name": "Chile-Spiced Dried Mango — H-E-B",
+      "cat": "Dried Fruit",
+      "size": "8 oz",
+      "price": 4.68,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 3.4,
+      "servings": 2,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Mango, Sugar, Citric Acid, Chile Spiced Seasoning (Spices, Paprika, Maltodextrin, Silicon Dioxide). Audit: Compromised Ultra-Processed Tool. Contains added cane sugar, maltodextrin carbohydrate fillers, and silicon dioxide flowing agents."
+    },
+    {
+      "id": 128,
+      "name": "Fruit Riot! Frozen Spicy Mango Chili Lime — Fruit Riot!",
+      "cat": "Dried Fruit",
+      "size": "8 oz",
+      "price": 5.97,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 3.4,
+      "servings": 2,
+      "current_flags": [
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Mango, Spicy Coating (Sugar, Chili Peppers, Malic Acid, Lime Juice, Natural Flavors, Citric Acid, Modified Food Starch, Salt), Coconut Oil. Audit: High UPF Novelty Snack. Disqualified by added cane sugar, modified food starch, coconut oil coating, and artificial/natural flavor blends."
+    }
+  ]
+}

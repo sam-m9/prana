@@ -1,0 +1,225 @@
+{
+  "category": "Clear Whey",
+  "count": 12,
+  "products": [
+    {
+      "id": 201,
+      "name": "Naked Whey Grass-Fed Unflavored (Naked Nutrition)",
+      "cat": "Clear Whey",
+      "size": "1 lb",
+      "price": 26.99,
+      "store": "other",
+      "stores": [
+        "other",
+        "wf"
+      ],
+      "protein": 22.7,
+      "servings": 15,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Zero seed oils, zero added sugars, zero emulsifiers, zero gums. Single ingredient cold-processed, non-denatured native whey concentrate sourced from small US dairy farms. UPF Load: Zero. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 202,
+      "name": "One Ingredient Grass-Fed Whey Protein Powder (Promix Nutrition)",
+      "cat": "Clear Whey",
+      "size": "2.2 lb",
+      "price": 57.6,
+      "store": "other",
+      "stores": [
+        "other",
+        "heb"
+      ],
+      "protein": 22.7,
+      "servings": 33,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Zero seed oils, zero added sugars, zero lecithin, zero gums. Single-ingredient cold-filtered native whey concentrate from European grass-fed cows. UPF Load: Zero. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 203,
+      "name": "100% Grass-Fed Whey Protein Isolate - Unflavored (Transparent Labs)",
+      "cat": "Clear Whey",
+      "size": "2.2 lb / 30 servings",
+      "price": 59.99,
+      "store": "other",
+      "stores": [
+        "other"
+      ],
+      "protein": 22.7,
+      "servings": 33,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Zero seed oils, zero sugars, zero artificial sweeteners, zero gums. Cross-flow microfiltered isolate from North American grass-fed dairy with minimal fats/carbs. UPF Load: Zero. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 204,
+      "name": "Grass-Fed Whey Protein Isolate - Unflavored (Promix Nutrition)",
+      "cat": "Clear Whey",
+      "size": "2.5 lb bag",
+      "price": 61.2,
+      "store": "other",
+      "stores": [
+        "other",
+        "heb"
+      ],
+      "protein": 22.4,
+      "servings": 38,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Zero seed oils, zero added sugars, zero gums. Micro-filtered isolate yield (<1g lactose, 30g protein/serving) from grass-fed dairy. UPF Load: Minimal. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 205,
+      "name": "Native Fuel 100% Whey Protein - Unflavored (Ascent)",
+      "cat": "Clear Whey",
+      "size": "1 lb",
+      "price": 33.79,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb",
+        "other"
+      ],
+      "protein": 22.7,
+      "servings": 15,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Zero seed oils, zero added sugars, zero artificial additives. Native whey filtered directly from pasteurized milk. Non-denatured. UPF Load: Minimal. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 206,
+      "name": "Grass-Fed Whey Isolate - Unflavored (RAW Nutrition)",
+      "cat": "Clear Whey",
+      "size": "2.2 lb / 25 servings",
+      "price": 64.99,
+      "store": "other",
+      "stores": [
+        "other",
+        "heb"
+      ],
+      "protein": 22.7,
+      "servings": 33,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Zero seed oils, zero added sugars, zero synthetic sweeteners. Micro-filtered grass-fed whey isolate with Informed Protein certification. UPF Load: Zero. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 207,
+      "name": "Isopure Zero Carb Unflavored 100% Whey Isolate (Isopure)",
+      "cat": "Clear Whey",
+      "size": "1 lb",
+      "price": 39.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "other"
+      ],
+      "protein": 22.7,
+      "servings": 15,
+      "current_flags": [
+        "emul"
+      ],
+      "current_audit": "Audit: Zero seed oils, zero added sugars, zero sweeteners. Contains soy lecithin emulsifier processing aid. Pure isolate providing maximum lactose removal. UPF Load: Low. Tag: [Engineered High Protein - Functional Tool]"
+    },
+    {
+      "id": 208,
+      "name": "Naked Vanilla Grass-Fed Whey (Naked Nutrition)",
+      "cat": "Clear Whey",
+      "size": "1 lb",
+      "price": 26.99,
+      "store": "other",
+      "stores": [
+        "other",
+        "heb"
+      ],
+      "protein": 22.7,
+      "servings": 15,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Audit: Zero seed oils, zero artificial sweeteners. Formulated with organic coconut sugar (5g sugar for glycogen restoration) and real vanilla. UPF Load: Low. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 209,
+      "name": "Impact Whey Isolate - Unflavored (MyProtein)",
+      "cat": "Clear Whey",
+      "size": "2.2 lb / 40 servings",
+      "price": 39.99,
+      "store": "other",
+      "stores": [
+        "other"
+      ],
+      "protein": 22.7,
+      "servings": 33,
+      "current_flags": [
+        "emul"
+      ],
+      "current_audit": "Audit: Zero seed oils, zero added sugars, zero synthetic flavors. Contains sunflower lecithin for powder dispersion. Highly cost-effective macro surplus tool. UPF Load: Low. Tag: [Engineered High Protein - Functional Tool]"
+    },
+    {
+      "id": 210,
+      "name": "Gold Standard 100% Whey - Double Rich Chocolate (Optimum Nutrition)",
+      "cat": "Clear Whey",
+      "size": "1.5 lb",
+      "price": 33.97,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf",
+        "other"
+      ],
+      "protein": 22.2,
+      "servings": 23,
+      "current_flags": [
+        "emul",
+        "tool"
+      ],
+      "current_audit": "Audit: Zero seed oils, zero added refined sugars. Uses cocoa, lecithin, natural/artificial flavors, and acesulfame potassium. UPF Load: Moderate. Tag: [Engineered High Protein - Functional Tool]"
+    },
+    {
+      "id": 211,
+      "name": "Loaded Protein - Vanilla Peanut Butter (Ryse Supps)",
+      "cat": "Clear Whey",
+      "size": "2 lb / 27 servings",
+      "price": 44.99,
+      "store": "other",
+      "stores": [
+        "other"
+      ],
+      "protein": 22.7,
+      "servings": 30,
+      "current_flags": [
+        "emul",
+        "sugar"
+      ],
+      "current_audit": "Audit: Zero seed oils. Disqualified from Tiers 1/2: Contains xanthan gum, sucralose, acesulfame potassium, and artificial flavor complexes. High UPF Load. Tag: [Engineered High Protein - Compromised Tool]"
+    },
+    {
+      "id": 212,
+      "name": "ISO100 Hydrolyzed Whey Isolate - Gourmet Chocolate (Dymatize)",
+      "cat": "Clear Whey",
+      "size": "1.3 lb - 2 lb",
+      "price": 33.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "other"
+      ],
+      "protein": 22.1,
+      "servings": 20,
+      "current_flags": [
+        "emul",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Audit: Zero seed oils. Disqualified from Tiers 1/2: Hydrolyzed isolate processed with synthetic thickeners (carboxymethylcellulose, xanthan gum), sucralose, and artificial flavorings. High UPF Load. Tag: [Engineered High Protein - Compromised Tool]"
+    }
+  ]
+}

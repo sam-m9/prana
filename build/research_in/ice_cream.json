@@ -1,0 +1,224 @@
+{
+  "category": "Ice Cream",
+  "count": 12,
+  "products": [
+    {
+      "id": 165,
+      "name": "Queen & Bean Vanilla Bean Ice Cream (Ice Cream For Bears)",
+      "cat": "Ice Cream",
+      "size": "14 oz pint",
+      "price": 8.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 5,
+      "servings": 4,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Grass-fed whole milk, cream, raw honey, skim milk, egg yolk, vanilla bean. Zero seed oils, zero gums, zero refined cane sugar, zero emulsifiers. Tag: Whole-Food Clean High Protein. Maximum density for clean caloric surplus."
+    },
+    {
+      "id": 166,
+      "name": "Tahitian Vanilla Bean A2/A2 Ice Cream (Alec's Ice Cream)",
+      "cat": "Ice Cream",
+      "size": "14 oz pint",
+      "price": 7.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 5,
+      "servings": 4,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Certified Regenerative Organic A2/A2 whole milk and cream, organic cane sugar, organic egg yolks. Zero seed oils, zero gums, zero lecithin, zero UPF load. Tag: Whole-Food Clean High Protein. A2 beta-casein minimizes GI distress."
+    },
+    {
+      "id": 167,
+      "name": "Organic Super Premium Vanilla Bean Ice Cream (Straus Family Creamery)",
+      "cat": "Ice Cream",
+      "size": "16 oz pint",
+      "price": 7.39,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 4.5,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Organic pasteurized cream, nonfat milk, organic cane sugar, organic egg yolks, organic vanilla extract, ground vanilla bean. Zero seed oils, zero gums, zero fillers. Tag: Whole-Food Clean High Protein. Low overrun delivers maximum calorie-to-volume ratio."
+    },
+    {
+      "id": 168,
+      "name": "Vanilla Bean Fine Ice Cream (McConnell's Fine Ice Creams)",
+      "cat": "Ice Cream",
+      "size": "16 oz pint",
+      "price": 8.59,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.5,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Grass-fed Central Coast whole milk, cream, organic cane sugar, nonfat dry milk, organic egg yolks. Zero seed oils, zero gums, zero synthetic preservatives in base flavors. Tag: Whole-Food Clean High Protein. High butterfat density."
+    },
+    {
+      "id": 169,
+      "name": "Madagascar Vanilla Dairy-Free Frozen Dessert (Frönen)",
+      "cat": "Ice Cream",
+      "size": "16 oz pint",
+      "price": 6.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 4.5,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Coconut cream, water, banana, organic honey, Madagascar vanilla extract. Zero seed oils, zero gums, zero refined sugars, zero dairy/soy allergens. Tag: Whole-Food Clean High Protein (Whole plant/fruit base). Hypoallergenic bulking tool."
+    },
+    {
+      "id": 170,
+      "name": "Organic Vanilla Bean Ice Cream (365 by Whole Foods Market)",
+      "cat": "Ice Cream",
+      "size": "16 oz pint",
+      "price": 4.49,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 4.5,
+      "servings": 5,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Audit: Organic cream, organic skim milk, organic cane sugar, organic egg yolks, organic vanilla beans. Zero seed oils, zero artificial flavors, ultra-clean budget baseline. Tag: Whole-Food Clean High Protein. Exceptional surplus efficiency."
+    },
+    {
+      "id": 171,
+      "name": "French Premium Vanilla Bean Ice Cream (Van Leeuwen)",
+      "cat": "Ice Cream",
+      "size": "14 oz pint",
+      "price": 7.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 5,
+      "servings": 4,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Audit: Whole milk, cream, cane sugar, 8 egg yolks per quart, cold-ground Tahitian vanilla beans. Zero seed oils, zero industrial gums in core French flavors. Tag: Whole-Food Clean High Protein. Rich in egg-yolk choline and lipids."
+    },
+    {
+      "id": 172,
+      "name": "Creamy Creations 1905 Vanilla Ice Cream (H-E-B)",
+      "cat": "Ice Cream",
+      "size": "64 oz half-gallon",
+      "price": 6.48,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5,
+      "servings": 18,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: Fresh cream, milk, sugar, condensed skim milk, egg yolks, natural vanilla. Zero seed oils, zero artificial colors. Contains minimal natural stabilizers (<0.5% guar/carob gum). Tag: Whole-Food Clean High Protein. High economic surplus efficiency."
+    },
+    {
+      "id": 173,
+      "name": "Madagascan Vanilla Bean Gelato (Talenti)",
+      "cat": "Ice Cream",
+      "size": "16 oz pint",
+      "price": 6.39,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.5,
+      "servings": 5,
+      "current_flags": [
+        "emul",
+        "tool"
+      ],
+      "current_audit": "Audit: Milk, cream, sugar, dextrose, egg yolks, vanilla bean. Contains milk protein concentrate, carob bean gum, guar gum. Zero seed oils. Tag: Whole-Food Clean High Protein (With minor processing aids). High milk-solid ratio."
+    },
+    {
+      "id": 174,
+      "name": "Vanilla Chocolate Crunch Greek Yogurt Bars (Yasso)",
+      "cat": "Ice Cream",
+      "size": "14 oz",
+      "price": 5.48,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5,
+      "servings": 4,
+      "current_flags": [
+        "seed",
+        "emul",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Audit: Nonfat milk, Greek yogurt, sugar, milk protein concentrate, tapioca syrup, coconut oil, palm oil, locust bean gum, guar gum. Zero seed oils. Tag: Engineered High Protein. Uses isolated protein extracts; low caloric density limits bulking utility."
+    },
+    {
+      "id": 175,
+      "name": "Low-Calorie Vanilla Bean Ice Cream (Halo Top)",
+      "cat": "Ice Cream",
+      "size": "16 oz pint",
+      "price": 5.49,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.5,
+      "servings": 5,
+      "current_flags": [
+        "emul",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Audit: Ultra-filtered skim milk, erythritol, milk protein concentrate, soluble corn fiber, cane sugar, vegetable glycerin, guar gum, carob bean gum, stevia. Zero seed oils. Tag: Engineered High Protein. Polyols and synthetic fibers cause GI distress."
+    },
+    {
+      "id": 176,
+      "name": "CarbSmart Fudge Frozen Dessert Bars (Breyers)",
+      "cat": "Ice Cream",
+      "size": "",
+      "price": 4.67,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 4.7,
+      "servings": 5,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Audit: Water, milkfat, nonfat milk, sorbitol, polydextrose, whey, maltitol, mono/diglycerides, guar gum, tara gum, sucralose, acesulfame K. High UPF burden. Tag: Engineered High Protein. Compromised bulking option due to synthetic sweeteners."
+    }
+  ]
+}

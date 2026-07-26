@@ -1,0 +1,200 @@
+{
+  "category": "Plant Milk",
+  "count": 11,
+  "products": [
+    {
+      "id": 48,
+      "name": "Elmhurst 1925 Unsweetened Milked Almonds",
+      "cat": "Plant Milk",
+      "size": "32 oz",
+      "price": 8.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 3.4,
+      "servings": 4,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Filtered Water, Almonds. Audit: Zero seed oils, added sugars, gums, lecithin, or synthetic additives. HydroRelease processing extracts intact nut protein and healthy fats. UPF Evaluation: Minimal/Zero UPF. Tag: Whole-Food Clean High Protein (5g natural protein per cup)."
+    },
+    {
+      "id": 49,
+      "name": "Three Trees Organic Unsweetened Original Almond Milk",
+      "cat": "Plant Milk",
+      "size": "28 oz",
+      "price": 7.59,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Filtered Water, Organic Almonds. Audit: Absolutely no seed oils, hidden sugars, gums, or emulsifiers. Uses a high nut-to-water ratio yielding dense whole-food nutrients. UPF Evaluation: Minimal/Zero UPF. Tag: Whole-Food Clean High Protein (4g natural protein per cup)."
+    },
+    {
+      "id": 50,
+      "name": "MALK Organics Unsweetened Almond Milk",
+      "cat": "Plant Milk",
+      "size": "28 oz",
+      "price": 6.49,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Filtered Water, Organic Almonds, Himalayan Pink Salt. Audit: Strictly 3 clean ingredients; zero gums, seed oils, fillers, or artificial additives. Glyphosate-free organic verification. UPF Evaluation: Minimal/Zero UPF. Tag: Whole-Food Clean Protein (2g protein per cup)."
+    },
+    {
+      "id": 51,
+      "name": "Elmhurst 1925 Unsweetened Oat Milk",
+      "cat": "Plant Milk",
+      "size": "32 oz",
+      "price": 6.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 3.4,
+      "servings": 4,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Filtered Water, Whole Grain Oats, Salt. Audit: Zero added canola/sunflower oils, gums, or phosphates. Delivers whole-grain complex carbohydrates (25g oats per serving). UPF Evaluation: Minimal/Zero UPF. Tag: Whole-Food Clean Protein (4g natural protein per cup)."
+    },
+    {
+      "id": 52,
+      "name": "Three Trees Organic Vanilla Bean Unsweetened Almond Milk",
+      "cat": "Plant Milk",
+      "size": "28 oz",
+      "price": 7.59,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 4,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Filtered Water, Organic Almonds, Organic Vanilla Extract, Organic Vanilla Beans. Audit: Zero added sugar, zero synthetic \"natural flavors,\" no gums or oil stabilizers. Uses genuine Madagascar vanilla. UPF Evaluation: Minimal/Zero UPF."
+    },
+    {
+      "id": 53,
+      "name": "Three Trees Unsweetened Pistachio Nutmilk",
+      "cat": "Plant Milk",
+      "size": "28 oz",
+      "price": 7.59,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Filtered Water, Organic Pistachios, Organic Almonds, Organic Almond Extract, Pink Himalayan Salt. Audit: Completely free of seed oils, thickeners, and hidden sweeteners. High micronutrient and lipid density from whole organic nuts. UPF Evaluation: Minimal/Zero UPF."
+    },
+    {
+      "id": 54,
+      "name": "MALK Organics Original Oat Milk",
+      "cat": "Plant Milk",
+      "size": "28 oz",
+      "price": 6.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 4,
+      "servings": 3,
+      "current_flags": [
+        "emul"
+      ],
+      "current_audit": "Ingredients: Filtered Water, Organic Whole Grain Oats, Himalayan Pink Salt. Audit: Zero added oils, gums, or synthetic enzymes. Slightly lower protein density than almond counterparts but highly surplus-friendly complex carbohydrates. UPF Evaluation: Minimal UPF."
+    },
+    {
+      "id": 55,
+      "name": "Califia Farms Organic Unsweetened Almond Milk",
+      "cat": "Plant Milk",
+      "size": "48 oz",
+      "price": 6.49,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 3.4,
+      "servings": 6,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Water, Organic Almonds, Sea Salt. Audit: Clean organic sub-line distinct from Califia's standard products; contains zero gums, oils, or added sugars. UPF Evaluation: Low UPF. Tag: Whole-Food Clean Protein (2g protein per cup)."
+    },
+    {
+      "id": 56,
+      "name": "365 by Whole Foods Market Organic Unsweetened Almondmilk",
+      "cat": "Plant Milk",
+      "size": "64 oz",
+      "price": 3.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 3.4,
+      "servings": 8,
+      "current_flags": [
+        "emul"
+      ],
+      "current_audit": "Ingredients: Water, Organic Almonds, Sea Salt, Calcium Carbonate, Organic Locust Bean Gum, Organic Gellan Gum. Audit: Zero seed oils and zero added sugars. Contains organic hydrocolloid gums which prevent Tier 1 placement, but offers high volume per dollar for bulking surplus efficiency."
+    },
+    {
+      "id": 57,
+      "name": "Califia Farms Standard Unsweetened Almondmilk",
+      "cat": "Plant Milk",
+      "size": "48 oz",
+      "price": 4.32,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 3.4,
+      "servings": 6,
+      "current_flags": [
+        "emul"
+      ],
+      "current_audit": "Ingredients: Almondmilk (Water, Almonds), Calcium Carbonate, Sunflower Lecithin, Sea Salt, Natural Flavor, Guar Gum, Gellan Gum, Potassium Citrate. Audit: Disqualified from Tiers 1/2 due to industrial emulsifiers (sunflower lecithin) and hydrocolloid gums. Zero added sugar."
+    },
+    {
+      "id": 58,
+      "name": "Ripple Unsweetened Original Plant-Based Milk",
+      "cat": "Plant Milk",
+      "size": "48 oz",
+      "price": 5.19,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 3.4,
+      "servings": 6,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Water, Ripened Pea Protein Isolate, High Oleic Sunflower Oil, Dipotassium Phosphate, Calcium Phosphate, Gellan Gum, Sunflower Lecithin. Audit: Disqualified from Tiers 1/2 due to added seed oil (high oleic sunflower oil) and industrial phosphate buffers. High protein yield."
+    }
+  ]
+}

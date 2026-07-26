@@ -1,0 +1,202 @@
+{
+  "category": "Bread",
+  "count": 11,
+  "products": [
+    {
+      "id": 37,
+      "name": "Ezekiel 4:9 Sprouted Whole Grain Bread (Food For Life)",
+      "cat": "Bread",
+      "size": "",
+      "price": 6.78,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.4,
+      "servings": 13,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 0 seed oils, 0 added sugars. Flourless matrix of sprouted wheat, barley, millet, lentils, soybeans, and spelt. Sprouting neutralizes phytic acid and creates a complete plant protein profile. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 38,
+      "name": "Old Fashioned Sourdough Spelt Bread (Berlin Natural Bakery)",
+      "cat": "Bread",
+      "size": "",
+      "price": 8.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.4,
+      "servings": 13,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 0 seed oils, 0 added sugars. Formulated with organic whole grain spelt flour, filtered water, and sea salt. Ancient grain species paired with traditional sourdough fermentation; low FODMAP profile. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 39,
+      "name": "Ezekiel 4:9 Sprouted Grain Flax Bread (Food For Life)",
+      "cat": "Bread",
+      "size": "",
+      "price": 6.78,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.4,
+      "servings": 13,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 0 seed oils, 0 added sugars. Sprouted grain and legume base augmented with organic sprouted flax seeds. Provides high dietary fiber and ALA omega-3 fatty acids. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 40,
+      "name": "Scratch-Baked Artisan Sourdough Loaf (Central Market Bakery)",
+      "cat": "Bread",
+      "size": "",
+      "price": 8.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 4.4,
+      "servings": 13,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 0 seed oils, 0 added sugars. Baked fresh in-store using slow wild-yeast sourdough culture, wheat flour, water, and sea salt. Traditional acidification ensures high digestive tolerance. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 41,
+      "name": "Local Artisan Sourdough Bread (Easy Tiger)",
+      "cat": "Bread",
+      "size": "",
+      "price": 6.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.4,
+      "servings": 13,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 0 seed oils, 0 added sugars. Local Austin artisan sourdough prepared with unbleached flour, water, natural starter, and sea salt. Free of industrial additives, commercial yeast strain fortification, and synthetic gums. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 42,
+      "name": "San Francisco Style Sourdough Sliced (Izzio Artisan Bakery)",
+      "cat": "Bread",
+      "size": "",
+      "price": 5.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.4,
+      "servings": 13,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: 0 seed oils, 0 added sugars. Formulated with water, organic wheat flour, organic sourdough culture, and sea salt. Clean artisan loaf offering strong calorie-to-cost value for volume bulking. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 43,
+      "name": "Organic Fitness Whole Rye Bread (Mestemacher)",
+      "cat": "Bread",
+      "size": "",
+      "price": 3.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.4,
+      "servings": 13,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: 0 seed oils, 0 added sugars. Whole kernel organic rye, oat bran, flaxseed, water, sea salt, yeast. Traditional European brick loaf delivering high fiber and micronutrient density at an accessible price point. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 44,
+      "name": "Ezekiel 4:9 Sprouted Grain Cinnamon Raisin Bread (Food For Life)",
+      "cat": "Bread",
+      "size": "",
+      "price": 8.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.4,
+      "servings": 13,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: 0 seed oils, 0 added refined sugars. Naturally sweetened exclusively through organic whole raisins. Sprouted multi-grain and legume foundation provides sweet whole-food surplus carbohydrates. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 45,
+      "name": "Classic White Bread (Hero Bread)",
+      "cat": "Bread",
+      "size": "",
+      "price": 11.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.4,
+      "servings": 13,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: 0g sugar. Formulated with resistant wheat starch, wheat protein isolate, modified wheat starch, and fiber extracts. Functional low-carb/cutting tool, but lacking as a daily whole-food bulking staple. Tag: Engineered High Protein"
+    },
+    {
+      "id": 46,
+      "name": "21 Whole Grains and Seeds Bread (Dave's Killer Bread)",
+      "cat": "Bread",
+      "size": "",
+      "price": 5.79,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.4,
+      "servings": 13,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Audit: DISQUALIFIED from Tiers 1 & 2. Contains organic cane sugar and organic molasses. Front-of-pack health claims obscure added refined sugar content. Tag: Whole-Food Clean Protein (Compromised by Refined Sugar)"
+    },
+    {
+      "id": 47,
+      "name": "Seeded Hamburger Buns / Commercial Wheat Loaves (H-E-B Bake Shop)",
+      "cat": "Bread",
+      "size": "",
+      "price": 3.19,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 4.4,
+      "servings": 13,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Audit: DISQUALIFIED. Contains high fructose corn syrup, industrial soybean oil, monoglycerides, and calcium propionate. Standard ultra-processed staple that induces rapid blood sugar spikes and gastrointestinal irritation. Tag: Engineered Protein / UPF Staple"
+    }
+  ]
+}

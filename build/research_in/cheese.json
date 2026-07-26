@@ -1,0 +1,203 @@
+{
+  "category": "Cheese",
+  "count": 11,
+  "products": [
+    {
+      "id": 59,
+      "name": "Vacche Rosse Grana D'Oro Parmigiano Reggiano 36mo (Vacche Rosse)",
+      "cat": "Cheese",
+      "size": "0.33 lb",
+      "price": 12.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.6,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Raw Red Cow's Milk, Salt, Animal Rennet. Audit: 100% raw milk from traditional Italian Red Cows aged 36 months. Zero seed oils, sugars, or gums."
+    },
+    {
+      "id": 60,
+      "name": "Genuine Fulvi Pecorino Romano Del Lazio DOP (Fulvi)",
+      "cat": "Cheese",
+      "size": "0.5 lb",
+      "price": 12.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 6.2,
+      "servings": 8,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Sheep's Milk, Salt, Rennet, Enzymes. Audit: 100% sheep's milk providing a natural A2 beta-casein structure that eliminates lower-GI inflammation associated with A1 cow dairy. Zero seed oils, sugars, or preservatives. Highly piquant and macro-dense. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 61,
+      "name": "Don Juan Manchego DOP Aged 12 Months (Don Juan)",
+      "cat": "Cheese",
+      "size": "0.5 lb",
+      "price": 11.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.2,
+      "servings": 8,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Raw Manchega Sheep's Milk, Salt, Animal Rennet, Cheese Cultures. Audit: Artisan raw sheep milk dry-cured for 1 year in La Mancha, Spain. Unadulterated lipid-to-protein ratio; zero seed oils, gums, or added sugars. Outstanding digestive tolerance during caloric surpluses."
+    },
+    {
+      "id": 62,
+      "name": "Good Culture Organic 4% Milkfat Cottage Cheese (Good Culture)",
+      "cat": "Cheese",
+      "size": "16 oz",
+      "price": 6.88,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 6.2,
+      "servings": 16,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Skim Milk, Organic Whole Milk, Organic Cream, Celtic Sea Salt, Live & Active Cultures (L. paracasei). Audit: Zero gums (no guar, xanthan, or locust bean), no carrageenan, no added sugars."
+    },
+    {
+      "id": 63,
+      "name": "Fromage Gruyère S.A. Le Gruyère AOP 1655 (Fromage Gruyère S.A.)",
+      "cat": "Cheese",
+      "size": "0.33 lb",
+      "price": 12.2,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.6,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Raw Cow's Milk, Salt, Cultures, Animal Rennet. Audit: Raw milk aged over 12 months in copper vats in Switzerland. Naturally lactose-free due to extended aging. Zero industrial emulsifiers, starches, or seed oils. Exceptionally high amino acid bio-accessibility."
+    },
+    {
+      "id": 64,
+      "name": "Raw Farm Whole Raw Milk Cheddar (Raw Farm)",
+      "cat": "Cheese",
+      "size": "16 oz block",
+      "price": 10.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.2,
+      "servings": 16,
+      "current_flags": [
+        "seed",
+        "emul"
+      ],
+      "current_audit": "Ingredients: Whole Raw Milk, Vegetable Rennet, Cultures, Kosher Sea Salt. Audit: Aged 60+ days, unpasteurized, retaining native digestive enzymes. Zero added sugars, gums, or seed oils. Exceptional volume-to-cost economic value ($0.69/oz) for clean hyper-caloric surplus goals."
+    },
+    {
+      "id": 65,
+      "name": "Gourmet Grassmilk Raw Organic Cheddar (Organic Valley)",
+      "cat": "Cheese",
+      "size": "8 oz block",
+      "price": 7.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 6.2,
+      "servings": 8,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Grass-Fed Cultured Unpasteurized Milk, Sea Salt, Vegetarian Enzyme. Audit: 100% grass-fed unpasteurized raw dairy. Completely free of synthetic growth hormones, antibiotics, seed oils, or added sugars. High natural CLA content supporting metabolic efficiency."
+    },
+    {
+      "id": 66,
+      "name": "Seriously Sharp White Cheddar Bar (Cabot)",
+      "cat": "Cheese",
+      "size": "8 oz block",
+      "price": 2.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 6.2,
+      "servings": 8,
+      "current_flags": [
+        "seed",
+        "tool"
+      ],
+      "current_audit": "Ingredients: Fresh Pasteurized Milk, Cheese Cultures, Salt, Enzymes. Audit: Pure 4-ingredient block cheese. Aged naturally to remove lactose; zero emulsifiers, anti-caking starches, or seed oils. Outstanding daily budget bulking staple (0.37–0.62/oz). Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 67,
+      "name": "Grass-Fed Aged Irish Cheddar (Kerrygold)",
+      "cat": "Cheese",
+      "size": "7 oz block",
+      "price": 5.74,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 6.2,
+      "servings": 7,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Pasteurized Milk, Salt, Cheese Cultures, Enzymes. Audit: Sourced from pasture-raised Irish dairy cows aged over 12 months. Zero added sugars, synthetic fillers, or seed oils. High energy and micronutrient density for caloric surplus support. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 68,
+      "name": "Sharp Fine Cut Shredded Cheddar Cheese (Sargento)",
+      "cat": "Cheese",
+      "size": "8 oz bag",
+      "price": 2.97,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.2,
+      "servings": 8,
+      "current_flags": [
+        "emul",
+        "tool"
+      ],
+      "current_audit": "Ingredients: Pasteurized Milk, Cheese Culture, Salt, Enzymes, Potato Starch, Corn Starch, Powdered Cellulose, Natamycin. Audit: Disqualified from Tiers 1 and 2 due to UPF anti-caking starches, cellulose wood pulp fibers, and synthetic mold inhibitors."
+    },
+    {
+      "id": 69,
+      "name": "Just Like Mature Cheddar Slices (Violife)",
+      "cat": "Cheese",
+      "size": "7.05 oz",
+      "price": 4.97,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 6.3,
+      "servings": 7,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Filtered Water, Coconut Oil, Food Starch-Modified, Potato Starch, Sea Salt, Vegan Flavor, Olive Extract, Beta Carotene, Vitamin B12. Audit: Ultra-processed marketing trap. Contains 0g protein per serving and relies on a matrix of refined coconut oil and isolated food starches."
+    }
+  ]
+}

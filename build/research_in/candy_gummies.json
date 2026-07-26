@@ -1,0 +1,221 @@
+{
+  "category": "Candy & Gummies",
+  "count": 12,
+  "products": [
+    {
+      "id": 318,
+      "name": "Solely Organic Fruit Gummies (Mango & Guava)",
+      "cat": "Candy & Gummies",
+      "size": "3.5 oz",
+      "price": 4.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 5,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Whole-Food Clean Carbohydrate Tool. Ingredients: Whole Organic Mangoes, Whole Organic Guavas, Vitamin C. Audit: Verified zero added cane sugar, zero fruit juices from concentrate, zero seed oils, zero pectin or gelatin additives, zero synthetic gums or flavor isolates. Minimal processing load."
+    },
+    {
+      "id": 319,
+      "name": "BEAR Fruit Rolls (Apple-Pear & Strawberry)",
+      "cat": "Candy & Gummies",
+      "size": "3.5 oz",
+      "price": 3.96,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 5,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Whole-Food Clean Carbohydrate Tool. Ingredients: Apples, Pears, Strawberries, Black Carrot Extract. Audit: Verified zero added cane sugar, zero corn syrups, zero seed oils, zero binding gums, preservatives, or artificial dyes. Minimal processing load."
+    },
+    {
+      "id": 320,
+      "name": "Blue Stripes Dried Mango & Cacao Superfruit Gummies",
+      "cat": "Candy & Gummies",
+      "size": "4.0 oz",
+      "price": 5.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5.7,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Whole-Food Clean Carbohydrate Tool. Ingredients: Dried Mango, Cacao Fruit. Audit: Verified zero added refined sugars, zero industrial seed oils, zero artificial preservatives. Low processing load."
+    },
+    {
+      "id": 321,
+      "name": "Bob Snail Whole Fruit Rolls (Apple & Strawberry)",
+      "cat": "Candy & Gummies",
+      "size": "",
+      "price": 4.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.1,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Whole-Food Clean Carbohydrate Tool. Ingredients: 80% Apple, 20% Strawberry. Audit: Verified zero added sugar, zero fruit concentrates, zero seed oils, zero pectin, gelatin, or gums. Minimal processing load."
+    },
+    {
+      "id": 322,
+      "name": "Katjes Plant-Based Rainbow Gummies",
+      "cat": "Candy & Gummies",
+      "size": "4.9 oz",
+      "price": 6.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.9,
+      "servings": 1,
+      "current_flags": [
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Clean Refined Carbohydrate Tool. Ingredients: Glucose syrup, sugar, modified food starch, malic acid, natural flavors, vegetable juices for color. Audit: Verified zero industrial seed oils, zero animal gelatin, zero high-fructose corn syrup, zero synthetic food dyes. Moderate processing load."
+    },
+    {
+      "id": 323,
+      "name": "Black Forest Organic Gummy Bears",
+      "cat": "Candy & Gummies",
+      "size": "8.0 oz",
+      "price": 4.84,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5.7,
+      "servings": 2,
+      "current_flags": [
+        "seed",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Whole-Food Clean Gelatin Protein / Clean Carb Tool. Ingredients: Organic Tapioca Syrup, Organic Cane Sugar, Gelatin, Organic Lemon Juice, Organic Tapioca Starch, Organic Sunflower Oil (trivial coating), Carnauba Wax. Audit: Verified zero high-fructose corn syrup, zero artificial dyes."
+    },
+    {
+      "id": 324,
+      "name": "YumEarth Organic Gummy Bears",
+      "cat": "Candy & Gummies",
+      "size": "5 ct pack",
+      "price": 5.29,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 5.1,
+      "servings": 7,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Whole-Food Clean Gelatin Protein / Clean Carb Tool. Ingredients: Organic Rice Syrup, Organic Cane Sugar, Gelatin, Apple Juice Concentrate, Ascorbic Acid, Organic Sunflower Oil (trivial release agent), Organic Carnauba Wax. Audit: Verified zero artificial food dyes, zero high-fructose corn syrup."
+    },
+    {
+      "id": 325,
+      "name": "Katjes Plant-Based Sour Gummies",
+      "cat": "Candy & Gummies",
+      "size": "4.9 oz",
+      "price": 6.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.9,
+      "servings": 1,
+      "current_flags": [
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Clean Refined Carbohydrate Tool. Ingredients: Glucose syrup, sugar, modified food starch, malic acid, sodium citrate, natural plant extracts. Audit: Verified zero seed oils, zero artificial dyes, zero synthetic preservatives. Moderate processing load."
+    },
+    {
+      "id": 326,
+      "name": "SmartSweets Sweet Fish Candy",
+      "cat": "Candy & Gummies",
+      "size": "1.8 oz",
+      "price": 3.19,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 2.6,
+      "servings": 1,
+      "current_flags": [
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Engineered Carbohydrate / Fiber Tool. Ingredients: Soluble Corn Fiber, Allulose, Isomalto-Oligosaccharides, Potato Starch, Coconut Oil, Carnauba Wax, Stevia. Audit: Verified zero added cane sugar, zero seed oils. High processing load."
+    },
+    {
+      "id": 327,
+      "name": "Lily's Sweet Fruity Friends Gummy Bears",
+      "cat": "Candy & Gummies",
+      "size": "1.8 oz",
+      "price": 2.97,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 2.6,
+      "servings": 1,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Engineered Low-Sugar Tool. Ingredients: Soluble Corn Fiber, Allulose, Pectin, Citric Acid, Palm Oil, Coconut Oil, Carnauba Wax, Stevia. Audit: Verified zero seed oils, zero added refined sugar. High processing load."
+    },
+    {
+      "id": 328,
+      "name": "Joyride Low Sugar Gummy Bears",
+      "cat": "Candy & Gummies",
+      "size": "3.5 oz",
+      "price": 4.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5,
+      "servings": 1,
+      "current_flags": [
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Engineered High-Protein / Fiber Hybrid Tool. Ingredients: Soluble Corn Fiber, Allulose, Gelatin, Citric Acid, Natural Flavors, Carnauba Wax, Stevia."
+    },
+    {
+      "id": 329,
+      "name": "SunRidge Farms Sugar Free Gummi Bears",
+      "cat": "Candy & Gummies",
+      "size": "9.88 oz",
+      "price": 6.78,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 4.7,
+      "servings": 3,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Engineered Polyol Tool. Ingredients: Maltitol Syrup, Sorbitol Powder (22g per serving), Gelatin, Wheat Starch, Sunflower Oil, Carnauba Wax. Audit: Disqualified from primary tiers due to extreme polyol content."
+    }
+  ]
+}

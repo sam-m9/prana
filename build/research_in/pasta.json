@@ -1,0 +1,212 @@
+{
+  "category": "Pasta",
+  "count": 12,
+  "products": [
+    {
+      "id": 70,
+      "name": "Rustichella d'Abruzzo Spaghetti (17.5 oz)",
+      "cat": "Pasta",
+      "size": "17.5 oz",
+      "price": 6.47,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.2,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Durum Wheat Semolina, Water. Artisanal bronze-die extruded and air-dried for 56 hours at low temperatures. Zero seed oils, zero added sugars, non-UPF. Tag: Whole-Food Clean High Protein (13.5g protein per 100g)."
+    },
+    {
+      "id": 71,
+      "name": "Central Market Organic Bronze Cut Pappardelle Pasta (17.6 oz)",
+      "cat": "Pasta",
+      "size": "17.6 oz",
+      "price": 4.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.2,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Semolina (Durum Wheat). Traditional Gragnano IGP bronze-die extrusion. Zero seed oils, zero added sugars, non-UPF. Tag: Whole-Food Clean High Protein (8g protein per 56g serving). Outstanding surplus efficiency."
+    },
+    {
+      "id": 72,
+      "name": "Jovial Organic Einkorn Penne Rigate (12 oz)",
+      "cat": "Pasta",
+      "size": "12 oz",
+      "price": 4.42,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 7.4,
+      "servings": 6,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Whole Einkorn Flour, Water. Unhybridized ancient wheat with fragile gluten matrix for minimal GI load. Zero seed oils, zero added sugars, non-UPF. Tag: Whole-Food Clean High Protein (9g protein per serving)."
+    },
+    {
+      "id": 73,
+      "name": "Higher Harvest by H-E-B Organic Red Lentil Fusilli (8 oz)",
+      "cat": "Pasta",
+      "size": "8 oz",
+      "price": 2.87,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.4,
+      "servings": 4,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Red Lentil Flour. Single-ingredient whole legume pasta. Zero seed oils, zero added sugars, non-UPF. Tag: Whole-Food Clean High Protein (15g protein per 56g serving). Superior protein-to-carb ratio."
+    },
+    {
+      "id": 74,
+      "name": "Sgambaro Organic Emmer Pasta Tortiglioni (17.6 oz)",
+      "cat": "Pasta",
+      "size": "17.6 oz",
+      "price": 6.91,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.2,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Emmer (Farro) Durum Wheat Flour. Italian bronze-die extruded ancient grain pasta. Zero seed oils, zero added sugars, non-UPF. Tag: Whole-Food Clean High Protein (8.5g protein per serving)."
+    },
+    {
+      "id": 75,
+      "name": "Pastificio Liguori Organic Bronze Cut Spaghetti IGP (16 oz)",
+      "cat": "Pasta",
+      "size": "16 oz",
+      "price": 4.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.4,
+      "servings": 8,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Durum Wheat Semolina, Water. PGI Gragnano certified, slow dried at low temperatures. Zero seed oils, zero added sugars, non-UPF. Tag: Whole-Food Clean High Protein (8g protein per serving)."
+    },
+    {
+      "id": 76,
+      "name": "Rummo Lenta Lavorazione Spaghetti No. 3 (16 oz)",
+      "cat": "Pasta",
+      "size": "16 oz",
+      "price": 1.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.4,
+      "servings": 8,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Semolina, Niacin, Ferrous Lactate, Thiamine Mononitrate, Riboflavin, Folic Acid. Patented slow processing method with bronze dies. Zero seed oils, zero added sugars. Tag: Whole-Food Clean High Protein (7g protein per serving). Exceptional budget surplus staple."
+    },
+    {
+      "id": 77,
+      "name": "Explore Cuisine Organic Edamame & Mung Bean Fettuccine (8 oz)",
+      "cat": "Pasta",
+      "size": "8 oz",
+      "price": 4.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 7.4,
+      "servings": 4,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Organic Edamame Flour, Organic Mung Bean Flour. Unadulterated pulse flour blend. Zero seed oils, zero added sugars, non-UPF. Tag: Whole-Food Clean High Protein (24g protein per 56g serving). Extreme protein density tool."
+    },
+    {
+      "id": 78,
+      "name": "Central Market Organic Bronze Cut Rigatoni (16 oz)",
+      "cat": "Pasta",
+      "size": "16 oz",
+      "price": 2.78,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.4,
+      "servings": 8,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Organic Durum Wheat Semolina. Clean organic semolina extruded through bronze dies. Zero seed oils, zero added sugars, non-UPF. Tag: Whole-Food Clean High Protein (6g protein per serving). Accessible daily carbohydrate workhorse."
+    },
+    {
+      "id": 79,
+      "name": "Barilla Protein+ Spaghetti (14.5 oz)",
+      "cat": "Pasta",
+      "size": "14.5 oz",
+      "price": 2.84,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.6,
+      "servings": 7,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Semolina, Lentil Flour, Pea Protein Isolate, Chickpea Flour, Barley Flour, Spelt Flour, Vitamin/Mineral Enrichment. Formulated with protein isolates. Zero seed oils, zero added sugars. Tag: Engineered High Protein (10g protein per serving). Functional tool only."
+    },
+    {
+      "id": 80,
+      "name": "Banza Chickpea Penne (8 oz)",
+      "cat": "Pasta",
+      "size": "8 oz",
+      "price": 3.32,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.4,
+      "servings": 4,
+      "current_flags": [
+        "emul",
+        "tool"
+      ],
+      "current_audit": "Ingredients: Chickpeas, Tapioca, Pea Starch, Xanthan Gum. Contains added refined starches and hydrocolloid binders (xanthan gum). Zero seed oils, zero added sugars. UPF evaluation: Hydrocolloids alter intestinal transit time. Tag: Engineered High Protein (11g protein per serving)."
+    },
+    {
+      "id": 81,
+      "name": "Rummo Protein Linguine Pasta No. 13 (14.1 oz)",
+      "cat": "Pasta",
+      "size": "14.1 oz",
+      "price": 5.29,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.4,
+      "servings": 7,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Durum Wheat Semolina, Wheat Protein Isolate, Fava Bean Protein Isolate. Engineered with isolated plant protein extracts. Zero seed oils, zero added sugars. UPF evaluation: Processed protein fractions present. Tag: Engineered High Protein (14g protein per serving)."
+    }
+  ]
+}

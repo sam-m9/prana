@@ -1,0 +1,214 @@
+{
+  "category": "Eggs",
+  "count": 12,
+  "products": [
+    {
+      "id": 93,
+      "name": "World's Best Eggs Organic Pasture Raised Large Eggs",
+      "cat": "Eggs",
+      "size": "12 ct",
+      "price": 8.48,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.3,
+      "servings": 12,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "100% Organic Pasture-Raised Whole Eggs. Audit: Zero seed oils, zero added sugars, zero UPF. Hens forage on pasture with feed milled locally at Coyote Creek Feed Mill outside Austin. Exceptional yolk density and micronutrient profile. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 94,
+      "name": "Central Market Organic Pasture Raised No-Soy Large Brown Eggs",
+      "cat": "Eggs",
+      "size": "12 ct",
+      "price": 7.38,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.3,
+      "servings": 12,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "100% Organic Pasture-Raised Whole Eggs. Audit: Zero seed oils, zero added sugars, zero UPF. USDA Organic, Grade A. Certified humane pasture-raised with 100% soy-free feed, removing potential soy-driven digestive sensitivities. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 95,
+      "name": "Vital Farms Extra Large Pasture-Raised Eggs",
+      "cat": "Eggs",
+      "size": "12 ct",
+      "price": 8.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 6.3,
+      "servings": 12,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "100% Pasture-Raised Whole Eggs. Audit: Zero seed oils, zero added sugars, zero UPF. Certified Humane with 108 sq ft of pasture per hen. Extra-large sizing provides 7g protein per egg (80 kcal), increasing protein density per serving. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 96,
+      "name": "New Barn Organic Pasture Raised Brown Eggs",
+      "cat": "Eggs",
+      "size": "12 ct",
+      "price": 7.68,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.3,
+      "servings": 12,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "100% Organic Pasture-Raised Whole Eggs. Audit: Zero seed oils, zero added sugars, zero UPF. Regenerative Organic Certified (ROC), supporting high pasture biodiversity that yields dense yolk nutrient profiles. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 97,
+      "name": "Central Market Pasture-Raised Heirloom Colorful Large Grade A Eggs",
+      "cat": "Eggs",
+      "size": "12 ct",
+      "price": 7.38,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.3,
+      "servings": 12,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "100% Pasture-Raised Whole Eggs. Audit: Zero seed oils, zero added sugars, zero UPF. Heritage breed hens raised on open pasture (108 sq ft per hen), producing thick shells and rich, carotenoid-dense yolks. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 98,
+      "name": "Central Market Pasture Raised Large Brown Eggs (18 Count)",
+      "cat": "Eggs",
+      "size": "18 ct",
+      "price": 8.87,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.3,
+      "servings": 18,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "100% Pasture-Raised Whole Eggs. Audit: Zero seed oils, zero added sugars, zero UPF. Grade A pasture-raised eggs offering excellent price-to-protein value ($0.49/egg) for high-volume bulking diets. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 99,
+      "name": "365 by Whole Foods Market Pasture Raised Large Brown Grade A Eggs",
+      "cat": "Eggs",
+      "size": "12 ct",
+      "price": 4.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 6.3,
+      "servings": 12,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "100% Pasture-Raised Whole Eggs. Audit: Zero seed oils, zero added sugars, zero UPF. Meets Whole Foods Animal Welfare Standards for pasture access. Highly economical entry point for clean pasture-raised eggs. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 100,
+      "name": "Pete & Gerry's Organic Pasture Raised Large Eggs",
+      "cat": "Eggs",
+      "size": "12 ct",
+      "price": 7.49,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 6.3,
+      "servings": 12,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "100% Organic Pasture-Raised Whole Eggs. Audit: Zero seed oils, zero added sugars, zero UPF. USDA Organic and Certified Humane pasture-raised. Complete bioavailable amino acid profile. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 101,
+      "name": "H-E-B Select Ingredients 100% Liquid Egg Whites",
+      "cat": "Eggs",
+      "size": "12 ct",
+      "price": 5.87,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.3,
+      "servings": 12,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "100% Pasteurized Liquid Egg Whites. Audit: Zero seed oils, zero added sugars, zero gums, zero preservatives. Unadulterated pure egg protein isolate designed to expand protein volume without extra dietary fat. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 102,
+      "name": "Egglife Original Egg White Wraps",
+      "cat": "Eggs",
+      "size": "6 ct",
+      "price": 5.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 6.3,
+      "servings": 6,
+      "current_flags": [
+        "emul"
+      ],
+      "current_audit": "Egg Whites, Natural Flavor, Salt, Xanthan Gum, Nisin. Audit: Zero seed oils or sugars, but contains industrial gums (xanthan gum) and preservatives (nisin). Moderate UPF load. Useful low-carb vehicle but not a core staple. Tag: Engineered High Protein."
+    },
+    {
+      "id": 103,
+      "name": "Three Little Pigs Uncured Bacon & Swiss Egg Bites",
+      "cat": "Eggs",
+      "size": "4 ct",
+      "price": 7.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.3,
+      "servings": 4,
+      "current_flags": [
+        "emul",
+        "tool"
+      ],
+      "current_audit": "Whole Eggs, Swiss Cheese, Bacon, Milk, Corn Starch, Xanthan Gum. Audit: Zero seed oils, but contains added corn starch, xanthan gum, and processed dairy fats. Ultra-processed convenience product with lower protein density per dollar. Tag: Engineered High Protein."
+    },
+    {
+      "id": 104,
+      "name": "Crack'd The No-Egg Egg (Plant-Based Egg Substitute)",
+      "cat": "Eggs",
+      "size": "12 ct",
+      "price": 6.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.3,
+      "servings": 12,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Water, Pea Protein Isolate, Canola/Sunflower Oil, Gellan Gum, Methylcellulose, Flavors. Audit: DISQUALIFIED FROM TIER 1/2. Contains refined seed oils, synthetic gelling agents, and isolated plant proteins with lower amino acid bioavailability. Tag: Engineered High Protein."
+    }
+  ]
+}

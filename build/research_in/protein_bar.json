@@ -1,0 +1,226 @@
+{
+  "category": "Protein Bar",
+  "count": 12,
+  "products": [
+    {
+      "id": 189,
+      "name": "Almond Honey Protein Bar (Rise Bar)",
+      "cat": "Protein Bar",
+      "size": "",
+      "price": 2.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 18,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 3 Whole Ingredients (Almonds, Honey, Whey Protein Isolate). Zero seed oils, zero industrial gums, zero polyols, zero refined sugar. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 190,
+      "name": "Chocolate Sea Salt Protein Bar (RXBAR)",
+      "cat": "Protein Bar",
+      "size": "",
+      "price": 1.79,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 18,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Whole Egg Whites, Dates, Almonds, Cashews, Chocolate, Cocoa, Sea Salt. Zero seed oils, zero added refined sugars, zero polyols. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 191,
+      "name": "Grass-Fed Beef Habanero Cherry Walnut Bar (EPIC Provisions)",
+      "cat": "Protein Bar",
+      "size": "",
+      "price": 2.42,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 18,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 100% Grass-Fed Beef, Dried Cherries, Walnuts, Water, Lactic Acid, Sea Salt, Spices. Whole-food savory muscle meat; zero seed oils, zero refined cane sugar. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 192,
+      "name": "Coconut Cashew Collagen Protein Bar (Primal Kitchen)",
+      "cat": "Protein Bar",
+      "size": "",
+      "price": 2.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 18,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Grass-Fed Collagen (7,800mg), Cashews, Pumpkin Seeds, Coconut, Honey (3g sugar). Zero seed oils, zero soy/whey isolate UPF load. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 193,
+      "name": "Freshly Ground Peanut Butter Chocolate Chip Bar (G2G Bar)",
+      "cat": "Protein Bar",
+      "size": "",
+      "price": 2.09,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 18,
+      "servings": 1,
+      "current_flags": [
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Audit: Fresh Peanut Butter, Whey Isolate, Honey, Organic Oats, Dark Chocolate, Flax Meal. Caloric surplus engine (300 kcal, 18g protein). Zero seed oils. Tag: Whole-Food Clean High Protein / Functional Hybrid"
+    },
+    {
+      "id": 194,
+      "name": "Organic Peanut Butter Chocolate Chip Bar (ALOHA)",
+      "cat": "Protein Bar",
+      "size": "",
+      "price": 2.5,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 18,
+      "servings": 1,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Audit: Organic Peanuts, Brown Rice & Pumpkin Seed Protein, Tapioca Fiber/Syrup, Monk Fruit. Zero seed oils, zero dairy/soy. High fiber. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 195,
+      "name": "Peanut Butter Brownie Organic Protein Bar (Kate's Real Food)",
+      "cat": "Protein Bar",
+      "size": "",
+      "price": 2.79,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 18,
+      "servings": 1,
+      "current_flags": [
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Audit: Organic Peanut Butter, Organic Honey, Dark Chocolate, Oats, Pea Protein. Zero seed oils, clean organic energy density for surplus intake. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 196,
+      "name": "Chilled Organic Peanut Butter & Honey Protein Bar (Wella Organic)",
+      "cat": "Protein Bar",
+      "size": "",
+      "price": 2.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 18,
+      "servings": 1,
+      "current_flags": [
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Audit: Organic Peanuts, Honey, Milk Protein Concentrate, Egg Whites. Refrigerated whole-food matrix; zero seed oils, zero synthetic emulsifiers. Tag: Whole-Food Clean High Protein"
+    },
+    {
+      "id": 197,
+      "name": "20g Protein Bar - Cookies & Cream (Barebells)",
+      "cat": "Protein Bar",
+      "size": "",
+      "price": 2.37,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 18,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Audit: Milk Protein Blend, Collagen, Maltitol, Polydextrose, Sunflower Oil, Sucralose. High protein density offset by industrial seed oil and polyols. Tag: Engineered High Protein"
+    },
+    {
+      "id": 198,
+      "name": "21g Protein Bar - Chocolate Chip Cookie Dough (Quest Nutrition)",
+      "cat": "Protein Bar",
+      "size": "",
+      "price": 2.12,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 18,
+      "servings": 1,
+      "current_flags": [
+        "emul",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Audit: Milk/Whey Isolate, Polydextrose, Erythritol, Glycerin, Sucralose, Sunflower/Soy Lecithin. Isolate base with heavy synthetic fiber load and polyols. Tag: Engineered High Protein"
+    },
+    {
+      "id": 199,
+      "name": "20g High Protein Bar - Brownie Crunch (think!)",
+      "cat": "Protein Bar",
+      "size": "",
+      "price": 2.2,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 18,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Audit: Soy Isolate, Whey Isolate, Calcium Caseinate, Maltitol Syrup, Palm Kernel Oil, Sunflower Oil. Contains industrial seed oils and sugar alcohol syrup. Tag: Engineered High Protein"
+    },
+    {
+      "id": 200,
+      "name": "Opti-Meal 16g Low Carb Protein Bar - Chocolate Peanut Butter (H-E-B)",
+      "cat": "Protein Bar",
+      "size": "",
+      "price": 1.8,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 18,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Audit: Hydrolyzed Collagen, Milk/Whey Isolate, Vegetable Oil Blend (Palm, Peanut, Sunflower Oil), Polydextrose, Sucralose. Industrial seed oils, non-nutritive sweeteners. Tag: Engineered High Protein"
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "category": "Frozen Meals",
+  "count": 12,
+  "products": [
+    {
+      "id": 330,
+      "name": "Primal Kitchen Chicken Pesto Bowl (10 oz)",
+      "cat": "Frozen Meals",
+      "size": "10 oz",
+      "price": 8.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 24.1,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: White meat chicken, cauliflower, basil pesto (avocado oil, extra virgin olive oil, parmesan cheese, basil), diced tomatoes, garlic. Audit: 100% Seed-oil free (uses avocado oil & EVOO), 0g added sugar, zero gums/emulsifiers."
+    },
+    {
+      "id": 331,
+      "name": "Saffron Road Chicken Tikka Masala (10 oz)",
+      "cat": "Frozen Meals",
+      "size": "10 oz",
+      "price": 6.29,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 24.1,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Boneless white meat chicken, basmati rice, tomatoes, low-fat yogurt, heavy cream, ghee, garlic, ginger, tandoori spices. Audit: Certified Seed-Oil Free (uses ghee/dairy fat), 0g added sugar. [Whole-Food Clean High Protein] (26g protein, 9g fat, 350 kcal per bowl)."
+    },
+    {
+      "id": 332,
+      "name": "Cappello's Almond Flour Uncured Pepperoni Pizza (12 oz)",
+      "cat": "Frozen Meals",
+      "size": "12 oz",
+      "price": 12.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 28.9,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Almond flour dough (eggs, almond flour, arrowroot, cassava, coconut oil, EVOO), mozzarella, uncured pepperoni, tomato paste. Audit: 100% Seed-oil free, 0g added sugar in savory toppings. [Whole-Food Clean High Protein] (22g protein, 36g fat, 620 kcal per 1/2 pizza)."
+    },
+    {
+      "id": 333,
+      "name": "Whole Foods Market Kitchens Chicken Tikka Masala (12 oz)",
+      "cat": "Frozen Meals",
+      "size": "12 oz",
+      "price": 7.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 28.9,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Roasted chicken breast, cream, butter, tomato paste, garlic, ginger, spinach, turmeric basmati rice. Audit: 100% Seed-oil free (uses traditional butter & cream), 0g added sugar, zero industrial emulsifiers. [Whole-Food Clean High Protein] (24g protein, 14g fat, 420 kcal)."
+    },
+    {
+      "id": 334,
+      "name": "Mimi Cheng's Heritage Pork Dumplings (10 oz)",
+      "cat": "Frozen Meals",
+      "size": "10 oz",
+      "price": 13.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 24.1,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Pasture-raised Berkshire pork, garlicky Chinese chives, wheat flour, toasted sesame oil, tamari, ginger. Audit: Seed-oil free (uses pasture-raised pork fat & toasted sesame oil), 0g added refined sugar. [Whole-Food Clean High Protein] (20g protein, 12g fat, 380 kcal)."
+    },
+    {
+      "id": 335,
+      "name": "Amylu Foods Country Style Chicken Sausage Bites (7 oz)",
+      "cat": "Frozen Meals",
+      "size": "7 oz",
+      "price": 4.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 16.9,
+      "servings": 1,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Antibiotic-free chicken breast, sage, black pepper, extra virgin olive oil coating. Audit: 100% Seed-oil free, 0g added sugar, zero nitrites. [Whole-Food Clean High Protein] (14g protein per 7 oz serving, 180 kcal). High-efficiency protein component to pair with whole complex carbs."
+    },
+    {
+      "id": 336,
+      "name": "Kevin's Natural Foods Thai Coconut Chicken Entree (16 oz)",
+      "cat": "Frozen Meals",
+      "size": "16 oz",
+      "price": 8.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 19.3,
+      "servings": 2,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Sous-vide chicken breast, coconut milk, coconut water, basil, lemongrass, spices. Audit: 0g refined sugar (<1g coconut nectar in sauce). Disqualified from Tier 1 due to minor high-oleic sunflower oil in sauce prep, but remains an ultra-efficient surplus option."
+    },
+    {
+      "id": 337,
+      "name": "Banza Chickpea Crust Plain Frozen Pizza (2-Pack)",
+      "cat": "Frozen Meals",
+      "size": "2-Pack",
+      "price": 9.89,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 25.5,
+      "servings": 1,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Chickpeas, tapioca starch, olive oil, oregano, garlic powder. Audit: 100% Seed-oil free (olive oil base), 0g added sugar. Tagged as [Engineered High Protein] due to isolated pulse starch matrix (16g protein per half crust, 340 kcal)."
+    },
+    {
+      "id": 338,
+      "name": "Deep Indian Kitchen Chicken Tikka Masala (9 oz)",
+      "cat": "Frozen Meals",
+      "size": "9 oz",
+      "price": 5.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 21.7,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: White meat chicken, basmati rice, tomatoes, yogurt, heavy cream, expeller-pressed canola oil, potato starch, rice syrup blend. Audit: Fails Hard Filter 1 due to expeller-pressed canola oil and added rice syrup."
+    },
+    {
+      "id": 339,
+      "name": "Scott & Jon's 20g Protein Shrimp Scampi Bowl (8 oz)",
+      "cat": "Frozen Meals",
+      "size": "8 oz",
+      "price": 4.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 19.3,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "emul"
+      ],
+      "current_audit": "Ingredients: Durum wheat pasta, shrimp, tomatoes, white cooking wine, soybean oil, nonfat dry milk, xanthan gum. Audit: Fails Hard Filter 1 due to industrial soybean oil and added gums. [Whole-Food Clean High Protein] (18g-20g protein, 6g fat, 280 kcal), but degraded by inflammatory seed oils."
+    },
+    {
+      "id": 340,
+      "name": "Healthy Choice Café Steamers Crustless Chicken Pot Pie",
+      "cat": "Frozen Meals",
+      "size": "",
+      "price": 3.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 25.5,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "emul",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Chicken breast with isolated soy protein product (soy protein isolate, modified potato starch, carrageenan, soy lecithin), soybean oil, canola oil, xanthan gum, dextrose. Audit: UPF Marketing Trap."
+    },
+    {
+      "id": 341,
+      "name": "Hungry-Man Selects Classic Fried Chicken Meal (16 oz)",
+      "cat": "Frozen Meals",
+      "size": "16 oz",
+      "price": 4.88,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 19.3,
+      "servings": 2,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Fried chicken in vegetable oil, mashed potatoes (mono/diglycerides, BHT, sodium bisulfite), chocolate brownie (soybean oil, 24g added sugar), 1610mg sodium. Audit: Extreme UPF Trap. Fails Hard Filter 1 (industrial seed oils, excessive refined sugar, chemical preservatives)."
+    }
+  ]
+}

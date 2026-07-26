@@ -1,0 +1,232 @@
+{
+  "category": "Desserts",
+  "count": 12,
+  "products": [
+    {
+      "id": 153,
+      "name": "Good Culture Organic 4% Milkfat Cottage Cheese (Good Culture)",
+      "cat": "Desserts",
+      "size": "16 oz tub",
+      "price": 6.88,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 5,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Skim Milk, Organic Whole Milk, Organic Cream, Celtic Sea Salt, Live and Active Cultures. Audit: Zero seed oils, gums, emulsifiers, or added sugars. Cultured for maximum digestional ease. Delivers 14g bioavailable protein per serving. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 154,
+      "name": "Icelandic Provisions Vanilla Bean Extra Creamy Skyr (Icelandic Provisions)",
+      "cat": "Desserts",
+      "size": "4.4 oz cup",
+      "price": 1.78,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.9,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Pasteurized Heirloom Whole Milk, Organic Cane Sugar, Vanilla Bean, Pectin, Live Active Cultures. Audit: Zero seed oils or synthetic thickeners. Traditional strained culturing yields dense protein (11g) with minimal GI load. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 155,
+      "name": "Bellwether Farms Vanilla Sheep Milk Yogurt (Bellwether Farms)",
+      "cat": "Desserts",
+      "size": "6 oz cup",
+      "price": 3.18,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.7,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Pasteurized Whole Sheep Milk, Organic Cane Sugar, Vanilla Extract, Active Cultures. Audit: Zero seed oils or synthetic gums. Sheep dairy is 100% A2-type protein, offering superior digestional tolerance and higher natural protein concentration. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 156,
+      "name": "Alec's Organic Tahitian Vanilla Bean A2/A2 Ice Cream (Alec's Ice Cream)",
+      "cat": "Desserts",
+      "size": "",
+      "price": 8.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 5.5,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic A2/A2 Whole Milk, Organic Cream, Organic Cane Sugar, Organic Egg Yolks, Tahitian Vanilla Bean Extract. Audit: Zero seed oils, lecithin, gums, or emulsifiers. Uses 100% regenerative A2/A2 dairy to eliminate lower GI distress during hypercaloric bulking."
+    },
+    {
+      "id": 157,
+      "name": "Honey Mama's Coconut Fudge Cocoa Truffle Bar (Honey Mama's)",
+      "cat": "Desserts",
+      "size": "2.5 oz bar",
+      "price": 5.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 3.9,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Raw Honey, Unrefined Coconut Oil, Sprouted Almonds, Organic Cocoa Powder, Himalayan Pink Salt. Audit: Zero refined cane sugar, seed oils, soy lecithin, or dairy. Whole-food lipids and unrefined carbohydrates supply dense surplus energy without gut bloat."
+    },
+    {
+      "id": 158,
+      "name": "Petit Pot Organic Dark Chocolate Pot De Crème (Petit Pot)",
+      "cat": "Desserts",
+      "size": "2-pack glass jars",
+      "price": 6.29,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 5.5,
+      "servings": 3,
+      "current_flags": [
+        "emul",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Whole Milk, Organic Heavy Cream, Organic Dark Chocolate, Organic Cane Sugar, Organic Egg Yolks, Sea Salt. Audit: Zero seed oils, gums, or industrial additives. Traditional French custard formulation providing efficient caloric density for muscle growth."
+    },
+    {
+      "id": 159,
+      "name": "Hu Organic Simple Dark Chocolate Bar 70% Cacao (Hu Kitchen)",
+      "cat": "Desserts",
+      "size": "2.1 oz bar",
+      "price": 4.27,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 3.3,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "emul",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Cacao, Unrefined Organic Coconut Sugar, Organic Cocoa Butter. Audit: Zero cane sugar, seed oils, emulsifiers, or sugar alcohols. Minimalist ultra-clean chocolate delivering high energy and polyphenols without digestive strain. Tag: Whole-Food Caloric Surplus Fuel."
+    },
+    {
+      "id": 160,
+      "name": "Straus Family Creamery Organic Vanilla Bean Ice Cream (Straus Family Creamery)",
+      "cat": "Desserts",
+      "size": "",
+      "price": 7.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 5.5,
+      "servings": 3,
+      "current_flags": [
+        "seed",
+        "emul",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Cream, Organic Whole Milk, Organic Cane Sugar, Organic Egg Yolks, Organic Vanilla Extract. Audit: Zero guar gum, xanthan gum, carrageenan, or vegetable oils. Minimalist 5-ingredient organic dairy providing clean surplus fuel. Tag: Whole-Food Caloric Surplus Fuel."
+    },
+    {
+      "id": 161,
+      "name": "Alexandre Family Farm Organic A2/A2 Cultured Whole Milk Yogurt - Vanilla (Alexandre Family Farm)",
+      "cat": "Desserts",
+      "size": "24 oz tub",
+      "price": 4.49,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 5.3,
+      "servings": 7,
+      "current_flags": [
+        "emul",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic A2/A2 Whole Milk, Organic Cane Sugar, Organic Vanilla Extract, Live Active Cultures. Audit: Zero seed oils, pectin, or gums. Verified A2/A2 organic whole dairy providing bioavailable protein and rapid digestive transit. Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 162,
+      "name": "Halo Top Peanut Butter Cup Light Ice Cream (Halo Top)",
+      "cat": "Desserts",
+      "size": "",
+      "price": 4.62,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5.5,
+      "servings": 3,
+      "current_flags": [
+        "emul",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Skim Milk, Milk Protein Concentrate, Erythritol, Soluble Corn Fiber, Cane Sugar, Peanut Oil, Guar Gum, Carob Bean Gum, Stevia. Audit: Ultra-processed formulation using protein isolates, sugar alcohols, peanut oil, and industrial gums."
+    },
+    {
+      "id": 163,
+      "name": "Yasso Mint Chocolate Chip Greek Yogurt Bars (Yasso)",
+      "cat": "Desserts",
+      "size": "4-pack box",
+      "price": 5.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 5.5,
+      "servings": 3,
+      "current_flags": [
+        "emul",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Nonfat Milk, Greek Yogurt, Sugar, Corn Syrup Solids, Coconut Oil, Soy Lecithin, Cellulose Gum, Locust Bean Gum, Natural Flavors. Audit: Marketed as clean dairy, but compromised by corn syrup solids, soy lecithin, and thickeners that impede rapid digestion."
+    },
+    {
+      "id": 164,
+      "name": "Quest Nutrition Chocolate Chip Cookie Dough Bar (Quest Nutrition)",
+      "cat": "Desserts",
+      "size": "2.1 oz bar",
+      "price": 2.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 3.3,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "emul",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Milk Protein Isolate, Whey Protein Isolate, Soluble Corn Fiber, Almonds, Erythritol, Palm Kernel Oil, Sucralose, Sunflower Lecithin. Audit: Synthetic macronutrient distribution constructed entirely of protein isolates, sugar alcohols, and industrial emulsifiers."
+    }
+  ]
+}

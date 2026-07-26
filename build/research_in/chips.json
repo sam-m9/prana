@@ -1,0 +1,221 @@
+{
+  "category": "Chips",
+  "count": 12,
+  "products": [
+    {
+      "id": 224,
+      "name": "MASA Organic Tortilla Chips in Grass-Fed Beef Tallow (MASA)",
+      "cat": "Chips",
+      "size": "5 oz",
+      "price": 5.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 9.9,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Corn, Grass-Fed Beef Tallow, Sea Salt. Audit: 100% Seed-Oil Free. Cooked exclusively in heat-stable grass-fed beef tallow. Zero added sugars, industrial gums, or synthetic flavorings. Non-UPF whole food corn nixtamalization matrix."
+    },
+    {
+      "id": 225,
+      "name": "San Nicasio Extra Virgin Olive Oil Potato Chips (San Nicasio)",
+      "cat": "Chips",
+      "size": "5.3 oz",
+      "price": 6.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5.2,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Spanish Agria Potatoes, Extra Virgin Olive Oil, Pink Himalayan Salt. Audit: 100% Extra Virgin Olive Oil cooked at low temperatures, zero seed oils, zero added sugars. Artisanal non-UPF European staple yielding exceptional lipid stability and zero GI distress."
+    },
+    {
+      "id": 226,
+      "name": "EPIC Baked Pork Rinds - Pink Himalayan Sea Salt (EPIC Provisions)",
+      "cat": "Chips",
+      "size": "2.5 oz",
+      "price": 4.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Pork Skin, Pork Fat, Sea Salt, Pink Himalayan Sea Salt. Audit: Zero seed oils, 0g carbohydrate, 0g added sugar. Completely free of synthetic binders or additives. Delivers 11g-17g of complete whole-animal collagenous protein per serving."
+    },
+    {
+      "id": 227,
+      "name": "Jackson's Sea Salt Sweet Potato Chips in Avocado Oil (Jackson's)",
+      "cat": "Chips",
+      "size": "5 oz",
+      "price": 3.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 9.9,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Sweet Potatoes, Avocado Oil, Sea Salt. Audit: 100% Avocado Oil cooked, 0g added sugar, zero industrial seed oils. Clean 3-ingredient whole root tuber matrix optimized for high caloric density. Tag: Whole-Food Clean High Protein (Whole tuber carbohydrate driver)."
+    },
+    {
+      "id": 228,
+      "name": "Siete Organic Maíz Totopos Sea Salt Tortilla Chips (Siete Foods)",
+      "cat": "Chips",
+      "size": "5 oz",
+      "price": 4.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 9.9,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic White Corn, Organic Yellow Corn, Avocado Oil, Sea Salt. Audit: 100% Avocado Oil fried, zero seed oils, 0g added sugar. Nixtamalized organic corn provides superior mineral availability and clean carbohydrate density without UPF emulsifiers."
+    },
+    {
+      "id": 229,
+      "name": "Boulder Canyon Kettle Cooked Potato Chips - Avocado Oil (Boulder Canyon)",
+      "cat": "Chips",
+      "size": "5.25 oz",
+      "price": 3.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 10.4,
+      "servings": 1,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Potatoes, Avocado Oil, Sea Salt. Audit: 100% Avocado Oil cooked, zero seed oils, 0g added sugar. Highly accessible, cost-effective surplus caloric driver with minimal digestive burden. Tag: Whole-Food Clean High Protein (Whole potato carbohydrate driver)."
+    },
+    {
+      "id": 230,
+      "name": "Wilde Protein Chips - Sea Salt / Buffalo (Wilde Chips)",
+      "cat": "Chips",
+      "size": "2.25 oz",
+      "price": 4.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 4.5,
+      "servings": 1,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Chicken Breast, Egg Whites, Chicken Bone Broth, Tapioca Starch, Coconut Oil, Natural Flavors, Sea Salt. Audit: Zero seed oils (cooked in coconut oil/chicken fat), 0g added sugar. Minimal UPF matrix using real meat and egg structural components to deliver 10g protein per serving."
+    },
+    {
+      "id": 231,
+      "name": "Barnana Organic Himalayan Pink Salt Plantain Chips (Barnana)",
+      "cat": "Chips",
+      "size": "5 oz",
+      "price": 4.29,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 9.9,
+      "servings": 1,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Organic Green Plantains, Organic Coconut Oil, Himalayan Pink Salt. Audit: 100% Organic Coconut Oil cooked, zero seed oils, 0g added sugar. Green plantain matrix offers resistant starch and potassium to support intracellular hydration during hypertrophy phases."
+    },
+    {
+      "id": 232,
+      "name": "LesserEvil Organic Avocado Oil Cassava Strips (LesserEvil)",
+      "cat": "Chips",
+      "size": "5 oz",
+      "price": 3.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 9.9,
+      "servings": 1,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Organic Cassava Flour, Organic Avocado Oil, Organic Tapioca Starch, Himalayan Crystal Salt. Audit: 100% Organic Avocado Oil cooked, zero seed oils, 0g added sugar. Clean, low-FODMAP grain-free root vegetable base providing dense digestible carbohydrates."
+    },
+    {
+      "id": 233,
+      "name": "Jackson's Carolina BBQ Sweet Potato Chips (Jackson's)",
+      "cat": "Chips",
+      "size": "",
+      "price": 3.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 8,
+      "servings": 2,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Sweet Potatoes, Avocado Oil, Carolina BBQ Seasoning Blend (Sugar, Vinegar Powder, Maltodextrin, Sea Salt, Tomato Powder, Spices). Audit: Cooked in clean avocado oil, BUT fails hard filter due to added refined cane sugar (1g added sugar) and maltodextrin in savory seasoning blend."
+    },
+    {
+      "id": 234,
+      "name": "Quest Tortilla Style Protein Chips - Nacho Cheese (Quest Nutrition)",
+      "cat": "Chips",
+      "size": "1.1 oz",
+      "price": 2.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 2.2,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Protein Blend (Milk Protein Isolate, Whey Protein Isolate), High Oleic Sunflower Oil, Corn Starch, Soluble Corn Fiber, Natural Flavors, Sucralose. Audit: Highly engineered UPF matrix."
+    },
+    {
+      "id": 235,
+      "name": "Doritos Protein Nacho Cheese Chips (Frito-Lay / Doritos)",
+      "cat": "Chips",
+      "size": "1.1 oz",
+      "price": 2.79,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 2.2,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "sugar",
+        "dye"
+      ],
+      "current_audit": "Ingredients: Corn, Soybean Oil, Sunflower Oil, Milk Protein Concentrate, Cheddar Cheese, Salt, MSG, Artificial Color (Yellow 5, Yellow 6), Sugar. Audit: Severe UPF load. Fails hard filter with industrial seed oils (soybean/sunflower), artificial dyes, MSG, and added sugar."
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "category": "Pasta Sauce",
+  "count": 12,
+  "products": [
+    {
+      "id": 25,
+      "name": "Rao's Homemade Marinara Sauce",
+      "cat": "Pasta Sauce",
+      "size": "24 oz",
+      "price": 6.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 1.9,
+      "servings": 7,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 100% Olive Oil; 0g added sugar; 0 seed oils. UPF Evaluation: Free of industrial gums, starch thickeners, or natural flavor extracts. Protein Tag: Whole-Food Clean Base (2g protein/0.5 cup). Exceptional thermal lipid stability."
+    },
+    {
+      "id": 26,
+      "name": "Mutti Parmigiano Reggiano Pasta Sauce",
+      "cat": "Pasta Sauce",
+      "size": "24 oz",
+      "price": 6.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 1.9,
+      "servings": 7,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Olive Oil base; 0g added sugar; 0 seed oils. Features authentic aged Parmigiano Reggiano P.D.O. Cheese. UPF Evaluation: Pure unadulterated whole food. Protein Tag: Whole-Food Clean High Protein Base (3g protein/0.5 cup)."
+    },
+    {
+      "id": 27,
+      "name": "Carbone Marinara Sauce",
+      "cat": "Pasta Sauce",
+      "size": "24 oz",
+      "price": 7.97,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 1.9,
+      "servings": 7,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 100% Olive Oil; 0g added sugar; 0 seed oils. Uses 100% imported Italian whole peeled tomatoes. UPF Evaluation: Small-batch slow-cooked without tomato pastes or concentrates. Protein Tag: Whole-Food Clean Base (1g protein/0.5 cup)."
+    },
+    {
+      "id": 28,
+      "name": "Cucina Antica Garlic Marinara Pasta Sauce",
+      "cat": "Pasta Sauce",
+      "size": "25 oz",
+      "price": 5.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 2,
+      "servings": 7,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Extra Virgin Olive Oil; 0g added sugar; 0 seed oils. Minimalist 7-ingredient formulation. UPF Evaluation: Zero additives or processing aids. Protein Tag: Whole-Food Clean Base (1g protein/0.5 cup)."
+    },
+    {
+      "id": 29,
+      "name": "Primal Kitchen Organic Tomato Basil Sauce",
+      "cat": "Pasta Sauce",
+      "size": "24 oz",
+      "price": 6.96,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 1.9,
+      "servings": 7,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 100% Avocado Oil base; 0g added sugar; 0 seed oils. Organic California-grown tomatoes. UPF Evaluation: Non-GMO organic standard; zero synthetic additives. Protein Tag: Whole-Food Clean Base (2g protein/0.5 cup)."
+    },
+    {
+      "id": 30,
+      "name": "La San Marzano Marinara Sauce",
+      "cat": "Pasta Sauce",
+      "size": "24 oz",
+      "price": 9.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 1.9,
+      "servings": 7,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Extra Virgin Olive Oil; 0g added sugar; 0 seed oils. UPF Evaluation: Traditional 50-minute low-heat reduction process (\"Lento & Stirred\"). Protein Tag: Whole-Food Clean Base (2g protein/0.5 cup)."
+    },
+    {
+      "id": 31,
+      "name": "Mutti Tomato & Basil Pasta Sauce",
+      "cat": "Pasta Sauce",
+      "size": "24 oz",
+      "price": 6.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 1.9,
+      "servings": 7,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Olive Oil base; 0g added sugar; 0 seed oils. Uses Rossoro Italian tomatoes. UPF Evaluation: Unadulterated build with natural basil extract. Protein Tag: Whole-Food Clean Base (2g protein/0.5 cup)."
+    },
+    {
+      "id": 32,
+      "name": "Mezzetta Family Recipes Marinara Sauce",
+      "cat": "Pasta Sauce",
+      "size": "24.5 oz",
+      "price": 5.44,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 2,
+      "servings": 7,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: Imported Olive Oil; 0g added sugar; 0 seed oils. Blend of Italian San Marzano and California plum tomatoes. UPF Evaluation: Clean domestic standard. Protein Tag: Whole-Food Clean Base (2g protein/0.5 cup). High surplus cost efficiency."
+    },
+    {
+      "id": 33,
+      "name": "365 Organic Marinara Pasta Sauce",
+      "cat": "Pasta Sauce",
+      "size": "25 oz",
+      "price": 2.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 2,
+      "servings": 7,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: Organic Extra Virgin Olive Oil; 0g added sugar; 0 seed oils. UPF Evaluation: Clean store brand staple; zero artificial additives. Protein Tag: Whole-Food Clean Base (2g protein/0.5 cup). Highest cost-to-volume ratio."
+    },
+    {
+      "id": 34,
+      "name": "Rao's Homestyle Bolognese Sauce",
+      "cat": "Pasta Sauce",
+      "size": "24 oz",
+      "price": 6.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 1.9,
+      "servings": 7,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: Olive Oil + ground beef, pork, pancetta; 0g added sugar; 0 seed oils. Minor soy flour filler present in meatball crumbles. UPF Evaluation: Functional hybrid. Protein Tag: Engineered / Functional Tool Tag (3g protein/0.5 cup)."
+    },
+    {
+      "id": 35,
+      "name": "Central Market Organic Tomato & Basil Sauce",
+      "cat": "Pasta Sauce",
+      "size": "24 oz",
+      "price": 4.28,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 1.9,
+      "servings": 7,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Audit: FAILS FILTER. Formulated with Organic Canola Oil; 0g added sugar. UPF Evaluation: Industrial seed oil base despite organic status. Protein Tag: Compromised Tool / Clean-Washing Trap."
+    },
+    {
+      "id": 36,
+      "name": "Mutti Intenso Tomato Sauce with Vegetables",
+      "cat": "Pasta Sauce",
+      "size": "14 oz",
+      "price": 3.28,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 2,
+      "servings": 4,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Audit: FAILS FILTER. Formulated with Sunflower Oil and Added Sugar. UPF Evaluation: Industrial paste concentrate with seed oil diluent. Protein Tag: Compromised Tool."
+    }
+  ]
+}

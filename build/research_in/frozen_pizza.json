@@ -1,0 +1,201 @@
+{
+  "category": "Frozen Pizza",
+  "count": 11,
+  "products": [
+    {
+      "id": 272,
+      "name": "Talia di Napoli Margherita Pizza",
+      "cat": "Frozen Pizza",
+      "size": "",
+      "price": 14.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 14.7,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: PASSED. Zero seed oils, zero added sugars. Handmade in Naples, Italy. Uses 00 wheat flour with a slow-fermented mother dough sourdough starter (low FODMAP), whole Italian tomatoes, fresh Campania mozzarella, extra virgin olive oil, and basil."
+    },
+    {
+      "id": 273,
+      "name": "Bola Pizza GodMother Pizza",
+      "cat": "Frozen Pizza",
+      "size": "",
+      "price": 11.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 14.7,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: PASSED. Zero seed oils, zero added sugars. Handcrafted locally in Austin, TX. Features slow-fermented unbleached wheat crust, organic California tomatoes, smoked mozzarella, caramelized onions, EVOO, and sea salt."
+    },
+    {
+      "id": 274,
+      "name": "Genio Della Pizza Margherita",
+      "cat": "Frozen Pizza",
+      "size": "",
+      "price": 12.79,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 14.7,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: PASSED. Zero seed oils, zero added sugars. Hand-stretched, 24-hour fermented sourdough crust made with 100% freshly milled Italian grains, Italian tomatoes, buffalo mozzarella, fresh basil, and EVOO. UPF Evaluation: Wood-fired, zero additives, gums, or chemical fillers."
+    },
+    {
+      "id": 275,
+      "name": "Central Market Frozen Pizza - Bianca Truffled Mushroom",
+      "cat": "Frozen Pizza",
+      "size": "",
+      "price": 8.48,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 14.7,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: PASSED. Zero seed oils, zero added sugars. 100% sourced and made in Italy. Neapolitan crust fermented from flour ground at an ancient mill, whole mozzarella, buffalo ricotta, provolone, pecorino romano, EVOO, and white truffle oil. UPF Evaluation: Stone-baked, zero synthetic preservatives."
+    },
+    {
+      "id": 276,
+      "name": "Alex's Awesome Sourdough Mushroom Pizza",
+      "cat": "Frozen Pizza",
+      "size": "",
+      "price": 12.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 14.7,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: PASSED. Zero seed oils, zero added sugars. Naturally fermented organic sourdough crust (gut-friendly, breakdown of phytic acid), grass-fed A2 organic dairy, organic EVOO, fresh garlic, and mushrooms. UPF Evaluation: High digestive tolerance, zero synthetic conditioners."
+    },
+    {
+      "id": 277,
+      "name": "Central Market Frozen Pizza - Margherita",
+      "cat": "Frozen Pizza",
+      "size": "",
+      "price": 8.48,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 14.7,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: PASSED. Zero seed oils, zero added sugars. Authentic Neapolitan stone-baked pizza imported from Italy. Ingredients: Italian wheat flour, whole milk mozzarella, San Marzano tomato puree, extra virgin olive oil, salt, and basil."
+    },
+    {
+      "id": 278,
+      "name": "Cappello's Classic Crispy Crust Five Cheese Pizza",
+      "cat": "Frozen Pizza",
+      "size": "",
+      "price": 14.29,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 14.7,
+      "servings": 3,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: PASSED. Zero seed oils, zero refined sugars. Crafted with European gluten-free wheat, whole milk mozzarella, white cheddar, provolone, fontina, parmesan, and EVOO. UPF Evaluation: Minimal processing, low glycemic response, certified glyphosate-free. Protein Tag: Whole-Food Clean High Protein."
+    },
+    {
+      "id": 279,
+      "name": "Banza Four Cheese Chickpea Crust Pizza",
+      "cat": "Frozen Pizza",
+      "size": "",
+      "price": 9.89,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 14.7,
+      "servings": 3,
+      "current_flags": [
+        "emul",
+        "sugar"
+      ],
+      "current_audit": "Audit: PASSED (Oil/Sugar Filters). Crust crafted from chickpeas, tapioca, cocoa butter, and olive oil. Contains <2% date powder (unrefined fruit sugar) and xanthan gum. High fiber and legume protein paired with whole mozzarella, provolone, and pecorino."
+    },
+    {
+      "id": 280,
+      "name": "Table 87 Margherita Coal Oven Pizza",
+      "cat": "Frozen Pizza",
+      "size": "",
+      "price": 10.29,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 14.7,
+      "servings": 3,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Audit: FAILED. Disqualified from Tiers 1 and 2 due to inclusion of non-GMO expeller-pressed canola oil, non-GMO palm shortening, added cane sugar, and organic barley malt syrup. UPF Evaluation: Uses seed oils and added sugars despite authentic Brooklyn coal-fired marketing."
+    },
+    {
+      "id": 281,
+      "name": "Amy's Organic Thin Crust Margherita Pizza",
+      "cat": "Frozen Pizza",
+      "size": "",
+      "price": 9.16,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 14.7,
+      "servings": 3,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Audit: FAILED. Disqualified from Tiers 1 and 2 due to expeller-pressed high oleic safflower and/or sunflower oil, organic honey, and organic cane sugar. UPF Evaluation: Marketing relies on organic halos while incorporating inflammatory seed oils and refined sweeteners into a savory base."
+    },
+    {
+      "id": 282,
+      "name": "Quest Thin Crust 4-Cheese Pizza",
+      "cat": "Frozen Pizza",
+      "size": "",
+      "price": 10.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 14.7,
+      "servings": 3,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Audit: FAILED. Disqualified due to vegetable oil (canola and/or sunflower oil). UPF Evaluation: Highly engineered ultra-processed food matrix relying on milk protein isolate, whey protein isolate, soluble corn fiber, cellulose, and xanthan gum to achieve artificial macronutrient targets."
+    }
+  ]
+}

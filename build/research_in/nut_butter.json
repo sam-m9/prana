@@ -1,0 +1,215 @@
+{
+  "category": "Nut Butter",
+  "count": 12,
+  "products": [
+    {
+      "id": 141,
+      "name": "Organic Creamy Peanut Butter (Unsweetened & Unsalted), 365 by Whole Foods Market",
+      "cat": "Nut Butter",
+      "size": "16 oz",
+      "price": 4.79,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 6.8,
+      "servings": 14,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Dry Roasted Peanuts. Audit: Verified ZERO seed oils, ZERO added sugar, ZERO palm oil, ZERO added sodium. Non-UPF single-ingredient profile. Tag: Whole-Food Clean High Protein (8g protein / 32g serving)."
+    },
+    {
+      "id": 142,
+      "name": "Organic Dark Roasted Creamy Peanut Butter, Santa Cruz Organic",
+      "cat": "Nut Butter",
+      "size": "16 oz",
+      "price": 6.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.8,
+      "servings": 14,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Dark Roasted Peanuts, Sea Salt. Audit: Verified ZERO seed oils, ZERO added sugar, ZERO hydrogenated fats. Minimal UPF load with a dark-roast flavor profile. Tag: Whole-Food Clean High Protein (8g protein / 32g serving)."
+    },
+    {
+      "id": 143,
+      "name": "All-Natural Creamy Peanut Butter, Georgia Grinders",
+      "cat": "Nut Butter",
+      "size": "12 oz",
+      "price": 8.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.5,
+      "servings": 11,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Georgia Grown Roasted Peanuts, Sea Salt. Audit: Verified ZERO industrial seed oils, ZERO added sugar, ZERO palm stearin/emulsifiers. Non-UPF small-batch paste. Tag: Whole-Food Clean High Protein (7g protein / 32g serving)."
+    },
+    {
+      "id": 144,
+      "name": "Super Crunchy Peanut Butter, Fix & Fogg",
+      "cat": "Nut Butter",
+      "size": "13.2 oz",
+      "price": 8.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 6.5,
+      "servings": 12,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Hi-Oleic Peanuts, Sea Salt. Audit: Verified ZERO seed oils, ZERO added sugar, ZERO palm oil. Non-UPF whole food paste made with high-oleic peanuts rich in monounsaturated fats. Tag: Whole-Food Clean High Protein (8g protein / 32g serving)."
+    },
+    {
+      "id": 145,
+      "name": "Raw Walnut Butter with Cashews, Artisana Organics",
+      "cat": "Nut Butter",
+      "size": "14 oz",
+      "price": 14.49,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 6.9,
+      "servings": 12,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Raw Walnuts, Organic Raw Cashews. Audit: Verified ZERO seed oils, ZERO added sugar, ZERO added salt, ZERO emulsifiers. Raw, non-UPF nut matrix retaining native omega-3 fatty acids. Tag: Whole-Food Clean High Protein (5g protein / 32g serving)."
+    },
+    {
+      "id": 146,
+      "name": "100% Peanuts Creamy Peanut Butter, Crazy Richard's",
+      "cat": "Nut Butter",
+      "size": "16 oz",
+      "price": 3.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.8,
+      "servings": 14,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: 100% Peanuts. Audit: Verified ZERO seed oils, ZERO added sugar, ZERO added salt, ZERO palm oil. Pure non-UPF nut paste providing exceptional price-to-macronutrient ratio for hyper-caloric surpluses. Tag: Whole-Food Clean High Protein (8g protein / 32g serving)."
+    },
+    {
+      "id": 147,
+      "name": "100% Natural Creamy Peanut Butter, Adams",
+      "cat": "Nut Butter",
+      "size": "16 oz",
+      "price": 4.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.8,
+      "servings": 14,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Fresh Roasted Peanuts, Sea Salt. Audit: Verified ZERO added sugar, ZERO industrial seed oils, ZERO hydrogenated oils. Traditional two-ingredient nut paste with high surplus cost efficiency. Tag: Whole-Food Clean High Protein (8g protein / 32g serving)."
+    },
+    {
+      "id": 148,
+      "name": "Classic Peanut Butter, Justin's",
+      "cat": "Nut Butter",
+      "size": "16 oz",
+      "price": 6.49,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 6.8,
+      "servings": 14,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Dry Roasted Peanuts, Palm Oil. Audit: Verified ZERO added sugar, ZERO seed oils. Addition of palm oil prevents oil separation (slight UPF processing trade-off). Tag: Whole-Food Clean High Protein (8g protein / 32g serving)."
+    },
+    {
+      "id": 149,
+      "name": "Bare Smooth Almond Butter, Barney Butter",
+      "cat": "Nut Butter",
+      "size": "10 oz",
+      "price": 8.29,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 6.6,
+      "servings": 9,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Blanched Almonds, Palm Fruit Oil. Audit: Verified ZERO added sugar, ZERO seed oils, ZERO salt. Uses blanched almonds to decrease antinutrient intake and enhance digestive ease; stabilized with palm oil. Tag: Whole-Food Clean High Protein (7g protein / 32g serving)."
+    },
+    {
+      "id": 150,
+      "name": "Pure Powdered Peanut Butter, PB2 Foods",
+      "cat": "Nut Butter",
+      "size": "6.5 oz",
+      "price": 5.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 6.5,
+      "servings": 6,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Defatted Peanut Flour, Salt. Audit: Verified ZERO seed oils, ZERO added sugar. Mechanically processed to remove 85% of native fat, diminishing caloric density for bulking. Tag: Engineered High Protein / Functional Tool (6g protein / 13g serving)."
+    },
+    {
+      "id": 151,
+      "name": "Organics 7g Protein Creamy Peanut Butter Spread, H-E-B Organics",
+      "cat": "Nut Butter",
+      "size": "18 oz",
+      "price": 5.03,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.7,
+      "servings": 16,
+      "current_flags": [
+        "seed",
+        "emul",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Peanuts, Organic Palm Stearin, Organic Cane Sugar, Sea Salt. Audit: DISQUALIFIED FROM TIER 1/2 due to added refined sugar (1g added cane sugar per serving) and organic palm stearin emulsifier. Classic clean-washing marketing trap."
+    },
+    {
+      "id": 152,
+      "name": "Organic Lightly Sweetened Sunflower Seed Butter, Once Again Nut Butter",
+      "cat": "Nut Butter",
+      "size": "16 oz",
+      "price": 9.03,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 6.8,
+      "servings": 14,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organically Grown Sunflower Seeds, Organic Sugar, Organic Sunflower Oil, Salt. Audit: DISQUALIFIED FROM TIER 1/2 due to added industrial seed oil (organic sunflower oil) and added refined cane sugar. Compromised processing profile."
+    }
+  ]
+}

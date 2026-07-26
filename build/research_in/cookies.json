@@ -1,0 +1,224 @@
+{
+  "category": "Cookies",
+  "count": 12,
+  "products": [
+    {
+      "id": 236,
+      "name": "Walkers Pure Butter Shortbread (Walkers Shortbread Ltd.)",
+      "cat": "Cookies",
+      "size": "5.3 oz",
+      "price": 4.67,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 4.5,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: PASSED. Completely free of industrial seed oils, emulsifiers, and gums. Formulated strictly with wheat flour, pure butter, sugar, and salt. Traditional European processing with low UPF load. Tag: [Whole-Food Clean Carbohydrate / Whole Butter Fat]"
+    },
+    {
+      "id": 237,
+      "name": "Central Market Pure Butter Shortbread (Central Market)",
+      "cat": "Cookies",
+      "size": "5.3 oz",
+      "price": 4.48,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 4.5,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: PASSED. Imported from the Scottish Highlands with a clean four-ingredient formulation: flour, butter, sugar, and salt. Zero seed oils or artificial additives. Tag: [Whole-Food Clean Carbohydrate / Whole Butter Fat]"
+    },
+    {
+      "id": 238,
+      "name": "Go Raw Organic Original Super Cookies (Go Raw)",
+      "cat": "Cookies",
+      "size": "3 oz",
+      "price": 3.48,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5.1,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: PASSED. Dehydrated under 105°F to preserve enzymatic integrity. Contains sprouted organic sesame seeds, unsulphured coconut, and dates. Zero added refined sugars or seed oils. Tag: [Whole-Food Clean High Protein / Micronutrient Dense]"
+    },
+    {
+      "id": 239,
+      "name": "Belgian Butter Crisp Wafers (Jules Destrooper)",
+      "cat": "Cookies",
+      "size": "3.53 oz",
+      "price": 4.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: PASSED. Authentic 19th-century Belgian recipe using pure butter, eggs, sugar, and flour. Zero vegetable oils, industrial gums, or synthetic flavorings. Tag: [Whole-Food Clean Carbohydrate / Whole Fat]"
+    },
+    {
+      "id": 240,
+      "name": "Organic Vanilla Cream Ancient Grain Biscuits (Olyra)",
+      "cat": "Cookies",
+      "size": "5.3 oz",
+      "price": 5.29,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 4.5,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: PASSED. Utilizes stone-ground ancient grains (spelt, oat, barley, einkorn) combined with organic extra virgin olive oil and coconut oil. Minimal UPF load with excellent grain digestibility. Tag: [Whole-Food Clean Ancient Grain Carbohydrate]"
+    },
+    {
+      "id": 241,
+      "name": "Grain-Free Mexican Wedding Cookies (Siete Foods)",
+      "cat": "Cookies",
+      "size": "4.5 oz",
+      "price": 4.57,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 7.7,
+      "servings": 1,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: PASSED. Blend of almond, tapioca, cassava, and chickpea flours with coconut oil, avocado oil, and pecans. Zero industrial seed oils. Tag: [Whole-Food Clean Fat & Grain-Free Carb]"
+    },
+    {
+      "id": 242,
+      "name": "Crunchy Almond Flour Chocolate Chip Cookies (Simple Mills)",
+      "cat": "Cookies",
+      "size": "5.5 oz",
+      "price": 4.93,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.7,
+      "servings": 2,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Audit: PASSED. Nut and seed flour base (almond, coconut, flaxseed) paired with organic coconut oil and coconut sugar. Free of gums, industrial seed oils, and refined grains. Tag: [Whole-Food Clean Nut/Seed Flour]"
+    },
+    {
+      "id": 243,
+      "name": "Grain-Free Chocolate Chip Cookies (Hu Kitchen)",
+      "cat": "Cookies",
+      "size": "2.25 oz",
+      "price": 6.49,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 3.8,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "emul",
+        "sugar"
+      ],
+      "current_audit": "Audit: PASSED. Formulated with almond flour, cocoa butter, organic coconut sugar, and coconut oil. Free of refined sugars, soy lecithin, and industrial vegetable oils. Tag: [Whole-Food Clean Dense Energy]"
+    },
+    {
+      "id": 244,
+      "name": "Salted Caramel Cookies (Wackym's Kitchen)",
+      "cat": "Cookies",
+      "size": "8 oz",
+      "price": 5.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 6.8,
+      "servings": 2,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Audit: PASSED. Locally crafted in Dallas using pure dairy butter, brown sugar, unbleached flour, and sea salt. Free of hydrogenated oils and industrial seed oils. Excellent cost-to-calorie bulking efficiency. Tag: [Whole-Food Surplus Efficiency Tool]"
+    },
+    {
+      "id": 245,
+      "name": "Honey Cinnamon Seed & Nut Sweet Thins (Simple Mills)",
+      "cat": "Cookies",
+      "size": "4.25 oz",
+      "price": 4.97,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 7.2,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "emul",
+        "sugar"
+      ],
+      "current_audit": "Audit: PASSED. Uses watermelon, flax, and sunflower seeds with tapioca, organic coconut oil, and honey. Free of artificial flavorings, gums, and seed oils. Tag: [Whole-Food Clean Carbohydrate]"
+    },
+    {
+      "id": 246,
+      "name": "The Complete Cookie - Chocolate Chip (Lenny & Larry's)",
+      "cat": "Cookies",
+      "size": "4 oz",
+      "price": 1.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 6.8,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "tool"
+      ],
+      "current_audit": "Audit: FAILED. Ultra-processed product containing vital wheat gluten, pea/rice isolates, chicory root fiber (inulin), and vegetable oils. High GI bloat risk from isolated fibers and wheat gluten. Tag: [Engineered High Protein (Functional Tool)]"
+    },
+    {
+      "id": 247,
+      "name": "15g Protein Cookie - Chocolate Chip (Quest Nutrition)",
+      "cat": "Cookies",
+      "size": "2.08 oz",
+      "price": 2.22,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 3.5,
+      "servings": 1,
+      "current_flags": [
+        "seed",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Audit: FAILED. Highly engineered isolate matrix (milk/whey isolates) combined with sugar alcohols (erythritol), synthetic polydextrose fiber, and palm oil. High risk of osmotic gut distress. Tag: [Engineered High Protein (Functional Tool)]"
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "category": "Jam",
+  "count": 12,
+  "products": [
+    {
+      "id": 177,
+      "name": "Rigoni di Asiago Fiordifrutta Organic Fruit Spread (Wild Blueberry / Cherry)",
+      "cat": "Jam",
+      "size": "8.82 oz",
+      "price": 6.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 0.4,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Organic fruit, organic wild apple juice concentrate, fruit pectin. Zero refined cane sugar, zero seed oils, zero UPF gums. Low-temperature traditional European processing preserves intact micronutrients. Tag: Whole-Food Clean Glycogen Matrix."
+    },
+    {
+      "id": 178,
+      "name": "Chia Smash Superfood Fruit Spread (Raspberry / Wild Blueberry)",
+      "cat": "Jam",
+      "size": "8 oz",
+      "price": 4.08,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 0.6,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Real fruit, dates, chia seeds, lemon juice concentrate, fruit pectin, rowanberry extract. Zero added refined sugars, zero seed oils, zero synthetic additives. Tag: Whole-Food Clean Protein / Fiber Boost (Whole-Food Clean Protein from whole chia seeds)."
+    },
+    {
+      "id": 179,
+      "name": "St. Dalfour Fruit Spread (Fig Royale / Wild Blueberry)",
+      "cat": "Jam",
+      "size": "10 oz",
+      "price": 5.58,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Whole fruit, grape and date juice concentrates, fruit pectin, lemon juice. Zero refined cane sugar, zero corn syrup, zero seed oils. Traditional French small-batch kettle cooking. Tag: Whole-Food Clean Glycogen Matrix."
+    },
+    {
+      "id": 180,
+      "name": "Crofter's Organic \"Just Fruit\" Spread (Strawberry / Apricot)",
+      "cat": "Jam",
+      "size": "10 oz",
+      "price": 5.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 0.5,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: Organic fruit, organic apple juice concentrate, organic lemon juice concentrate, fruit pectin. 100% fruit juice sweetened. Zero refined cane sugar, zero seed oils, zero synthetic preservatives. Tag: Whole-Food Clean Glycogen Matrix."
+    },
+    {
+      "id": 181,
+      "name": "World of Chia Raspberry Fruit Spread",
+      "cat": "Jam",
+      "size": "10.9 oz",
+      "price": 7.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 3,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: Raspberries, agave nectar, chia seeds, lemon juice concentrate, fruit pectin. Zero seed oils or UPF gums. Uses whole chia seeds for structure, but relies on agave nectar rather than whole dates or apple juice. Tag: Whole-Food Clean Fiber/Glycogen Matrix (Whole-Food Clean Protein from chia)."
+    },
+    {
+      "id": 182,
+      "name": "Crofter's Organic Premium Spread (Strawberry / Berry Harvest)",
+      "cat": "Jam",
+      "size": "16.5 oz",
+      "price": 6.79,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 0.5,
+      "servings": 5,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Audit: Organic fruit, organic cane sugar, pectin solution, ascorbic acid, citric acid. Contains added organic sucrose, but zero seed oils, zero artificial preservatives, zero UPF emulsifiers. High surplus efficiency for hard gainers. Tag: Whole-Food Clean Glycogen Matrix (Surplus Efficient)."
+    },
+    {
+      "id": 183,
+      "name": "H-E-B More Fruit Strawberry Fruit Spread",
+      "cat": "Jam",
+      "size": "15.5 oz",
+      "price": 3.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.6,
+      "servings": 4,
+      "current_flags": [
+        "sugar",
+        "dye"
+      ],
+      "current_audit": "Audit: Strawberries, sugar, fruit pectin, citric acid. Simple formulation with higher fruit ratio than standard jam. Contains added cane sugar, but zero seed oils, high fructose corn syrup, or artificial dyes. Tag: Whole-Food Clean Glycogen Matrix (Accessible Surplus)."
+    },
+    {
+      "id": 184,
+      "name": "Smucker's Simply Fruit Spread (Strawberry / Apricot)",
+      "cat": "Jam",
+      "size": "10 oz",
+      "price": 3.47,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 3,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Audit: Fruit, fruit juice concentrate, fruit pectin, citric acid. Relies on concentrated fruit juice syrup rather than whole fruit reduction, but contains zero high fructose corn syrup, zero seed oils, and zero synthetic dyes. Tag: Whole-Food Clean Glycogen Matrix (Budget Option)."
+    },
+    {
+      "id": 185,
+      "name": "Good Good No Added Sugar Strawberry Jam",
+      "cat": "Jam",
+      "size": "12 oz",
+      "price": 5.97,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 0.6,
+      "servings": 3,
+      "current_flags": [
+        "emul",
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Audit: Strawberries, water, erythritol, steviol glycosides, fruit pectin, rowanberry extract, citric acid. Zero seed oils and zero cane sugar, but relies heavily on sugar alcohols (erythritol). Risk of lower GI fermentation under high food volume."
+    },
+    {
+      "id": 186,
+      "name": "Bonne Maman Apricot Preserves",
+      "cat": "Jam",
+      "size": "13 oz",
+      "price": 5.58,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 4,
+      "current_flags": [
+        "emul",
+        "sugar"
+      ],
+      "current_audit": "Audit: Apricots, sugar, cane sugar, concentrated lemon juice, fruit pectin. Minimal traditional processing with zero seed oils or gums, but heavily loaded with refined added sucrose (over 12g sugar per serving). Lacks whole-fruit juice or date base. Tag: Whole-Food Compromised (Refined Sugar Heavy)."
+    },
+    {
+      "id": 187,
+      "name": "Polaner Sugar Free with Fiber Strawberry Preserves",
+      "cat": "Jam",
+      "size": "13.5 oz",
+      "price": 3.4,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 4,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Audit: Water, strawberries, polydextrose, maltodextrin, sucralose, potassium sorbate, fruit pectin, calcium chloride. UPF marketing trap. Contains synthetic bulking fibers (polydextrose), maltodextrin, artificial sweeteners (sucralose), and chemical preservatives."
+    },
+    {
+      "id": 188,
+      "name": "Welch's Concord Grape Jelly",
+      "cat": "Jam",
+      "size": "20 oz",
+      "price": 2.97,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 6,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Audit: Concord grapes, high fructose corn syrup, corn syrup, fruit pectin, citric acid, sodium citrate. Industrial UPF product. Disqualified from Tier 1/2 due to high fructose corn syrup and corn syrup as primary sweetening agents. Tag: Engineered Glycogen Substrate (Disqualified UPF Trap)."
+    }
+  ]
+}

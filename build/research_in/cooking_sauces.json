@@ -1,0 +1,199 @@
+{
+  "category": "Cooking Sauces",
+  "count": 11,
+  "products": [
+    {
+      "id": 213,
+      "name": "Rao's Homemade Marinara Sauce",
+      "cat": "Cooking Sauces",
+      "size": "",
+      "price": 6.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 2.4,
+      "servings": 7,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 100% Seed-Oil Free; 0g Added Sugar; Non-UPF. Formula contains Italian whole peeled tomatoes, olive oil, onions, salt, garlic, basil, black pepper, and oregano. Slow-cooked in open kettles to yield high lycopene availability without gastrointestinal distress."
+    },
+    {
+      "id": 214,
+      "name": "Carbone Marinara Sauce",
+      "cat": "Cooking Sauces",
+      "size": "",
+      "price": 7.97,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 2.4,
+      "servings": 7,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 100% Seed-Oil Free; 0g Added Sugar; Non-UPF. Formulated with imported Italian whole peeled tomatoes, tomato puree, olive oil, sea salt, onions, garlic, basil, and oregano. Small-batch reduction with zero added paste concentrates or citric acid fillers."
+    },
+    {
+      "id": 215,
+      "name": "Seggiano Fresh Basil Pesto Genovese",
+      "cat": "Cooking Sauces",
+      "size": "",
+      "price": 18.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 2.4,
+      "servings": 7,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 100% Seed-Oil Free; 0g Added Sugar; Non-UPF. Unpasteurized blend of DOP Genovese basil, extra virgin olive oil, cashews, pine nuts, and sea salt. Provides extreme caloric density via unheated, unoxidized healthy fats. Protein Tag: Whole-Food Clean High Fat / Moderate Protein (Nut Source)."
+    },
+    {
+      "id": 216,
+      "name": "Mina Mild Harissa Cooking Sauce",
+      "cat": "Cooking Sauces",
+      "size": "",
+      "price": 5.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 2.4,
+      "servings": 7,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 100% Seed-Oil Free; 0g Added Sugar; Non-UPF. Simple six-ingredient Moroccan recipe: red bell pepper, red chili pepper, garlic, extra virgin olive oil, cider vinegar, and salt. Clean flavor matrix for marinating red meat and poultry. Protein Tag: Low-Protein Whole-Food Base."
+    },
+    {
+      "id": 217,
+      "name": "Primal Kitchen Organic Vodka Sauce",
+      "cat": "Cooking Sauces",
+      "size": "",
+      "price": 8.69,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 2.4,
+      "servings": 7,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Audit: 100% Seed-Oil Free; 0g Added Sugar; Non-UPF. Made with organic diced tomatoes, organic avocado oil, organic heavy cream, and organic garlic. Delivers high energetic surplus efficiency via clean organic dairy and avocado lipids without gums. Protein Tag: Low-Protein Whole-Food High-Fat Base."
+    },
+    {
+      "id": 218,
+      "name": "Primal Kitchen No-Soy Teriyaki Sauce & Marinade",
+      "cat": "Cooking Sauces",
+      "size": "",
+      "price": 6.3,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 2.4,
+      "servings": 7,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Audit: 100% Seed-Oil Free; 0g Refined Sugar; Non-UPF. Replaces soy and high-fructose corn syrup with a base of coconut aminos, date paste, orange juice concentrate, and white balsamic vinegar. Perfect for clean rice-and-beef bowl assembly. Protein Tag: Low-Protein Whole-Food Base."
+    },
+    {
+      "id": 219,
+      "name": "365 by Whole Foods Market Organic Marinara",
+      "cat": "Cooking Sauces",
+      "size": "",
+      "price": 2.99,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 2.4,
+      "servings": 7,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: 100% Seed-Oil Free; 0g Added Sugar; Minimal UPF. Constructed from organic whole tomatoes, organic extra virgin olive oil, organic garlic, and classic herbs. High volume and exceptional budget utility for high-carb intake days. Protein Tag: Low-Protein Whole-Food Base."
+    },
+    {
+      "id": 220,
+      "name": "Central Market Organic Marinara Pasta Sauce",
+      "cat": "Cooking Sauces",
+      "size": "",
+      "price": 3.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 2.4,
+      "servings": 7,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: 100% Seed-Oil Free; 0g Added Sugar; Non-UPF. Simple blend of organic plum tomatoes, organic extra virgin olive oil, garlic, and basil. Highly accessible local staple providing unadulterated micronutrients. Protein Tag: Low-Protein Whole-Food Base."
+    },
+    {
+      "id": 221,
+      "name": "Yellowbird Organic Sriracha Hot Sauce",
+      "cat": "Cooking Sauces",
+      "size": "",
+      "price": 5.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 2.4,
+      "servings": 7,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Audit: 100% Seed-Oil Free; 0g Refined Sugar; Non-UPF. Locally crafted in Austin using organic red jalapeños, garlic, organic dates, raisins, and citrus juice concentrates. Provides clean palatability enhancement without seed oil emulsifiers. Protein Tag: Low-Protein Whole-Food Flavor Enhancer."
+    },
+    {
+      "id": 222,
+      "name": "Prego Traditional Pasta Sauce",
+      "cat": "Cooking Sauces",
+      "size": "",
+      "price": 2.58,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 2.4,
+      "servings": 7,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Audit: Disqualified from Tier 1/2. Formulated with canola oil and high fructose / added cane sugars. The inclusion of refined seed oils paired with simple sugars promotes systemic low-grade inflammation and accelerated adiposity. Protein Tag: Low-Protein Ultra-Processed Base."
+    },
+    {
+      "id": 223,
+      "name": "Bertolli Alfredo Sauce with Aged Parmesan",
+      "cat": "Cooking Sauces",
+      "size": "",
+      "price": 2.78,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 2.4,
+      "servings": 7,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Audit: Disqualified from Tier 1/2. Relies heavily on soybean oil, modified corn starch, mono- and diglycerides, and xanthan gum. These synthetic emulsifiers degrade the intestinal mucosal barrier, driving postprandial bloat. Protein Tag: Engineered / Low-Quality Dairy Base."
+    }
+  ]
+}

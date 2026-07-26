@@ -1,0 +1,197 @@
+{
+  "category": "Nuts",
+  "count": 11,
+  "products": [
+    {
+      "id": 82,
+      "name": "Finca La Rosala Mediterranean EVOO & Rosemary Almonds",
+      "cat": "Nuts",
+      "size": "2.82 oz",
+      "price": 11.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 4.9,
+      "servings": 3,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Skinless Valencia Almonds, Extra Virgin Olive Oil, Sea Salt, Rosemary. Audit: Hand-roasted Valencia almonds prepared exclusively with cold-pressed EVOO and sea salt. Zero seed oils, zero added sugars, zero synthetic binders or industrial anti-caking agents. Minimal UPF impact."
+    },
+    {
+      "id": 83,
+      "name": "Karma Nuts Sea Salt Wrapped Cashews",
+      "cat": "Nuts",
+      "size": "1.5 oz",
+      "price": 4.79,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 4,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Cashews, Sea Salt. Audit: Air-roasted cashews processed with natural skin intact, providing double the dietary fiber of peeled cashews. Zero processed oils, zero refined sugars, zero synthetic additives. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 84,
+      "name": "Almondeli Valencia Almonds with Herbs",
+      "cat": "Nuts",
+      "size": "0.5 lb",
+      "price": 11.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5.2,
+      "servings": 8,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Valencia Almonds, Extra Virgin Olive Oil, Sea Salt, Mediterranean Herbs (Thyme, Rosemary). Audit: Imported Spanish Valencia almonds pan-roasted in pure Extra Virgin Olive Oil and whole herbs. Zero seed oils, zero added sugars, zero industrial gums. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 85,
+      "name": "Daily Crunch Original Sprouted Almonds",
+      "cat": "Nuts",
+      "size": "5 oz",
+      "price": 5.98,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 5.2,
+      "servings": 5,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Sprouted Almonds. Audit: 100% sprouted raw almonds subjected to controlled dehydration. Neutralizes phytic acid to reduce enzyme inhibition and eliminate lower GI bloating. Zero added oils, zero sodium, zero sugars. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 86,
+      "name": "Daily Crunch Nashville Hot Sprouted Almonds",
+      "cat": "Nuts",
+      "size": "4 oz",
+      "price": 5.98,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 5.2,
+      "servings": 4,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Sprouted Almonds, Cayenne Pepper, Smoked Paprika, Chili Powder, Onion Granules, Garlic Granules, Sea Salt, Organic Tapioca Starch, Avocado Oil, Monk Fruit Sweetener. Audit: Sprouted base with avocado oil."
+    },
+    {
+      "id": 87,
+      "name": "Karma Nuts Golden Turmeric Wrapped Cashews",
+      "cat": "Nuts",
+      "size": "1.5 oz",
+      "price": 4.79,
+      "store": "wf",
+      "stores": [
+        "wf"
+      ],
+      "protein": 4,
+      "servings": 2,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Cashews, Turmeric, Black Pepper, Onion Powder, Sea Salt. Audit: Air-roasted whole cashews retaining skin. Uses turmeric and black pepper for flavor. Zero added seed oils, zero refined sugars. Excellent caloric density for bulking goals. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 88,
+      "name": "Daily Crunch Cocoa + Sea Salt Sprouted Almonds",
+      "cat": "Nuts",
+      "size": "4 oz",
+      "price": 5.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5.2,
+      "servings": 4,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Sprouted Almonds, Organic Coconut Sugar, Cocoa Powder, Sea Salt. Audit: Sprouted almond base featuring raw cocoa. Contains minimal unrefined coconut sugar (~ 1–2 g) for surplus caloric palatability. Zero industrial seed oils, zero synthetic glazes. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 89,
+      "name": "Wonderful Roasted & Salted No Shell Pistachios",
+      "cat": "Nuts",
+      "size": "6 oz",
+      "price": 6.68,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5.2,
+      "servings": 6,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Pistachios, Sea Salt. Audit: Dry-roasted shelled pistachios without added oil. Highly accessible, cost-effective protein and MUFA source for daily surplus tracking. Zero seed oils, zero hidden sugars. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 90,
+      "name": "Central Market Spanish Style Sea Salted Marcona Almonds",
+      "cat": "Nuts",
+      "size": "8.25 oz",
+      "price": 9.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5.4,
+      "servings": 8,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Roasted Marcona Almonds, Sunflower Oil, Sea Salt. Audit: DISQUALIFIED FROM TIER 1/2 due to industrial Sunflower Oil processing despite premium \"Spanish Style\" positioning. Heat-treated seed oil carrier elevates lipid oxidation potential. Tag: [Whole-Food Clean High Protein]"
+    },
+    {
+      "id": 91,
+      "name": "Central Market Garlic Truffle Marcona Almonds",
+      "cat": "Nuts",
+      "size": "8.25 oz",
+      "price": 9.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 5.4,
+      "servings": 8,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Roasted Marcona Almonds, Sunflower Oil, Black Truffle Salt (Sea Salt, Dried Truffle, Natural Truffle Flavor), Garlic. Audit: DISQUALIFIED due to seed oil frying (Sunflower Oil) and synthetic \"natural truffle flavor\" additives. High palatability tool compromised by industrial processing."
+    },
+    {
+      "id": 92,
+      "name": "Blue Diamond Smokehouse Almonds",
+      "cat": "Nuts",
+      "size": "25 oz",
+      "price": 11.48,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 5.2,
+      "servings": 25,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Almonds, Vegetable Oil (Canola, Safflower, and/or Sunflower Oil), Salt, Corn Maltodextrin, Natural Hickory Smoke Flavor, Yeast Extract, Hydrolyzed Corn and Soy Protein. Audit: DISQUALIFIED."
+    }
+  ]
+}

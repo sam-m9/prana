@@ -1,0 +1,216 @@
+{
+  "category": "Chocolate",
+  "count": 12,
+  "products": [
+    {
+      "id": 306,
+      "name": "Central Market Organic 85% Cacao Dark Chocolate Bar",
+      "cat": "Chocolate",
+      "size": "3.16 oz",
+      "price": 4.39,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.2,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Organic Cocoa Mass, Organic Cocoa Butter, Organic Cane Sugar, Organic Vanilla Pods. AUDIT: 100% UPF-free, zero seed oils, zero soy lecithin, zero gums. Pure Swiss organic cocoa mass. TAG: Whole-Food Fats/Carbs Staple (4g Whole Protein per serving)."
+    },
+    {
+      "id": 307,
+      "name": "Alter Eco 90% Organic Super Blackout Dark Chocolate Bar",
+      "cat": "Chocolate",
+      "size": "2.65 oz",
+      "price": 3.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 6,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Organic Cacao Beans, Organic Cocoa Butter, Organic Raw Cane Sugar, Organic Vanilla Beans. AUDIT: Zero emulsifiers, zero seed oils, non-GMO, Fair Trade certified. Maximum polyphenol and cocoa lipid density. TAG: Whole-Food Fats/Carbs Staple (7g Whole Protein per bar)."
+    },
+    {
+      "id": 308,
+      "name": "Hu Organic Simple Dark Chocolate Bar",
+      "cat": "Chocolate",
+      "size": "2.1 oz",
+      "price": 4.27,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 4.8,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Organic Cacao, Organic Unrefined Coconut Sugar, Organic Cocoa Butter. AUDIT: Zero soy or sunflower lecithin, zero refined sugar, zero industrial oils, zero gums. Uses unrefined coconut sugar for steady carbohydrate kinetics. TAG: Whole-Food Clean High Fat/Carb Staple (3g Whole Protein per serving)."
+    },
+    {
+      "id": 309,
+      "name": "Theo Organic 70% Cacao Rich Dark Chocolate Bar",
+      "cat": "Chocolate",
+      "size": "3 oz",
+      "price": 3.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 6.8,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Organic Cocoa Beans, Organic Cane Sugar, Organic Cocoa Butter. AUDIT: Zero lecithin, zero seed oils, zero artificial flavorings. Strict 3-ingredient bean-to-bar formulation. TAG: Whole-Food Clean Staple (2g Whole Protein per serving)."
+    },
+    {
+      "id": 310,
+      "name": "Lindt Excellence 100% Cocoa Dark Chocolate Bar",
+      "cat": "Chocolate",
+      "size": "1.7 oz",
+      "price": 5.78,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 3.9,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Chocolate, Cocoa Butter, Cocoa Powder Processed with Alkali. AUDIT: Absolutely 0g total sugar, zero added sugars, zero emulsifiers, zero seed oils. Maximum pure cocoa lipid density for calorie-dense fueling. TAG: Whole-Food Dense Fat Source (6g Whole Protein per bar)."
+    },
+    {
+      "id": 311,
+      "name": "Raaka 71% Cacao Unroasted Pink Sea Salt Dark Chocolate Bar",
+      "cat": "Chocolate",
+      "size": "1.8 oz",
+      "price": 9.99,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 4.1,
+      "servings": 1,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Organic Cacao, Organic Cane Sugar, Organic Cocoa Butter, Peruvian Pink Sea Salt. AUDIT: Unroasted cacao preserves native antioxidant polyphenols; zero soy, zero seed oils, zero emulsifiers. TAG: Whole-Food Micro-Density Tool."
+    },
+    {
+      "id": 312,
+      "name": "Central Market Organic 71% Cacao Dark Chocolate Bar",
+      "cat": "Chocolate",
+      "size": "3.16 oz",
+      "price": 4.39,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.2,
+      "servings": 1,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Organic Cocoa Mass, Organic Cane Sugar, Organic Cocoa Butter, Organic Vanilla Pods. AUDIT: 100% UPF-free, zero seed oils, zero soy lecithin. Slightly higher sugar content than 85% bar, but offers high caloric surplus value per dollar. TAG: Whole-Food Surplus Fuel (3g Whole Protein per serving)."
+    },
+    {
+      "id": 313,
+      "name": "H-E-B Organics 53% Cacao Dark Chocolate Bar with Raw Almonds",
+      "cat": "Chocolate",
+      "size": "1.76 oz",
+      "price": 2.28,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 4,
+      "servings": 1,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Organic Cane Sugar, Organic Chocolate Liquor, Organic Cocoa Butter, Organic Almonds, Organic Vanilla Pods. AUDIT: Zero seed oils, zero soy lecithin. Raw almonds increase total caloric density and structural fats. Tier 2 due to higher sugar content (21g per serving)."
+    },
+    {
+      "id": 314,
+      "name": "Chocolove Extreme 88% Dark Chocolate Bar",
+      "cat": "Chocolate",
+      "size": "3.2 oz",
+      "price": 4.12,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.3,
+      "servings": 1,
+      "current_flags": [
+        "emul"
+      ],
+      "current_audit": "Cocoa Liquor, Sugar, Cocoa Butter, Soy Lecithin, Vanilla. AUDIT: Contains soy lecithin (emulsifier), but zero seed oils and low sugar (3g per serving). High cocoa butter concentration. TAG: Whole-Food Fats/Carbs with Emulsifier Trace (4g Whole Protein)."
+    },
+    {
+      "id": 315,
+      "name": "H-E-B 85% Cacao Dark Chocolate Bar",
+      "cat": "Chocolate",
+      "size": "3.5 oz",
+      "price": 1.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.9,
+      "servings": 1,
+      "current_flags": [
+        "emul"
+      ],
+      "current_audit": "Chocolate Liquor, Sugar, Cocoa Butter, Soy Lecithin, Natural Vanilla Flavor. AUDIT: Contains soy lecithin. Zero seed oils, zero high fructose corn syrup. Highly cost-effective option for daily caloric expansion on a budget. TAG: Whole-Food Surplus Efficiency Tool (5g Whole Protein per bar)."
+    },
+    {
+      "id": 316,
+      "name": "Lily's Extremely Dark Chocolate Bar (85% Cocoa)",
+      "cat": "Chocolate",
+      "size": "2.8 oz",
+      "price": 4.97,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 6.4,
+      "servings": 1,
+      "current_flags": [
+        "tool",
+        "sugar"
+      ],
+      "current_audit": "Unsweetened Chocolate, Erythritol, Cocoa Butter, Chicory Root Fiber, Stevia Extract, Vanilla Extract. AUDIT: KETO MARKETING TRAP. Formulated with polyols (Erythritol) and synthetic soluble fiber (Chicory Root Fiber)."
+    },
+    {
+      "id": 317,
+      "name": "Cadbury Royal Dark Semi-Sweet Dark Chocolate Bar",
+      "cat": "Chocolate",
+      "size": "3.5 oz",
+      "price": 2.97,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 7.9,
+      "servings": 1,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Semi-Sweet Chocolate (Sugar, Chocolate, Cocoa Butter, Milk Fat, Natural & Artificial Flavor, Lecithin (Soy), PGPR). AUDIT: HIGH UPF DISQUALIFIER. Contains Polyglycerol Polyricinoleate (PGPR—an industrial emulsifier used to replace cocoa butter) and artificial flavors."
+    }
+  ]
+}

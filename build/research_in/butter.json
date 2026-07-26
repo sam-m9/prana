@@ -1,0 +1,211 @@
+{
+  "category": "Butter",
+  "count": 12,
+  "products": [
+    {
+      "id": 105,
+      "name": "Isigny Ste Mère Beurre D'Isigny Salted Butter AOP (8.8 oz)",
+      "cat": "Butter",
+      "size": "8.8 oz",
+      "price": 6.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 1,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Pasteurized Cream, Salt. Audit: Protected Designation of Origin (PDO) Normandy milk, slow-cultured fermentation, 82% butterfat. Zero seed oils, zero sugars, zero gums. Tag: Whole-Food Clean High Protein / Pure Lipid Base."
+    },
+    {
+      "id": 106,
+      "name": "Les Prés Salés Butter with Camargue Sea Salt (8.8 oz)",
+      "cat": "Butter",
+      "size": "8.8 oz",
+      "price": 8.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 1,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Pasteurized Cream, Camargue Sea Salt. Audit: Traditional Belgian slow-churned butter (82% butterfat) with course Camargue salt crystals. Zero seed oils, zero added sugars, zero fillers. Tag: Whole-Food Clean High Protein / Pure Lipid Base."
+    },
+    {
+      "id": 107,
+      "name": "Échiré Semi-Salted Butter (8.8 oz)",
+      "cat": "Butter",
+      "size": "8.8 oz",
+      "price": 11.49,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 1,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Pasteurized Cream, Salt. Audit: AOP Charentes-Poitou barrel-churned artisanal French butter (82%+ butterfat). Zero seed oils, zero synthetic additives, zero hidden sugars. Tag: Whole-Food Clean High Protein / Pure Lipid Base."
+    },
+    {
+      "id": 108,
+      "name": "Rumiano Organic Grass-Fed European Style Unsalted Butter (8 oz)",
+      "cat": "Butter",
+      "size": "8 oz",
+      "price": 5.19,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.9,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Pasteurized Cream. Audit: Pasture-raised Jersey cow milk, 84% butterfat European-style churn. Zero seed oils, zero added sugars, zero sodium or gums. Tag: Whole-Food Clean High Protein / Pure Lipid Base."
+    },
+    {
+      "id": 109,
+      "name": "Le Gall Salted French Premium Butter (250 g / 8.8 oz)",
+      "cat": "Butter",
+      "size": "250 g / 8.8 oz",
+      "price": 7.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 1,
+      "servings": 2,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Pasteurized Cultured Cream, Salt. Audit: Traditional Breton churned butter, extended lactic culturing for maximum digestion. Zero seed oils, zero fillers, zero sugars. Tag: Whole-Food Clean High Protein / Pure Lipid Base."
+    },
+    {
+      "id": 110,
+      "name": "Truly Grass Fed Naturally Creamy Salted Butter (8 0z)",
+      "cat": "Butter",
+      "size": "",
+      "price": 5.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.7,
+      "servings": 5,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Pasteurized Cream, Salt. Audit: 95% grass-fed Irish pasture dairy. Zero seed oils, zero added sugars. Exceptional calorie density for muscle gain. Tag: Whole-Food Clean High Protein / Pure Lipid Base."
+    },
+    {
+      "id": 111,
+      "name": "Kerrygold Grass-Fed Pure Irish Salted Butter (8 oz)",
+      "cat": "Butter",
+      "size": "8 oz",
+      "price": 4.84,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 0.9,
+      "servings": 2,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Pasteurized Cream, Salt. Audit: Irish grass-fed milkfat naturally rich in beta-carotene. Zero seed oils, zero added sugars, zero synthetic additives. Tag: Whole-Food Clean High Protein / Pure Lipid Base."
+    },
+    {
+      "id": 112,
+      "name": "Vital Farms Grass Fed Unsalted Butter Sticks (8 oz / 2 ct)",
+      "cat": "Butter",
+      "size": "8 oz / 2 ct",
+      "price": 5.28,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.9,
+      "servings": 2,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Pasteurized Cream, Lactic Acid. Audit: Pasture-raised domestic churn (average 200 pasture days/year). Zero seed oils, zero sugars, zero artificial preservatives. Tag: Whole-Food Clean High Protein / Pure Lipid Base."
+    },
+    {
+      "id": 113,
+      "name": "Central Market European Style Salted Butter Sticks (16 oz / 4 ct)",
+      "cat": "Butter",
+      "size": "16 oz / 4 ct",
+      "price": 5.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.7,
+      "servings": 5,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Pasteurized Cream, Salt. Audit: 82% butterfat European-style churn in high-volume stick packaging. Zero seed oils, zero sugars. Top-tier cost efficiency ($0.37/oz) for bulking diets. Tag: Whole-Food Clean High Protein / Pure Lipid Base."
+    },
+    {
+      "id": 114,
+      "name": "Land O Lakes Butter Spread with Canola Oil (15 oz)",
+      "cat": "Butter",
+      "size": "15 oz",
+      "price": 3.92,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.8,
+      "servings": 4,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Pasteurized Sweet Cream, Canola Oil, Salt. Audit: FAILS HARD SEED OIL FILTER. Formulated with industrial refined canola oil for soft texture. UPF spread. Tag: Engineered / Compromised Lipid Tool."
+    },
+    {
+      "id": 115,
+      "name": "Country Crock Dairy Free Plant Butter Spread with Olive Oil (10.5 oz)",
+      "cat": "Butter",
+      "size": "10.5 oz",
+      "price": 4.18,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.8,
+      "servings": 3,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Blend of Plant-Based Oils (Soybean, Palm Kernel, Olive, Palm Fruit), Water, Salt, Faba Bean Protein, Soy Lecithin, Lactic Acid, Natural Flavor, Calcium Disodium EDTA. Audit: FAILS SEED OIL & UPF FILTERS."
+    },
+    {
+      "id": 116,
+      "name": "Land O Lakes Garlic & Herb Butter Spread (6.5 oz)",
+      "cat": "Butter",
+      "size": "6.5 oz",
+      "price": 3.53,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.8,
+      "servings": 2,
+      "current_flags": [
+        "seed"
+      ],
+      "current_audit": "Ingredients: Cream, Water, Canola Oil, Garlic Powder, Garlic, Salt, Cornstarch, Onion Powder, Guar Gum, Citric Acid, Parsley, Potassium Sorbate. Audit: FAILS SEED OIL & ADDITIVE FILTERS. Canola oil, guar gum, cornstarch filler, chemical preservatives. UPF compound spread."
+    }
+  ]
+}

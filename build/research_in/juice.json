@@ -1,0 +1,426 @@
+{
+  "category": "Juice",
+  "count": 24,
+  "products": [
+    {
+      "id": 248,
+      "name": "Lakewood Organic Pure Tart Cherry Juice (32 oz)",
+      "cat": "Juice",
+      "size": "32 oz",
+      "price": 8.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Tart Cherry Juice. Audit: 100% pure fresh-pressed juice. Free from seed oils, added sugars, and UPF additives. Provides high anthocyanin concentration for post-training recovery. Protein Tag: Whole-Food Low Protein (Micronutrient & Recovery Matrix; 2g protein)."
+    },
+    {
+      "id": 249,
+      "name": "Central Market In-Store Cold Pressed Green Juice (32 oz)",
+      "cat": "Juice",
+      "size": "32 oz",
+      "price": 9.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Fresh Cold-Pressed Leafy Greens, Cucumber, Apple, Lemon, Ginger. Audit: Pressed fresh in-store daily. Zero pasteurization, zero added sugar, zero synthetic additives or seed oils. High micronutrient density for GI health."
+    },
+    {
+      "id": 250,
+      "name": "Lakewood Organic Fresh Pressed Pure Pineapple Juice (32 oz)",
+      "cat": "Juice",
+      "size": "32 oz",
+      "price": 9.42,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Fresh Pressed Pineapple Juice. Audit: Single-ingredient organic extraction. Contains natural bromelain enzymes to assist protein digestion during high-calorie meals. Free from added sugars or seed oils."
+    },
+    {
+      "id": 251,
+      "name": "POM Wonderful 100% Pomegranate Juice (48 oz)",
+      "cat": "Juice",
+      "size": "48 oz",
+      "price": 9.78,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 14,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: 100% Pomegranate Juice from Concentrate. Audit: Pure juice concentrate rich in polyphenols and nitrates to support exercise vasodilation. Free from added sugar, seed oils, and preservatives. High bulk surplus efficiency."
+    },
+    {
+      "id": 252,
+      "name": "Evolution Fresh Organic Green Devotion Cold Pressed Juice (32 oz)",
+      "cat": "Juice",
+      "size": "32 oz",
+      "price": 8.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Juices (Celery, Cucumber, Spinach, Romaine, Kale, Lemon, Parsley). Audit: High-Pressure Processed (HPP) cold-pressed vegetable extraction. Low glycemic load, excellent potassium source, free from added sugars, gums, or oils."
+    },
+    {
+      "id": 253,
+      "name": "Central Market In-Store Cold Pressed Apple Lemon Ginger Juice (32 oz)",
+      "cat": "Juice",
+      "size": "32 oz",
+      "price": 9.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Cold-Pressed Apple Juice, Fresh Lemon Juice, Fresh Ginger Root. Audit: Raw, unpasteurized in-store extraction. Contains active gingerols to enhance gastric motility during high-volume feeding. Free from seed oils and additives."
+    },
+    {
+      "id": 254,
+      "name": "H-E-B Organics Cold-Pressed Juice - Hydration (14 oz)",
+      "cat": "Juice",
+      "size": "14 oz",
+      "price": 2.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 4,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Peach Juice, Organic Banana Puree, Organic Coconut Water, Organic Pineapple Juice, Organic Mango Puree, Magnesium Chloride, Potassium Chloride. Audit: Cold-pressed whole-food purees supplemented with electrolytes. Free from added refined sugars or seed oils."
+    },
+    {
+      "id": 255,
+      "name": "H-E-B Organics Cold-Pressed Juice - Sweet Green Blend (12 oz)",
+      "cat": "Juice",
+      "size": "12 oz",
+      "price": 3.28,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.6,
+      "servings": 3,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Apple Juice, Organic Mango Puree, Organic Banana Puree, Organic Cucumber Juice, Organic Lemon Juice, Organic Kale Juice, Organic Spinach Juice, Organic Spirulina. Audit: 100% organic cold-pressed blend. Free from added sugar or seed oils."
+    },
+    {
+      "id": 256,
+      "name": "Suja Organic Mighty Dozen Cold Pressed Juice (46 oz)",
+      "cat": "Juice",
+      "size": "46 oz",
+      "price": 9.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 0.5,
+      "servings": 13,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Apple, Celery, Cucumber, Kale, Collard Greens, Lemon, Peppermint Tea, Ginger, Spinach, Spirulina, Chlorella. Audit: Bulk cold-pressed green juice. Free from added sugars or seed oils. Delivers high alkalizing micronutrient capacity with strong price-per-ounce value."
+    },
+    {
+      "id": 257,
+      "name": "H-E-B Organics Cold Pressed Juice - Unwind (14 oz)",
+      "cat": "Juice",
+      "size": "14 oz",
+      "price": 2.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 4,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Chamomile Tea, Organic Strawberry Juice, Organic Cherry Juice, Organic Fig Puree, Organic Bilberry Puree, Organic Honey Powder. Audit: Disqualified from Tier 1/2 due to 10g of added refined sugar from Honey Powder."
+    },
+    {
+      "id": 258,
+      "name": "Suja Organic Plant-Based Protein Drink - Chocolate (12 oz)",
+      "cat": "Juice",
+      "size": "12 oz",
+      "price": 3.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 0.6,
+      "servings": 3,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Coconut Milk, Almond Milk, Suja Protein Blend (Pea, Rice, Hemp), Cocoa, Cane Sugar, Natural Flavors, Acacia Fiber. Audit: Delivers 16g protein but relies on added Organic Cane Sugar and natural flavorings. Utilizes isolated protein extracts rather than clean whole foods."
+    },
+    {
+      "id": 259,
+      "name": "Naked Juice Mighty Mango Juice Blend (46 oz)",
+      "cat": "Juice",
+      "size": "46 oz",
+      "price": 5.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 13,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Mango Puree, Apple Juice Concentrate, Orange Juice, Banana Puree, Lemon Juice, Inulin, Natural Flavor, Synthetic Vitamin Fortification. Audit: Ultra-processed high-heat pasteurized juices from concentrate."
+    },
+    {
+      "id": 260,
+      "name": "Lakewood Organic Pure Tart Cherry Juice (32 oz)",
+      "cat": "Juice",
+      "size": "32 oz",
+      "price": 8.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Tart Cherry Juice. Audit: 100% pure fresh-pressed juice. Free from seed oils, added sugars, and UPF additives. Provides high anthocyanin concentration for post-training recovery. Protein Tag: Whole-Food Low Protein (Micronutrient & Recovery Matrix; 2g protein)."
+    },
+    {
+      "id": 261,
+      "name": "Central Market In-Store Cold Pressed Green Juice (32 oz)",
+      "cat": "Juice",
+      "size": "32 oz",
+      "price": 9.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Fresh Cold-Pressed Leafy Greens, Cucumber, Apple, Lemon, Ginger. Audit: Pressed fresh in-store daily. Zero pasteurization, zero added sugar, zero synthetic additives or seed oils. High micronutrient density for GI health."
+    },
+    {
+      "id": 262,
+      "name": "Lakewood Organic Fresh Pressed Pure Pineapple Juice (32 oz)",
+      "cat": "Juice",
+      "size": "32 oz",
+      "price": 9.42,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Fresh Pressed Pineapple Juice. Audit: Single-ingredient organic extraction. Contains natural bromelain enzymes to assist protein digestion during high-calorie meals. Free from added sugars or seed oils."
+    },
+    {
+      "id": 263,
+      "name": "POM Wonderful 100% Pomegranate Juice (48 oz)",
+      "cat": "Juice",
+      "size": "48 oz",
+      "price": 9.78,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 14,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: 100% Pomegranate Juice from Concentrate. Audit: Pure juice concentrate rich in polyphenols and nitrates to support exercise vasodilation. Free from added sugar, seed oils, and preservatives. High bulk surplus efficiency."
+    },
+    {
+      "id": 264,
+      "name": "Evolution Fresh Organic Green Devotion Cold Pressed Juice (32 oz)",
+      "cat": "Juice",
+      "size": "32 oz",
+      "price": 8.99,
+      "store": "wf",
+      "stores": [
+        "wf",
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Organic Juices (Celery, Cucumber, Spinach, Romaine, Kale, Lemon, Parsley). Audit: High-Pressure Processed (HPP) cold-pressed vegetable extraction. Low glycemic load, excellent potassium source, free from added sugars, gums, or oils."
+    },
+    {
+      "id": 265,
+      "name": "Central Market In-Store Cold Pressed Apple Lemon Ginger Juice (32 oz)",
+      "cat": "Juice",
+      "size": "32 oz",
+      "price": 9.99,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 9,
+      "current_flags": [
+        "clean"
+      ],
+      "current_audit": "Ingredients: Cold-Pressed Apple Juice, Fresh Lemon Juice, Fresh Ginger Root. Audit: Raw, unpasteurized in-store extraction. Contains active gingerols to enhance gastric motility during high-volume feeding. Free from seed oils and additives."
+    },
+    {
+      "id": 266,
+      "name": "H-E-B Organics Cold-Pressed Juice - Hydration (14 oz)",
+      "cat": "Juice",
+      "size": "14 oz",
+      "price": 2.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 4,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Peach Juice, Organic Banana Puree, Organic Coconut Water, Organic Pineapple Juice, Organic Mango Puree, Magnesium Chloride, Potassium Chloride. Audit: Cold-pressed whole-food purees supplemented with electrolytes. Free from added refined sugars or seed oils."
+    },
+    {
+      "id": 267,
+      "name": "H-E-B Organics Cold-Pressed Juice - Sweet Green Blend (12 oz)",
+      "cat": "Juice",
+      "size": "12 oz",
+      "price": 3.28,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.6,
+      "servings": 3,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Apple Juice, Organic Mango Puree, Organic Banana Puree, Organic Cucumber Juice, Organic Lemon Juice, Organic Kale Juice, Organic Spinach Juice, Organic Spirulina. Audit: 100% organic cold-pressed blend. Free from added sugar or seed oils."
+    },
+    {
+      "id": 268,
+      "name": "Suja Organic Mighty Dozen Cold Pressed Juice (46 oz)",
+      "cat": "Juice",
+      "size": "46 oz",
+      "price": 9.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 0.5,
+      "servings": 13,
+      "current_flags": [
+        "seed",
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Apple, Celery, Cucumber, Kale, Collard Greens, Lemon, Peppermint Tea, Ginger, Spinach, Spirulina, Chlorella. Audit: Bulk cold-pressed green juice. Free from added sugars or seed oils. Delivers high alkalizing micronutrient capacity with strong price-per-ounce value."
+    },
+    {
+      "id": 269,
+      "name": "H-E-B Organics Cold Pressed Juice - Unwind (14 oz)",
+      "cat": "Juice",
+      "size": "14 oz",
+      "price": 2.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 4,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Organic Chamomile Tea, Organic Strawberry Juice, Organic Cherry Juice, Organic Fig Puree, Organic Bilberry Puree, Organic Honey Powder. Audit: Disqualified from Tier 1/2 due to 10g of added refined sugar from Honey Powder."
+    },
+    {
+      "id": 270,
+      "name": "Suja Organic Plant-Based Protein Drink - Chocolate (12 oz)",
+      "cat": "Juice",
+      "size": "12 oz",
+      "price": 3.98,
+      "store": "heb",
+      "stores": [
+        "heb",
+        "wf"
+      ],
+      "protein": 0.6,
+      "servings": 3,
+      "current_flags": [
+        "sugar"
+      ],
+      "current_audit": "Ingredients: Coconut Milk, Almond Milk, Suja Protein Blend (Pea, Rice, Hemp), Cocoa, Cane Sugar, Natural Flavors, Acacia Fiber. Audit: Delivers 16g protein but relies on added Organic Cane Sugar and natural flavorings. Utilizes isolated protein extracts rather than clean whole foods."
+    },
+    {
+      "id": 271,
+      "name": "Naked Juice Mighty Mango Juice Blend (46 oz)",
+      "cat": "Juice",
+      "size": "46 oz",
+      "price": 5.98,
+      "store": "heb",
+      "stores": [
+        "heb"
+      ],
+      "protein": 0.5,
+      "servings": 13,
+      "current_flags": [
+        "tool"
+      ],
+      "current_audit": "Ingredients: Mango Puree, Apple Juice Concentrate, Orange Juice, Banana Puree, Lemon Juice, Inulin, Natural Flavor, Synthetic Vitamin Fortification. Audit: Ultra-processed high-heat pasteurized juices from concentrate."
+    }
+  ]
+}
