@@ -57,8 +57,12 @@ input{font-family:inherit}
 }
 @media (max-width:520px), (display-mode:standalone){
   html{height:100%;background:#060506}
-  body{display:block;background:#060506;height:100vh;height:100dvh;overflow:hidden}
-  #device{position:relative;width:100vw;height:100vh;height:100dvh;max-height:none;border-radius:0;box-shadow:none}
+  body{display:block;background:#060506;height:100%;overflow:hidden}
+  #device{position:relative;width:100vw;height:100%;max-height:none;border-radius:0;box-shadow:none}
+}
+/* installed app: real status bar overlays the top, so drop the fake-bar reserve */
+@media (display-mode:standalone){
+  .scrollwrap{padding-top:calc(env(safe-area-inset-top) + 10px)}
 }
 .statusbar{position:absolute;top:0;left:0;right:0;height:calc(46px + env(safe-area-inset-top));
   padding-top:env(safe-area-inset-top); z-index:60; display:flex;align-items:center;justify-content:space-between;
@@ -978,12 +982,14 @@ window.addEventListener('hashchange',()=>{ const h=(location.hash||'').replace('
    flush at the screen bottom on iOS (CSS vh/dvh mis-measure with Safari toolbars). */
 function fitDevice(){
   var dev=document.getElementById('device'); if(!dev) return;
-  var mob = window.matchMedia('(max-width:520px)').matches
-         || window.matchMedia('(display-mode:standalone)').matches
-         || window.navigator.standalone===true;
-  if(mob){ var h=(window.visualViewport&&window.visualViewport.height)||window.innerHeight;
-    dev.style.height=h+'px'; dev.style.maxHeight=h+'px'; }
-  else { dev.style.height=''; dev.style.maxHeight=''; }
+  var standalone = window.matchMedia('(display-mode:standalone)').matches || window.navigator.standalone===true;
+  var safariMobile = !standalone && window.matchMedia('(max-width:520px)').matches;
+  if(safariMobile){ // Safari browser: toolbars move, so use the measured visible height
+    var h=(window.visualViewport&&window.visualViewport.height)||window.innerHeight;
+    dev.style.height=h+'px'; dev.style.maxHeight=h+'px'; document.body.style.height=h+'px';
+  } else { // installed app or desktop: let CSS (height:100% chain / 844px frame) drive it
+    dev.style.height=''; dev.style.maxHeight=''; document.body.style.height='';
+  }
 }
 ['resize','orientationchange','pageshow'].forEach(function(ev){ window.addEventListener(ev,fitDevice); });
 if(window.visualViewport){ window.visualViewport.addEventListener('resize',fitDevice); }
