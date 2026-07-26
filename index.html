@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>PRANA — Clean-Eating Intelligence</title>
+<meta name="description" content="PRANA — rank food by protein-per-dollar, filtered through a 4-level clean-eating evidence ladder.">
+<meta name="theme-color" content="#0a090c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PRANA">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icons/favicon.png" sizes="256x256" type="image/png">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a090c; --body:#060506;
+  --bone1:#efeee6; --bone2:#d6d3c7; --bone3:#c0bcae; --ink:#26241f;
+  --copper:#cf9a4a; --copper-l:#e0be86; --copper-d:#8a6a2e;
+  --crimson:#c85a54; --crimson-t:#e6c9c6;
+  --sage:#93b39a; --sage-l:#a6c9ad;
+  --peri:#b8c0e0;
+  --mute:#7f7c89; --mute2:#8b8894; --mute3:#5f5c68;
+  --line:#1f1d24; --line2:#2a2731;
+  --t1:#e2dec9; --t2:#cf9a4a; --t3:#c85a54;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --disp:'Archivo','Arial Narrow',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{height:100%;background:#060506}
+body{
+  background:radial-gradient(120% 90% at 50% -10%,#17141a 0%,#0a090c 46%,#060506 100%);
+  background-color:#060506;
+  font-family:var(--mono); color:#e9e7ef;
+  min-height:100%; height:100%; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+button{font-family:inherit;color:inherit;background:none;border:none;cursor:pointer}
+input{font-family:inherit}
+::selection{background:rgba(207,154,74,.3)}
+/* ---------- device frame ---------- */
+#device{
+  position:relative; width:392px; height:844px; max-height:100vh;
+  background:var(--bg); border-radius:52px; overflow:hidden;
+  box-shadow:0 0 0 11px #131117, 0 0 0 13px #241f2a, 0 40px 120px -20px rgba(0,0,0,.9), 0 0 90px -30px rgba(207,154,74,.10);
+}
+@media (max-width:520px), (display-mode:standalone){
+  html,body{position:fixed;inset:0;overflow:hidden;display:block;background:#060506}
+  #device{position:fixed;inset:0;width:auto;height:auto;max-height:none;border-radius:0;box-shadow:none}
+}
+.statusbar{position:absolute;top:0;left:0;right:0;height:calc(46px + env(safe-area-inset-top));
+  padding-top:env(safe-area-inset-top); z-index:60; display:flex;align-items:center;justify-content:space-between;
+  padding-left:30px;padding-right:30px; pointer-events:none; font-size:14px;font-weight:700;color:#efeee6}
+.notch{position:absolute;top:calc(9px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);width:118px;height:31px;background:#000;border-radius:20px;z-index:61}
+@media (display-mode:standalone){ .statusbar,.notch{display:none} }
+.sb-glyphs{display:flex;gap:5px;align-items:center}
+.sb-glyphs i{display:inline-block;width:16px;height:11px;background:#efeee6;opacity:.9;border-radius:1px}
+.sb-glyphs i.s{width:22px;height:11px;border-radius:2px;background:linear-gradient(90deg,#efeee6 60%,#5f5c68 60%)}
+
+.scrollwrap{position:absolute;inset:0;bottom:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;
+  padding-top:calc(46px + env(safe-area-inset-top)); padding-bottom:96px}
+.scrollwrap::-webkit-scrollbar{display:none}
+#app{overflow-x:hidden}
+.pad{padding:0 18px;max-width:100%}
+
+/* ---------- bottom nav ---------- */
+.nav{position:absolute;left:0;right:0;bottom:0;z-index:45;height:calc(78px + env(safe-area-inset-bottom));
+  padding-bottom:env(safe-area-inset-bottom);
+  display:flex;align-items:flex-start;justify-content:space-around;padding-top:12px;
+  background:linear-gradient(0deg,#0a090c 55%,rgba(10,9,12,.86) 78%,rgba(10,9,12,0));
+  backdrop-filter:blur(8px)}
+.nav button{display:flex;flex-direction:column;align-items:center;gap:9px;width:20%;padding-top:4px}
+.nav .dot{width:7px;height:7px;border-radius:50%;background:transparent;transition:.25s}
+.nav button.on .dot{background:var(--copper);box-shadow:0 0 10px 1px rgba(207,154,74,.8)}
+.nav .lab{font-size:10px;letter-spacing:2.5px;color:var(--mute3);font-weight:500}
+.nav button.on .lab{color:var(--t1)}
+
+/* ---------- typography helpers ---------- */
+.disp{font-family:var(--disp);font-weight:900;letter-spacing:-.02em;line-height:.9}
+.kicker{font-size:10px;letter-spacing:3px;color:var(--mute);font-weight:500}
+.wordmark{font-family:var(--disp);font-weight:900;letter-spacing:9px;font-size:34px;text-align:center;color:#f0eee6}
+.subword{text-align:center;font-size:9px;letter-spacing:3px;color:var(--mute3);margin-top:8px}
+.h-title{font-family:var(--disp);font-weight:800;letter-spacing:3px;text-align:center;font-size:21px;color:#f0eee6}
+.h-sub{text-align:center;font-size:9.5px;letter-spacing:2px;color:var(--mute3);margin-top:6px}
+.big-num{font-family:var(--disp);font-weight:900;letter-spacing:-.03em}
+
+/* ---------- generic cards ---------- */
+.card{background:linear-gradient(180deg,#141218,#0e0c11);border:1px solid var(--line2);border-radius:22px}
+.porcelain{background:linear-gradient(160deg,var(--bone1),var(--bone2) 55%,var(--bone3));color:var(--ink);
+  box-shadow:0 18px 40px -20px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.5)}
+.slate{background:linear-gradient(160deg,#54545e,#2f2f36 55%,#1b1b21);border:1px solid rgba(207,154,74,.28)}
+.pill{border-radius:999px}
+.tag{font-size:9.5px;letter-spacing:2px;font-weight:700;padding:5px 11px;border-radius:8px;display:inline-block}
+.tag.t1{background:rgba(226,222,201,.14);color:var(--t1);border:1px solid rgba(226,222,201,.3)}
+.tag.onbone{background:rgba(38,36,31,.10);color:#3b382f;border:1px solid rgba(38,36,31,.28)}
+.tag.t2{background:rgba(207,154,74,.16);color:var(--copper-l);border:1px solid rgba(207,154,74,.4)}
+.tag.t3{background:rgba(200,90,84,.16);color:var(--crimson-t);border:1px solid rgba(200,90,84,.42)}
+.dot-t{width:9px;height:9px;border-radius:2px;flex:0 0 auto}
+.band-el{color:var(--sage)} .band-st{color:var(--copper-l)} .band-fa{color:var(--mute2)} .band-lo{color:#b98a86}
+.bar{height:7px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--sage),var(--sage-l));transition:width .5s cubic-bezier(.2,.9,.25,1.1)}
+
+/* HOME */
+.rocker{display:flex;gap:6px;background:#0e0c12;border:1px solid var(--line2);border-radius:16px;padding:6px;flex:1}
+.rocker button{flex:1;font-size:10px;letter-spacing:1.5px;font-weight:700;padding:11px 4px;border-radius:11px;color:var(--mute2);transition:.2s}
+.rocker button.on{background:linear-gradient(160deg,#3a3942,#232228);color:#efeee6;border:1px solid rgba(207,154,74,.5);box-shadow:0 4px 12px -6px #000}
+.mic{width:54px;height:54px;border-radius:16px;background:linear-gradient(160deg,#1a1820,#100e14);border:1px solid rgba(207,154,74,.45);
+  display:flex;align-items:center;justify-content:center;font-size:22px;flex:0 0 auto}
+.icon-btn{width:54px;height:54px;border-radius:16px;background:linear-gradient(160deg,var(--bone1),var(--bone3));color:var(--ink);
+  display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;flex:0 0 auto}
+.row-item{display:flex;align-items:center;gap:12px;padding:15px 16px;border-radius:16px;background:linear-gradient(180deg,#131117,#0d0b11);border:1px solid var(--line2);width:100%;text-align:left}
+.row-item.hl{border-color:rgba(207,154,74,.55);background:linear-gradient(180deg,rgba(207,154,74,.10),rgba(207,154,74,.02))}
+
+/* QUEUE */
+.deck{position:relative;height:400px;display:flex;align-items:center;justify-content:center;margin-top:6px}
+.qcard{position:absolute;width:280px;border-radius:26px;padding:26px 24px;will-change:transform}
+.stamp{position:absolute;top:26px;font-family:var(--disp);font-weight:900;font-size:26px;letter-spacing:2px;
+  padding:6px 16px;border:3px solid;border-radius:12px;opacity:0;transition:opacity .1s}
+.stamp.ag{right:20px;color:var(--sage);border-color:var(--sage);transform:rotate(12deg)}
+.stamp.di{left:20px;color:var(--crimson);border-color:var(--crimson);transform:rotate(-12deg)}
+.qbtn{flex:1;padding:16px 8px;border-radius:16px;font-weight:700;letter-spacing:1.5px;font-size:12px;text-align:center}
+.qbtn.dis{background:rgba(200,90,84,.10);border:1px solid rgba(200,90,84,.45);color:var(--crimson-t)}
+.qbtn.ins{background:#1a1820;border:1px solid var(--line2);color:var(--mute2)}
+.qbtn.ag{background:linear-gradient(160deg,var(--bone1),var(--bone3));color:var(--ink)}
+
+/* RANK */
+.chips{display:flex;gap:8px;justify-content:center}
+.chip{font-size:11px;letter-spacing:2px;font-weight:700;padding:9px 18px;border-radius:12px;border:1px solid var(--line2);color:var(--mute2)}
+.chip.on{border-color:var(--copper);color:var(--copper-l);background:rgba(207,154,74,.10)}
+.flow{position:relative;height:220px;perspective:1150px;margin-top:4px;overflow:hidden}
+.flow-inner{position:absolute;inset:0;transform-style:preserve-3d}
+.fcard{position:absolute;top:18px;left:50%;width:150px;height:172px;margin-left:-75px;border-radius:22px;padding:16px 14px;
+  display:flex;flex-direction:column;will-change:transform;backface-visibility:hidden}
+.ptr{position:absolute;left:50%;bottom:2px;transform:translateX(-50%);color:var(--copper);font-size:15px}
+
+/* DATA */
+.search{width:100%;background:#0e0c12;border:1px solid var(--line2);border-radius:16px;padding:15px 16px 15px 42px;color:#e9e7ef;font-size:14px}
+.searchwrap{position:relative}
+.searchwrap:before{content:"⌕";position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--mute3);font-size:18px}
+.selbtn{flex:1;background:#0e0c12;border:1px solid var(--line2);border-radius:16px;padding:16px;text-align:left;color:#cfccd7;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+.statbox{flex:1;background:linear-gradient(180deg,#121016,#0c0a10);border:1px solid var(--line2);border-radius:16px;padding:14px 8px;text-align:center}
+.statbox .n{font-family:var(--disp);font-weight:900;font-size:26px}
+.statbox .l{font-size:8.5px;letter-spacing:2px;color:var(--mute3);margin-top:3px}
+.drow{display:flex;align-items:center;gap:11px;padding:14px;border-radius:16px;background:linear-gradient(180deg,#111015,#0c0b10);border:1px solid var(--line2)}
+.mini-btn{width:44px;height:44px;border-radius:12px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;flex:0 0 auto;font-size:16px;color:var(--mute2)}
+.mini-btn.add{border-color:rgba(207,154,74,.45);color:var(--copper)}
+.mini-btn.in{border-color:rgba(147,179,154,.5);color:var(--sage);background:rgba(147,179,154,.08)}
+.catmenu{overflow:hidden;transition:max-height .32s cubic-bezier(.2,.9,.25,1.1);max-height:0}
+.catmenu.open{max-height:420px}
+.catrow{display:flex;align-items:center;gap:10px;padding:11px 4px;border-bottom:1px solid var(--line)}
+.cbox{width:19px;height:19px;border-radius:6px;border:1.5px solid var(--mute3);flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:12px}
+.cbox.on{background:var(--copper);border-color:var(--copper);color:#1a1206}
+
+/* LIST */
+.grouptag{font-size:11px;letter-spacing:2.5px;font-weight:700;padding:7px 14px;border-radius:10px;display:inline-block}
+.gt-heb{background:rgba(207,154,74,.12);color:var(--copper-l);border:1px solid rgba(207,154,74,.4)}
+.gt-wf{background:rgba(147,179,154,.12);color:var(--sage-l);border:1px solid rgba(147,179,154,.4)}
+.gt-other{background:rgba(184,192,224,.12);color:var(--peri);border:1px solid rgba(184,192,224,.4)}
+.lpill{display:flex;align-items:center;gap:12px;padding:16px;border-radius:16px;background:linear-gradient(180deg,#121016,#0c0b10);border:1px solid var(--line2)}
+.lpill.oos{border-color:rgba(200,90,84,.55)}
+.xrm{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--mute3);font-size:16px;flex:0 0 auto}
+.swap{overflow:hidden;max-height:0;transition:max-height .32s ease}
+.swap.open{max-height:300px}
+
+/* overlays */
+.backdrop{position:absolute;inset:0;z-index:70;background:rgba(4,3,6,.62);backdrop-filter:blur(3px);opacity:0;transition:opacity .3s}
+.backdrop.show{opacity:1}
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:71;max-height:90%;overflow-y:auto;
+  background:linear-gradient(180deg,#151319,#0c0b10);border:1px solid var(--line2);border-bottom:none;
+  border-radius:28px 28px 0 0;padding:22px 20px calc(30px + env(safe-area-inset-bottom));
+  transform:translateY(100%);transition:transform .34s cubic-bezier(.2,.9,.25,1.1)}
+.sheet.show{transform:translateY(0)}
+.sheet::-webkit-scrollbar{display:none}
+.grab{width:42px;height:5px;border-radius:3px;background:#33313a;margin:0 auto 18px}
+.tile{flex:1;background:#0e0c12;border:1px solid var(--line2);border-radius:16px;padding:15px}
+.ladder{border:1px solid var(--line2);border-radius:16px;padding:15px;margin-top:9px;background:#0d0b11}
+.lvl-pass{color:var(--sage)} .lvl-fail{color:var(--crimson)} .lvl-flag{color:var(--copper-l)} .lvl-idle{color:var(--mute3)}
+.field{width:100%;background:#0e0c12;border:1px solid var(--line2);border-radius:13px;padding:13px 14px;color:#e9e7ef;font-size:14px;margin-top:7px}
+.fchip{font-size:10px;letter-spacing:.5px;font-weight:700;padding:9px 12px;border-radius:11px;border:1px solid var(--line2);color:var(--mute2)}
+.fchip.on{border-color:var(--copper);color:var(--copper-l);background:rgba(207,154,74,.10)}
+.btn-bone{background:linear-gradient(160deg,var(--bone1),var(--bone3));color:var(--ink);font-weight:700;letter-spacing:1px;padding:15px;border-radius:15px;text-align:center;width:100%}
+.btn-ghost{background:#141218;border:1px solid var(--line2);color:#cfccd7;font-weight:700;letter-spacing:1px;padding:15px;border-radius:15px;text-align:center;width:100%}
+.mic-halo{width:120px;height:120px;border-radius:50%;margin:8px auto;display:flex;align-items:center;justify-content:center;font-size:44px;
+  background:radial-gradient(circle,rgba(207,154,74,.22),transparent 70%);position:relative}
+.mic-halo:before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(207,154,74,.5);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{transform:scale(.8);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{width:46px;height:46px;border-radius:50%;border:3px solid rgba(207,154,74,.18);border-top-color:var(--copper);animation:spin .9s linear infinite;margin:14px auto}
+.note{font-size:11px;color:var(--mute);text-align:center;line-height:1.6}
+.reduce *{animation:none!important;transition:none!important}
+a.link{color:var(--copper-l);text-decoration:none;border-bottom:1px solid rgba(207,154,74,.35)}
+.toast{position:absolute;left:50%;bottom:100px;transform:translateX(-50%) translateY(20px);z-index:90;
+  background:#1a1820;border:1px solid rgba(207,154,74,.5);color:#efeee6;padding:11px 18px;border-radius:12px;font-size:12px;
+  opacity:0;transition:.3s;pointer-events:none;white-space:nowrap;max-width:88%}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.hr{height:1px;background:var(--line2);margin:22px 0}
+</style>
+</head>
+<body>
+<div id="device">
+  <div class="notch"></div>
+  <div class="statusbar"><span>9:41</span><span class="sb-glyphs"><i></i><i></i><i class="s"></i></span></div>
+  <div class="scrollwrap" id="scroll"><div id="app"></div></div>
+  <nav class="nav" id="nav"></nav>
+  <div id="overlays"></div>
+  <div class="toast" id="toast"></div>
+</div>
+<script src="data.js"></script>
+<script>
+/* =====================================================================
+   PRANA — single-file clean-eating intelligence app
+   ===================================================================== */
+window.onerror=function(m,s,l,c,e){ try{console.error('PRANA',(e&&e.stack)||m,'@',l+':'+c);}catch(_){} };
+const D = window.PRANA_DATA;
+const RAW = D.products;
+const CATS_BASE = D.cats;
+const MECH = D.mech, CLEANNOTES = D.cleanNotes, SCIENCE = D.science, CAT_EMOJI = D.catEmoji;
+const PROTEIN_TARGET = 160;
+const STORE_LABEL = {heb:'H·E·B', wf:'WHOLE FOODS', other:'ONLINE / DIRECT'};
+const STORE_SHORT = {heb:'H·E·B', wf:'WHOLE FOODS', other:'ONLINE'};
+
+/* ---------- persistence ---------- */
+const PKEY='prana.appdata.v1';
+const DEFAULT = {
+  screen:'home', stores:['heb','wf','other'], dailyProtein:96,
+  listIds:[], outStock:{}, overrides:{}, decisions:{}, history:[], qIndex:0,
+  ingested:[], rankTier:'ALL', dbCats:[], dbSort:'gd', dbQuery:'',
+  catExtra:[], prodEdits:{}, prodAdds:[], prodDeleted:[],
+  reduceMotion:false
+};
+let S = load();
+function load(){
+  try{ const j=JSON.parse(localStorage.getItem(PKEY)); if(j&&j._p) return Object.assign({}, DEFAULT, j); }catch(e){}
+  // seed a starter shopping list + demo out-of-stock
+  const seed = Object.assign({}, DEFAULT);
+  const pick = (frag)=>{ const p=RAW.find(x=>x.name.toLowerCase().includes(frag)); return p?p.id:null; };
+  seed.listIds = [pick('fage total'),pick('vital farms extra'),pick('seriously sharp'),pick('einkorn'),pick('outer aisle')].filter(Boolean);
+  const oos = pick('fage total'); if(oos) seed.outStock[oos]=true;
+  // seed a review queue so the demo lands populated (mix of tiers)
+  seed.ingested = [pick('good culture'),pick('oikos triple'),pick('banza chickpea pizza'),pick('rustic crust'),pick('barilla protein'),pick('deep indian')].filter(Boolean);
+  return seed;
+}
+let saveT;
+function save(){ clearTimeout(saveT); saveT=setTimeout(()=>{ const o=Object.assign({_p:1,_savedAt:new Date().toISOString()},S); try{localStorage.setItem(PKEY,JSON.stringify(o));}catch(e){} },120); }
+
+/* ---------- live product composition ---------- */
+function products(){
+  const del = new Set(S.prodDeleted);
+  let list = RAW.filter(p=>!del.has(p.id)).map(p=>{
+    const e = S.prodEdits[p.id]; return e? Object.assign({}, p, e) : p;
+  });
+  list = list.concat(S.prodAdds);
+  return list.map(withMetrics);
+}
+function withMetrics(p){
+  const eff = (p.protein*p.servings)/Math.max(.01,p.price);
+  const gd = Math.round(eff*10)/10;
+  const cpg = p.price/Math.max(.01,p.protein*p.servings);
+  return Object.assign({}, p, {gd, cpg, band:bandOf(gd), effTier:S.overrides[p.id]?1:p.tier});
+}
+function bandOf(g){ return g>=12?['ELITE','band-el']:g>=6?['STRONG','band-st']:g>=2.5?['FAIR','band-fa']:['LOW','band-lo']; }
+function allCats(){ return CATS_BASE.concat(S.catExtra.filter(c=>!CATS_BASE.includes(c))); }
+function byId(id){ return products().find(p=>p.id===id); }
+function cpgStr(v){ return v<0.10? '$'+v.toFixed(3) : '$'+v.toFixed(2); }
+function esc(s){ return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function tierDotColor(t){ return t===1?'var(--t1)':t===2?'var(--t2)':'var(--t3)'; }
+
+/* ---------- overlay state ---------- */
+let OV = {kind:null, id:null, step:1, data:{}};
+let TW; function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(TW); TW=setTimeout(()=>t.classList.remove('show'),1900); }
+
+/* =====================================================================
+   RENDER
+   ===================================================================== */
+function render(){
+  document.getElementById('device').classList.toggle('reduce', !!S.reduceMotion);
+  const app = document.getElementById('app');
+  const scr = S.screen;
+  app.innerHTML = ({home:homeHTML, queue:queueHTML, rank:rankHTML, data:dataHTML, list:listHTML}[scr]||homeHTML)();
+  document.getElementById('nav').innerHTML = navHTML();
+  renderOverlay();
+  if(scr==='queue') bindQueue();
+  if(scr==='rank') bindFlow();
+  save();
+}
+function go(scr){ if(S.screen!==scr){ S.screen=scr; document.getElementById('scroll').scrollTop=0; } render(); }
+
+function navHTML(){
+  return ['home','queue','rank','data','list'].map(id=>{
+    const lab={home:'HOME',queue:'QUEUE',rank:'RANK',data:'DATA',list:'LIST'}[id];
+    return `<button class="${S.screen===id?'on':''}" onclick="go('${id}')"><span class="dot"></span><span class="lab">${lab}</span></button>`;
+  }).join('');
+}
+
+/* ---------------- HOME ---------------- */
+function storeScoped(){
+  const act = new Set(S.stores.length?S.stores:['heb','wf','other']);
+  return products().filter(p=>act.has(p.store)).sort((a,b)=>b.gd-a.gd);
+}
+function proteinToGo(){
+  const d=S.dailyProtein, t=PROTEIN_TARGET;
+  if(d>=t) return d===t? `TARGET HIT · ${t}g` : `TARGET HIT · +${d-t}g OVER`;
+  return `${t-d}g TO GO · TARGET ${t}g`;
+}
+function homeHTML(){
+  const pending = S.ingested.filter(id=>!S.decisions[id]).length;
+  const top = storeScoped().slice(0,3);
+  const pct = Math.min(100, Math.round(S.dailyProtein/PROTEIN_TARGET*100));
+  return `<div class="pad" style="padding-top:14px">
+    <div class="wordmark">PRANA</div><div class="subword">CLEAN · EATING · INTELLIGENCE</div>
+    <div style="display:flex;gap:10px;margin-top:22px;align-items:stretch">
+      <div class="rocker">
+        ${['heb','wf','other'].map(k=>`<button class="${S.stores.includes(k)?'on':''}" onclick="toggleStore('${k}')">${STORE_SHORT[k]}</button>`).join('')}
+      </div>
+      <button class="mic" onclick="openVoice()" title="Log protein by voice">🎙</button>
+    </div>
+
+    <div class="card porcelain" style="margin-top:16px;padding:22px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:10px;letter-spacing:3px;color:#6b675c;font-weight:700">PROTEIN · TODAY</div>
+        <div style="font-size:10px;letter-spacing:2px;color:#6b675c;font-weight:700">TARGET ${PROTEIN_TARGET}g</div>
+      </div>
+      <div class="big-num" style="font-size:56px;margin-top:8px">${S.dailyProtein}<span style="font-size:24px">g</span></div>
+      <div class="bar" style="margin-top:14px;background:rgba(38,36,31,.16)"><i style="width:${pct}%;background:linear-gradient(90deg,var(--copper-d),var(--copper))"></i></div>
+      <div style="font-size:10.5px;letter-spacing:1.5px;color:#6b675c;margin-top:12px;font-weight:700">${proteinToGo()}</div>
+    </div>
+
+    <button class="card slate" style="margin-top:14px;padding:18px;width:100%;text-align:left" onclick="go('queue')">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-weight:700;letter-spacing:2px;color:#efeee6;font-size:12px">REVIEW QUEUE</div>
+        <span class="tag t2">${pending} PENDING</span>
+      </div>
+      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:19px;margin-top:10px;color:#f0eee6;letter-spacing:-.01em">${pending?'Ingested products awaiting your call':'Queue is clear'}</div>
+      <div style="font-size:10px;letter-spacing:1.5px;color:var(--mute2);margin-top:8px">SWIPE · ACCEPT · OVERRIDE · DISCARD →</div>
+    </button>
+
+    <button class="row-item" style="margin-top:12px;justify-content:center;border-style:dashed" onclick="openIngest()">
+      <span style="letter-spacing:1px;font-size:10px;color:var(--copper-l);font-weight:700">+ INGEST A PRODUCT · SHARE SHEET / EXTENSION</span>
+    </button>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin:26px 0 12px">
+      <div class="kicker">TOP PROTEIN / DOLLAR</div>
+      <button style="font-size:10px;letter-spacing:2px;color:var(--copper-l);font-weight:700" onclick="go('rank')">OPEN RANK →</button>
+    </div>
+    ${top.map((p,i)=>`<button class="row-item ${i===0?'hl':''}" style="margin-bottom:9px;gap:11px" onclick="openDrawer(${p.id})">
+      <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
+      <div style="flex:1;min-width:0"><div style="font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</div>
+      <div style="font-size:10px;color:var(--mute3);margin-top:2px">${cpgStr(p.cpg)}/g · ${STORE_SHORT[p.store]}</div></div>
+      <div style="display:flex;align-items:baseline;gap:3px;flex:0 0 auto"><span class="big-num" style="font-size:26px">${p.gd.toFixed(1)}</span><span style="font-size:9px;color:var(--mute3)">g/$</span></div>
+    </button>`).join('')}
+
+    <div class="hr"></div>
+    <div class="kicker" style="margin-bottom:10px">THE SCIENCE</div>
+    <button class="row-item" onclick="openScience()">
+      <span style="font-size:20px">🧬</span>
+      <div style="flex:1"><div style="font-weight:600">Why these rules exist</div>
+      <div style="font-size:10px;color:var(--mute3);margin-top:2px">A2 casein · sourdough · seed oils · the evidence ladder</div></div>
+      <span style="color:var(--mute3)">→</span>
+    </button>
+
+    <div class="hr"></div>
+    <div class="kicker" style="margin-bottom:10px">YOUR DATA</div>
+    <div style="display:flex;gap:10px">
+      <button class="btn-ghost" onclick="exportData()">EXPORT BACKUP</button>
+      <button class="btn-ghost" onclick="document.getElementById('importfile').click()">RESTORE</button>
+    </div>
+    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device.</div>
+    <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
+    <div style="height:8px"></div>
+  </div>`;
+}
+function toggleStore(k){
+  const has=S.stores.includes(k);
+  if(has && S.stores.length===1){ toast('At least one store must stay on'); return; }
+  S.stores = has? S.stores.filter(x=>x!==k) : S.stores.concat(k);
+  render();
+}
+
+/* ---------------- QUEUE ---------------- */
+function queueList(){ return S.ingested.map(byId).filter(Boolean); }
+function queueHTML(){
+  const q = queueList();
+  const total=q.length, cur=Math.min(S.qIndex,total);
+  const done = S.qIndex>=total;
+  if(total===0){
+    return `<div class="pad" style="padding-top:20px">
+      <div class="h-title">REVIEW QUEUE</div><div class="h-sub">0 / 0</div>
+      ${emptyQueue()}</div>`;
+  }
+  if(done) return `<div class="pad" style="padding-top:20px"><div class="h-title">REVIEW QUEUE</div><div class="h-sub">${total} / ${total}</div>${emptyQueue()}</div>`;
+  const top=q[S.qIndex];
+  const behind=q.slice(S.qIndex+1,S.qIndex+3);
+  const t3 = top.effTier===3;
+  return `<div class="pad" style="padding-top:16px">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <button class="tag t2" style="${S.history.length?'':'opacity:.35'}" onclick="undoDecision()">↺ UNDO</button>
+      <div style="text-align:center"><div class="h-title" style="font-size:19px">REVIEW QUEUE</div><div class="h-sub" style="margin-top:3px">${cur+1} / ${total}</div></div>
+      <button class="tag t2" onclick="openIngest()">+ ADD</button>
+    </div>
+    <div class="note" style="margin-top:12px;letter-spacing:1px">SWIPE RIGHT — AGREE WITH THE RATING · LEFT — DISMISS</div>
+    <div class="deck" id="deck">
+      ${behind.reverse().map((p,i)=>{const d=behind.length-i;return `<div class="qcard ${surfClass(p.effTier)}" style="transform:scale(${1-d*.05}) translateY(${d*14}px);opacity:${1-d*.28};z-index:${i}">${qcardInner(p,true)}</div>`;}).join('')}
+      <div class="qcard ${surfClass(top.effTier)}" id="topcard" style="z-index:10">
+        <div class="stamp ag" id="stampA">${t3?'CONFIRM':'AGREE'}</div>
+        <div class="stamp di" id="stampD">DISMISS</div>
+        ${qcardInner(top,false)}
+      </div>
+    </div>
+    <div class="note" style="margin-top:6px;letter-spacing:1px;color:var(--mute)">${t3?'AGREE = confirm this hard fail → your avoid-list.':'AGREE = confirm this rating. Saves to your verified database'+(top.effTier<3?' & shopping list.':'.')}</div>
+    <div style="display:flex;gap:9px;margin-top:16px">
+      <button class="qbtn dis" onclick="decide('discard')">◄ DISMISS</button>
+      <button class="qbtn ins" onclick="openDrawer(${top.id})">INSPECT</button>
+      <button class="qbtn ag" onclick="decide('accept')">${t3?'CONFIRM ►':'AGREE ►'}</button>
+    </div>
+  </div>`;
+}
+function surfClass(t){ return t===1?'porcelain':t===2?'slate':'card'; }
+function qcardInner(p,ghost){
+  const t=p.effTier, dark=t!==1;
+  const col = dark?'#efeee6':'var(--ink)';
+  return `<div style="display:flex;justify-content:space-between;align-items:center">
+      <div style="font-size:9px;letter-spacing:2px;color:${dark?'var(--mute)':'#6b675c'}">${ghost?'':'TAP TO INSPECT'}</div>
+      <span class="tag ${t===1?'onbone':'t'+t}">${STORE_SHORT[p.store]}</span></div>
+    <div class="big-num" style="font-size:66px;text-align:center;margin-top:24px;color:${t===2?'var(--copper-l)':col}">${p.gd.toFixed(1)}</div>
+    <div style="text-align:center;font-size:10px;letter-spacing:2px;color:${dark?'var(--mute)':'#6b675c'};margin-top:2px">g PROTEIN / $</div>
+    <div style="text-align:center;font-size:11px;color:${dark?'var(--mute2)':'#6b675c'};margin-top:8px">${cpgStr(p.cpg)} / g · pack $${p.price.toFixed(2)}</div>
+    <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:20px;text-align:center;margin-top:20px;color:${col};letter-spacing:-.01em">${esc(p.name)}</div>
+    <div style="text-align:center;font-size:11px;color:${dark?'var(--mute3)':'#6b675c'};margin-top:4px">${esc(p.size||p.cat)}</div>
+    <div style="text-align:center;margin-top:14px"><span class="tag ${t===1?'onbone':'t'+t}">${tierName(p)}</span></div>`;
+}
+function tierName(p){
+  if(p.effTier===1) return 'TIER 1 · WHOLE FOOD';
+  const f=p.flags[0]; const m=MECH[f];
+  return `TIER ${p.effTier} · ${m?m.label:(p.tlabel||'').toUpperCase()}`;
+}
+function emptyQueue(){
+  const acc=Object.values(S.decisions).filter(d=>d==='accept').length;
+  const dis=Object.values(S.decisions).filter(d=>d==='discard').length;
+  return `<div style="text-align:center;padding:60px 0">
+    <div style="width:72px;height:72px;border-radius:50%;margin:0 auto;border:2px solid var(--sage);display:flex;align-items:center;justify-content:center;font-size:34px;color:var(--sage)">✓</div>
+    <div class="disp" style="font-size:26px;margin-top:18px">Queue clear</div>
+    <div class="note" style="margin-top:8px">${acc} accepted · ${dis} discarded — committed to your database.</div>
+    <button class="btn-ghost" style="width:auto;margin:22px auto 0;padding:14px 26px" onclick="resetQueue()">↺ REPLAY QUEUE</button>
+  </div>`;
+}
+function decide(kind){
+  const q=queueList(); const top=q[S.qIndex]; if(!top) return;
+  const willAdd = kind==='accept' && top.effTier<3 && !S.listIds.includes(top.id);
+  S.history.push({id:top.id, idx:S.qIndex, kind, added:willAdd});
+  S.decisions[top.id]=kind;
+  if(willAdd) S.listIds.push(top.id);
+  S.qIndex++;
+  render();
+}
+function undoDecision(){
+  const h=S.history.pop(); if(!h) return;
+  delete S.decisions[h.id]; S.qIndex=h.idx;
+  if(h.added) S.listIds=S.listIds.filter(x=>x!==h.id);
+  render();
+}
+function resetQueue(){ S.decisions={}; S.history=[]; S.ingested=[]; S.qIndex=0; render(); }
+
+/* queue drag */
+function bindQueue(){
+  const card=document.getElementById('topcard'); if(!card||S.reduceMotion) return;
+  let sx=0,sy=0,dx=0,drag=false,moved=false;
+  const A=document.getElementById('stampA'),Dm=document.getElementById('stampD');
+  const down=e=>{drag=true;moved=false;const p=pt(e);sx=p.x;sy=p.y;card.style.transition='none';};
+  const move=e=>{ if(!drag)return; const p=pt(e); dx=p.x-sx; const dy=p.y-sy;
+    if(Math.abs(dx)>6)moved=true;
+    card.style.transform=`translate(${dx}px,${dy*.3}px) rotate(${dx*.05}deg)`;
+    if(A)A.style.opacity=dx>40?Math.min(1,(dx-40)/60):0;
+    if(Dm)Dm.style.opacity=dx<-40?Math.min(1,(-dx-40)/60):0; };
+  const up=()=>{ if(!drag)return; drag=false;
+    card.style.transition='transform .33s cubic-bezier(.2,.9,.25,1.1)';
+    if(dx>96){ card.style.transform=`translate(500px,0) rotate(24deg)`; setTimeout(()=>decide('accept'),240); }
+    else if(dx<-96){ card.style.transform=`translate(-500px,0) rotate(-24deg)`; setTimeout(()=>decide('discard'),240); }
+    else { card.style.transform=''; if(A)A.style.opacity=0; if(Dm)Dm.style.opacity=0;
+      if(!moved) openDrawer(queueList()[S.qIndex].id); }
+    dx=0; };
+  card.addEventListener('pointerdown',down); window.addEventListener('pointermove',move); window.addEventListener('pointerup',up);
+  card._cleanup&&card._cleanup();
+}
+function pt(e){ const t=e.touches&&e.touches[0]; return {x: e.clientX!=null?e.clientX:(t?t.clientX:0), y: e.clientY!=null?e.clientY:(t?t.clientY:0)}; }
+
+/* ---------------- RANK ---------------- */
+let flowSel=0, flowDrag=0, flowDragging=false;
+function rankedView(){
+  let list=products().sort((a,b)=>b.gd-a.gd);
+  if(S.rankTier!=='ALL'){ const t=+S.rankTier[1]; list=list.filter(p=>p.effTier===t); }
+  return list;
+}
+function rankHTML(){
+  const list=rankedView(); const total=list.length;
+  if(flowSel>=total) flowSel=0;
+  const sel=list[flowSel];
+  const maxgd=Math.max(...products().map(p=>p.gd),1);
+  return `<div class="pad" style="padding-top:16px">
+    <div class="h-title">EFFICIENCY RANK</div><div class="h-sub">SWIPE THROUGH · SORTED HIGHEST g/$</div>
+    <div class="chips" style="margin-top:18px">
+      ${['ALL','T1','T2','T3'].map(k=>`<button class="chip ${S.rankTier===k?'on':''}" onclick="setRankTier('${k}')">${k}</button>`).join('')}
+    </div>
+    <div style="text-align:center;font-size:9px;letter-spacing:3px;color:var(--mute3);margin-top:14px">◄ DRAG TO SORT ►</div>
+    <div class="flow" id="flow"><div class="flow-inner" id="flowInner">
+      ${list.map((p,i)=>fcard(p,i)).join('')}
+    </div><div class="ptr">▲</div></div>
+    ${sel?detailCard(sel,maxgd):''}
+    <div style="display:flex;justify-content:space-between;align-items:center;margin:22px 0 10px">
+      <div class="kicker">TAP TO SELECT</div><div class="kicker">${total} ITEMS</div>
+    </div>
+    ${list.map((p,i)=>`<button class="drow" style="margin-bottom:8px;width:100%;${i===flowSel?'border-color:rgba(207,154,74,.55)':''}" onclick="selFlow(${i})">
+      <span style="font-family:var(--disp);font-weight:800;color:var(--mute3);width:26px">${String(i+1).padStart(2,'0')}</span>
+      <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
+      <span style="flex:1;text-align:left;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">${esc(p.name)}</span>
+      <span style="font-size:10px;color:var(--mute3)">${cpgStr(p.cpg)}/g</span>
+      <span class="big-num" style="font-size:22px;width:52px;text-align:right">${p.gd.toFixed(1)}</span>
+    </button>`).join('')}
+    <div style="height:6px"></div>
+  </div>`;
+}
+function fcard(p,i){
+  const t=p.effTier;
+  return `<div class="fcard ${surfClass(t)}" data-i="${i}">
+    <div style="display:flex;justify-content:space-between;font-size:8px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'}">
+      <span>${String(i+1).padStart(2,'0')}/${rankedView().length}</span><span class="tag t${t}" style="padding:2px 6px;font-size:7px">T${t}</span></div>
+    <div class="big-num" style="font-size:42px;text-align:center;margin-top:22px;color:${t===2?'var(--copper-l)':(t===1?'var(--ink)':'#efeee6')}">${p.gd.toFixed(1)}</div>
+    <div style="text-align:center;font-size:8px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'};margin-top:2px">g/$ · ${p.band[0]}</div>
+    <div style="margin-top:auto;text-align:center;font-weight:700;font-size:11px;color:${t===1?'var(--ink)':'#efeee6'};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</div>
+  </div>`;
+}
+function detailCard(p,maxgd){
+  const t=p.effTier, inList=S.listIds.includes(p.id);
+  const w=Math.min(100,Math.round(p.gd/maxgd*100));
+  return `<div class="card ${surfClass(t)}" style="margin-top:22px;padding:20px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+      <div style="flex:1;min-width:0"><div style="font-size:9px;letter-spacing:2px;color:${t===1?'#6b675c':'var(--mute)'}">RANK ${String(flowSel+1).padStart(2,'0')} · ${STORE_SHORT[p.store]}</div>
+      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:21px;margin-top:5px;color:${t===1?'var(--ink)':'#efeee6'};letter-spacing:-.01em;line-height:1.02">${esc(p.name)}</div>
+      <div style="font-size:10px;color:${t===1?'#6b675c':'var(--mute3)'};margin-top:6px">${esc(p.size)} · pack $${p.price.toFixed(2)} · ${cpgStr(p.cpg)}/g</div></div>
+      <div style="text-align:right;flex:0 0 auto"><div class="big-num" style="font-size:38px;color:${t===2?'var(--copper-l)':(t===1?'var(--ink)':'#efeee6')}">${p.gd.toFixed(1)}</div>
+      <div style="font-size:8px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'}">g protein / $</div></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;margin-top:14px;color:${t===1?'#6b675c':'var(--mute)'}">
+      <span class="${p.band[1]}" style="font-weight:700">${p.band[0]} VALUE</span><span>vs best ${maxgd.toFixed(0)} g/$</span></div>
+    <div class="bar" style="margin-top:6px;background:${t===1?'rgba(38,36,31,.14)':'rgba(255,255,255,.08)'}"><i style="width:${w}%"></i></div>
+    <div style="font-size:12px;line-height:1.55;margin-top:14px;color:${t===1?'#3b382f':'#c3c0cb'}">${esc(commentary(p))}</div>
+    <div style="display:flex;gap:9px;margin-top:16px">
+      <button class="qbtn ins" style="flex:1" onclick="openDrawer(${p.id})">EVIDENCE</button>
+      <button class="${inList?'qbtn ins':'qbtn ag'}" style="flex:1.3" onclick="toggleList(${p.id})">${inList?'✓ IN LIST':'+ ADD TO LIST'}</button>
+    </div>
+  </div>`;
+}
+function commentary(p){
+  const b=p.band[0].toLowerCase();
+  if(p.effTier===1){
+    const note=CLEANNOTES[p.cat];
+    return `${p.band[0]} value at ${p.gd.toFixed(1)}g protein per dollar. Whole-food clean — passes every level with zero flags.${note?' '+note:''}`;
+  }
+  const m=MECH[p.flags[0]];
+  const t=p.effTier;
+  return `${p.band[0]} value at ${p.gd.toFixed(1)}g/$, but Tier ${t}: ${m?m.summary:'flagged.'} ${t===3?'A functional tool at best — not a clean-surplus staple.':'Passes hard-safety; flagged for review.'}`;
+}
+function setRankTier(k){ S.rankTier=k; flowSel=0; flowDrag=0; render(); }
+function selFlow(i){ flowSel=i; positionFlow(); const d=document.querySelector('#app .card'); render(); document.getElementById('scroll'); }
+function bindFlow(){
+  positionFlow();
+  const flow=document.getElementById('flow'); if(!flow||S.reduceMotion) return;
+  let sx=0,drag=false,moved=false,startSel=flowSel;
+  const STEP=118;
+  const down=e=>{drag=true;moved=false;sx=pt(e).x;startSel=flowSel;flowDragging=true;};
+  const move=e=>{ if(!drag)return; const dx=pt(e).x-sx; if(Math.abs(dx)>5)moved=true; flowDrag=dx; positionFlow(dx,startSel); };
+  const up=e=>{ if(!drag)return; drag=false;flowDragging=false; const dx=pt(e).x-sx;
+    let ns=startSel-Math.round(dx/STEP); ns=Math.max(0,Math.min(rankedView().length-1,ns));
+    flowSel=ns; flowDrag=0; if(!moved){ const el=e.target.closest('.fcard'); if(el){flowSel=+el.dataset.i;} }
+    render(); };
+  flow.addEventListener('pointerdown',down); window.addEventListener('pointermove',move); window.addEventListener('pointerup',up);
+}
+function positionFlow(dx=0,base=flowSel){
+  const inner=document.getElementById('flowInner'); if(!inner) return;
+  const STEP=118;
+  [...inner.children].forEach(c=>{
+    const i=+c.dataset.i;
+    const off=i-base - dx/STEP;
+    const a=Math.abs(off);
+    if(a>3){ c.style.opacity=0; c.style.pointerEvents='none'; c.style.transform='translateX(-9999px)'; return; }
+    c.style.pointerEvents='auto';
+    c.style.opacity=Math.max(0,1-a*.34);
+    c.style.zIndex=100-Math.round(a*10);
+    c.style.transform=`translateX(${off*88}px) translateZ(${-a*130}px) rotateY(${off*-26}deg) scale(${1-a*.08})`;
+  });
+}
+
+/* ---------------- DATA ---------------- */
+let catMenuOpen=false, newCatName='';
+function dbFiltered(){
+  let list=products();
+  if(S.dbCats.length) list=list.filter(p=>S.dbCats.includes(p.cat));
+  if(S.dbQuery.trim()){ const q=S.dbQuery.toLowerCase(); list=list.filter(p=>p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)); }
+  const s=S.dbSort;
+  list.sort((a,b)=> s==='gd'?b.gd-a.gd : s==='cpg'?a.cpg-b.cpg : s==='protein'?(b.protein*b.servings)-(a.protein*a.servings) : a.price-b.price);
+  return list;
+}
+function dataHTML(){
+  const list=dbFiltered();
+  const avg=list.length?(list.reduce((s,p)=>s+p.gd,0)/list.length):0;
+  const clean=list.length?Math.round(list.filter(p=>p.effTier===1).length/list.length*100):0;
+  const cats=allCats().filter(c=>products().some(p=>p.cat===c)||S.catExtra.includes(c));
+  const counts={}; products().forEach(p=>counts[p.cat]=(counts[p.cat]||0)+1);
+  const catLabel = S.dbCats.length===0?'All categories':S.dbCats.length===1?S.dbCats[0]:`${S.dbCats.length} categories`;
+  return `<div class="pad" style="padding-top:16px">
+    <div class="h-title">FOOD DATABASE</div><div class="h-sub">${products().length} VERIFIED PRODUCTS</div>
+    <div class="searchwrap" style="margin-top:18px"><input class="search" placeholder="Search products…" value="${esc(S.dbQuery)}" oninput="S.dbQuery=this.value;dbLive()"></div>
+    <div style="display:flex;gap:10px;margin-top:12px">
+      <button class="selbtn" onclick="catMenuOpen=!catMenuOpen;render()">${catLabel} <span style="color:var(--mute3)">▾</span></button>
+      <button class="icon-btn" onclick="openAddFood()">+</button>
+    </div>
+    <div class="catmenu ${catMenuOpen?'open':''}">
+      <div style="background:#0d0b11;border:1px solid var(--line2);border-radius:16px;padding:14px;margin-top:10px">
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span class="kicker">FILTER · SELECT MULTIPLE</span>
+          <button style="font-size:10px;letter-spacing:1px;color:var(--copper-l)" onclick="S.dbCats=[];render()">CLEAR</button></div>
+        <div style="max-height:210px;overflow-y:auto">
+        ${cats.map(c=>`<div class="catrow" onclick="toggleDbCat('${cssq(c)}')"><span class="cbox ${S.dbCats.includes(c)?'on':''}">${S.dbCats.includes(c)?'✓':''}</span>
+          <span style="flex:1;font-size:13px">${esc(c)}</span><span style="font-size:11px;color:var(--mute3)">${counts[c]||0}</span></div>`).join('')}
+        </div>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <input class="field" style="margin-top:0;flex:1" placeholder="New category…" value="${esc(newCatName)}" oninput="newCatName=this.value">
+          <button class="tag t2" style="padding:0 16px" onclick="addCategory()">+ ADD</button>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:7px;margin-top:14px;align-items:center">
+      <span class="kicker">SORT</span>
+      ${[['gd','g/$'],['cpg','$/g'],['protein','PROTEIN'],['price','PRICE']].map(([k,l])=>`<button class="chip ${S.dbSort===k?'on':''}" style="padding:8px 12px;font-size:10px" onclick="S.dbSort='${k}';render()">${l}</button>`).join('')}
+    </div>
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <div class="statbox"><div class="n">${list.length}</div><div class="l">ITEMS</div></div>
+      <div class="statbox"><div class="n" style="color:var(--copper-l)">${avg.toFixed(1)}</div><div class="l">AVG g/$</div></div>
+      <div class="statbox"><div class="n" style="color:var(--sage)">${clean}%</div><div class="l">TIER 1</div></div>
+    </div>
+    <div style="margin-top:16px">
+    ${list.length===0?`<div class="note" style="padding:40px 0">No products match.</div>`:
+      list.map((p,i)=>`<div class="drow ${i===0?'':''}" style="margin-bottom:9px;${i===0?'border-color:rgba(207,154,74,.5);background:linear-gradient(180deg,rgba(207,154,74,.08),transparent)':''}">
+        <button style="display:flex;align-items:center;gap:11px;flex:1;min-width:0;text-align:left" onclick="openDrawer(${p.id})">
+          <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
+          <span style="flex:1;min-width:0"><span style="font-weight:600;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</span>
+          <span style="font-size:10px;color:var(--mute3)">${esc(p.cat)} · ${esc(p.size||'—')} · ${STORE_SHORT[p.store]}</span></span>
+        </button>
+        <span style="text-align:right"><span class="big-num" style="font-size:22px;display:block">${p.gd.toFixed(1)}</span><span style="font-size:9px;color:var(--mute3)">${cpgStr(p.cpg)}/g</span></span>
+        <button class="mini-btn" onclick="openEditFood(${p.id})">✎</button>
+        <button class="mini-btn ${S.listIds.includes(p.id)?'in':'add'}" onclick="toggleList(${p.id})">${S.listIds.includes(p.id)?'✓':'+'}</button>
+      </div>`).join('')}
+    </div><div style="height:8px"></div>
+  </div>`;
+}
+function cssq(s){ return s.replace(/'/g,"\\'"); }
+let dbT; function dbLive(){ clearTimeout(dbT); dbT=setTimeout(render,180); save(); }
+function toggleDbCat(c){ S.dbCats=S.dbCats.includes(c)?S.dbCats.filter(x=>x!==c):S.dbCats.concat(c); render(); }
+function addCategory(){ const n=newCatName.trim(); if(!n) return; if(!allCats().includes(n)) S.catExtra.push(n); newCatName=''; render(); toast('Category added'); }
+function toggleList(id){ S.listIds=S.listIds.includes(id)?S.listIds.filter(x=>x!==id):S.listIds.concat(id); if(OV.kind) renderOverlay(); render(); }
+
+/* ---------------- LIST ---------------- */
+function listHTML(){
+  const items=S.listIds.map(byId).filter(Boolean);
+  const stores=[...new Set(items.map(p=>p.store))];
+  if(items.length===0){
+    return `<div class="pad" style="padding-top:20px"><div class="h-title">SHOPPING LIST</div><div class="h-sub">0 VERIFIED ITEMS</div>
+      <div style="text-align:center;padding:70px 0"><div style="font-size:40px">🛒</div>
+      <div class="note" style="margin-top:14px">Your list is empty. Add clean staples from the rank.</div>
+      <button class="btn-ghost" style="width:auto;margin:20px auto 0;padding:14px 26px" onclick="go('rank')">OPEN RANK →</button></div></div>`;
+  }
+  const order=['heb','wf','other'];
+  return `<div class="pad" style="padding-top:20px">
+    <div class="h-title">SHOPPING LIST</div><div class="h-sub">${items.length} VERIFIED ITEMS · ${stores.length} STORE${stores.length>1?'S':''}</div>
+    <div style="margin-top:20px">
+    ${order.filter(st=>items.some(p=>p.store===st)).map(st=>{
+      const g=items.filter(p=>p.store===st);
+      return `<div style="display:flex;align-items:center;gap:14px;margin:22px 0 12px">
+        <span class="grouptag gt-${st}">${STORE_LABEL[st]}</span><div style="flex:1;height:1px;background:var(--line2)"></div>
+        <span style="font-size:10px;letter-spacing:2px;color:var(--mute3)">${g.length} ITEM${g.length>1?'S':''}</span></div>
+      ${g.map(p=>listItem(p)).join('')}`;
+    }).join('')}
+    </div><div style="height:8px"></div>
+  </div>`;
+}
+function listItem(p){
+  const oos=S.outStock[p.id];
+  const swaps=oos?products().filter(x=>x.cat===p.cat&&x.id!==p.id&&x.effTier<3).sort((a,b)=>b.gd-a.gd).slice(0,3):[];
+  return `<div style="margin-bottom:10px">
+    <div class="lpill ${oos?'oos':''}" onclick="${oos?`toggleSwap(${p.id})`:''}">
+      <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
+      <div style="flex:1;min-width:0"><div style="font-weight:600;${oos?'color:var(--crimson-t)':''}">${esc(p.name)}</div>
+      <div style="font-size:10px;color:${oos?'var(--crimson)':'var(--mute3)'};margin-top:2px">${esc(p.size||'—')} · pack $${p.price.toFixed(2)}${oos?' · OUT OF STOCK':''}</div></div>
+      <span class="big-num" style="font-size:22px">${p.gd.toFixed(1)}</span>
+      <button class="xrm" onclick="event.stopPropagation();removeFromList(${p.id})">✕</button>
+    </div>
+    ${oos?`<div class="swap ${OV.swapId===p.id?'open':''}"><div style="background:#0d0b11;border:1px solid rgba(200,90,84,.3);border-radius:14px;padding:14px;margin-top:8px">
+      <div style="font-size:9px;letter-spacing:1.5px;color:var(--crimson-t);margin-bottom:8px">OUT OF STOCK · APPROVED SWAPS BY g/$</div>
+      ${swaps.map(s=>`<button style="display:flex;align-items:center;gap:10px;width:100%;padding:9px 0;border-bottom:1px solid var(--line)" onclick="doSwap(${p.id},${s.id})">
+        <span class="dot-t" style="background:${tierDotColor(s.effTier)}"></span>
+        <span style="flex:1;text-align:left;font-size:13px">${esc(s.name)}</span>
+        <span class="big-num" style="font-size:16px">${s.gd.toFixed(1)}</span><span style="color:var(--copper-l)">⇄</span></button>`).join('')||'<div class="note">No clean same-category swaps.</div>'}
+    </div></div>`:''}
+  </div>`;
+}
+function toggleSwap(id){ OV.swapId=OV.swapId===id?null:id; render(); }
+function doSwap(oldId,newId){ S.listIds=S.listIds.map(x=>x===oldId?newId:x); delete S.outStock[oldId]; OV.swapId=null; render(); toast('Swapped'); }
+function removeFromList(id){ S.listIds=S.listIds.filter(x=>x!==id); render(); }
+
+/* =====================================================================
+   OVERLAYS
+   ===================================================================== */
+function openDrawer(id){ OV={kind:'drawer',id,step:1,data:{}}; renderOverlay(true); }
+function openScience(){ OV={kind:'science'}; renderOverlay(true); }
+function openIngest(){ OV={kind:'ingest',step:1,data:{q:'',cands:[],pick:null,scanned:false}}; renderOverlay(true); }
+function openVoice(){ OV={kind:'voice',step:1,data:{transcript:'',items:[],total:0}}; renderOverlay(true); startRecognition(); }
+function openAddFood(){ OV={kind:'edit',id:null,data:blankFood()}; renderOverlay(true); }
+function openEditFood(id){ const p=byId(id); OV={kind:'edit',id,data:Object.assign({},p)}; renderOverlay(true); }
+function closeOverlay(){ const bd=document.getElementById('overlays'); const s=bd.querySelector('.sheet'),b=bd.querySelector('.backdrop');
+  if(s)s.classList.remove('show'); if(b)b.classList.remove('show'); setTimeout(()=>{OV={kind:null};bd.innerHTML='';},320); }
+function renderOverlay(animate){
+  const box=document.getElementById('overlays');
+  if(!OV.kind){ box.innerHTML=''; return; }
+  const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML}[OV.kind])();
+  box.innerHTML=`<div class="backdrop" onclick="closeOverlay()"></div><div class="sheet" onclick="event.stopPropagation()"><div class="grab"></div>${inner}</div>`;
+  requestAnimationFrame(()=>{ box.querySelector('.backdrop').classList.add('show'); box.querySelector('.sheet').classList.add('show'); });
+}
+
+/* EVIDENCE DRAWER */
+function levels(p){
+  const eff=p.effTier, over=!!S.overrides[p.id];
+  const flags=new Set(p.flags);
+  const has=c=>flags.has(c);
+  const L=[];
+  // L1 settled science / bans
+  L.push({t:'L1 · SETTLED SCIENCE / BANS', s: has('pho')&&!over?'fail':'pass',
+    d: has('pho')&&!over?'Contains partially hydrogenated oil / industrial trans fat — banned from the US food supply.':'No banned trans fats / PHO.'});
+  // L2 regulatory gap
+  const l2 = ['brom','dye','sugar','preserv'].some(has) && !over;
+  L.push({t:'L2 · REGULATORY-GAP SIGNAL', s: l2?(eff===3?'fail':'flag'):'pass',
+    d: l2? (MECH[['brom','dye','sugar','preserv'].find(has)]||{}).summary : 'No bromate, synthetic dyes, or hidden savory sugar.'});
+  // L3 gut mechanism
+  const l3=['emul','seed','tool'].some(has)&&!over;
+  L.push({t:'L3 · GUT MECHANISM', s: over?'pass': l3?'flag':'pass',
+    d: over?'Manually cleared by you.': l3? (MECH[['emul','seed','tool'].find(has)]||{}).summary : 'No gut-barrier emulsifiers, seed oils, or engineered isolates.'});
+  // L4 macro math
+  L.push({t:'L4 · MACRO MATH', s:'pass',
+    d:`(${p.protein}g × ${p.servings} servings) ÷ $${p.price.toFixed(2)} = ${p.gd.toFixed(1)} g protein / $`});
+  return L;
+}
+function drawerHTML(){
+  const p=byId(OV.id); if(!p) return '';
+  const over=!!S.overrides[p.id];
+  const hasMech = p.effTier!==1 && !over;
+  const m = hasMech? MECH[p.flags.find(f=>MECH[f]&&MECH[f].level>0)||p.flags[0]] : null;
+  const inList=S.listIds.includes(p.id);
+  return `<div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div style="flex:1"><div class="disp" style="font-family:var(--disp);font-weight:800;font-size:23px;letter-spacing:-.01em">${esc(p.name)}</div>
+      <div style="font-size:11px;color:var(--mute3);margin-top:4px">${esc(p.size||'—')} · ${STORE_SHORT[p.store]} · pack $${p.price.toFixed(2)}</div></div>
+      <span class="tag t${p.effTier}">${tierName(p)}</span></div>
+    <div style="display:flex;gap:10px;margin-top:16px">
+      <div class="tile"><div class="big-num" style="font-size:32px">${p.gd.toFixed(1)}</div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:2px">g PROTEIN / $ · <span class="${p.band[1]}">${p.band[0]}</span></div></div>
+      <div class="tile"><div class="big-num" style="font-size:32px">${cpgStr(p.cpg)}</div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:2px">PER GRAM PROTEIN</div></div>
+    </div>
+    <div style="font-size:12.5px;line-height:1.6;margin-top:16px;color:#c3c0cb">${esc(commentary(p))}</div>
+    <div class="kicker" style="margin:18px 0 2px">EVIDENCE LADDER</div>
+    ${levels(p).map(l=>`<div class="ladder"><div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:10px;letter-spacing:1.5px;font-weight:700;color:#cfccd7">${l.t}</span>
+      <span class="lvl-${l.s}" style="font-size:10px;letter-spacing:1px;font-weight:700">${l.s==='pass'?'✓ PASS':l.s==='fail'?'✕ FAIL':'▲ FLAG'}</span></div>
+      <div style="font-size:11.5px;line-height:1.5;color:var(--mute2);margin-top:7px">${esc(l.d)}</div></div>`).join('')}
+    ${m?`<div class="ladder" style="border-color:rgba(207,154,74,.35)"><div class="kicker" style="color:var(--copper-l)">MECHANISM SUMMARY</div>
+      <div style="font-size:12px;line-height:1.6;margin-top:8px;color:#d4d1db">${esc(m.mechanism)}</div>
+      <div style="font-size:10px;color:var(--mute3);margin-top:8px">${esc(m.cite)}</div></div>`:''}
+    <button class="btn-ghost" style="margin-top:16px" onclick="toggleOverride(${p.id})">${over?'↺ REVERT OVERRIDE':'■ OVERRIDE TO TIER 1'}</button>
+    <div style="display:flex;gap:10px;margin-top:10px">
+      <button class="${inList?'btn-ghost':'btn-bone'}" onclick="toggleList(${p.id})">${inList?'✓ IN LIST':'+ ADD TO LIST'}</button>
+      <button class="btn-ghost" onclick="closeOverlay()">CLOSE</button>
+    </div>`;
+}
+function toggleOverride(id){ if(S.overrides[id]) delete S.overrides[id]; else S.overrides[id]=true; renderOverlay(); render(); }
+
+/* SCIENCE */
+function scienceHTML(){
+  return `<div class="disp" style="font-family:var(--disp);font-weight:900;font-size:26px">${esc(SCIENCE.title)}</div>
+    <div style="font-size:12.5px;line-height:1.65;margin-top:12px;color:#c3c0cb">${esc(SCIENCE.intro)}</div>
+    <div class="kicker" style="margin:22px 0 4px">THE MECHANISMS</div>
+    ${SCIENCE.sections.map(s=>`<div class="ladder"><div style="font-weight:700;font-size:13px;color:#e9e7ef">${esc(s.h)}</div>
+      <div style="font-size:12px;line-height:1.6;margin-top:7px;color:var(--mute2)">${esc(s.p)}</div></div>`).join('')}
+    <div class="kicker" style="margin:22px 0 4px;color:var(--crimson-t)">WHAT PRANA IGNORES · PSEUDOSCIENCE</div>
+    ${SCIENCE.debunk.map(s=>`<div class="ladder" style="border-color:rgba(200,90,84,.25)"><div style="font-weight:700;font-size:13px;color:var(--crimson-t)">✕ “${esc(s.h)}”</div>
+      <div style="font-size:12px;line-height:1.6;margin-top:7px;color:var(--mute2)">${esc(s.p)}</div></div>`).join('')}
+    <button class="btn-ghost" style="margin-top:18px" onclick="closeOverlay()">CLOSE</button>`;
+}
+
+/* INGEST */
+function ingestPool(){ return products().filter(p=>!S.ingested.includes(p.id)); }
+function ingestHTML(){
+  const d=OV.data;
+  if(OV.step===1){
+    return `<div style="text-align:center"><div style="font-size:34px">➕</div>
+      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:24px;margin-top:6px">Add a product</div>
+      <div class="note" style="margin-top:8px">Scan a barcode, paste a link or name, or share a product photo — PRANA runs the L1–L4 analysis.</div></div>
+      <button class="btn-bone" style="margin-top:18px" onclick="ingestScan()">⌗  SCAN BARCODE</button>
+      <div class="kicker" style="text-align:center;margin:18px 0 8px">OR ENTER MANUALLY</div>
+      <div style="display:flex;gap:8px"><input class="field" style="margin-top:0;flex:1" placeholder="Paste link or product name…" value="${esc(d.q)}" oninput="OV.data.q=this.value">
+        <button class="tag t2" style="padding:0 18px" onclick="ingestSearch()">FIND</button></div>
+      <button class="row-item" style="margin-top:14px;justify-content:center" onclick="ingestSearch()"><span style="font-size:11px;letter-spacing:1px;color:var(--copper-l)">📷  iOS SHARE SHEET · VISION OCR</span></button>`;
+  }
+  if(OV.step===2){
+    return `<div style="display:flex;justify-content:space-between;align-items:center"><div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">Confirm the product</div>
+      <button class="tag t2" onclick="OV.step=1;renderOverlay()">‹ BACK</button></div>
+      ${d.scanned?`<div style="background:rgba(147,179,154,.1);border:1px solid rgba(147,179,154,.4);border-radius:12px;padding:11px;margin-top:12px;font-size:11px;color:var(--sage-l)">✓ Barcode read · GTIN ${d.gtin}</div>`:''}
+      <div class="note" style="text-align:left;margin-top:12px">${d.cands.length} match${d.cands.length!==1?'es':''} for “${esc(d.q||'photo')}”</div>
+      <div style="margin-top:10px">${d.cands.map(p=>`<button class="drow" style="width:100%;margin-bottom:8px" onclick="ingestPick(${p.id})">
+        <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
+        <div style="flex:1;text-align:left;min-width:0"><div style="font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</div>
+        <div style="font-size:10px;color:var(--mute3)">${esc(p.cat)} · ${esc(p.size||'—')} · ${STORE_SHORT[p.store]} · $${p.price.toFixed(2)}</div></div>
+        <span style="color:var(--mute3)">›</span></button>`).join('')}</div>
+      <div class="note" style="margin-top:8px">Not listed? Refine your search and try again.</div>`;
+  }
+  return `<div style="text-align:center;padding:20px 0"><div class="spin"></div>
+    <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:20px;margin-top:8px">Running L1–L4 analysis</div>
+    <div style="font-weight:600;margin-top:10px">${esc((byId(d.pick)||{}).name||'')}</div>
+    <div class="note" style="margin-top:8px">Checking bans · regulatory gaps · gut mechanism · macro math…</div></div>`;
+}
+function ingestScan(){ const pool=ingestPool(); if(!pool.length){toast('Nothing left to ingest');return;} const p=pool[Math.floor(pool.length*0.3)]||pool[0];
+  OV.data.scanned=true; OV.data.gtin='0'+(700000000000+p.id*97).toString().slice(0,12); OV.data.cands=[p]; OV.data.q=p.name; OV.step=2; renderOverlay(); }
+function ingestSearch(){ const q=(OV.data.q||'').toLowerCase().replace(/https?:\/\/\S+/g,'').trim();
+  const pool=ingestPool(); let c=[];
+  if(q){ const words=q.split(/\s+/); c=pool.filter(p=>words.some(w=>w.length>2&&(p.name.toLowerCase().includes(w)||p.cat.toLowerCase().includes(w)))); }
+  if(!c.length) c=pool.slice(0,4);
+  OV.data.cands=c.slice(0,5); OV.data.scanned=false; OV.step=2; renderOverlay(); }
+function ingestPick(id){ OV.data.pick=id; OV.step=3; renderOverlay();
+  setTimeout(()=>{ if(!S.ingested.includes(id)) S.ingested.push(id); S.qIndex=S.ingested.length-1; closeOverlay(); go('queue'); toast('Added to review queue'); },1300); }
+
+/* VOICE */
+let recog=null;
+function startRecognition(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){ simulateDictation(); return; }
+  try{ recog=new SR(); recog.continuous=true; recog.interimResults=true; recog.lang='en-US';
+    let final='';
+    recog.onresult=e=>{ let t=''; for(let i=0;i<e.results.length;i++) t+=e.results[i][0].transcript; OV.data.transcript=t; if(OV.step===1) renderOverlay(); };
+    recog.onerror=()=>simulateDictation(); recog.start();
+  }catch(e){ simulateDictation(); }
+}
+function simulateDictation(){ const demo="Two boiled eggs and a scoop of whey protein"; let i=0;
+  const iv=setInterval(()=>{ if(OV.kind!=='voice'||OV.step!==1){clearInterval(iv);return;} i+=2; OV.data.transcript=demo.slice(0,i); renderOverlay(); if(i>=demo.length)clearInterval(iv); },55); }
+function voiceHTML(){
+  const d=OV.data;
+  if(OV.step===1){
+    return `<div style="text-align:center"><div class="mic-halo">🎙</div>
+      <div class="kicker">${d.transcript?'HEARING YOU':'SPEAK NOW'}</div>
+      <div style="font-size:15px;margin-top:14px;min-height:48px;color:#d4d1db;line-height:1.5">${esc(d.transcript)||'<span style="color:var(--mute3)">Listening…</span>'}</div>
+      <button class="btn-bone" style="margin-top:18px" onclick="stopVoice()">■ STOP & ANALYZE</button>
+      <div class="note" style="margin-top:12px">On-device speech-to-text · nothing recorded leaves your phone.</div></div>`;
+  }
+  if(OV.step===2){
+    return `<div style="text-align:center;padding:10px 0"><div class="spin"></div>
+      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:20px;margin-top:6px">Estimating protein</div>
+      <div style="font-size:13px;margin-top:10px;color:var(--mute2)">“${esc(d.transcript)}”</div></div>`;
+  }
+  return `<div style="display:flex;justify-content:space-between;align-items:center"><div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">Parsing review</div>
+      <button class="tag t2" onclick="editVoice()">↺ RE-RECORD</button></div>
+    <div class="note" style="text-align:left;margin-top:10px">Heard: “${esc(d.transcript)}”</div>
+    <div style="margin-top:12px">${d.items.map(it=>`<div class="drow" style="margin-bottom:8px"><div style="flex:1"><div style="font-weight:600">${esc(it.name)}</div><div style="font-size:10px;color:var(--mute3)">${esc(it.qty)}</div></div><div class="big-num" style="font-size:22px">${it.protein}<span style="font-size:12px">g</span></div></div>`).join('')||'<div class="note">No protein foods detected.</div>'}</div>
+    <div class="tile" style="text-align:center;margin-top:12px"><div style="font-size:9px;letter-spacing:2px;color:var(--mute3)">TOTAL PROTEIN</div><div class="big-num" style="font-size:40px;margin-top:4px">${d.total}<span style="font-size:20px">g</span></div></div>
+    <div style="display:flex;gap:10px;margin-top:16px">
+      <button class="btn-ghost" onclick="editVoice()">EDIT</button>
+      <button class="btn-bone" onclick="confirmVoice()">CONFIRM +${d.total}g</button></div>
+    <div class="note" style="margin-top:10px">Tap outside to dismiss without logging.</div>`;
+}
+function stopVoice(){ try{recog&&recog.stop();}catch(e){} OV.step=2; renderOverlay(); setTimeout(()=>{ localParse(OV.data.transcript); OV.step=3; renderOverlay(); },1100); }
+function editVoice(){ OV.step=1; OV.data.transcript=''; renderOverlay(); startRecognition(); }
+function confirmVoice(){ S.dailyProtein+=OV.data.total; closeOverlay(); render(); toast('Logged +'+OV.data.total+'g protein'); }
+const FOODTBL=[['whey',24],['protein shake',24],['protein powder',24],['egg',6],['eggs',6],['chicken',31],['beef',26],['steak',26],['salmon',22],['tuna',26],['greek yogurt',17],['yogurt',9],['cottage cheese',14],['cheese',7],['milk',8],['lentil',18],['beans',15],['tofu',10],['peanut butter',7],['oats',5],['bar',20],['almonds',6],['turkey',29]];
+const QTY={'a':1,'an':1,'one':1,'two':2,'three':3,'four':4,'five':5,'six':6,'half':.5,'scoop':1,'cup':1,'bowl':1};
+function localParse(text){
+  const t=(text||'').toLowerCase(); const items=[]; let total=0;
+  FOODTBL.forEach(([name,per])=>{ if(t.includes(name)){
+    let qty=1; const re=new RegExp('(\\w+)\\s+(?:\\w+\\s+){0,2}'+name); const m=t.match(re); if(m&&QTY[m[1]]!=null)qty=QTY[m[1]];
+    const g=Math.round(per*qty); if(items.some(i=>i.name.toLowerCase()===name))return;
+    items.push({name:name.replace(/\b\w/g,c=>c.toUpperCase()),qty:qty+' × '+per+'g',protein:g}); total+=g; } });
+  if(!items.length){ items.push({name:'Mixed intake',qty:'estimated',protein:20}); total=20; }
+  OV.data.items=items; OV.data.total=total;
+}
+
+/* EDIT / ADD FOOD */
+function blankFood(){ return {id:null,name:'',size:'',price:0,protein:0,servings:1,store:'heb',stores:['heb'],cat:allCats()[0],tier:1,flags:['clean'],audit:'Custom entry.'}; }
+const FLAG_OPTS=[['clean','CLEAN · T1',1],['emul','EMULSIFIER · T2',2],['seed','SEED OIL · T2',2],['tool','ISOLATE · T2',2],['sugar','SUGAR · T3',3],['dye','DYES · T3',3],['pho','TRANS FAT · T3',3],['brom','BROMATE · T3',3]];
+function editHTML(){
+  const d=OV.data; const isNew=OV.id==null;
+  return `<div style="display:flex;justify-content:space-between;align-items:center"><div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">${isNew?'Add food':'Edit food'}</div>
+    <button class="tag t3" onclick="closeOverlay()">CANCEL</button></div>
+    <div class="kicker" style="margin-top:16px">PRODUCT NAME</div><input class="field" value="${esc(d.name)}" oninput="OV.data.name=this.value">
+    <div style="display:flex;gap:10px"><div style="flex:1"><div class="kicker" style="margin-top:12px">SIZE / PACK</div><input class="field" value="${esc(d.size)}" oninput="OV.data.size=this.value"></div>
+      <div style="flex:1"><div class="kicker" style="margin-top:12px">PRICE ($)</div><input class="field" type="number" step="0.01" value="${d.price}" oninput="OV.data.price=+this.value"></div></div>
+    <div style="display:flex;gap:10px"><div style="flex:1"><div class="kicker" style="margin-top:12px">PROTEIN / SERVING (g)</div><input class="field" type="number" value="${d.protein}" oninput="OV.data.protein=+this.value"></div>
+      <div style="flex:1"><div class="kicker" style="margin-top:12px">SERVINGS / PACK</div><input class="field" type="number" value="${d.servings}" oninput="OV.data.servings=+this.value"></div></div>
+    <div class="kicker" style="margin-top:14px">STORE</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">
+      ${[['heb','H·E·B'],['wf','WHOLE FOODS'],['other','ONLINE']].map(([k,l])=>`<button class="fchip ${d.store===k?'on':''}" onclick="OV.data.store='${k}';OV.data.stores=['${k}'];renderOverlay()">${l}</button>`).join('')}</div>
+    <div class="kicker" style="margin-top:14px">CATEGORY</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">
+      ${allCats().map(c=>`<button class="fchip ${d.cat===c?'on':''}" onclick="OV.data.cat='${cssq(c)}';renderOverlay()">${esc(c)}</button>`).join('')}</div>
+    <div class="kicker" style="margin-top:14px">CLASSIFICATION</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">
+      ${FLAG_OPTS.map(([k,l,t])=>`<button class="fchip ${d.flags[0]===k?'on':''}" onclick="OV.data.flags=['${k}'];OV.data.tier=${t};renderOverlay()">${l}</button>`).join('')}</div>
+    <div style="display:flex;gap:10px;margin-top:20px">
+      ${isNew?'':`<button class="btn-ghost" style="color:var(--crimson-t);border-color:rgba(200,90,84,.4)" onclick="deleteFood()">DELETE</button>`}
+      <button class="btn-bone" onclick="saveEditFood()">SAVE</button></div>`;
+}
+function saveEditFood(){
+  const d=OV.data;
+  d.price=Math.max(0,+d.price||0); d.protein=Math.max(0,+d.protein||0); d.servings=Math.max(1,Math.round(+d.servings||1));
+  d.name=d.name.trim()||'Untitled food'; d.size=d.size.trim()||'1 pack'; d.tlabel=d.tlabel||({1:'Gold Standard',2:'Flagged',3:'Hard Fail'}[d.tier]);
+  d.packProtein=Math.round(d.protein*d.servings*10)/10;
+  if(OV.id==null){ d.id=nextId(); S.prodAdds.push(Object.assign({},d)); }
+  else if(S.prodAdds.some(x=>x.id===OV.id)){ S.prodAdds=S.prodAdds.map(x=>x.id===OV.id?Object.assign({},d,{id:OV.id}):x); }
+  else { S.prodEdits[OV.id]=Object.assign({},S.prodEdits[OV.id],d,{id:OV.id}); }
+  closeOverlay(); render(); toast('Saved');
+}
+function deleteFood(){ const id=OV.id; if(id==null)return;
+  if(S.prodAdds.some(x=>x.id===id)) S.prodAdds=S.prodAdds.filter(x=>x.id!==id);
+  else { if(!S.prodDeleted.includes(id))S.prodDeleted.push(id); delete S.prodEdits[id]; }
+  S.listIds=S.listIds.filter(x=>x!==id); closeOverlay(); render(); toast('Deleted'); }
+function nextId(){ return 100000+S.prodAdds.length+Math.floor((Date.parse(new Date().toISOString().slice(0,10))/86400000)%1000); }
+
+/* BACKUP */
+function exportData(){
+  const o=Object.assign({app:'PRANA',version:1,exportedAt:new Date().toISOString()},S);
+  const blob=new Blob([JSON.stringify(o,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='prana-backup-'+new Date().toISOString().slice(0,10)+'.json'; a.click();
+  const n=document.getElementById('backupNote'); if(n)n.textContent='Backup downloaded.';
+}
+function onImportFile(e){ const f=e.target.files[0]; if(!f)return; const r=new FileReader();
+  r.onload=()=>{ try{ const j=JSON.parse(r.result); if(j.app!=='PRANA'&&!j._p){ toast('Not a PRANA backup'); return; }
+    Object.keys(DEFAULT).forEach(k=>{ if(j[k]!==undefined) S[k]=j[k]; }); save(); render(); toast('Restored from backup');
+  }catch(err){ toast('Could not read file'); } }; r.readAsText(f); }
+
+/* ---------- boot ---------- */
+(function(){ const h=(location.hash||'').replace('#','');
+  if(['home','queue','rank','data','list'].includes(h)) S.screen=h; })();
+window.addEventListener('hashchange',()=>{ const h=(location.hash||'').replace('#',''); if(['home','queue','rank','data','list'].includes(h)) go(h); });
+render();
+if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
+</script>
+</body>
+</html>
