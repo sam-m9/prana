@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>PRANA — Clean-Eating Intelligence</title>
 <meta name="description" content="PRANA — rank food by protein-per-dollar, filtered through a 4-level clean-eating evidence ladder.">
 <meta name="theme-color" content="#0a090c">
@@ -138,7 +138,7 @@ input{font-family:inherit}
 .ptr{position:absolute;left:50%;bottom:2px;transform:translateX(-50%);color:var(--copper);font-size:15px}
 
 /* DATA */
-.search{width:100%;background:#0e0c12;border:1px solid var(--line2);border-radius:16px;padding:15px 16px 15px 42px;color:#e9e7ef;font-size:14px}
+.search{width:100%;background:#0e0c12;border:1px solid var(--line2);border-radius:16px;padding:15px 16px 15px 42px;color:#e9e7ef;font-size:16px}
 .searchwrap{position:relative}
 .searchwrap:before{content:"⌕";position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--mute3);font-size:18px}
 .selbtn{flex:1;background:#0e0c12;border:1px solid var(--line2);border-radius:16px;padding:16px;text-align:left;color:#cfccd7;font-size:14px;display:flex;justify-content:space-between;align-items:center}
@@ -162,7 +162,8 @@ input{font-family:inherit}
 .gt-other{background:rgba(184,192,224,.12);color:var(--peri);border:1px solid rgba(184,192,224,.4)}
 .lpill{display:flex;align-items:center;gap:12px;padding:16px;border-radius:16px;background:linear-gradient(180deg,#121016,#0c0b10);border:1px solid var(--line2)}
 .lpill.oos{border-color:rgba(200,90,84,.55)}
-.xrm{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--mute3);font-size:16px;flex:0 0 auto}
+.xrm{width:44px;height:44px;margin:-7px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--mute3);font-size:16px;flex:0 0 auto}
+.clamp2{display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .swap{overflow:hidden;max-height:0;transition:max-height .32s ease}
 .swap.open{max-height:300px}
 
@@ -179,7 +180,7 @@ input{font-family:inherit}
 .tile{flex:1;background:#0e0c12;border:1px solid var(--line2);border-radius:16px;padding:15px}
 .ladder{border:1px solid var(--line2);border-radius:16px;padding:15px;margin-top:9px;background:#0d0b11}
 .lvl-pass{color:var(--sage)} .lvl-fail{color:var(--crimson)} .lvl-flag{color:var(--copper-l)} .lvl-idle{color:var(--mute3)}
-.field{width:100%;background:#0e0c12;border:1px solid var(--line2);border-radius:13px;padding:13px 14px;color:#e9e7ef;font-size:14px;margin-top:7px}
+.field{width:100%;background:#0e0c12;border:1px solid var(--line2);border-radius:13px;padding:13px 14px;color:#e9e7ef;font-size:16px;margin-top:7px}
 .fchip{font-size:10px;letter-spacing:.5px;font-weight:700;padding:9px 12px;border-radius:11px;border:1px solid var(--line2);color:var(--mute2)}
 .fchip.on{border-color:var(--copper);color:var(--copper-l);background:rgba(207,154,74,.10)}
 .btn-bone{background:linear-gradient(160deg,var(--bone1),var(--bone3));color:var(--ink);font-weight:700;letter-spacing:1px;padding:15px;border-radius:15px;text-align:center;width:100%}
@@ -257,15 +258,15 @@ function products(){
   return list.map(withMetrics);
 }
 function withMetrics(p){
-  const eff = (p.protein*p.servings)/Math.max(.01,p.price);
-  const gd = Math.round(eff*10)/10;
-  const cpg = p.price/Math.max(.01,p.protein*p.servings);
+  const pg = (p.protein||0)*(p.servings||0);
+  const gd = Math.round((pg/Math.max(.01,p.price))*10)/10;
+  const cpg = pg>0 ? p.price/pg : Infinity;
   return Object.assign({}, p, {gd, cpg, band:bandOf(gd), effTier:S.overrides[p.id]?1:p.tier});
 }
 function bandOf(g){ return g>=12?['ELITE','band-el']:g>=6?['STRONG','band-st']:g>=2.5?['FAIR','band-fa']:['LOW','band-lo']; }
 function allCats(){ return CATS_BASE.concat(S.catExtra.filter(c=>!CATS_BASE.includes(c))); }
 function byId(id){ return products().find(p=>p.id===id); }
-function cpgStr(v){ return v<0.10? '$'+v.toFixed(3) : '$'+v.toFixed(2); }
+function cpgStr(v){ if(!isFinite(v)||v<=0) return '—'; return v<0.10? '$'+v.toFixed(3) : '$'+v.toFixed(2); }
 function esc(s){ return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 function tierDotColor(t){ return t===1?'var(--t1)':t===2?'var(--t2)':'var(--t3)'; }
 
@@ -283,6 +284,9 @@ function render(){
   app.innerHTML = ({home:homeHTML, queue:queueHTML, rank:rankHTML, data:dataHTML, list:listHTML}[scr]||homeHTML)();
   document.getElementById('nav').innerHTML = navHTML();
   renderOverlay();
+  // release gesture listeners for surfaces that aren't the active screen
+  if(scr!=='queue'&&_qMove){ window.removeEventListener('pointermove',_qMove); window.removeEventListener('pointerup',_qUp); _qMove=_qUp=null; }
+  if(scr!=='rank'&&_fMove){ window.removeEventListener('pointermove',_fMove); window.removeEventListener('pointerup',_fUp); _fMove=_fUp=null; }
   if(scr==='queue') bindQueue();
   if(scr==='rank') bindFlow();
   save();
@@ -316,7 +320,7 @@ function homeHTML(){
       <div class="rocker">
         ${['heb','wf','other'].map(k=>`<button class="${S.stores.includes(k)?'on':''}" onclick="toggleStore('${k}')">${STORE_SHORT[k]}</button>`).join('')}
       </div>
-      <button class="mic" onclick="openVoice()" title="Log protein by voice">🎙</button>
+      <button class="mic" onclick="openVoice()" title="Log protein by voice" aria-label="Log protein by voice">🎙</button>
     </div>
 
     <div class="card porcelain" style="margin-top:16px;padding:22px">
@@ -428,7 +432,7 @@ function qcardInner(p,ghost){
     <div class="big-num" style="font-size:66px;text-align:center;margin-top:24px;color:${t===2?'var(--copper-l)':col}">${p.gd.toFixed(1)}</div>
     <div style="text-align:center;font-size:10px;letter-spacing:2px;color:${dark?'var(--mute)':'#6b675c'};margin-top:2px">g PROTEIN / $</div>
     <div style="text-align:center;font-size:11px;color:${dark?'var(--mute2)':'#6b675c'};margin-top:8px">${cpgStr(p.cpg)} / g · pack $${p.price.toFixed(2)}</div>
-    <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:20px;text-align:center;margin-top:20px;color:${col};letter-spacing:-.01em">${esc(p.name)}</div>
+    <div class="disp clamp2" style="font-family:var(--disp);font-weight:800;font-size:20px;text-align:center;margin-top:20px;color:${col};letter-spacing:-.01em">${esc(p.name)}</div>
     <div style="text-align:center;font-size:11px;color:${dark?'var(--mute3)':'#6b675c'};margin-top:4px">${esc(p.size||p.cat)}</div>
     <div style="text-align:center;margin-top:14px"><span class="tag ${t===1?'onbone':'t'+t}">${tierName(p)}</span></div>`;
 }
@@ -465,7 +469,9 @@ function undoDecision(){
 function resetQueue(){ S.decisions={}; S.history=[]; S.ingested=[]; S.qIndex=0; render(); }
 
 /* queue drag */
+let _qMove=null,_qUp=null;
 function bindQueue(){
+  if(_qMove){ window.removeEventListener('pointermove',_qMove); window.removeEventListener('pointerup',_qUp); _qMove=_qUp=null; }
   const card=document.getElementById('topcard'); if(!card||S.reduceMotion) return;
   let sx=0,sy=0,dx=0,drag=false,moved=false;
   const A=document.getElementById('stampA'),Dm=document.getElementById('stampD');
@@ -482,8 +488,8 @@ function bindQueue(){
     else { card.style.transform=''; if(A)A.style.opacity=0; if(Dm)Dm.style.opacity=0;
       if(!moved) openDrawer(queueList()[S.qIndex].id); }
     dx=0; };
+  _qMove=move; _qUp=up;
   card.addEventListener('pointerdown',down); window.addEventListener('pointermove',move); window.addEventListener('pointerup',up);
-  card._cleanup&&card._cleanup();
 }
 function pt(e){ const t=e.touches&&e.touches[0]; return {x: e.clientX!=null?e.clientX:(t?t.clientX:0), y: e.clientY!=null?e.clientY:(t?t.clientY:0)}; }
 
@@ -538,7 +544,7 @@ function detailCard(p,maxgd){
   return `<div class="card ${surfClass(t)}" style="margin-top:22px;padding:20px">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
       <div style="flex:1;min-width:0"><div style="font-size:9px;letter-spacing:2px;color:${t===1?'#6b675c':'var(--mute)'}">RANK ${String(flowSel+1).padStart(2,'0')} · ${STORE_SHORT[p.store]}</div>
-      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:21px;margin-top:5px;color:${t===1?'var(--ink)':'#efeee6'};letter-spacing:-.01em;line-height:1.02">${esc(p.name)}</div>
+      <div class="disp clamp2" style="font-family:var(--disp);font-weight:800;font-size:21px;margin-top:5px;color:${t===1?'var(--ink)':'#efeee6'};letter-spacing:-.01em;line-height:1.02">${esc(p.name)}</div>
       <div style="font-size:10px;color:${t===1?'#6b675c':'var(--mute3)'};margin-top:6px">${esc(p.size)} · pack $${p.price.toFixed(2)} · ${cpgStr(p.cpg)}/g</div></div>
       <div style="text-align:right;flex:0 0 auto"><div class="big-num" style="font-size:38px;color:${t===2?'var(--copper-l)':(t===1?'var(--ink)':'#efeee6')}">${p.gd.toFixed(1)}</div>
       <div style="font-size:8px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'}">g protein / $</div></div>
@@ -564,8 +570,10 @@ function commentary(p){
   return `${p.band[0]} value at ${p.gd.toFixed(1)}g/$, but Tier ${t}: ${m?m.summary:'flagged.'} ${t===3?'A functional tool at best — not a clean-surplus staple.':'Passes hard-safety; flagged for review.'}`;
 }
 function setRankTier(k){ S.rankTier=k; flowSel=0; flowDrag=0; render(); }
-function selFlow(i){ flowSel=i; positionFlow(); const d=document.querySelector('#app .card'); render(); document.getElementById('scroll'); }
+function selFlow(i){ flowSel=i; render(); }
+let _fMove=null,_fUp=null;
 function bindFlow(){
+  if(_fMove){ window.removeEventListener('pointermove',_fMove); window.removeEventListener('pointerup',_fUp); _fMove=_fUp=null; }
   positionFlow();
   const flow=document.getElementById('flow'); if(!flow||S.reduceMotion) return;
   let sx=0,drag=false,moved=false,startSel=flowSel;
@@ -576,6 +584,7 @@ function bindFlow(){
     let ns=startSel-Math.round(dx/STEP); ns=Math.max(0,Math.min(rankedView().length-1,ns));
     flowSel=ns; flowDrag=0; if(!moved){ const el=e.target.closest('.fcard'); if(el){flowSel=+el.dataset.i;} }
     render(); };
+  _fMove=move; _fUp=up;
   flow.addEventListener('pointerdown',down); window.addEventListener('pointermove',move); window.addEventListener('pointerup',up);
 }
 function positionFlow(dx=0,base=flowSel){
@@ -615,14 +624,14 @@ function dataHTML(){
     <div class="searchwrap" style="margin-top:18px"><input class="search" placeholder="Search products…" value="${esc(S.dbQuery)}" oninput="S.dbQuery=this.value;dbLive()"></div>
     <div style="display:flex;gap:10px;margin-top:12px">
       <button class="selbtn" onclick="catMenuOpen=!catMenuOpen;render()">${catLabel} <span style="color:var(--mute3)">▾</span></button>
-      <button class="icon-btn" onclick="openAddFood()">+</button>
+      <button class="icon-btn" onclick="openAddFood()" aria-label="Add a food">+</button>
     </div>
     <div class="catmenu ${catMenuOpen?'open':''}">
       <div style="background:#0d0b11;border:1px solid var(--line2);border-radius:16px;padding:14px;margin-top:10px">
         <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span class="kicker">FILTER · SELECT MULTIPLE</span>
           <button style="font-size:10px;letter-spacing:1px;color:var(--copper-l)" onclick="S.dbCats=[];render()">CLEAR</button></div>
         <div style="max-height:210px;overflow-y:auto">
-        ${cats.map(c=>`<div class="catrow" onclick="toggleDbCat('${cssq(c)}')"><span class="cbox ${S.dbCats.includes(c)?'on':''}">${S.dbCats.includes(c)?'✓':''}</span>
+        ${cats.map(c=>`<div class="catrow" onclick="toggleDbCat('${encodeURIComponent(c)}')"><span class="cbox ${S.dbCats.includes(c)?'on':''}">${S.dbCats.includes(c)?'✓':''}</span>
           <span style="flex:1;font-size:13px">${esc(c)}</span><span style="font-size:11px;color:var(--mute3)">${counts[c]||0}</span></div>`).join('')}
         </div>
         <div style="display:flex;gap:8px;margin-top:12px">
@@ -655,9 +664,10 @@ function dataHTML(){
     </div><div style="height:8px"></div>
   </div>`;
 }
-function cssq(s){ return s.replace(/'/g,"\\'"); }
-let dbT; function dbLive(){ clearTimeout(dbT); dbT=setTimeout(render,180); save(); }
-function toggleDbCat(c){ S.dbCats=S.dbCats.includes(c)?S.dbCats.filter(x=>x!==c):S.dbCats.concat(c); render(); }
+let dbT; function dbLive(){ clearTimeout(dbT); dbT=setTimeout(()=>{ render();
+  const el=document.querySelector('.search'); if(el){ el.focus(); const n=el.value.length; try{el.setSelectionRange(n,n);}catch(e){} } },180); save(); }
+function toggleDbCat(c){ c=decodeURIComponent(c); S.dbCats=S.dbCats.includes(c)?S.dbCats.filter(x=>x!==c):S.dbCats.concat(c); render(); }
+function setEditCat(c){ OV.data.cat=decodeURIComponent(c); renderOverlay(); }
 function addCategory(){ const n=newCatName.trim(); if(!n) return; if(!allCats().includes(n)) S.catExtra.push(n); newCatName=''; render(); toast('Category added'); }
 function toggleList(id){ S.listIds=S.listIds.includes(id)?S.listIds.filter(x=>x!==id):S.listIds.concat(id); if(OV.kind) renderOverlay(); render(); }
 
@@ -829,11 +839,13 @@ function ingestScan(){ const pool=ingestPool(); if(!pool.length){toast('Nothing 
   OV.data.scanned=true; OV.data.gtin='0'+(700000000000+p.id*97).toString().slice(0,12); OV.data.cands=[p]; OV.data.q=p.name; OV.step=2; renderOverlay(); }
 function ingestSearch(){ const q=(OV.data.q||'').toLowerCase().replace(/https?:\/\/\S+/g,'').trim();
   const pool=ingestPool(); let c=[];
+  if(!pool.length){ toast('All products already ingested'); return; }
   if(q){ const words=q.split(/\s+/); c=pool.filter(p=>words.some(w=>w.length>2&&(p.name.toLowerCase().includes(w)||p.cat.toLowerCase().includes(w)))); }
   if(!c.length) c=pool.slice(0,4);
   OV.data.cands=c.slice(0,5); OV.data.scanned=false; OV.step=2; renderOverlay(); }
 function ingestPick(id){ OV.data.pick=id; OV.step=3; renderOverlay();
-  setTimeout(()=>{ if(!S.ingested.includes(id)) S.ingested.push(id); S.qIndex=S.ingested.length-1; closeOverlay(); go('queue'); toast('Added to review queue'); },1300); }
+  setTimeout(()=>{ if(OV.kind!=='ingest'||OV.step!==3) return; /* user dismissed during analysis */
+    if(!S.ingested.includes(id)) S.ingested.push(id); S.qIndex=S.ingested.length-1; closeOverlay(); go('queue'); toast('Added to review queue'); },1300); }
 
 /* VOICE */
 let recog=null;
@@ -896,13 +908,13 @@ function editHTML(){
     <button class="tag t3" onclick="closeOverlay()">CANCEL</button></div>
     <div class="kicker" style="margin-top:16px">PRODUCT NAME</div><input class="field" value="${esc(d.name)}" oninput="OV.data.name=this.value">
     <div style="display:flex;gap:10px"><div style="flex:1"><div class="kicker" style="margin-top:12px">SIZE / PACK</div><input class="field" value="${esc(d.size)}" oninput="OV.data.size=this.value"></div>
-      <div style="flex:1"><div class="kicker" style="margin-top:12px">PRICE ($)</div><input class="field" type="number" step="0.01" value="${d.price}" oninput="OV.data.price=+this.value"></div></div>
-    <div style="display:flex;gap:10px"><div style="flex:1"><div class="kicker" style="margin-top:12px">PROTEIN / SERVING (g)</div><input class="field" type="number" value="${d.protein}" oninput="OV.data.protein=+this.value"></div>
-      <div style="flex:1"><div class="kicker" style="margin-top:12px">SERVINGS / PACK</div><input class="field" type="number" value="${d.servings}" oninput="OV.data.servings=+this.value"></div></div>
+      <div style="flex:1"><div class="kicker" style="margin-top:12px">PRICE ($)</div><input class="field" type="number" min="0" step="0.01" value="${d.price}" oninput="OV.data.price=+this.value"></div></div>
+    <div style="display:flex;gap:10px"><div style="flex:1"><div class="kicker" style="margin-top:12px">PROTEIN / SERVING (g)</div><input class="field" type="number" min="0" value="${d.protein}" oninput="OV.data.protein=+this.value"></div>
+      <div style="flex:1"><div class="kicker" style="margin-top:12px">SERVINGS / PACK</div><input class="field" type="number" min="1" value="${d.servings}" oninput="OV.data.servings=+this.value"></div></div>
     <div class="kicker" style="margin-top:14px">STORE</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">
       ${[['heb','H·E·B'],['wf','WHOLE FOODS'],['other','ONLINE']].map(([k,l])=>`<button class="fchip ${d.store===k?'on':''}" onclick="OV.data.store='${k}';OV.data.stores=['${k}'];renderOverlay()">${l}</button>`).join('')}</div>
     <div class="kicker" style="margin-top:14px">CATEGORY</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">
-      ${allCats().map(c=>`<button class="fchip ${d.cat===c?'on':''}" onclick="OV.data.cat='${cssq(c)}';renderOverlay()">${esc(c)}</button>`).join('')}</div>
+      ${allCats().map(c=>`<button class="fchip ${d.cat===c?'on':''}" onclick="setEditCat('${encodeURIComponent(c)}')">${esc(c)}</button>`).join('')}</div>
     <div class="kicker" style="margin-top:14px">CLASSIFICATION</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">
       ${FLAG_OPTS.map(([k,l,t])=>`<button class="fchip ${d.flags[0]===k?'on':''}" onclick="OV.data.flags=['${k}'];OV.data.tier=${t};renderOverlay()">${l}</button>`).join('')}</div>
     <div style="display:flex;gap:10px;margin-top:20px">
@@ -936,7 +948,7 @@ function exportData(){
 function onImportFile(e){ const f=e.target.files[0]; if(!f)return; const r=new FileReader();
   r.onload=()=>{ try{ const j=JSON.parse(r.result); if(j.app!=='PRANA'&&!j._p){ toast('Not a PRANA backup'); return; }
     Object.keys(DEFAULT).forEach(k=>{ if(j[k]!==undefined) S[k]=j[k]; }); save(); render(); toast('Restored from backup');
-  }catch(err){ toast('Could not read file'); } }; r.readAsText(f); }
+  }catch(err){ toast('Could not read file'); } finally{ e.target.value=''; } }; r.readAsText(f); }
 
 /* ---------- boot ---------- */
 (function(){ const h=(location.hash||'').replace('#','');
