@@ -42,27 +42,23 @@ body{
   background:radial-gradient(120% 90% at 50% -10%,#17141a 0%,#0a090c 46%,#060506 100%);
   background-color:#060506;
   font-family:var(--mono); color:#e9e7ef;
-  min-height:100%; height:100%; overflow:hidden;
-  display:flex; align-items:center; justify-content:center;
+  margin:0; height:100vh; height:100dvh; overflow:hidden;
+  display:flex; align-items:stretch; justify-content:center;
 }
 button{font-family:inherit;color:inherit;background:none;border:none;cursor:pointer}
 input{font-family:inherit}
 ::selection{background:rgba(207,154,74,.3)}
-/* ---------- device frame ---------- */
+/* ---------- app column (scroll host) ---------- */
 #device{
-  position:relative; width:392px; height:844px; max-height:100vh;
+  position:relative; width:100%; max-width:440px; height:100vh; height:100dvh;
   display:flex; flex-direction:column;
-  background:var(--bg); border-radius:52px; overflow:hidden;
-  box-shadow:0 0 0 11px #131117, 0 0 0 13px #241f2a, 0 40px 120px -20px rgba(0,0,0,.9), 0 0 90px -30px rgba(207,154,74,.10);
+  background:var(--bg); overflow:hidden;
 }
 @media (max-width:520px), (display-mode:standalone){
   html{background:#060506}
-  body{margin:0;background:#060506;overflow:hidden}
-  #device{position:fixed;top:0;left:0;right:0;bottom:0;width:auto;height:auto;max-height:none;border-radius:0;box-shadow:none}
-  /* Pin the nav to the true visible bottom, independent of device-box height.
-     max() guards the iOS bug where safe-area-inset-bottom reports 0. */
-  .nav{position:fixed;left:0;right:0;bottom:0;padding-bottom:max(env(safe-area-inset-bottom),14px)}
-  .scrollwrap{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+  body{background:#060506}
+  #device{max-width:none; width:100vw}
+  .nav{max-width:none; left:0; right:0; transform:none}
 }
 /* installed app: real status bar overlays the top, so drop the fake-bar reserve */
 @media (display-mode:standalone){
@@ -78,15 +74,16 @@ input{font-family:inherit}
 .sb-glyphs i.s{width:22px;height:11px;border-radius:2px;background:linear-gradient(90deg,#efeee6 60%,#5f5c68 60%)}
 
 .scrollwrap{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;
-  padding-top:calc(46px + env(safe-area-inset-top)); padding-bottom:18px}
+  padding-top:calc(46px + env(safe-area-inset-top)); padding-bottom:calc(88px + env(safe-area-inset-bottom))}
 .scrollwrap::-webkit-scrollbar{display:none}
 #app{overflow-x:hidden}
 .pad{padding:0 18px;max-width:100%}
 
-/* ---------- bottom nav ---------- */
-.nav{flex:0 0 auto;z-index:45;padding-bottom:calc(10px + env(safe-area-inset-bottom));
-  display:flex;align-items:flex-start;justify-content:space-around;padding-top:14px;
-  background:#0a090c;border-top:1px solid rgba(255,255,255,.05)}
+/* ---------- bottom nav (direct child of body, pinned to the true viewport bottom) ---------- */
+.nav{position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:440px; z-index:45;
+  padding-top:14px; padding-bottom:max(env(safe-area-inset-bottom),14px);
+  display:flex;align-items:flex-start;justify-content:space-around;
+  background:#0a090c;border-top:1px solid rgba(255,255,255,.06)}
 .nav button{display:flex;flex-direction:column;align-items:center;gap:9px;width:20%;padding-top:4px}
 .nav .dot{width:7px;height:7px;border-radius:50%;background:transparent;transition:.25s}
 .nav button.on .dot{background:var(--copper);box-shadow:0 0 10px 1px rgba(207,154,74,.8)}
@@ -185,9 +182,9 @@ input{font-family:inherit}
 .swap.open{max-height:300px}
 
 /* overlays */
-.backdrop{position:absolute;inset:0;z-index:70;background:rgba(4,3,6,.62);backdrop-filter:blur(3px);opacity:0;transition:opacity .3s}
+.backdrop{position:fixed;inset:0;z-index:70;background:rgba(4,3,6,.62);backdrop-filter:blur(3px);opacity:0;transition:opacity .3s}
 .backdrop.show{opacity:1}
-.sheet{position:absolute;left:0;right:0;bottom:0;z-index:71;max-height:90%;overflow-y:auto;
+.sheet{position:fixed;left:0;right:0;margin:0 auto;max-width:440px;bottom:0;z-index:71;max-height:90%;overflow-y:auto;
   background:linear-gradient(180deg,#151319,#0c0b10);border:1px solid var(--line2);border-bottom:none;
   border-radius:28px 28px 0 0;padding:22px 20px calc(30px + env(safe-area-inset-bottom));
   transform:translateY(100%);transition:transform .34s cubic-bezier(.2,.9,.25,1.1)}
@@ -211,7 +208,7 @@ input{font-family:inherit}
 .note{font-size:11px;color:var(--mute);text-align:center;line-height:1.6}
 .reduce *{animation:none!important;transition:none!important}
 a.link{color:var(--copper-l);text-decoration:none;border-bottom:1px solid rgba(207,154,74,.35)}
-.toast{position:absolute;left:50%;bottom:100px;transform:translateX(-50%) translateY(20px);z-index:90;
+.toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%) translateY(20px);z-index:90;
   background:#1a1820;border:1px solid rgba(207,154,74,.5);color:#efeee6;padding:11px 18px;border-radius:12px;font-size:12px;
   opacity:0;transition:.3s;pointer-events:none;white-space:nowrap;max-width:88%}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -223,10 +220,10 @@ a.link{color:var(--copper-l);text-decoration:none;border-bottom:1px solid rgba(2
   <div class="notch"></div>
   <div class="statusbar"><span>9:41</span><span class="sb-glyphs"><i></i><i></i><i class="s"></i></span></div>
   <div class="scrollwrap" id="scroll"><div id="app"></div></div>
-  <nav class="nav" id="nav"></nav>
-  <div id="overlays"></div>
-  <div class="toast" id="toast"></div>
 </div>
+<nav class="nav" id="nav"></nav>
+<div id="overlays"></div>
+<div class="toast" id="toast"></div>
 <script src="data.js"></script>
 <script>
 /* =====================================================================
@@ -383,7 +380,7 @@ function homeHTML(){
       <button class="btn-ghost" onclick="exportData()">EXPORT BACKUP</button>
       <button class="btn-ghost" onclick="document.getElementById('importfile').click()">RESTORE</button>
     </div>
-    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v13</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v14</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <div style="height:8px"></div>
   </div>`;
