@@ -138,14 +138,12 @@ input{font-family:inherit}
 .chips{display:flex;gap:8px;justify-content:center}
 .chip{font-size:11px;letter-spacing:2px;font-weight:700;padding:9px 18px;border-radius:12px;border:1px solid var(--line2);color:var(--mute2)}
 .chip.on{border-color:var(--copper);color:var(--copper-l);background:rgba(207,154,74,.10)}
-.flow{position:relative;margin-top:8px;display:flex;gap:13px;overflow-x:auto;overflow-y:hidden;
-  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:6px calc(50% - 78px) 10px;scrollbar-width:none}
+.flow{position:relative;margin-top:10px;height:214px;display:flex;align-items:center;overflow-x:auto;overflow-y:hidden;
+  perspective:1150px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 calc(50% - 76px);scrollbar-width:none}
 .flow::-webkit-scrollbar{display:none}
-.fcard{scroll-snap-align:center;flex:0 0 156px;width:156px;min-width:0;max-width:156px;height:176px;border-radius:22px;padding:16px 14px;
-  display:flex;flex-direction:column;box-sizing:border-box;overflow:hidden;transition:transform .2s,opacity .2s}
-.fcard.sel{transform:scale(1.03)}
-.fcard:not(.sel){opacity:.5}
-.ptr{text-align:center;color:var(--copper);font-size:15px;margin-top:-2px}
+.fcard{scroll-snap-align:center;flex:0 0 152px;width:152px;min-width:0;height:184px;margin:0 -12px;border-radius:22px;padding:16px 14px;
+  display:flex;flex-direction:column;box-sizing:border-box;overflow:hidden;backface-visibility:hidden}
+.ptr{text-align:center;color:var(--copper);font-size:15px;margin-top:2px}
 
 /* DATA */
 .search{width:100%;background:#0e0c12;border:1px solid var(--line2);border-radius:16px;padding:15px 16px 15px 42px;color:#e9e7ef;font-size:16px}
@@ -536,7 +534,7 @@ function rankHTML(){
 }
 function fcard(p,i){
   const t=p.effTier;
-  return `<div class="fcard ${surfClass(t)}${i===flowSel?' sel':''}" data-i="${i}" onclick="selFlow(${i})">
+  return `<div class="fcard ${surfClass(t)}" data-i="${i}" onclick="flowTo(${i})">
     <div style="display:flex;justify-content:space-between;font-size:8px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'}">
       <span>${String(i+1).padStart(2,'0')}/${rankedView().length}</span><span class="tag t${t}" style="padding:2px 6px;font-size:7px">T${t}</span></div>
     <div class="big-num" style="font-size:42px;text-align:center;margin-top:22px;color:${t===2?'var(--copper-l)':(t===1?'var(--ink)':'#efeee6')}">${p.gd.toFixed(1)}</div>
@@ -577,24 +575,47 @@ function commentary(p){
 }
 function setRankTier(k){ S.rankTier=k; flowSel=0; render(); }
 function selFlow(i){ flowSel=i; render(); }
-let _flowScrollT=null;
+// smooth-scroll a tapped card to center (fan restyles live via onscroll)
+function flowTo(i){ const flow=document.getElementById('flow'); const c=flow&&flow.children[i]; if(!c) return;
+  flow.scrollTo({left:c.offsetLeft-(flow.clientWidth-c.clientWidth)/2, behavior:S.reduceMotion?'auto':'smooth'}); }
+let _flowRaf=0,_flowSnapT=null;
 function bindFlow(){
   const flow=document.getElementById('flow'); if(!flow) return;
-  const cards=[...flow.children];
-  // center the selected card (instant on (re)render)
-  const c=cards[flowSel]; if(c){ flow.scrollLeft = c.offsetLeft - (flow.clientWidth - c.clientWidth)/2; }
-  flow.onscroll=()=>{ clearTimeout(_flowScrollT); _flowScrollT=setTimeout(()=>{
-    const mid=flow.scrollLeft + flow.clientWidth/2; let best=0,bd=1e9;
-    cards.forEach((el,i)=>{ const cc=el.offsetLeft+el.clientWidth/2; const d=Math.abs(cc-mid); if(d<bd){bd=d;best=i;} });
-    if(best!==flowSel){ flowSel=best; refreshRankSel(cards); }
-  }, 80); };
+  const cards=[...flow.children]; if(!cards.length) return;
+  // cache card centers once (no per-frame layout reads)
+  const centers=cards.map(c=>c.offsetLeft+c.clientWidth/2);
+  const cw=cards[0].clientWidth;
+  const step=(centers[1]!=null?centers[1]-centers[0]:cw)||cw;
+  // center the selected card instantly
+  flow.scrollLeft = centers[flowSel] - flow.clientWidth/2;
+  const styleCards=()=>{
+    const mid=flow.scrollLeft + flow.clientWidth/2;
+    for(let i=0;i<cards.length;i++){
+      const off=(centers[i]-mid)/step; const a=Math.abs(off);
+      const c=cards[i];
+      if(a>3.3){ if(c.style.visibility!=='hidden')c.style.visibility='hidden'; continue; }
+      c.style.visibility='visible';
+      const ry=Math.max(-2,Math.min(2,off))*-34;
+      c.style.transform=`translateX(${off*38}px) rotateY(${ry}deg) translateZ(${-a*130}px) scale(${Math.max(.6,1-a*.12)})`;
+      c.style.opacity=String(Math.max(0,1-a*.33));
+      c.style.zIndex=String(300-Math.round(a*12));
+    }
+  };
+  styleCards();
+  flow.onscroll=()=>{
+    if(!_flowRaf) _flowRaf=requestAnimationFrame(()=>{_flowRaf=0;styleCards();});
+    clearTimeout(_flowSnapT); _flowSnapT=setTimeout(()=>{
+      const mid=flow.scrollLeft + flow.clientWidth/2; let best=0,bd=1e9;
+      for(let i=0;i<centers.length;i++){ const d=Math.abs(centers[i]-mid); if(d<bd){bd=d;best=i;} }
+      if(best!==flowSel){ flowSel=best; refreshRankSel(); }
+    }, 90);
+  };
 }
 // surgical update on snap — avoids re-rendering the whole 341-row list
-function refreshRankSel(cards){
-  cards.forEach((el,i)=>el.classList.toggle('sel', i===flowSel));
-  const sel=rankedView()[flowSel];
+function refreshRankSel(){
+  const sel=rankedView()[flowSel]; if(!sel) return;
   const maxgd=Math.max(...products().map(p=>p.gd),1);
-  const d=document.getElementById('rankDetail'); if(d&&sel) d.innerHTML=detailCard(sel,maxgd);
+  const d=document.getElementById('rankDetail'); if(d) d.innerHTML=detailCard(sel,maxgd);
   document.querySelectorAll('#rankList .drow').forEach((r,i)=>{ r.style.borderColor = (i===flowSel)?'rgba(207,154,74,.55)':''; });
   save();
 }
