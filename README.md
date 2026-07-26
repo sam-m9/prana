@@ -54,6 +54,17 @@ onto a dark square so nothing clips and iOS renders it cleanly.
 To change the logo later: replace `LOGO.PNG`, then regenerate the sized PNGs
 (`icon-1024/512/256`, `apple-touch-icon`, `icon-512-maskable`, `favicon`) from it and redeploy.
 
+## Fonts
+
+- **JetBrains Mono** (UI / labels / descriptions) is **self-hosted** in `fonts/`
+  (`JetBrainsMono-Regular.ttf`, `JetBrainsMono-Bold.ttf`, OFL license included) and
+  cached by the service worker — no runtime dependency, works fully offline.
+- **Archivo** (display: wordmark, numbers, food names) currently loads from Google
+  Fonts. To make it offline-proof too: download the Archivo family, drop
+  `archivo-600/700/800/900.woff2` into `fonts/`, then replace the Google `<link>`
+  in `index.html` with matching `@font-face` rules (a placeholder comment marks the
+  spot) and add the files to the `sw.js` cache list.
+
 ## Regenerate the catalog
 
 `data.js` is generated from the source docs. The parser and builder live under the project's

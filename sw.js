@@ -1,10 +1,12 @@
 /* PRANA service worker — offline-first cache for a fully static PWA */
-const CACHE = 'prana-v2';
+const CACHE = 'prana-v3';
 const ASSETS = [
   './',
   './index.html',
   './data.js',
   './manifest.webmanifest',
+  './fonts/JetBrainsMono-Regular.ttf',
+  './fonts/JetBrainsMono-Bold.ttf',
   './icons/icon-256.png',
   './icons/icon-512.png',
   './icons/icon-512-maskable.png',

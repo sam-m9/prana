@@ -15,8 +15,14 @@
 <link rel="icon" href="icons/favicon.png" sizes="256x256" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
+/* Self-hosted UI/label font — offline-proof, no runtime dependency */
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/JetBrainsMono-Regular.ttf') format('truetype')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/JetBrainsMono-Regular.ttf') format('truetype')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/JetBrainsMono-Bold.ttf') format('truetype')}
+/* Display font (Archivo) loads from Google Fonts; to make it offline-proof too,
+   drop archivo-600/700/800/900 woff2 into fonts/ and swap this for @font-face. */
 :root{
   --bg:#0a090c; --body:#060506;
   --bone1:#efeee6; --bone2:#d6d3c7; --bone3:#c0bcae; --ink:#26241f;
