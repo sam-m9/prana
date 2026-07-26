@@ -56,9 +56,11 @@ input{font-family:inherit}
   box-shadow:0 0 0 11px #131117, 0 0 0 13px #241f2a, 0 40px 120px -20px rgba(0,0,0,.9), 0 0 90px -30px rgba(207,154,74,.10);
 }
 @media (max-width:520px), (display-mode:standalone){
-  html{height:100%;background:#060506}
-  body{position:fixed;inset:0;display:block;background:#060506;height:100%;width:100%;overflow:hidden}
-  #device{position:relative;width:100%;height:100%;max-height:none;border-radius:0;box-shadow:none}
+  html{background:#060506}
+  body{margin:0;background:#060506;overflow:hidden}
+  /* iOS standalone + viewport-fit=cover: position:fixed + height:100vh is the
+     only combo that truly fills the screen (100% breaks cover; dvh under-reports). */
+  #device{position:fixed;top:0;left:0;width:100vw;height:100vh;max-height:none;border-radius:0;box-shadow:none}
 }
 /* installed app: real status bar overlays the top, so drop the fake-bar reserve */
 @media (display-mode:standalone){
@@ -379,7 +381,7 @@ function homeHTML(){
       <button class="btn-ghost" onclick="exportData()">EXPORT BACKUP</button>
       <button class="btn-ghost" onclick="document.getElementById('importfile').click()">RESTORE</button>
     </div>
-    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v11</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v12</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <div style="height:8px"></div>
   </div>`;
@@ -980,27 +982,7 @@ function onImportFile(e){ const f=e.target.files[0]; if(!f)return; const r=new F
   if(['home','queue','rank','data','list'].includes(h)) S.screen=h; })();
 window.addEventListener('hashchange',()=>{ const h=(location.hash||'').replace('#',''); if(['home','queue','rank','data','list'].includes(h)) go(h); });
 
-/* Lock the device to the ACTUAL visible height so the bottom nav always sits
-   flush at the screen bottom on iOS (CSS vh/dvh mis-measure with Safari toolbars). */
-function fitDevice(){
-  var dev=document.getElementById('device'); if(!dev) return;
-  var standalone = window.matchMedia('(display-mode:standalone)').matches || window.navigator.standalone===true;
-  var mobile = standalone || window.matchMedia('(max-width:520px)').matches;
-  if(mobile){
-    // Use the real window height as the source of truth (CSS vh/dvh/% all mis-measure
-    // the safe areas in an installed iOS PWA). innerHeight = full screen in standalone.
-    var h = standalone ? window.innerHeight
-          : ((window.visualViewport && window.visualViewport.height) || window.innerHeight);
-    dev.style.height=h+'px'; dev.style.maxHeight=h+'px';
-    document.body.style.height=h+'px';
-  } else { dev.style.height=''; dev.style.maxHeight=''; document.body.style.height=''; }
-}
-['resize','orientationchange','pageshow'].forEach(function(ev){ window.addEventListener(ev,fitDevice); });
-if(window.visualViewport){ window.visualViewport.addEventListener('resize',fitDevice); }
-
 render();
-fitDevice();
-setTimeout(fitDevice,300); // after iOS settles its toolbars on first paint
 if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
 </script>
 </body>
