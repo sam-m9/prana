@@ -160,7 +160,8 @@ input{font-family:inherit}
 .gt-heb{background:rgba(207,154,74,.12);color:var(--copper-l);border:1px solid rgba(207,154,74,.4)}
 .gt-wf{background:rgba(147,179,154,.12);color:var(--sage-l);border:1px solid rgba(147,179,154,.4)}
 .gt-other{background:rgba(184,192,224,.12);color:var(--peri);border:1px solid rgba(184,192,224,.4)}
-.lpill{display:flex;align-items:center;gap:12px;padding:16px;border-radius:16px;background:linear-gradient(180deg,#121016,#0c0b10);border:1px solid var(--line2)}
+.lpill{display:flex;align-items:center;gap:12px;padding:11px 16px;border-radius:15px;background:linear-gradient(180deg,#121016,#0c0b10);border:1px solid var(--line2)}
+.pname{font-family:var(--disp);font-weight:600;letter-spacing:-.01em}
 .lpill.oos{border-color:rgba(200,90,84,.55)}
 .xrm{width:44px;height:44px;margin:-7px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--mute3);font-size:16px;flex:0 0 auto}
 .clamp2{display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -320,7 +321,7 @@ function homeHTML(){
       <div class="rocker">
         ${['heb','wf','other'].map(k=>`<button class="${S.stores.includes(k)?'on':''}" onclick="toggleStore('${k}')">${STORE_SHORT[k]}</button>`).join('')}
       </div>
-      <button class="mic" onclick="openVoice()" title="Log protein by voice" aria-label="Log protein by voice">🎙</button>
+      <button class="mic" onclick="openVoice()" title="Log protein by voice" aria-label="Log protein by voice"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#cf9a4a" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3" fill="#cf9a4a" stroke="none"/><path d="M5 11a7 7 0 0 0 14 0"/><line x1="12" y1="18" x2="12" y2="21.2"/><line x1="8.4" y1="21.2" x2="15.6" y2="21.2"/></svg></button>
     </div>
 
     <div class="card porcelain" style="margin-top:16px;padding:22px">
@@ -352,7 +353,7 @@ function homeHTML(){
     </div>
     ${top.map((p,i)=>`<button class="row-item ${i===0?'hl':''}" style="margin-bottom:9px;gap:11px" onclick="openDrawer(${p.id})">
       <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
-      <div style="flex:1;min-width:0"><div style="font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</div>
+      <div style="flex:1;min-width:0"><div class="pname" style="font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</div>
       <div style="font-size:10px;color:var(--mute3);margin-top:2px">${cpgStr(p.cpg)}/g · ${STORE_SHORT[p.store]}</div></div>
       <div style="display:flex;align-items:baseline;gap:3px;flex:0 0 auto"><span class="big-num" style="font-size:26px">${p.gd.toFixed(1)}</span><span style="font-size:9px;color:var(--mute3)">g/$</span></div>
     </button>`).join('')}
@@ -521,7 +522,7 @@ function rankHTML(){
     ${list.map((p,i)=>`<button class="drow" style="margin-bottom:8px;width:100%;${i===flowSel?'border-color:rgba(207,154,74,.55)':''}" onclick="selFlow(${i})">
       <span style="font-family:var(--disp);font-weight:800;color:var(--mute3);width:26px">${String(i+1).padStart(2,'0')}</span>
       <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
-      <span style="flex:1;text-align:left;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">${esc(p.name)}</span>
+      <span class="pname" style="flex:1;text-align:left;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">${esc(p.name)}</span>
       <span style="font-size:10px;color:var(--mute3)">${cpgStr(p.cpg)}/g</span>
       <span class="big-num" style="font-size:22px;width:52px;text-align:right">${p.gd.toFixed(1)}</span>
     </button>`).join('')}
@@ -535,7 +536,7 @@ function fcard(p,i){
       <span>${String(i+1).padStart(2,'0')}/${rankedView().length}</span><span class="tag t${t}" style="padding:2px 6px;font-size:7px">T${t}</span></div>
     <div class="big-num" style="font-size:42px;text-align:center;margin-top:22px;color:${t===2?'var(--copper-l)':(t===1?'var(--ink)':'#efeee6')}">${p.gd.toFixed(1)}</div>
     <div style="text-align:center;font-size:8px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'};margin-top:2px">g/$ · ${p.band[0]}</div>
-    <div style="margin-top:auto;text-align:center;font-weight:700;font-size:11px;color:${t===1?'var(--ink)':'#efeee6'};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</div>
+    <div class="pname" style="margin-top:auto;text-align:center;font-weight:700;font-size:12px;color:${t===1?'var(--ink)':'#efeee6'};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</div>
   </div>`;
 }
 function detailCard(p,maxgd){
@@ -654,7 +655,7 @@ function dataHTML(){
       list.map((p,i)=>`<div class="drow ${i===0?'':''}" style="margin-bottom:9px;${i===0?'border-color:rgba(207,154,74,.5);background:linear-gradient(180deg,rgba(207,154,74,.08),transparent)':''}">
         <button style="display:flex;align-items:center;gap:11px;flex:1;min-width:0;text-align:left" onclick="openDrawer(${p.id})">
           <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
-          <span style="flex:1;min-width:0"><span style="font-weight:600;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</span>
+          <span style="flex:1;min-width:0"><span class="pname" style="font-size:15px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</span>
           <span style="font-size:10px;color:var(--mute3)">${esc(p.cat)} · ${esc(p.size||'—')} · ${STORE_SHORT[p.store]}</span></span>
         </button>
         <span style="text-align:right"><span class="big-num" style="font-size:22px;display:block">${p.gd.toFixed(1)}</span><span style="font-size:9px;color:var(--mute3)">${cpgStr(p.cpg)}/g</span></span>
@@ -701,7 +702,7 @@ function listItem(p){
   return `<div style="margin-bottom:10px">
     <div class="lpill ${oos?'oos':''}" onclick="${oos?`toggleSwap(${p.id})`:''}">
       <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
-      <div style="flex:1;min-width:0"><div style="font-weight:600;${oos?'color:var(--crimson-t)':''}">${esc(p.name)}</div>
+      <div style="flex:1;min-width:0"><div class="pname" style="font-size:16px;${oos?'color:var(--crimson-t)':''}">${esc(p.name)}</div>
       <div style="font-size:10px;color:${oos?'var(--crimson)':'var(--mute3)'};margin-top:2px">${esc(p.size||'—')} · pack $${p.price.toFixed(2)}${oos?' · OUT OF STOCK':''}</div></div>
       <span class="big-num" style="font-size:22px">${p.gd.toFixed(1)}</span>
       <button class="xrm" onclick="event.stopPropagation();removeFromList(${p.id})">✕</button>
@@ -825,7 +826,7 @@ function ingestHTML(){
       <div class="note" style="text-align:left;margin-top:12px">${d.cands.length} match${d.cands.length!==1?'es':''} for “${esc(d.q||'photo')}”</div>
       <div style="margin-top:10px">${d.cands.map(p=>`<button class="drow" style="width:100%;margin-bottom:8px" onclick="ingestPick(${p.id})">
         <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
-        <div style="flex:1;text-align:left;min-width:0"><div style="font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</div>
+        <div style="flex:1;text-align:left;min-width:0"><div class="pname" style="font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</div>
         <div style="font-size:10px;color:var(--mute3)">${esc(p.cat)} · ${esc(p.size||'—')} · ${STORE_SHORT[p.store]} · $${p.price.toFixed(2)}</div></div>
         <span style="color:var(--mute3)">›</span></button>`).join('')}</div>
       <div class="note" style="margin-top:8px">Not listed? Refine your search and try again.</div>`;
