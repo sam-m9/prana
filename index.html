@@ -763,14 +763,18 @@ function openWeight(){ OV={kind:'weight',data:{lb: S.weightLb||'', }}; renderOve
 function openLog(){ OV={kind:'log',data:{name:'',protein:''}}; renderOverlay(true); }
 function openAddFood(){ OV={kind:'edit',id:null,data:blankFood()}; renderOverlay(true); }
 function openEditFood(id){ const p=byId(id); OV={kind:'edit',id,data:Object.assign({},p)}; renderOverlay(true); }
+let _ovGen=0;   // bumped whenever an overlay is (re)rendered; lets a deferred close bail if a new sheet opened
 function closeOverlay(){ stopMic(); const bd=document.getElementById('overlays'); const s=bd.querySelector('.sheet'),b=bd.querySelector('.backdrop');
-  if(s)s.classList.remove('show'); if(b)b.classList.remove('show'); setTimeout(()=>{OV={kind:null};bd.innerHTML='';},320); }
+  if(s)s.classList.remove('show'); if(b)b.classList.remove('show');
+  const gen=++_ovGen;
+  setTimeout(()=>{ if(gen!==_ovGen) return; /* a new overlay opened in the meantime — don't wipe it */ OV={kind:null}; bd.innerHTML=''; },320); }
 function renderOverlay(animate){
   const box=document.getElementById('overlays');
   if(!OV.kind){ box.innerHTML=''; return; }
+  _ovGen++;   // an overlay is live → cancel any pending close-wipe
   const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML,weight:weightHTML,log:logHTML,import:importHTML}[OV.kind])();
   box.innerHTML=`<div class="backdrop" onclick="closeOverlay()"></div><div class="sheet" onclick="event.stopPropagation()"><div class="grab"></div>${inner}</div>`;
-  requestAnimationFrame(()=>{ box.querySelector('.backdrop').classList.add('show'); box.querySelector('.sheet').classList.add('show'); });
+  requestAnimationFrame(()=>{ const bd=box.querySelector('.backdrop'), sh=box.querySelector('.sheet'); if(bd)bd.classList.add('show'); if(sh)sh.classList.add('show'); });
 }
 
 /* EVIDENCE DRAWER
