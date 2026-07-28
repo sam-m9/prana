@@ -1,0 +1,194 @@
+[
+  {
+    "id": 153,
+    "name": "Good Culture Organic 4% Milkfat Cottage Cheese (Good Culture)",
+    "verified": true,
+    "sources": [
+      "https://goodculture.com/product/organic-cottage-cheese-16-oz-whole-milk-classic/",
+      "https://www.heb.com/product-detail/good-culture-organic-4-milkfat-cottage-cheese/3078691"
+    ],
+    "ingredients_found": "Organic Skim Milk, Organic Whole Milk, Organic Cream, Celtic Sea Salt, Live and Active Cultures.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean cultured organic whole-milk cow dairy with zero added sugar, zero seed oils, zero gums/emulsifiers. Conventional (non-A2) cow dairy caps it at the 'clean conventional/organic whole-milk dairy' tier.",
+    "justification": "Live culturing pre-digests lactose and casein (Principle 5/2) for low GI load; but it is standard A1-type cow dairy rather than A2/sheep/goat, so it is a Tier 2 clean staple rather than a gold-standard Tier 1 matrix.",
+    "confidence": "high",
+    "notes": "No sweetener at all — unsweetened cultured dairy."
+  },
+  {
+    "id": 154,
+    "name": "Icelandic Provisions Vanilla Bean Extra Creamy Skyr (Icelandic Provisions)",
+    "verified": true,
+    "sources": [
+      "https://www.kroger.com/p/icelandic-provisions-vanilla-bean-skyr/0085407400619",
+      "https://www.amazon.com/Pasteurized-Cultures-Vanilla-Extract-Natural/dp/B07X4GF4ZN"
+    ],
+    "ingredients_found": "Whole Milk Skyr (Pasteurized Milk, Live and Active Cultures), Cane Sugar, Vanilla Extract, Natural Flavors, Pectin, Carob Bean Gum, Vanilla Bean Seeds, Live and Active Cultures (Heirloom Skyr Cultures: Streptococcus Thermophilus Islandicus, Lactobacillus Bulgaricus, Bifidobacterium).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Carob Bean Gum (locust bean gum) — an L3 industrial gum/emulsifier. The original app audit incorrectly claimed 'no synthetic thickeners'; the real deck lists carob bean gum.",
+    "justification": "Added carob (locust) bean gum acts as a surfactant/thickener that strips the intestinal mucin shield and compromises tight junctions (Principle 1), triggering an immediate L3 gut flag regardless of the otherwise clean skyr base.",
+    "confidence": "high",
+    "notes": "Real deck differs from stored audit (adds carob bean gum + natural flavors). Cane sugar not organic per retailer decks."
+  },
+  {
+    "id": 155,
+    "name": "Bellwether Farms Vanilla Sheep Milk Yogurt (Bellwether Farms)",
+    "verified": true,
+    "sources": [
+      "https://bellwetherfarms.com/product/vanilla-sheep-milk-yogurt/",
+      "https://www.amazon.com/Bellwether-Farms-Sheep-Yogurt-Vanilla/dp/B00N42BKE6"
+    ],
+    "ingredients_found": "Pasteurized Sheep Milk, Cane Sugar, Vanilla Extract, Vanilla Bean, Live Active Cultures (S. Thermophilus, L. Bulgaricus, L. Acidophilus, Bifidus).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Gold-standard sheep-milk (100% A2-type casein) cultured dairy with no seed oils, no gums, no lecithin, no synthetic additives. Sweetened only with cane sugar.",
+    "justification": "Sheep milk is entirely A2-type protein and is fermented, so proteases cleave native peptides cleanly with no BCM-7 opioid load (Principle 2) and low FODMAP/GI burden (Principle 5) — a clean A2-class cultured dairy dessert = Tier 1.",
+    "confidence": "high",
+    "notes": "Cane sugar is a Tier-3-grade sweetener but the superior A2 sheep-dairy matrix and total absence of gums/oils place the product at Tier 1 per the desserts brief."
+  },
+  {
+    "id": 156,
+    "name": "Alec's Organic Tahitian Vanilla Bean A2/A2 Ice Cream (Alec's Ice Cream)",
+    "verified": true,
+    "sources": [
+      "https://www.alecsicecream.com/products/tahitian-vanilla-bean",
+      "https://www.goodeggs.com/alecsicecream/organic-tahitian-vanilla-bean-ice-cream/5fb8523216593d000eecbd38"
+    ],
+    "ingredients_found": "Cream, Skim Milk, Cane Sugar, Egg Yolk, Tahitian Vanilla Extract, less than 0.5% Carob Gum, Guar Gum, Vanilla Beans. (A2/A2 grass-fed dairy)",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Carob (locust bean) Gum AND Guar Gum — two L3 industrial gums. The stored app audit falsely claimed 'zero gums or emulsifiers'; the real deck lists both.",
+    "justification": "Even with a premium A2/A2 dairy base, the added carob and guar gums are detergent-like emulsifiers that erode the mucosal barrier and provoke metabolic endotoxemia/bloating (Principle 1), forcing an L3 disqualification.",
+    "confidence": "high",
+    "notes": "Would have been Tier 1 on the A2/A2 dairy alone if it were gum-free; the gums are the sole disqualifier."
+  },
+  {
+    "id": 157,
+    "name": "Honey Mama's Coconut Fudge Cocoa Truffle Bar (Honey Mama's)",
+    "verified": true,
+    "sources": [
+      "https://honeymamas.com/products/coconut-bar",
+      "https://www.amazon.com/Honey-Mamas-Cocoa-Nectar-Coconut/dp/B07FYYMCWS"
+    ],
+    "ingredients_found": "Organic Raw Honey, Organic Coconut, Organic Unrefined Coconut Oil, Organic Alkalized Cocoa Powder, Himalayan Pink Salt, Vanilla.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Whole-food matrix sweetened only with raw honey (a Tier-1 sweetener); coconut oil is a stable saturated fat, not a seed oil. Zero refined sugar, seed oils, soy lecithin, gums, or dairy.",
+    "justification": "Raw honey plus unrefined coconut lipids give dense surplus energy with stable, non-oxidizing fats (Principle 3) and no emulsifiers to breach the gut barrier (Principle 1) — a Tier 1 honey-based truffle exactly as the brief describes.",
+    "confidence": "high",
+    "notes": "Real deck uses organic coconut, not almonds (stored audit said 'sprouted almonds'); still fully clean."
+  },
+  {
+    "id": 158,
+    "name": "Petit Pot Organic Dark Chocolate Pot De Creme (Petit Pot)",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/product/petit-pot-dark-chocolate-35-oz-b01irp7cxw",
+      "https://www.amazon.com/Chocolate-Gluten-Free-Artificial-Ingredients-Preservatives/dp/B08DPQ7S1W"
+    ],
+    "ingredients_found": "Organic Whole Milk, Organic Dark Chocolate (organic cocoa mass, organic sugar, organic cocoa butter), Organic Sugared Egg Yolks, Organic Cane Sugar, Organic Heavy Cream, Organic Rice Starch, Pectin, Sea Salt.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean whole-dairy French custard with organic cane sugar. No seed oils, no synthetic emulsifiers, no listed L3 gums (pectin = natural fruit fiber and rice starch = native starch, neither on the L3 gum/engineered-fiber lists).",
+    "justification": "Whole-food organic cow-dairy/egg custard sweetened with organic cane sugar in an inherently-sweet category = Tier 3 clean fallback; conventional (non-A2) cow dairy keeps it below the A2/sheep Tier 1 line (Principle 2).",
+    "confidence": "high",
+    "notes": "Stored app flags 'emul' — but pectin/rice starch are not on the disqualifying L3 gum or engineered-fiber lists, so no L3 disqualification."
+  },
+  {
+    "id": 159,
+    "name": "Hu Organic Simple Dark Chocolate Bar 70% Cacao (Hu Kitchen)",
+    "verified": true,
+    "sources": [
+      "https://hukitchen.com/products/hu-simple",
+      "https://www.goodeggs.com/hukitchen/organic-simple-70-dark-chocolate-bar/6568ca9d3e1b1b0011394386"
+    ],
+    "ingredients_found": "Organic Fairtrade Cacao, Organic Fairtrade Unrefined Coconut Sugar, Organic Fairtrade Cocoa Butter.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Three-ingredient dark chocolate with zero soy/sunflower lecithin, zero seed oils, zero gums, zero refined cane sugar or sugar alcohols. Sweetened only with organic unrefined coconut sugar.",
+    "justification": "Minimalist cacao/cocoa-butter matrix with an unrefined whole-food sugar (coconut sugar, analogous to the Tier-3 organic unrefined cane sugar allowance) and no emulsifiers keeps GI load and lipogenic influx low (Principles 1 & 4) — Tier 3 clean dessert.",
+    "confidence": "high",
+    "notes": "Uses unrefined coconut sugar, not coconut/seed oil; stored app flags 'seed' and 'emul' are incorrect — none present."
+  },
+  {
+    "id": 160,
+    "name": "Straus Family Creamery Organic Vanilla Bean Ice Cream (Straus Family Creamery)",
+    "verified": true,
+    "sources": [
+      "https://www.strausfamilycreamery.com/products/ice-cream/organic-vanilla-bean-ice-cream/",
+      "https://www.wholefoodsmarket.com/product/straus-family-creamery-organic-vanilla-bean-ice-cream-32-oz-b0147qluvk"
+    ],
+    "ingredients_found": "Organic Cream, Organic Nonfat Milk, Organic Cane Sugar, Organic Egg Yolks, Organic Vanilla Extract, Organic Ground Vanilla Bean.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Six-ingredient organic dairy ice cream with organic cane sugar and explicitly no gums, stabilizers, or preservatives. Conventional (non-A2) organic cow dairy.",
+    "justification": "Clean whole organic cow-dairy/egg base sweetened with organic cane sugar and free of all emulsifiers/seed oils (Principle 1 & 3) = Tier 3 clean dessert; lacks the A2/sheep matrix needed for Tier 1 (Principle 2).",
+    "confidence": "high",
+    "notes": "Stored app flags 'seed' and 'emul' are incorrect — the brand confirms no gums or oils."
+  },
+  {
+    "id": 161,
+    "name": "Alexandre Family Farm Organic A2/A2 Cultured Whole Milk Yogurt - Vanilla (Alexandre Family Farm)",
+    "verified": true,
+    "sources": [
+      "https://alexandrefamilyfarm.com/products/100-grass-fed-vanilla-yogurt-a2-a2-regenerative-organic",
+      "https://www.wholefoodsmarket.com/grocery/product/alexandre-family-farms-100-grassfed-a2a2-organic-vanilla-bean-yogurt-b0c7wrmn29"
+    ],
+    "ingredients_found": "Organic 100% Grass-Fed Milk (A2/A2), Organic Cane Sugar, Organic Vanilla Extract (Water, Organic Alcohol, Organic Vanilla Bean Extracts), Ground Organic Vanilla Beans, Live & Active Cultures (S. Thermophilus, L. Bulgaricus, L. Lactis, L. Acidophilus, B. Lactis).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Verified A2/A2 100% grass-fed regenerative cultured whole-milk yogurt with no gums, no pectin, no seed oils, no lecithin. Sweetened only with organic cane sugar.",
+    "justification": "A2/A2 casein plus live culturing yields cleanly cleaved peptides (no BCM-7) and pre-digested lactose (Principles 2 & 5) with no barrier-disrupting emulsifiers (Principle 1) — a clean A2 cultured-dairy dessert = Tier 1.",
+    "confidence": "high",
+    "notes": "Cane sugar is Tier-3-grade, but the gold-standard A2/A2 grass-fed matrix with zero gums lands it at Tier 1 per the desserts brief."
+  },
+  {
+    "id": 162,
+    "name": "Halo Top Peanut Butter Cup Light Ice Cream (Halo Top)",
+    "verified": true,
+    "sources": [
+      "https://halotop.com/pints/peanut-butter-cup",
+      "https://world.openfoodfacts.org/product/5056285800182/halo-top-peanut-butter-cup-ice-cream"
+    ],
+    "ingredients_found": "Ultrafiltered Skim Milk, Skim Milk, Soluble Corn Fiber, Erythritol, Sugar, Cream, Peanuts, Vegetable Glycerine, less than 1%: Chocolate Extract, Peanut Oil, Salt, Inulin, Cellulose Gel, Cellulose Gum, Mono and Diglycerides, Stevia Leaf Extract (Reb M), Caramel Color, Vitamin A Palmitate.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Stacked disqualifiers: Erythritol (polyol), Soluble Corn Fiber + Inulin + Vegetable Glycerine (engineered fibers/fillers), Peanut Oil (seed/legume oil), Cellulose Gum + Cellulose Gel + Mono- and Diglycerides (L3 emulsifiers), plus stevia blended with erythritol/inulin.",
+    "justification": "An engineered UPF ice cream combining polyols, industrial fiber fillers, seed oil, and multiple emulsifiers that strip the mucosal barrier and pass undigested to the colon (Principles 1, 3 & 5) — an unambiguous L3 disqualification.",
+    "confidence": "high",
+    "notes": "Blended stevia (with erythritol/inulin) is itself a Sweetener-Matrix TRASH signal."
+  },
+  {
+    "id": 163,
+    "name": "Yasso Mint Chocolate Chip Greek Yogurt Bars (Yasso)",
+    "verified": true,
+    "sources": [
+      "https://www.yasso.com/p/mint-chocolate-chip-bars.html/00851035003234",
+      "https://www.cvs.com/shop/ingredients/yasso-greek-yogurt-bars-mint-chocolate-chip-4-ct-10-6-oz-prodid-371437"
+    ],
+    "ingredients_found": "Nonfat Milk, Nonfat Greek Yogurt (Nonfat Milk, Milk Protein Concentrate, Cultures), Sugar, Chocolate Flavored Flake (Powdered Sugar [Sugar, Cornstarch], Coconut Oil, Cocoa Processed With Alkali, Cocoa, Soy Lecithin, Natural Flavor), Milk Protein Concentrate, Maltodextrin, Cream, Guar Gum, Locust Bean Gum, Mint Extract, Spirulina Extract (color), Fruit Juice (color), Natural Flavor.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Guar Gum, Locust Bean Gum, and Soy Lecithin (three L3 emulsifiers/gums), plus maltodextrin and milk protein concentrate. Multiple gut-barrier disruptors.",
+    "justification": "Guar/locust bean gums and soy lecithin act as surfactants degrading tight junctions and mucin (Principle 1), while the isolate/maltodextrin load adds osmotic GI stress (Principle 4) — L3 disqualification despite the yogurt base.",
+    "confidence": "high",
+    "notes": "Real deck lists maltodextrin (stored audit said 'corn syrup solids'); disqualification stands either way via gums + soy lecithin."
+  },
+  {
+    "id": 164,
+    "name": "Quest Nutrition Chocolate Chip Cookie Dough Bar (Quest Nutrition)",
+    "verified": true,
+    "sources": [
+      "https://www.questnutrition.com/products/chocolate-chip-cookie-dough-protein-bar",
+      "https://www.amazon.com/Quest-Nutrition-Chocolate-Protein-Friendly/dp/B00DLDH1N2"
+    ],
+    "ingredients_found": "Protein Blend (Milk Protein Isolate, Whey Protein Isolate), Polydextrose, Almonds, Water, Unsweetened Chocolate, Erythritol, Cocoa Butter, Glycerin. Less than 2%: Natural Flavors, Salt, Lecithin (Sunflower and/or Soy Lecithin), Stevia, Sucralose.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Sucralose (synthetic sweetener), Erythritol (polyol), Polydextrose + Glycerin (engineered fiber/filler), and Sunflower/Soy Lecithin (L3 emulsifier), built on isolated protein powders. Multiple TRASH-tier signals.",
+    "justification": "A fully engineered UPF isolate bar with synthetic sweetener, polyol, engineered fibers, and lecithin emulsifier — the exact stack that disrupts the mucosal barrier and delivers denatured protein resistant to native proteolysis (Principles 1 & 2). L3 disqualification.",
+    "confidence": "high",
+    "notes": "Real deck lists polydextrose (stored audit said 'soluble corn fiber') and glycerin; disqualification via sucralose/erythritol/lecithin is unchanged."
+  }
+]

@@ -1,0 +1,206 @@
+[
+  {
+    "id": 318,
+    "name": "Solely Organic Fruit Gummies (Mango & Guava)",
+    "verified": true,
+    "sources": [
+      "https://solely.com/products/organic-mango-and-guava-whole-fruit-gummies",
+      "https://www.wholefoodsmarket.com/grocery/product/solely-solely-organic-mango-guava-whole-fruit-gummies-1-box-5-single-serving-bags-per-box-real-fresh-fruit-healthy-snacks-for-adults-kids-non-gmo-vegan-snacks-shelf-stable-5-bags-3-5-oz-b08n7xy3yx",
+      "https://www.vitacost.com/solely-organic-whole-fruit-gummies-no-added-sugar-mango-guava"
+    ],
+    "ingredients_found": "Organic Mango, Organic Guava, Ascorbic Acid (Vitamin C).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% whole-food fruit matrix (organic mango + guava) with only added vitamin C; no added sugar, syrup, seed oil, gum, dye, polyol, or fiber filler.",
+    "justification": "An intact whole-fruit matrix delivers sugar bound within native fiber and pectin, blunting glycemic rate-of-influx (P4) and imposing minimal mucosal/processing load (P1). Gold-standard clean whole food.",
+    "confidence": "high",
+    "notes": "Current audit was accurate; matches a Tier 1 whole-fruit product."
+  },
+  {
+    "id": 319,
+    "name": "BEAR Fruit Rolls (Apple-Pear & Strawberry)",
+    "verified": true,
+    "sources": [
+      "https://bearsnacks.com/en-us/products/fruit-rolls/strawberry",
+      "https://www.harristeeter.com/p/bear-apple-pear-strawberry-fruit-rolls/0081794602007",
+      "https://www.instacart.com/products/17604750-bear-fruit-rolls-strawberry-0-7-oz"
+    ],
+    "ingredients_found": "Apples, Pears, Strawberries, Black Carrot Extract (Color).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% fruit (apple/pear/strawberry purees & juices) colored only with black carrot extract; no added sugar, corn syrup, seed oil, gum, synthetic dye, or preservative.",
+    "justification": "Whole-fruit puree/juice keeps sugar within its native fibrous matrix, moderating hepatic glycemic load (P4); the only additive is a natural plant color, so mucosal and processing burden stays minimal (P1).",
+    "confidence": "high",
+    "notes": "Sold as BEAR Yoyos; audit plain fruit deck confirmed clean."
+  },
+  {
+    "id": 320,
+    "name": "Blue Stripes Dried Mango & Cacao Superfruit Gummies",
+    "verified": true,
+    "sources": [
+      "https://www.bluestripes.com/products/superfruit-gummies-mango",
+      "https://www.amazon.com/Stripes-Mango-Dried-Cacao-Fruit/dp/B0D82G22R7",
+      "https://martie.com/products/mango-cacao-fruit-superfruit-gummies"
+    ],
+    "ingredients_found": "Mango, Cacao Fruit (upcycled). (Two-ingredient, no added sugar.)",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Two whole-fruit ingredients (dried mango + upcycled cacao fruit) with no added sugar, syrup, seed oil, gum, dye, polyol, or fiber filler.",
+    "justification": "An intact dried-fruit matrix supplies sugars bound in native fiber, limiting glycemic influx (P4) and carrying negligible additive/mucosal load (P1). Whole-food gold standard.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 321,
+    "name": "Bob Snail Whole Fruit Rolls (Apple & Strawberry)",
+    "verified": true,
+    "sources": [
+      "https://www.bob-snail.com/product/apple-strawberry-fruit-rolls/",
+      "https://thrivemarket.com/p/bob-snail-fruit-roll-snacks-apple-strawberry",
+      "https://www.centralmarket.com/product/bob-snail-apple-and-strawberry-fruit-rolls-10-pk/12704519"
+    ],
+    "ingredients_found": "Apple, Strawberry. (No added sugar, no citric acid, no preservatives, colorings, extracts or aromatic substances.)",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Pure whole-fruit leather (apple + strawberry only), zero added sugar, syrup, seed oil, gum, dye, polyol, or fiber filler.",
+    "justification": "Sugars remain locked in the native fruit fiber/pectin structure, moderating glycemic rate-of-influx (P4) with essentially zero processing or mucosal disruptor load (P1).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 322,
+    "name": "Katjes Plant-Based Rainbow Gummies",
+    "verified": true,
+    "sources": [
+      "https://www.katjes.com/products/wunderland-rainbow",
+      "https://eurofoodhub.com/products/katjes-wunderland-100-vegan-gummies-wonderland-rainbow-edition-175g",
+      "https://www.amazon.com/Katjes-Wunderland-Rainbow-200g-pack/dp/B07NQ72TRX"
+    ],
+    "ingredients_found": "Fructose-glucose syrup, glucose syrup, modified starch, sugar, gelling agent: pectin, acidifiers (citric acid, malic acid, lactic acid), hydrolyzed pea protein, coloring fruit and plant concentrates (black carrot, apple, sweet potato, turmeric), natural flavors, natural orange flavor, salt, coloring spirulina concentrate, sunflower oil, glazing agent: carnauba wax.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains sunflower oil (industrial seed oil) — an L3 lipid disruptor.",
+    "justification": "Refined sunflower oil carries oxidized PUFA hydroperoxides that integrate into membranes and skew the omega-6:omega-3 balance toward inflammation (P3), a hard L3 disqualifier regardless of quantity.",
+    "confidence": "high",
+    "notes": "Prior audit claimed 'zero seed oils' — incorrect; sunflower oil is present. Vegan (pectin, no gelatin)."
+  },
+  {
+    "id": 323,
+    "name": "Black Forest Organic Gummy Bears",
+    "verified": true,
+    "sources": [
+      "https://www.blackforestusa.com/products/organic-gummy-bears",
+      "https://www.target.com/p/black-forest-organic-gummy-bears-candy-8oz/-/A-53058538",
+      "https://www.gerbes.com/p/black-forest-organic-gummy-bears/0004142007624"
+    ],
+    "ingredients_found": "Organic Tapioca Syrup, Organic Cane Sugar, Water, Gelatin, Organic Lemon Juice Concentrate, Organic Tapioca Starch, Organic Potato Starch, Agar-Agar, Organic Sunflower Oil, Citric Acid, Natural Flavors, Organic Fruit and Vegetable Juice (Color), Fruit and Vegetable Juice (Color), Organic Carnauba Wax, Organic Turmeric Extract (Color).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains organic sunflower oil (seed oil) — an L3 lipid disruptor.",
+    "justification": "Even 'organic' sunflower oil is a refined high-PUFA seed oil whose hydroperoxides drive membrane oxidation and inflammatory eicosanoid cascades (P3); L3 hard-disqualifies despite the otherwise organic deck and cane sugar being allowable in a sweet category.",
+    "confidence": "high",
+    "notes": "Prior flags (seed/tool/sugar) correctly identified the seed oil. Sunflower oil is the disqualifier."
+  },
+  {
+    "id": 324,
+    "name": "YumEarth Organic Gummy Bears",
+    "verified": true,
+    "sources": [
+      "https://yumearth.com/products/assorted-flavor-gummy-bears",
+      "https://www.amazon.com/YumEarth-Organic-Gummy-Bears-Count/dp/B008B7JNRA",
+      "https://www.walmart.com/ip/YumEarth-Organic-Candy-Gluten-Free-Vegan-Organic-Gummy-Bears-5-Ct/36302006"
+    ],
+    "ingredients_found": "Organic Rice Syrup, Organic Cane Sugar, Gelatin, Apple Juice Concentrate, Citric Acid, Ascorbic Acid, Natural Flavors, colored with concentrate (carrot, blackcurrant, apple, pumpkin, radish, lemon, paprika), Organic Carnauba Wax, Organic Sunflower Oil.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains organic sunflower oil (seed oil) — an L3 lipid disruptor.",
+    "justification": "The refined sunflower oil release agent is a high-PUFA seed oil generating cytotoxic lipid oxidation products that impair membrane and insulin dynamics (P3); L3 disqualifies even though the sugars/juice concentrate are acceptable in a sweet category.",
+    "confidence": "high",
+    "notes": "Prior audit dismissed the sunflower oil as 'trivial release agent' — the rules disqualify seed oil regardless of amount."
+  },
+  {
+    "id": 325,
+    "name": "Katjes Plant-Based Sour Gummies",
+    "verified": true,
+    "sources": [
+      "https://www.katjes.com/products/wunderland-sauer",
+      "https://eurofoodhub.com/products/katjes-wunderland-100-vegan-gummies-wonderland-sour-edition-175g",
+      "https://vegansupply.ca/products/katjes-wonderland-sour-gummies-170g"
+    ],
+    "ingredients_found": "Sugar, glucose syrup, modified starch, glucose-fructose syrup, acidifiers (malic acid, citric acid, lactic acid), fruit and plant concentrates (safflower, apple, red grape, blackcurrant, lemon, black carrot, red cabbage, radish), spirulina concentrate, acidity regulator: calcium carbonate, natural flavourings, natural lime flavouring, vegetable oil fully hydrogenated (sunflower).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains vegetable oil / hydrogenated sunflower oil (industrial seed oil) — an L3 lipid disruptor.",
+    "justification": "The deck lists 'vegetable oil, fully hydrogenated (sunflower)' — an industrial seed-oil glazing lipid (P3 L3). (Fully, not partially, hydrogenated, so not an L1 trans-fat, but the seed-oil source alone disqualifies.)",
+    "confidence": "high",
+    "notes": "Prior audit claimed 'zero seed oils' — incorrect; sunflower-based vegetable oil is present. Vegan (no gelatin)."
+  },
+  {
+    "id": 326,
+    "name": "SmartSweets Sweet Fish Candy",
+    "verified": true,
+    "sources": [
+      "https://smartsweets.com/products/sweet-fish%E2%84%A2-single-pouch",
+      "https://www.heb.com/product-detail/smartsweets-sweet-fish-candy/2964662",
+      "https://www.cvs.com/shop/ingredients/smart-sweets-sweet-fish-candy-1-8-oz-prodid-187988"
+    ],
+    "ingredients_found": "Soluble Corn Fiber, Allulose, Isomalto-Oligosaccharides (vegetable source), Modified Potato Starch, Natural Flavors, Citric Acid, Malic Acid, Fruit and Vegetable Juice (for color), Coconut Oil, Carnauba Wax, Stevia Leaf Extract.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Built on soluble corn fiber and isomalto-oligosaccharides (engineered fiber fillers); stevia is blended with these fibers.",
+    "justification": "Soluble corn fiber + IMO are engineered oligosaccharide fillers that reach the colon undigested and ferment into excess gas/visceral distension (P5), and the stevia is blended rather than pure — an L3 disqualifier for the 'low-sugar' gummy archetype.",
+    "confidence": "high",
+    "notes": "Hallmark engineered low-sugar gummy; DQ despite allulose/stevia being individually tolerable."
+  },
+  {
+    "id": 327,
+    "name": "Lily's Sweet Fruity Friends Gummy Bears",
+    "verified": true,
+    "sources": [
+      "https://www.vitacost.com/lilys-sweets-fruity-friends-gummy-bears",
+      "https://spoonfulapp.com/products/lilys-gummy-bear-sweet-fruity-friends/MDgxMDAwMzQ2MjA2MA==",
+      "https://www.amazon.com/LILYS-Assorted-Fruit-Flavored-Gluten/dp/B0B3TVHJHT"
+    ],
+    "ingredients_found": "Soluble Corn Fiber, Allulose, Pectin, Citric Acid, Sodium Citrate, Natural Flavors, Palm Oil (Sustainably Sourced), Coconut Oil, Color Added (apple, blackcurrant, carrot, lemon, pumpkin, radish, saffron concentrate), Carnauba Wax, Stevia Extract.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "First ingredient is soluble corn fiber (engineered fiber filler); stevia is blended with it.",
+    "justification": "Soluble corn fiber as the base is an engineered oligosaccharide that ferments in the colon producing gas and visceral bloat (P5), and stevia here is blended not pure — an L3 disqualifier for this low-sugar gummy format.",
+    "confidence": "high",
+    "notes": "Prior flag noted seed oil, but the decisive disqualifier is the soluble corn fiber base."
+  },
+  {
+    "id": 328,
+    "name": "Joyride Low Sugar Gummy Bears",
+    "verified": true,
+    "sources": [
+      "https://foodisgood.com/product/joyride-bears-gummy-zero-sugar/",
+      "https://www.heb.com/product-detail/joyride-zero-sugar-fruit-gummy-bears/10422010",
+      "https://www.harristeeter.com/p/joyride-zero-sugar-sour-fruit-gummies/0084491100818"
+    ],
+    "ingredients_found": "Soluble Corn Fiber, Allulose, Vegetable Glycerin, Rice Flour, Pectin, Fumaric Acid, Lactic Acid, Sodium Citrate, Citric Acid, Malic Acid, Natural Flavors, colored with vegetable extracts (pepper, carrot, blackcurrant), Turmeric Extract (color), Stevia Extract.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Base is soluble corn fiber plus vegetable glycerin — both engineered fiber/humectant fillers; stevia is blended.",
+    "justification": "Soluble corn fiber and vegetable glycerin are engineered carbohydrate fillers that escape upper-GI digestion and ferment/osmotically draw water in the colon, driving gas and bloat (P5); L3 disqualifier for the low-sugar gummy category.",
+    "confidence": "high",
+    "notes": "Current Joyride bears are vegan (pectin/rice flour), not gelatin as the source file stated; either way the corn-fiber/glycerin base disqualifies."
+  },
+  {
+    "id": 329,
+    "name": "SunRidge Farms Sugar Free Gummi Bears",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/sunridge-farms-sugar-free-gummi-bears-wild-fruit/2188013",
+      "https://shopsunridgefarms.com/product/sugar-free-assorted-gummi-bears/",
+      "https://sugarlessdelite.com/shop/low-carb/general-mer/albanese-sugar-free-gummi-bears/"
+    ],
+    "ingredients_found": "Maltitol Syrup, Sorbitol, Steviol Glycosides, Gelatin, Wheat Starch, Citric Acid, Natural Flavor, Sunflower Oil, Carnauba Wax, Plant-Based Color (black carrot juice, paprika oleoresin, turmeric oleoresin). (Laxative-effect warning.)",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Built on maltitol and sorbitol (polyols) plus sunflower oil (seed oil) — both L3/Sweetener-Matrix trash.",
+    "justification": "Maltitol and sorbitol are polyols that osmotically pull water into the gut and ferment to cause severe bloat/laxation (P5, carries a laxative warning), and sunflower oil adds a seed-oil lipid disruptor (P3) — multiple hard L3 disqualifiers.",
+    "confidence": "high",
+    "notes": "Explicit sorbitol laxative warning on pack; clear polyol disqualification."
+  }
+]

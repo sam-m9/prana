@@ -1,0 +1,204 @@
+[
+  {
+    "id": 141,
+    "name": "Organic Creamy Peanut Butter (Unsweetened & Unsalted), 365 by Whole Foods Market",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/grocery/product/365-by-whole-foods-market-organic-creamy-peanut-butter-unsweetened-unsalted-stir-and-enjoy-16-ounce-b074h5zhvz",
+      "https://www.amazon.com/365-Everyday-Value-Organic-Unsweeteend/dp/B074H5ZHVZ"
+    ],
+    "ingredients_found": "Organic Dry Roasted Peanuts.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Single-ingredient organic peanuts; 'Stir and Enjoy' = natural oil separation, no palm oil, no sugar, no salt. Clean but conventional-grade (not sprouted/single-origin).",
+    "justification": "Native whole-food lipid matrix with zero seed oils (P3) and zero added sugar in a savory staple (P4); intact peanut structure imposes minimal mucosal/gut workload (P1).",
+    "confidence": "high",
+    "notes": "Audited the 'Stir and Enjoy, Unsweetened & Unsalted' SKU (single ingredient). Do NOT confuse with the separate 365 'No-Stir' variant, which adds organic palm oil + sea salt (that SKU would be L3 disqualify)."
+  },
+  {
+    "id": 142,
+    "name": "Organic Dark Roasted Creamy Peanut Butter, Santa Cruz Organic",
+    "verified": true,
+    "sources": [
+      "https://thrivemarket.com/p/santa-cruz-organic-creamy-peanut-butter-dark-roasted",
+      "https://www.walmart.com/ip/Santa-Cruz-Organic-Creamy-Dark-Roasted-Peanut-Butter-16-Ounces/1423377659",
+      "https://www.wholefoodsmarket.com/grocery/product/santa-cruz-organic-santa-cruz-organic-organic-dark-roasted-creamy-peanut-butter-26-oz-b08gkcwgy7"
+    ],
+    "ingredients_found": "Organic Roasted Peanuts, Salt (contains 1% or less salt).",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Just organic peanuts + salt, natural separation. No added sugar, no hydrogenated/seed oils, no palm oil. Clean conventional-organic staple.",
+    "justification": "Native lipid matrix, no oxidized seed oils (P3) and no hepatic sugar load in a savory staple (P4); simple two-ingredient deck keeps GI workload low (P1).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 143,
+    "name": "All-Natural Creamy Peanut Butter, Georgia Grinders",
+    "verified": true,
+    "sources": [
+      "https://georgiagrinders.com/products/products-georgia-grinders-creamy-peanut-butter-html",
+      "https://www.amazon.com/GEORGIA-GRINDERS-Creamy-Peanut-Butter/dp/B072XLVGMS",
+      "https://www.publix.com/pd/georgia-grinders-peanut-butter-creamy/RIO-PCI-541760"
+    ],
+    "ingredients_found": "Georgia Grown Roasted Peanuts, Kosher Sea Salt.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Two ingredients (peanuts + sea salt), small-batch, no added sugar/oils/palm. Clean. Georgia-grown regional sourcing but not sprouted, so held at Tier 2 rather than Tier 1.",
+    "justification": "Native whole-food peanut lipid/protein matrix, zero seed oils (P3) and zero added sugar in a savory staple (P4).",
+    "confidence": "high",
+    "notes": "Marketed as single-region Georgia-grown; a defensible Tier-1 case exists on single-origin grounds, but assigned Tier 2 conservatively since it is neither sprouted nor a strict estate single-origin."
+  },
+  {
+    "id": 144,
+    "name": "Super Crunchy Peanut Butter, Fix & Fogg",
+    "verified": true,
+    "sources": [
+      "https://fixandfogg.com/products/super-crunchy-peanut-butter",
+      "https://www.amazon.com/Fix-Fogg-Crunchy-Peanut-Butter/dp/B09JBJSCR1",
+      "https://www.wholefoodsmarket.com/grocery/product/fix-and-fogg-fix-fogg-super-crunchy-peanut-butter-new-zealand-made-13-2-oz-1-pack-b09jbjscr1"
+    ],
+    "ingredients_found": "Hi-Oleic Peanuts (99.5%), New Zealand Sea Salt.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Hi-oleic peanuts + sea salt only. No added sugar, no palm oil, no stabilizers/emulsifiers, no seed oils. Clean premium staple.",
+    "justification": "Hi-oleic (monounsaturated-rich) native lipid matrix resists oxidation (P3); no added sugar in a savory staple (P4); minimal-ingredient deck, low mucosal burden (P1).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 145,
+    "name": "Raw Walnut Butter with Cashews, Artisana Organics",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Artisana-Organics-Walnut-Butter-Cashews/dp/B081GK74YJ",
+      "https://www.wholefoodsmarket.com/grocery/product/artisana-artisana-organics-raw-walnut-butter-with-cashews-no-sugar-added-just-two-ingredients-vegan-paleo-and-non-gmo-9oz-jar-b004jnxdnk"
+    ],
+    "ingredients_found": "Organic Raw Walnuts, Organic Raw Cashews.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Two raw organic nuts only; no added sugar, oils, salt, or emulsifiers. Clean. Raw (not sprouted/fermented), so held at Tier 2.",
+    "justification": "Raw organic nut matrix preserves native omega-3 lipids without thermal oxidation (P3) and carries zero added sugar (P4); no emulsifiers to strip the mucosal shield (P1). Lacks enzymatic pre-digestion (sprouting) required for Tier 1 (P5).",
+    "confidence": "high",
+    "notes": "No added salt. Raw, not sprouted."
+  },
+  {
+    "id": 146,
+    "name": "100% Peanuts Creamy Peanut Butter, Crazy Richard's",
+    "verified": true,
+    "sources": [
+      "https://www.crazyrichards.com/product/creamy-peanut-butter/",
+      "https://www.walmart.com/ip/Crazy-Richard-s-Creamy-Peanut-Butter-16-oz/20683208",
+      "https://healthyheartmarket.com/products/crazy-richards-100-peanuts-creamy-peanut-butter-16oz"
+    ],
+    "ingredients_found": "Peanuts (100%).",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Single ingredient: 100% US-grown peanuts. No salt, sugar, oil, or palm. Fully clean natural-separation paste.",
+    "justification": "Pure native peanut whole-food matrix, zero seed oils (P3), zero added sugar (P4), zero emulsifiers (P1).",
+    "confidence": "high",
+    "notes": "Current catalog flag 'tool' is incorrect — this is a whole-food single-ingredient paste, not an engineered isolate. Belongs in the clean Tier-2 zone."
+  },
+  {
+    "id": 147,
+    "name": "100% Natural Creamy Peanut Butter, Adams",
+    "verified": true,
+    "sources": [
+      "https://www.kroger.com/p/adams-100-natural-creamy-peanut-butter/0005150070030",
+      "https://allergeninside.com/foods/ingredients/051500700167/Adams-100-Natural-Creamy-Peanut-Butter",
+      "https://www.adamspeanutbutter.com/"
+    ],
+    "ingredients_found": "Peanuts, Salt (contains 1% or less salt).",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Peanuts + a dash of salt, natural separation. No added sugar, no hydrogenated/seed oils, no palm oil. Clean conventional staple.",
+    "justification": "Native peanut lipid/protein matrix, zero seed oils (P3) and zero added sugar in a savory staple (P4).",
+    "confidence": "high",
+    "notes": "Audited the plain 100% Natural Creamy (salted) variant."
+  },
+  {
+    "id": 148,
+    "name": "Classic Peanut Butter, Justin's",
+    "verified": true,
+    "sources": [
+      "https://www.justins.com/products/classic-peanut-butter/",
+      "https://www.amazon.com/Butter-Justins-Ingredients-Gluten-free-Responsibly/dp/B07DCHQFCF",
+      "https://www.ewg.org/foodscores/products/840379101393-JustinsClassicPeanutButterSpreadClassic/"
+    ],
+    "ingredients_found": "Dry Roasted Peanuts, Palm Oil.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Added palm oil (used as a no-stir anti-separation stabilizer) — an L3 industrial hardened fat/emulsifying stabilizer that hard-disqualifies a savory staple.",
+    "justification": "Palm oil is added purely to arrest natural oil separation, functioning as a processed lipid stabilizer that disrupts the native lipid matrix and mucosal dynamics (P1/P3) — exactly the 'no-stir = palm oil' trap flagged for this category.",
+    "confidence": "high",
+    "notes": "RSPO/'orangutan-friendly' palm sourcing is a sustainability claim, irrelevant to the ingredient-deck disqualification. Current catalog flag 'seed' is directionally right (disqualified) but the offending agent is palm oil (L3), not a seed oil."
+  },
+  {
+    "id": 149,
+    "name": "Bare Smooth Almond Butter, Barney Butter",
+    "verified": true,
+    "sources": [
+      "https://barneybutter.com/products/bare-smooth-almond-butter",
+      "https://www.amazon.com/Barney-Butter-Almond-Smooth-Ounce/dp/B009JZRM1M",
+      "https://www.walmart.com/ip/Barney-Butter-Skin-Free-Almond-Butter-Bare-Smooth-16-oz/39202736"
+    ],
+    "ingredients_found": "Blanched Roasted Almonds, Palm Fruit Oil.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Added palm (fruit) oil as a no-stir stabilizer — L3 processed hardened-fat stabilizer; hard-disqualifies a savory staple regardless of sustainability certification.",
+    "justification": "Palm fruit oil is a processed stabilizing lipid added to prevent separation, altering the native almond lipid matrix and burdening mucosal/lipid dynamics (P1/P3). No sugar present, but the palm oil alone disqualifies.",
+    "confidence": "high",
+    "notes": "Blanched (skin-free) almonds; RSPO-certified palm is still a disqualifying L3 additive. Current catalog flag 'seed' is directionally right but the agent is palm oil (L3)."
+  },
+  {
+    "id": 150,
+    "name": "Pure Powdered Peanut Butter, PB2 Foods",
+    "verified": true,
+    "sources": [
+      "https://www.kroger.com/p/pb2-original-powdered-peanut-butter/0085079100200",
+      "https://pb2.com/products/pb2-original-powdered-peanut-butter-peanut-butter-powder",
+      "https://pb2.com/products/pb2-pure-peanut-powder"
+    ],
+    "ingredients_found": "Roasted Peanuts, Sugar, Salt.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "The salted 6.5 oz PB2 powder (PB2 Original) contains added sugar — L2 added sugar in a savory/staple category. Also a defatted-peanut-flour engineered isolate (P2 'tool').",
+    "justification": "Added sugar floods the hepatic portal vein in a savory staple, driving de novo lipogenesis (P4); the defatting also strips the native lipid matrix, making it an engineered isolate rather than a whole-food (P2/P3).",
+    "confidence": "medium",
+    "notes": "SKU-mapping ambiguity: the catalog lists 'Defatted Peanut Flour, Salt' (no sugar), but PB2's only genuinely sugar-free/salt-free product is 'PB2 Pure Peanut Powder — No Sugar OR Salt' (peanuts only). Since the catalog entry includes salt, the matching real 6.5 oz salted SKU is PB2 Original = Roasted Peanuts, Sugar, Salt → L2 disqualify. If PRANA instead intends the true 'Pure Peanut Powder' (peanuts only, no salt), it would be a clean but engineered isolate → Tier 2 ('tool'-capped). As sold in 6.5 oz with salt, it contains sugar and is disqualified."
+  },
+  {
+    "id": 151,
+    "name": "Organics 7g Protein Creamy Peanut Butter Spread, H-E-B Organics",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-organics-7g-protein-creamy-peanut-butter/1766478",
+      "https://www.centralmarket.com/product/h-e-b-organics-7g-protein-creamy-peanut-butter-spread-18-oz/1766478",
+      "https://foodisgood.com/product/heb-organics-peanut-butter-spread-creamy/"
+    ],
+    "ingredients_found": "Organic Peanuts, Organic Palm Stearin, Organic Cane Sugar, Sea Salt.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Organic cane sugar = L2 added sugar in a savory staple; PLUS organic palm stearin = L3 hardened-fat stabilizer. Two independent disqualifiers.",
+    "justification": "Added cane sugar drives hepatic lipogenesis in a savory staple (P4), and fractionated palm stearin is a processed stabilizing lipid disrupting the native matrix (P1/P3). Textbook 'organic clean-washing' trap.",
+    "confidence": "high",
+    "notes": "'Organic' framing does not exempt the added sugar or palm stearin. Current catalog flags (seed/emul/sugar) already correctly disqualify."
+  },
+  {
+    "id": 152,
+    "name": "Organic Lightly Sweetened Sunflower Seed Butter, Once Again Nut Butter",
+    "verified": true,
+    "sources": [
+      "https://www.onceagain.com/products/once-again-organic-sunflower-butter-with-sugar-and-salt-16-oz",
+      "https://www.amazon.com/Once-Again-Organic-Creamy-Sunflower/dp/B0048KBGJM",
+      "https://www.kroger.com/p/once-again-organic-lightly-sweetened-creamy-sunflower-seed-butter/0004408253031"
+    ],
+    "ingredients_found": "Organically Grown Dry Roasted Sunflower Seeds, Organic Sugar, Organic Sunflower Oil, Salt.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Organic sugar = L2 added sugar in a savory staple; PLUS added organic sunflower oil = L3 industrial seed oil. Two independent disqualifiers.",
+    "justification": "Added sugar drives hepatic lipogenesis in a savory staple (P4), and refined sunflower seed oil is a PUFA-rich oxidation-prone L3 lipid that hard-disqualifies savory staples (P3).",
+    "confidence": "high",
+    "notes": "'Organic'/'lightly sweetened' does not exempt the sugar or the seed oil. Current catalog flags (seed/sugar) already correctly disqualify."
+  }
+]

@@ -1,0 +1,179 @@
+[
+  {
+    "id": 213,
+    "name": "Rao's Homemade Marinara Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/rao-s-homemade-marinara-sauce/540107",
+      "https://www.amazon.com/Raos-Marinara-Sauce-24-oz/dp/B000WH9DCW"
+    ],
+    "ingredients_found": "Italian Whole Peeled Tomatoes, Olive Oil, Onions, Salt, Garlic, Basil, Black Pepper, Oregano.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean whole-food matrix: whole peeled tomatoes + olive oil + fresh aromatics and herbs. Zero added sugar, zero seed oils, zero gums/preservatives.",
+    "justification": "A slow-cooked tomato-and-olive-oil base with no glycemic spike (P4) and no mucosal-stripping emulsifiers or oxidized seed-oil lipids (P1/P3) delivers high-lycopene availability with zero GI disruption.",
+    "confidence": "high",
+    "notes": "Audited the plain Marinara variant. Current 'clean' flag confirmed."
+  },
+  {
+    "id": 214,
+    "name": "Carbone Marinara Sauce",
+    "verified": true,
+    "sources": [
+      "https://carbonefinefood.com/products/marinara",
+      "https://www.amazon.com/Carbone-Marinara-Delicato-All-Natural-Ingredients/dp/B09Z5BSPJH"
+    ],
+    "ingredients_found": "Imported Italian Tomatoes (Whole Peeled Tomatoes, Tomato Puree, Sea Salt, Basil), Onions, Olive Oil, Sea Salt, Basil, Garlic, Oregano.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean whole-food matrix: imported Italian tomatoes + olive oil + onion/garlic/herbs. No added sugar, no seed oil, no gums, no citric-acid or paste-concentrate fillers.",
+    "justification": "Whole-tomato reduction with olive oil and native aromatics; no rapid-influx sugars (P4) and no surfactant gums or seed-oil hydroperoxides (P1/P3).",
+    "confidence": "high",
+    "notes": "Current 'clean' flag confirmed."
+  },
+  {
+    "id": 215,
+    "name": "Seggiano Fresh Basil Pesto Genovese",
+    "verified": true,
+    "sources": [
+      "https://foodisgood.com/product/seggiano-fresh-basil-pesto-genovese/",
+      "https://www.amazon.com/Seggiano-Fresh-Basil-Pesto-Genovese/dp/B07YNC1PGW",
+      "https://seggiano.com/product/raw-basil-pesto/"
+    ],
+    "ingredients_found": "Extra Virgin Olive Oil, Cashew Nuts, Fresh DOP Genovese Basil (30%), Sea Salt, Pine Nuts.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% clean whole-food fat/herb matrix: EVOO + whole nuts + fresh DOP basil + salt. No sunflower/seed oil (many commercial pestos add sunflower oil; this one does not), no sugar, no gums, no preservatives.",
+    "justification": "Raw, unheated EVOO and whole nuts provide stable, unoxidized lipids and dense calories (P3) with no emulsifiers to strip the mucosal shield (P1).",
+    "confidence": "high",
+    "notes": "Raw/unpasteurized pesto. Current 'clean' flag confirmed."
+  },
+  {
+    "id": 216,
+    "name": "Mina Mild Harissa Cooking Sauce",
+    "verified": true,
+    "sources": [
+      "https://mina.co/products/mina-harissa-mild",
+      "https://www.amazon.com/Mina-Harissa-Moroccan-Pepper-Sauce/dp/B0775335C6"
+    ],
+    "ingredients_found": "Red Bell Pepper, Red Chili Pepper, Garlic, Extra Virgin Olive Oil, Vinegar, Salt (some lots list citric acid).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Simple six-ingredient whole-food base: peppers + garlic + EVOO + vinegar + salt. No added sugar, no seed oil, no gums. Citric acid (if present) is not a disqualifying additive.",
+    "justification": "A pepper-and-EVOO marinade base with no rapid sugars (P4) and no surfactant gums or seed-oil lipids (P1/P3); clean flavor matrix for red meat/poultry.",
+    "confidence": "high",
+    "notes": "Audited the Mild red-pepper variant."
+  },
+  {
+    "id": 217,
+    "name": "Primal Kitchen Organic Vodka Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/product/primal-kitchen-vodka-sauce-235-oz-b07zpcpg5t",
+      "https://www.amazon.com/Primal-Kitchen-Vodka-Sauce-24/dp/B07ZPCPG5T"
+    ],
+    "ingredients_found": "Organic Tomato Puree (Water, Organic Tomato Paste), Organic Diced Tomatoes in Juice (Organic Tomatoes, Organic Tomato Juice, Calcium Chloride), Avocado Oil, Organic Pumpkin Seed Butter, Organic Onions, Organic Vodka, Sea Salt, Organic Garlic Powder, Organic Dried Basil, Citric Acid, Organic Minced Garlic, Organic Dried Oregano.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean whole-food matrix: organic tomatoes + avocado oil + whole pumpkin-seed butter (used for creaminess) + aromatics. Zero seed oils (avocado oil is a clean fruit oil; pumpkin-seed butter is a whole-food nut/seed butter, not a refined seed oil), zero added sugar, zero gums.",
+    "justification": "Creaminess comes from whole pumpkin-seed butter rather than a gum or refined oil, preserving the mucosal shield (P1) with stable avocado-oil lipids (P3) and no glycemic sugar load (P4).",
+    "confidence": "high",
+    "notes": "The current-shelf product at Whole Foods is the dairy-free 'Vodka Sauce with Avocado Oil' formula (pumpkin-seed butter, not heavy cream). The prior audit describing 'heavy cream' is outdated; verified deck contains no dairy. Passes either way."
+  },
+  {
+    "id": 218,
+    "name": "Primal Kitchen No-Soy Teriyaki Sauce & Marinade",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Primal-Kitchen-Teriyaki-Organic-Marinade/dp/B07RS4V4VC",
+      "https://go-upc.com/search?q=855232007408"
+    ],
+    "ingredients_found": "Water, Coconut Aminos (Coconut Nectar, Water, Salt), Date Paste, Orange Juice Concentrate, White Balsamic Vinegar (White Wine Vinegar, Grape Must), Balsamic Vinegar (Wine Vinegar, Concentrated Grape Must), Garlic, Tapioca Starch, Vinegar, Sea Salt, Ginger, Tamarind Extract, Toasted Sesame Oil, Onion Powder, Yeast Extract.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Added sugars/syrups in a savory sauce: date paste + orange juice concentrate + coconut nectar (in the coconut aminos) + concentrated grape must. Multiple concentrated-sugar sources in a savory category.",
+    "justification": "Concentrated fruit/syrup sugars flood the hepatic portal vein without a protective matrix (P4), driving insulin spikes and de novo lipogenesis; disqualifying in a savory staple regardless of 'no refined sugar' marketing.",
+    "confidence": "high",
+    "notes": "Current 'sugar' flag confirmed. Toasted sesame oil is present but sesame is not on the banned seed-oil list; the added sugars are the disqualifier."
+  },
+  {
+    "id": 219,
+    "name": "365 by Whole Foods Market Organic Marinara",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/grocery/product/365-by-whole-foods-market-organic-marinara-pasta-sauce-25-oz-b074h4ws24",
+      "https://foodisgood.com/product/365-by-whole-foods-market-organic-marinara-pasta-sauce/"
+    ],
+    "ingredients_found": "Organic Diced Tomatoes (Organic Tomatoes, Organic Tomato Juice), Organic Tomato Puree (Water, Organic Tomato Paste), Organic Garlic Puree (Organic Garlic, Water), Organic Extra Virgin Olive Oil, Organic Onions, Salt, Organic Garlic, Organic Basil, Organic Oregano, Organic Black Pepper.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean organic whole-food matrix: organic tomatoes + organic EVOO + organic garlic/onion/herbs. No added sugar, no seed oil, no gums, no preservatives.",
+    "justification": "Organic whole tomatoes with EVOO and native aromatics; no glycemic sugar (P4), no emulsifiers (P1), no oxidized seed-oil lipids (P3). Qualifies as gold-standard, not merely a 'tool'.",
+    "confidence": "high",
+    "notes": "Prior 'tool' flag is inaccurate; this is a clean whole-food sauce meeting Tier 1. Audited the standard (non-fat-free) Organic Marinara."
+  },
+  {
+    "id": 220,
+    "name": "Central Market Organic Marinara Pasta Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/central-market-organic-marinara-pasta-sauce/1602682",
+      "https://www.centralmarket.com/product/central-market-organic-marinara-pasta-sauce-24-oz/1602682"
+    ],
+    "ingredients_found": "Organic Tomatoes, Water, Organic Tomato Paste, Sea Salt, Organic Canola Oil, Organic Fresh Garlic, Organic Dehydrated Onion, Organic Fresh Basil, Organic Black Pepper, Organic Dehydrated Oregano, Citric Acid, Calcium Chloride.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Organic Canola Oil — an industrial seed oil (L3), which hard-disqualifies a savory staple.",
+    "justification": "Refined canola PUFAs carry oxidized lipid hydroperoxides that skew the omega-6:3 ratio and impair insulin sensitivity (P3); organic sourcing does not change the lipid chemistry.",
+    "confidence": "high",
+    "notes": "CORRECTION: the prior audit claimed 'organic extra virgin olive oil,' but the verified current deck uses organic CANOLA OIL. Prior 'tool' flag and audit text are wrong."
+  },
+  {
+    "id": 221,
+    "name": "Yellowbird Organic Sriracha Hot Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.yellowbirdfoods.com/products/organic-sriracha-hot-sauce",
+      "https://www.wholefoodsmarket.com/grocery/product/yellowbird-foods-yellowbird-organic-sriracha-hot-sauce-9-8-oz-mellow-hot-pantry-size-sweet-spicy-garlicky-organic-garlic-red-jalapeno-peppers-dates-lime-made-in-texas-gluten-free-vegan-non-gmo-b07l8lzsf8"
+    ],
+    "ingredients_found": "Organic Jalapenos, Organic Distilled Vinegar, Organic Garlic, Organic Dates, Organic Raisins, Salt, Organic Tangerine Juice Concentrate, Organic Lime Juice Concentrate.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Added sugars/juice concentrates in a savory sauce: dates, raisins, tangerine juice concentrate, and lime juice concentrate all function as concentrated sugar sweeteners.",
+    "justification": "Even 'whole-fruit' dates/raisins plus tangerine/lime juice concentrates deliver a concentrated sugar influx with no protective fibrous matrix (P4); disqualifying in a savory category despite 'no added sugar' marketing.",
+    "confidence": "high",
+    "notes": "CORRECTION: prior 'tool' flag understates this; the fruit/juice-concentrate sweeteners are an L2 savory-sugar disqualifier."
+  },
+  {
+    "id": 222,
+    "name": "Prego Traditional Pasta Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.campbells.com/prego/products/classic-tomato-sauces/traditional-italian-sauce/",
+      "https://www.kroger.com/p/prego-traditional-pasta-sauce/0005100002549"
+    ],
+    "ingredients_found": "Tomato Puree (Water, Tomato Paste), Diced Tomatoes in Tomato Juice, Sugar, Salt, Canola Oil, Dried Onions, Dried Garlic, Spices, Basil, Citric Acid, Onion Extract, Garlic Extract.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Canola Oil (L3 industrial seed oil) AND added Sugar (L2) in a savory staple — two independent disqualifiers.",
+    "justification": "Refined-seed-oil hydroperoxides drive membrane oxidation and inflammation (P3) while added sugar triggers hepatic lipogenesis (P4); the combination is a classic ultra-processed inflammatory base.",
+    "confidence": "high",
+    "notes": "Current 'seed' flag confirmed; also L2 added sugar."
+  },
+  {
+    "id": 223,
+    "name": "Bertolli Alfredo Sauce with Aged Parmesan",
+    "verified": true,
+    "sources": [
+      "https://www.kroger.com/p/bertolli-alfredo-sauce-with-aged-parmesan-cheese/0003620021929",
+      "https://www.amazon.com/Bertolli-Alfredo-Sauce-Parmesan-Cheese/dp/B000Q3F0QK"
+    ],
+    "ingredients_found": "Water, Cream, Butter (Sweet Cream, Salt), Parmesan Cheese (Pasteurized Part-Skim Milk, Cheese Cultures, Salt, Enzymes), Soybean Oil, Modified Food Starch, Enzyme Modified Egg Yolk, Romano Cheese, Salt, Sherry Cooking Wine (Wine, Grape Alcohol, Salt, Potassium Metabisulfite [Preservative]), Whey, Xanthan Gum, Disodium Phosphate, Yeast Extract, Garlic Powder, Black Pepper, Natural Flavor.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Soybean Oil (L3 seed oil) and Xanthan Gum (L3 emulsifier/gum); also Potassium Metabisulfite (chemical preservative) and modified food starch.",
+    "justification": "Xanthan gum acts as a surfactant that strips the mucin/tight-junction shield (P1) and soybean-oil PUFAs add oxidized inflammatory lipids (P3); an engineered, gut-disrupting dairy base.",
+    "confidence": "high",
+    "notes": "Current 'seed' flag confirmed; multiple L3 disruptors plus an L2 preservative."
+  }
+]

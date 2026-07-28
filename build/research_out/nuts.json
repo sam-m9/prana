@@ -1,0 +1,188 @@
+[
+  {
+    "id": 82,
+    "name": "Finca La Rosala Mediterranean EVOO & Rosemary Almonds",
+    "verified": true,
+    "sources": [
+      "https://fincalarosala.es/en/products/almendra-romero-aove",
+      "https://www.lagourmeta.com/en/aperitif-nuts/rosemary-valencia-almonds-evoo-652.html",
+      "https://casaballester.es/en/shop/rosemary-marcona-almonds-gourmet/",
+      "https://www.centralmarket.com/product/finca-la-rosala-mediterranean-evoo-and-rosemary-almonds-282-oz/13621512"
+    ],
+    "ingredients_found": "Skinless Valencia almonds (94%), salt, extra virgin olive oil (1%), gum arabic (E-414), rosemary (1%), whole cane sugar, natural rosemary flavor, La Vera paprika.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Added whole cane sugar (L2 sugar in a savory/staple category) plus gum arabic / E-414 (L3 added gum/emulsifier). The prior 'clean' audit omitted both ingredients.",
+    "justification": "Added cane sugar in a savory staple floods the hepatic portal vein without a fibrous matrix (Principle 4, de novo lipogenesis), and added gum arabic is a surfactant gum that stresses the mucosal shield (Principle 1).",
+    "confidence": "medium",
+    "notes": "Marketed as EVOO + rosemary but the real deck contains gum arabic and cane sugar; audited the Valencia rosemary/EVOO variant. Multiple independent retailer/brand listings agree on the sugar + gum."
+  },
+  {
+    "id": 83,
+    "name": "Karma Nuts Sea Salt Wrapped Cashews",
+    "verified": true,
+    "sources": [
+      "https://www.karmanuts.com/products/sea-salt-wrapped-cashews-1",
+      "https://www.amazon.com/Karma-Nuts-Roasted-Whole-Cashews/dp/B01N431FCX",
+      "https://godairyfree.org/product-reviews/karma-nuts-wrapped-cashews"
+    ],
+    "ingredients_found": "Cashews, Sea Salt.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Whole cashews with skin intact, air-roasted with no oil, only sea salt. Zero seed oils, zero sugar, zero additives.",
+    "justification": "Oil-free air-roasting avoids introducing oxidized PUFA hydroperoxides (Principle 3); clean whole-food matrix with only salt. Conventional (not sprouted/single-origin) so it sits at Tier 2 rather than Tier 1.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 84,
+    "name": "Almondeli Valencia Almonds with Herbs",
+    "verified": true,
+    "sources": [
+      "https://ibericofoods.com/spanish-food/valencia-almonds-blanced-fried-and-salted-125g/",
+      "https://www.chefswarehouse.com/cw/Almonds-Valencia-Fine-Herb/109383.cw",
+      "https://www.centralmarket.com/product/almondeli-valencia-almonds-with-herbs/5038502"
+    ],
+    "ingredients_found": "Blanched Valencia almonds, sunflower oil, herbs (rosemary, thyme, oregano and related fine herbs), sea salt.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Fried in sunflower oil (L3 industrial seed oil). The prior 'clean' audit incorrectly listed extra virgin olive oil.",
+    "justification": "Deep-frying almonds in sunflower oil coats them in a thermally/solvent-degraded PUFA carrier generating cytotoxic lipid hydroperoxides (Principle 3), hard-disqualifying a savory staple.",
+    "confidence": "high",
+    "notes": "Almondeli Valencia almonds are consistently described across sources as fried in sunflower oil, not EVOO."
+  },
+  {
+    "id": 85,
+    "name": "Daily Crunch Original Sprouted Almonds",
+    "verified": true,
+    "sources": [
+      "https://www.dailycrunchsnacks.com/products/just-almonds",
+      "https://www.kingsoopers.com/p/daily-crunch-sprouted-almonds-original-5-oz-141-g-/0086000215197",
+      "https://www.amazon.com/Daily-Crunch-Sprouted-Multi-Serve-Resealable/dp/B086Z3XDZH"
+    ],
+    "ingredients_found": "Sprouted Almonds.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient sprouted almonds, no oil, no salt, no sugar. Sprouting is the Tier 1 defining feature.",
+    "justification": "Sprouting activates endogenous phytase to pre-digest phytic acid and attenuate FODMAPs (Principle 5), reducing lower-GI bloating; a 100% clean whole-food matrix with zero disruptors earns Gold Standard.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 86,
+    "name": "Daily Crunch Nashville Hot Sprouted Almonds",
+    "verified": true,
+    "sources": [
+      "https://www.dailycrunchsnacks.com/products/nashville-hot",
+      "https://www.iherb.com/pr/daily-crunch-sprouted-almonds-nashville-hot-5-oz-141-g/121052",
+      "https://www.heb.com/product-detail/daily-crunch-nashville-hot-sprouted-almonds/6220539"
+    ],
+    "ingredients_found": "Sprouted Almonds, Cayenne Pepper, Smoked Paprika, Chili Powder, Onion Granules, Garlic Granules, Sea Salt, Organic Tapioca Starch, Avocado Oil, Monk Fruit Sweetener.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Sprouted base seasoned with avocado oil (clean, not a seed oil), spices, tapioca starch, and monk fruit sweetener. No seed oil, no added sugar, no gums.",
+    "justification": "Avocado oil is a stable MUFA carrier that avoids seed-oil hydroperoxides (Principle 3); the sprouted almond base is pre-digested (Principle 5). Pure monk-fruit extract as the only sweetener keeps it in the clean zone but the engineered seasoning matrix caps it at Tier 2.",
+    "confidence": "medium",
+    "notes": "Monk fruit is listed as a single ingredient with no separately declared erythritol/inulin/gum; if the sweetener were a polyol blend it would trash. Tapioca starch is a starch, not a flagged gum."
+  },
+  {
+    "id": 87,
+    "name": "Karma Nuts Golden Turmeric Wrapped Cashews",
+    "verified": true,
+    "sources": [
+      "https://www.karmanuts.com/products/golden-turmeric-wrapped-cashews",
+      "https://www.amazon.com/Karma-Nuts-Cashews-1-5-Antioxidants/dp/B07QFC4W4F",
+      "https://www.instacart.com/products/20356045-karma-golden-turmeric-wrapped-cashews-8-oz"
+    ],
+    "ingredients_found": "Cashews, Sea Salt, Lime Powder, Chili Powder, Pepper Powder, Pepper Extract, Chili Extract, Turmeric Powder.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Air-roasted whole cashews with a pure spice/salt seasoning. Zero seed oils, zero added sugar, zero gums or synthetic additives.",
+    "justification": "Oil-free air-roasting avoids oxidized PUFA carriers (Principle 3); clean whole-food matrix with only natural spices. Conventional (not sprouted/single-origin) so Tier 2.",
+    "confidence": "high",
+    "notes": "Actual deck is spice-based (lime/chili/pepper/turmeric), slightly different from the prior audit's list, but still fully clean."
+  },
+  {
+    "id": 88,
+    "name": "Daily Crunch Cocoa + Sea Salt Sprouted Almonds",
+    "verified": true,
+    "sources": [
+      "https://www.dailycrunchsnacks.com/products/cacao-sea-salt",
+      "https://www.heb.com/product-detail/daily-crunch-cacao-dusted-sea-salt-sprouted-almonds/6220537",
+      "https://www.goodeggs.com/dailycrunch/cacao-sea-salt-dusted-sprouted-almonds/65de58729fb43600139c86cc"
+    ],
+    "ingredients_found": "Sprouted Almonds, Cacao Mix (Dutched Cocoa Powder, Organic Cocoa Butter, Water), Organic Coconut Sugar, Maca Powder, Vanilla, Sea Salt.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Organic coconut sugar is added sugar in a savory/staple category (Nuts) - L2 disqualifier.",
+    "justification": "Added coconut sugar delivers a rapid glycemic influx to the hepatic portal vein absent a protective fiber/protein matrix (Principle 4), driving insulin spikes and de novo lipogenesis; sugar does not belong in a savory staple.",
+    "confidence": "high",
+    "notes": "Sprouted base is otherwise clean, but the added sugar disqualifies it under the category-aware sugar rule."
+  },
+  {
+    "id": 89,
+    "name": "Wonderful Roasted & Salted No Shell Pistachios",
+    "verified": true,
+    "sources": [
+      "https://www.wonderfulpistachios.com/products/roasted-salted-no-shells",
+      "https://www.amazon.com/Wonderful-Pistachios-No-Shell-Roasted-Salted/dp/B004HZFASG",
+      "https://betterhealthmarket.com/wonderful-pistachios-pistachios-no-shells-roasted-and-salted-25-oz"
+    ],
+    "ingredients_found": "Pistachios, Sea Salt.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Dry-roasted pistachios with only sea salt - no added oil, no sugar, no additives.",
+    "justification": "Dry-roasting with no oil avoids seed-oil hydroperoxides (Principle 3); clean two-ingredient whole-food matrix. Conventional, not sprouted, so Tier 2.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 90,
+    "name": "Central Market Spanish Style Sea Salted Marcona Almonds",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-spanish-style-sea-salted-marcona-almonds-825-oz/9071508",
+      "https://www.heb.com/product-detail/central-market-spanish-style-sea-salted-marcona-almonds/9071508"
+    ],
+    "ingredients_found": "Roasted Marcona Almonds, Sunflower Oil, Sea Salt.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Roasted/fried in sunflower oil - L3 industrial seed oil.",
+    "justification": "Sunflower oil is an unstable PUFA carrier that degrades into cytotoxic lipid hydroperoxides and aldehydes under heat (Principle 3), hard-disqualifying a savory staple regardless of the premium positioning.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 91,
+    "name": "Central Market Garlic Truffle Marcona Almonds",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-garlic-truffle-marcona-almonds-825-oz/9070519",
+      "https://www.heb.com/product-detail/central-market-garlic-truffle-marcona-almonds/9070519"
+    ],
+    "ingredients_found": "Roasted Marcona Almonds, Sunflower Oil, Black Truffle Salt (Sea Salt, Dried Truffle, Natural Truffle Flavor), Garlic.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Roasted/fried in sunflower oil (L3 industrial seed oil), plus a 'natural truffle flavor' additive.",
+    "justification": "Sunflower-oil frying coats the almonds in oxidation-prone PUFAs generating hydroperoxides (Principle 3), hard-disqualifying a savory staple.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 92,
+    "name": "Blue Diamond Smokehouse Almonds",
+    "verified": true,
+    "sources": [
+      "https://www.bluediamond.com/brand/snack-almonds/classic-flavors/almond-smokehouse/",
+      "https://www.kroger.com/p/blue-diamond-smokehouse-almonds/0004157001590",
+      "https://www.heb.com/product-detail/blue-diamond-smokehouse-almonds/4138003"
+    ],
+    "ingredients_found": "Almonds, Vegetable Oil (Canola, Safflower and/or Sunflower Oil), Salt, Corn Maltodextrin, Natural Hickory Smoke Flavor, Yeast, Hydrolyzed Corn and Soy Protein, Natural Flavors.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Vegetable oil (canola/safflower/sunflower) - L3 industrial seed oils; also corn maltodextrin and hydrolyzed corn/soy protein flavor enhancers.",
+    "justification": "The seed-oil coating introduces oxidized PUFA hydroperoxides that skew the omega-6:omega-3 ratio toward inflammatory eicosanoids (Principle 3), and the hydrolyzed-protein/maltodextrin flavor system is an ultra-processed additive load; hard-disqualified.",
+    "confidence": "high",
+    "notes": ""
+  }
+]

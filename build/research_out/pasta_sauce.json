@@ -1,0 +1,204 @@
+[
+  {
+    "id": 25,
+    "name": "Rao's Homemade Marinara Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Raos-Marinara-Sauce-24-oz/dp/B000WH9DCW",
+      "https://www.heb.com/product-detail/rao-s-homemade-marinara-sauce/540107"
+    ],
+    "ingredients_found": "Italian Whole Peeled Tomatoes, Olive Oil, Onions, Salt, Garlic, Basil, Black Pepper, Oregano.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean Rao's-style deck: whole tomatoes + olive oil + aromatics/herbs/salt only. Zero added sugar, zero seed oils, zero gums or additives.",
+    "justification": "Pure whole-food matrix with stable olive-oil lipids (Principle 3) and no added sugar to drive hepatic lipogenesis (Principle 4) or gum/emulsifier mucosal stripping (Principle 1).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 26,
+    "name": "Mutti Parmigiano Reggiano Pasta Sauce",
+    "verified": true,
+    "sources": [
+      "https://mutti-parma.com/us/products/parmigiano-reggiano-pasta-sauce/",
+      "https://www.amazon.com/Mutti-Rossoro-Tomatoes-Parmigiano-Reggiano/dp/B0CD1WSTH3",
+      "https://www.kroger.com/p/mutti-parmigiano-reggiano-pasta-sauce/0085469300083"
+    ],
+    "ingredients_found": "Chopped Tomatoes, Rossoro Tomato Puree, Onion, Olive Oil, Parmigiano Reggiano P.D.O. Cheese (Milk, Salt, Rennet/Enzymes), Garlic, Mediterranean Sea Salt, Basil, Black Pepper, Oregano.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean olive-oil tomato deck plus authentic aged Parmigiano Reggiano P.D.O. (whole-food cheese). Labeled No Added Sugar; zero seed oils, zero gums.",
+    "justification": "Whole-food matrix with olive oil (Principle 3) and native aged-cheese protein; no added sugar (Principle 4) and no emulsifiers/gums (Principle 1).",
+    "confidence": "high",
+    "notes": "Contains dairy. Aged PDO cheese is a naturally fermented whole food."
+  },
+  {
+    "id": 27,
+    "name": "Carbone Marinara Sauce",
+    "verified": true,
+    "sources": [
+      "https://carbonefinefood.com/products/marinara",
+      "https://www.kroger.com/p/carbone-marinara-pasta-sauce/0085002473500",
+      "https://www.walmart.com/ip/Carbone-Fine-Foods-Marinara-Sauce-24-oz/252522980"
+    ],
+    "ingredients_found": "Imported Italian Tomatoes (Whole Peeled Tomatoes, Tomato Puree, Sea Salt, Basil), Onions, Olive Oil, Sea Salt, Basil, Garlic, Oregano.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean Rao's-style deck: imported whole Italian tomatoes + olive oil + aromatics/herbs. No added sugar, no seed oils, no gums or artificial ingredients.",
+    "justification": "Whole-tomato matrix with stable olive-oil lipids (Principle 3); no added sugar (Principle 4) and no mucosal-disrupting gums (Principle 1).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 28,
+    "name": "Cucina Antica Garlic Marinara Pasta Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Cucina-Antica-Garlic-Marinara-25-Ounce/dp/B001N3SVYU",
+      "https://www.kroger.com/p/cucina-antica-garlic-marinara-sauce/0067729499114",
+      "https://www.wholefoodsmarket.com/product/cucina-antica-garlic-marinara-sauce-32-oz-b00huc2qjy"
+    ],
+    "ingredients_found": "Italian Chopped Tomatoes, Extra Virgin Olive Oil, Fresh Garlic, Salt, Basil, White Pepper, Black Pepper.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Minimalist clean deck of Italian tomatoes + EVOO + garlic/salt/herbs. Whole30 Approved; no added sugar, no seed oils, no additives.",
+    "justification": "Unadulterated whole-food matrix with EVOO (Principle 3); zero added sugar (Principle 4) and zero gums/emulsifiers (Principle 1).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 29,
+    "name": "Primal Kitchen Organic Tomato Basil Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.primalkitchen.com/products/tomato-basil-marinara-sauce",
+      "https://www.kroger.com/p/primal-kitchen-tomato-basil-marinara-sauce/0085000463907",
+      "https://www.vitacost.com/primal-kitchen-marinara-sauce-tomato-basil"
+    ],
+    "ingredients_found": "Organic Diced Tomatoes (Organic Tomatoes, Organic Tomato Juice, Calcium Chloride), Organic Tomato Puree (Water, Organic Tomato Paste), Organic Basil, Sea Salt, Organic Avocado Oil, Organic Chopped Onions, Organic Garlic Powder, Organic Minced Garlic, Organic Dried Oregano, Citric Acid.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Organic whole-food deck with avocado oil (a clean, non-seed fat). No added sugar, no seed oils (explicitly no canola/soybean), no gums. Calcium chloride is a firming salt and citric acid is permitted.",
+    "justification": "Clean organic matrix with stable avocado-oil lipids (Principle 3); zero added sugar (Principle 4) and no emulsifiers/gums (Principle 1). Whole30 Approved.",
+    "confidence": "high",
+    "notes": "Uses avocado oil (not a disqualifying seed oil). Calcium chloride and citric acid are allowed."
+  },
+  {
+    "id": 30,
+    "name": "La San Marzano Marinara Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/San-Marzano-Ingredients-Tomatoes-Mediterranean/dp/B089S7SMS4",
+      "https://lasanmarzano.com/products/marinara",
+      "https://www.centralmarket.com/product/la-san-marzano-marinara-sauce-24-oz/4585005"
+    ],
+    "ingredients_found": "Peeled Tomatoes, Extra Virgin Olive Oil, Onions, Sea Salt, Sliced Garlic, Basil, Black Pepper, Oregano.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean Rao's-style deck: peeled tomatoes + EVOO + aromatics/herbs. Made in Italy with no additives or preservatives; no added sugar, no seed oils.",
+    "justification": "Whole-tomato matrix with EVOO lipids (Principle 3); no added sugar (Principle 4) and no gums/emulsifiers (Principle 1).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 31,
+    "name": "Mutti Tomato & Basil Pasta Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.instacart.com/products/26979968-mutti-pasta-sauce-rossoro-tomatoes-and-basil-24-oz",
+      "https://foodisgood.com/product/mutti-tomato-basil-pasta-sauce/",
+      "https://www.bellaitaliafoodstore.com/mutti-rossoro-tomatoes-and-basil-pasta-sauce-680-gr-24-0-oz.html"
+    ],
+    "ingredients_found": "Chopped Tomatoes, Rossoro Tomato Puree, Onion, Olive Oil, Garlic, Basil, Mediterranean Sea Salt, Basil Extract, Black Pepper, Oregano.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean olive-oil tomato deck. US version labeled No Added Sugar (5g/serving is naturally occurring tomato sugar); no seed oils, no gums. Basil extract is a natural botanical flavor, not a disqualifier.",
+    "justification": "Whole-food tomato matrix with olive oil (Principle 3); no added sugar (Principle 4) and no emulsifiers/gums (Principle 1).",
+    "confidence": "high",
+    "notes": "Some non-US Mutti variants add sugar/carrot; the US 24 oz Rossoro Tomato & Basil is No Added Sugar."
+  },
+  {
+    "id": 32,
+    "name": "Mezzetta Family Recipes Marinara Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.mezzetta.com/products/family-recipes-marinara",
+      "https://www.heb.com/product-detail/mezzetta-napa-valley-homemade-marinara-pasta-sauce/1096673"
+    ],
+    "ingredients_found": "Italian Plum Tomatoes (San Marzano Region), California Plum Tomatoes, Imported Olive Oil, Fresh Onions, Sea Salt, Fresh Garlic, Fresh Basil, Black Pepper, Spices.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean Rao's-style deck: plum tomatoes + olive oil + aromatics/herbs/spices. No added sugar, no preservatives, no seed oils, no gums; Non-GMO verified.",
+    "justification": "Whole-tomato matrix with olive oil (Principle 3); no added sugar (Principle 4) and no mucosal-disrupting gums (Principle 1).",
+    "confidence": "high",
+    "notes": "Conventional but fully clean deck. Upgraded from prior 'tool' flag."
+  },
+  {
+    "id": 33,
+    "name": "365 Organic Marinara Pasta Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/product/365-by-whole-foods-market-365-by-whole-foods-market-organic-marinara-pasta-sauce-25-oz-b074h4ws24",
+      "https://www.amazon.com/365-Everyday-Value-Organic-Marinara/dp/B074H4WS24",
+      "https://foodisgood.com/product/365-by-whole-foods-market-organic-marinara-pasta-sauce/"
+    ],
+    "ingredients_found": "Organic Diced Tomatoes (Organic Tomatoes, Organic Tomato Juice), Organic Tomato Puree (Water, Organic Tomato Paste), Organic Garlic Puree (Organic Garlic, Water), Organic Extra Virgin Olive Oil, Organic Onions, Salt, Organic Garlic, Organic Basil, Organic Oregano, Organic Black Pepper.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Organic clean Rao's-style deck: organic tomatoes + organic EVOO + aromatics/herbs/salt. No added sugar, no seed oils, no gums or artificial additives.",
+    "justification": "Organic whole-food matrix with EVOO lipids (Principle 3); zero added sugar (Principle 4) and no emulsifiers (Principle 1).",
+    "confidence": "high",
+    "notes": "Audited the regular (olive-oil) marinara, not the separate fat-free version. Upgraded from prior 'tool' flag."
+  },
+  {
+    "id": 34,
+    "name": "Rao's Homestyle Bolognese Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Raos-Homemade-Bolognese-Sauce-Ounce/dp/B07GWYHXRZ",
+      "https://www.heb.com/product-detail/rao-s-homestyle-bolognese-sauce/8254056",
+      "https://www.upcitemdb.com/upc/747479000123"
+    ],
+    "ingredients_found": "Italian Whole Peeled Tomatoes, Italian Style Meatball Crumbles (Beef, Pork, Romano Cheese [Cow's and Sheep's Milk, Cultures, Salt, Enzymes], Water, Salt, Soy Flour, Spices, Garlic, Natural Flavorings, Parsley), Onions, Carrots, Olive Oil, Celery, Uncured Pancetta Crumbles (Pork, Salt, Water, Spices, Cultured Celery Powder, Sea Salt, Natural Flavor), Garlic, Salt, Citric Acid, Black Pepper, Thyme, Parsley.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "No disqualifying ingredient (no added sugar, no seed oil, no gums, no synthetic preservative — cultured celery powder is a natural nitrate source). Capped at Tier 2 due to engineered meatball filler (soy flour) and natural flavorings, i.e. a functional/hybrid product rather than a pure whole-food matrix.",
+    "justification": "Provides native animal protein and olive oil (Principle 2/3) with no sugar (Principle 4) or gums (Principle 1), but the soy-flour binder and natural flavorings mark it as an engineered functional tool, not gold-standard.",
+    "confidence": "high",
+    "notes": "Contains soy and milk allergens. Soy flour is a binder, not a seed oil or isolate; not disqualifying under the rules."
+  },
+  {
+    "id": 35,
+    "name": "Central Market Organic Tomato & Basil Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/central-market-organic-tomato-basil-pasta-sauce/699313",
+      "https://tools.myfooddata.com/nutrition-facts/2673218/wt1",
+      "https://www.fooducate.com/product/Central-Market-Organics-Organic-Tomato-Basil-Pasta-Sauce/2C6324DE-C50B-11E1-956E-1231381BA074"
+    ],
+    "ingredients_found": "Organic Tomatoes, Water, Organic Tomato Paste, Organic Canola Oil, Sea Salt, Organic Fresh Garlic, Organic Dehydrated Onion, Organic Dehydrated Basil, Organic Black Pepper, Organic Oregano, Citric Acid, Calcium Chloride.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Organic Canola Oil — an industrial seed oil that hard-disqualifies a savory staple, despite organic status.",
+    "justification": "Refined canola PUFAs carry oxidized lipid hydroperoxides that skew the omega-6:omega-3 ratio and impair insulin sensitivity (Principle 3) — a clean-washing trap.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 36,
+    "name": "Mutti Intenso Tomato Sauce with Vegetables",
+    "verified": true,
+    "sources": [
+      "https://mabafood.com/en/sauces-ragu-and-pesto/309-mutti-the-vegetables-tomato-sauce-and-vegetables.html",
+      "https://tools.myfooddata.com/nutrition-facts/1767230/wt1",
+      "https://www.heb.com/product-detail/mutti-intenso-tomato-sauce-with-semi-dried-tomatoes/1696539"
+    ],
+    "ingredients_found": "Double Concentrated Tomato Paste (67%), Carrot (13.5%), Sunflower Seed Oil, Onion (4.5%), Sugar, Celery (2%), Parsley (1.5%), Salt, Basil (0.7%), Natural Herbs, Spices.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Sunflower Seed Oil (L3 industrial seed oil) AND added Sugar (L2 added sugar in a savory staple) — two independent disqualifiers.",
+    "justification": "Sunflower-oil PUFAs generate pro-inflammatory oxidized lipids (Principle 3) and the added sugar in a savory paste concentrate drives hepatic lipogenesis and fluid retention (Principle 4).",
+    "confidence": "high",
+    "notes": "All Mutti Intenso variants (with Vegetables, with Semi-Dried Tomatoes, with Fried Onions) contain sunflower oil + sugar; the semi-dried variant also adds potassium sorbate."
+  }
+]

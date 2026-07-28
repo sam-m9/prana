@@ -1,0 +1,202 @@
+[
+  {
+    "id": 129,
+    "name": "Central Market Tuscany Italy Extra Virgin Olive Oil (16.9 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-tuscany-italy-extra-virgin-olive-oil-169-oz/1379083",
+      "https://www.heb.com/product-detail/central-market-tuscany-italy-extra-virgin-olive-oil/1379083",
+      "https://www.myfooddiary.com/foods/7607833/central-market-tuscany-italy-extra-virgin-olive"
+    ],
+    "ingredients_found": "Extra Virgin Olive Oil (product of Tuscany, Italy).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-origin Tuscan (Italy) extra virgin olive oil, cold-extracted, 100% olive oil with no blending and no seed oils.",
+    "justification": "Single-origin, unrefined cold-extracted EVOO delivers a stable, oxidation-resistant monounsaturated lipid matrix (Principle 3) with no emulsifiers, sugars, or seed-oil PUFAs to disrupt the mucosal barrier.",
+    "confidence": "high",
+    "notes": "Regional single-origin line; front-label and multiple retailer/nutrition sources agree it is 100% olive oil."
+  },
+  {
+    "id": 130,
+    "name": "Lucini Premium Select Extra Virgin Olive Oil (16.9 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Lucini-Virgin-Premium-Select-16-9-Ounce/dp/B00060NKU6",
+      "https://shop.gelsons.com/store/gelsons/products/29796-lucini-italia-olive-oil-extra-virgin-organic-100-italian-premium-select-16-9-fl-oz",
+      "https://www.heb.com/product-detail/lucini-premium-select-extra-virgin-olive-oil/247776"
+    ],
+    "ingredients_found": "100% Italian Extra Virgin Olive Oil (hand-picked Italian olives, first cold pressed within 24 hours of harvest, low free acidity).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% Italian first-cold-pressed EVOO, single-country origin, low acidity, no blending and no seed oils.",
+    "justification": "First-cold-pressed single-origin EVOO retains native polyphenols and a stable MUFA-dominant lipid profile (Principle 3); zero gums, sugars, or oxidized seed-oil PUFAs preserves epithelial integrity.",
+    "confidence": "high",
+    "notes": "Sold as both conventional and organic; both are 100% Italian olive oil."
+  },
+  {
+    "id": 131,
+    "name": "Central Market Koroneiki Extra Virgin Olive Oil (16.9 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-koroneiki-extra-virgin-olive-oil-169-oz/1392275",
+      "https://www.heb.com/product-detail/central-market-koroneiki-extra-virgin-olive-oil/1392275"
+    ],
+    "ingredients_found": "100% Extra Virgin Olive Oil, Koroneiki variety (product of Greece).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-variety (Koroneiki), single-origin Greek EVOO, cold-processed, 100% olive oil with no blending and no seed oils.",
+    "justification": "Single-varietal cold-processed EVOO is a stable monounsaturated lipid with high native polyphenol content (Principle 3) and no mucosal-disrupting additives (Principle 1).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 132,
+    "name": "California Olive Ranch 100% California Extra Virgin Olive Oil (25.4 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.californiaoliveranch.com/products/100-california-everyday",
+      "https://www.acmemarkets.com/shop/product-details.960554992.html",
+      "https://www.amazon.com/California-Olive-Ranch-Extra-Virgin/dp/B09L7CWC5M"
+    ],
+    "ingredients_found": "100% California Extra Virgin Olive Oil (olives grown exclusively in California, cold-pressed).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-origin California EVOO, cold-pressed, 100% olive oil; the '100% California' line is explicitly not blended with imported oils and contains no seed oils.",
+    "justification": "Single-origin cold-pressed EVOO provides a stable MUFA lipid matrix free of solvent-extracted seed-oil hydroperoxides (Principle 3), with no emulsifiers or sugars (Principles 1 & 4).",
+    "confidence": "high",
+    "notes": "Distinct from California Olive Ranch's cheaper 'Global Blend' / 'Destination Series' lines; the audited '100% California' SKU is single-origin. Brand also runs SmartLabel traceability."
+  },
+  {
+    "id": 133,
+    "name": "Central Market Kalamata Greece Extra Virgin Olive Oil (16.9 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-kalamata-greece-extra-virgin-olive-oil-169-oz/1392271",
+      "https://www.heb.com/product-detail/central-market-kalamata-greece-extra-virgin-olive-oil/1392271",
+      "https://www.amazon.com/Central-Market-Regional-Virgin-Kalamata/dp/B00K6OES8A"
+    ],
+    "ingredients_found": "Extra Virgin Olive Oil (single-region Kalamata / Peloponnese, Greece).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-region Greek (Kalamata) EVOO, cold-pressed, 100% olive oil with no blending and no seed oils.",
+    "justification": "Single-origin cold-pressed EVOO with high oleic-acid content is an oxidation-resistant lipid (Principle 3); no gums, sugars, or seed oils to burden the gut barrier (Principles 1 & 4).",
+    "confidence": "high",
+    "notes": "Part of the same Central Market regional single-origin series as the Tuscany and Koroneiki SKUs."
+  },
+  {
+    "id": 134,
+    "name": "Central Market Extra Virgin Olive Oil Tin (2 L / 67.6 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-extra-virgin-olive-oil-2-l/8133040",
+      "https://www.heb.com/product-detail/central-market-extra-virgin-olive-oil/8133040"
+    ],
+    "ingredients_found": "Extra Virgin Olive Oil, made from cold-pressed Hojiblanca olives (product of Spain).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-variety (Hojiblanca), single-origin Spanish cold-pressed EVOO, 100% olive oil, no blending and no seed oils; light-proof non-BPA tin protects against oxidation.",
+    "justification": "Single-origin cold-pressed EVOO in a light-proof tin maximizes lipid stability and polyphenol retention (Principle 3) with zero additives (Principle 1).",
+    "confidence": "high",
+    "notes": "Prior flag was 'tool' (engineered); corrected to Tier 1 - this is a single-variety single-origin cold-pressed EVOO, not an engineered product."
+  },
+  {
+    "id": 135,
+    "name": "Graza Sizzle Extra Virgin Olive Oil (750 mL / 25.3 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.graza.co/products/sizzle",
+      "https://www.amazon.com/Graza-Sizzle-Extra-Virgin-Olive-Oil-Cooking-High-Polyphenol/dp/B09WV8DBPV",
+      "https://www.vitacost.com/graza-sizzle-extra-virgin-olive-oil"
+    ],
+    "ingredients_found": "100% Extra Virgin Olive Oil, single-origin Picual olives from Jaen, Spain (mid/peak-harvest, no blending).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-origin, single-variety (Picual) Spanish EVOO, 100% olive oil, no seed oils and no blending.",
+    "justification": "Single-origin EVOO with a high-oleic Picual profile is thermally stable for cooking without generating the aldehydes/hydroperoxides of refined seed oils (Principle 3); zero additives (Principle 1).",
+    "confidence": "high",
+    "notes": "Prior flag was 'tool'; corrected to Tier 1. 'Sizzle' uses later/riper-harvest olives so it is milder and lower-polyphenol than Graza 'Drizzle', but is still 100% single-origin EVOO."
+  },
+  {
+    "id": 136,
+    "name": "Central Market Organics Extra Virgin Olive Oil (16.9 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-organics-extra-virgin-olive-oil-169-oz/713643",
+      "https://www.heb.com/product-detail/central-market-organics-extra-virgin-olive-oil/713643",
+      "https://www.instacart.com/products/340105-central-market-organics-extra-virgin-olive-oil-16-9-fl-oz"
+    ],
+    "ingredients_found": "Organic Extra Virgin Olive Oil (USDA Organic, cold-pressed from Italian olives, product of Italy).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "USDA-organic single-origin Italian cold-pressed EVOO, 100% olive oil, no blending and no seed oils.",
+    "justification": "Organic single-origin cold-pressed EVOO is an oxidation-resistant MUFA lipid with retained polyphenols (Principle 3) and zero emulsifiers or sugars (Principles 1 & 4).",
+    "confidence": "high",
+    "notes": "Prior flag was 'tool'; corrected to Tier 1 (single-origin organic cold-pressed EVOO). Retailer note: bottled in a facility that also processes peanut/soybean oil (shared-facility allergen note only; not an ingredient)."
+  },
+  {
+    "id": 137,
+    "name": "365 Whole Foods Market Organic EVOO Mediterranean Blend (16.9 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/product/365-by-whole-foods-market-organic-extra-virgin-olive-oil-cold-processed-mediterranean-169-fl-oz-b074h6ynlj",
+      "https://spoonfulapp.com/products/365-whole-foods-market-mediterranean-blend-extra-virgin-olive-oil-cold-processed/MDA5OTQ4MjQ5NzY3NQ==",
+      "https://www.amazon.com/Everyday-Value-Olive-Virgin-Mediterranean/dp/B074Y6WZ8X"
+    ],
+    "ingredients_found": "Organic Extra Virgin Olive Oil (cold processed; 100% Mediterranean blend - oils sourced/blended from multiple Mediterranean countries).",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "100% pure organic olive oil (no seed oils, no additives), but a multi-country Mediterranean BLEND rather than single-origin, so it falls short of the Tier 1 no-blending standard.",
+    "justification": "Pure cold-processed olive oil is a clean, stable MUFA lipid with no gut disruptors (Principles 1 & 3), but multi-origin blending removes the single-source provenance that defines Tier 1 EVOO.",
+    "confidence": "high",
+    "notes": "Explicitly labeled '100% Mediterranean Blend'; still single-ingredient olive oil, not cut with seed oil."
+  },
+  {
+    "id": 138,
+    "name": "H-E-B Extra Virgin Olive Oil (17 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-extra-virgin-olive-oil/127074",
+      "https://www.centralmarket.com/product/h-e-b-extra-virgin-olive-oil-17-oz/127074"
+    ],
+    "ingredients_found": "Extra Virgin Olive Oil (product of Italy, medium-bodied).",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "100% olive oil with no seed oils, but a conventional store-brand EVOO with no single-origin/cold-pressed claim (multi-region Italian sourcing), so it is a clean staple rather than a Tier 1 gold-standard.",
+    "justification": "Single-ingredient olive oil with no emulsifiers, sugars, or seed-oil PUFAs is a physiologically clean lipid (Principles 1, 3 & 4); lack of single-origin cold-press provenance caps it at Tier 2.",
+    "confidence": "medium",
+    "notes": "Prior flag was 'seed' - CORRECTED: no seed oil is present, ingredient statement is 100% Extra Virgin Olive Oil. 'Expeller/mechanically pressed' conventional budget EVOO."
+  },
+  {
+    "id": 139,
+    "name": "Bertolli Extra Light Tasting Olive Oil (25.4 oz)",
+    "verified": true,
+    "sources": [
+      "https://oliveoil.bertolli.com/products/olive-oils/extra-ligth-tasting-olive-oil/olive-oil-extra-light-taste/",
+      "https://www.amazon.com/Bertolli-Extra-Tasting-51-Ounce-Bottle/dp/B000WHR2MU",
+      "https://www.smartandfinal.com/product/bertolli-olive-oil-extra-light-taste-id-00041790004359"
+    ],
+    "ingredients_found": "Refined Olive Oil, Virgin Olive Oil.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "100% olive oil (a blend of refined + virgin olive oil), NO seed oils - 'Extra Light' refers to light taste, not a seed-oil cut. Refined/deodorized processing strips polyphenols, so it is a pure but conventional/refined olive oil = Tier 2, not Tier 1.",
+    "justification": "The refined fraction has been heat/deodorization-processed, losing native polyphenols but remaining a MUFA-dominant olive lipid with no seed-oil hydroperoxides or additives (Principle 3); pure but non-EVoo refined status keeps it out of Tier 1.",
+    "confidence": "high",
+    "notes": "Prior flag was 'seed' - CORRECTED: multiple sources (Bertolli official + label) confirm ingredients are Refined Olive Oil and Virgin Olive Oil only, with no seed/vegetable oil. Not extra virgin."
+  },
+  {
+    "id": 140,
+    "name": "Pompeian Smooth Extra Virgin Olive Oil (24 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Pompeian-Smooth-Contains-Polyphenols-Pressed/dp/B015ONU4JE",
+      "https://spoonfulapp.com/products/pompeian-smooth-extra-virgin-olive-oil/MDAwNzA0MDQwMDI3Mg=="
+    ],
+    "ingredients_found": "Extra Virgin Olive Oil (first cold pressed; imported multi-country blend; Non-GMO Project Verified, Kosher).",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "100% pure EVOO with no seed oils and no additives, but an imported multi-country BLEND rather than single-origin, so it falls short of the Tier 1 no-blending standard.",
+    "justification": "First-cold-pressed pure olive oil is a clean, stable MUFA lipid with no gut disruptors (Principles 1 & 3); multi-origin blending disqualifies it from single-source Tier 1 status.",
+    "confidence": "medium",
+    "notes": "Prior flag was 'seed' - CORRECTED: ingredient statement is 100% olive oil, no seed oil. Pompeian EVOO is a blend of oils from multiple countries (e.g., Spain, Portugal, Chile, Argentina)."
+  }
+]

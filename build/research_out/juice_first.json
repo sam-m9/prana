@@ -1,0 +1,196 @@
+[
+  {
+    "id": 248,
+    "name": "Lakewood Organic Pure Tart Cherry Juice (32 oz)",
+    "verified": true,
+    "sources": [
+      "https://lakewoodorganic.com/products/lakewood-organic-pure-tart-cherry-juice-32-ounce-pack-of-6",
+      "https://www.vitacost.com/lakewood-organic-juice-not-from-concentrate",
+      "https://www.kroger.com/p/lakewood-organic-pure-tart-cherry-juice/0004260847008"
+    ],
+    "ingredients_found": "Organic juice and organic puree pressed from whole ripe organic tart cherries (single ingredient). Not from concentrate, no added sugar, no preservatives.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "100% single-fruit organic tart cherry juice, not from concentrate, nothing added; pasteurized (shelf-stable glass), not cold-pressed/HPP, so Tier 2 rather than Tier 1.",
+    "justification": "P4: zero added sugar or concentrate keeps hepatic glycemic influx to the fruit's native matrix; P3: no seed oils. Pasteurization (not cold-pressed) caps bioavailability below Tier 1.",
+    "confidence": "high",
+    "notes": "Distinct from Lakewood's Tart Cherry Juice BLEND, which adds apple/pear/grape concentrates. Audited the PURE single-ingredient variant that matches this listing."
+  },
+  {
+    "id": 249,
+    "name": "Central Market In-Store Cold Pressed Green Juice (32 oz)",
+    "verified": false,
+    "sources": [],
+    "ingredients_found": "No retrievable authoritative ingredient deck. This is an in-store, house-made Central Market juice with no published packaged ingredient statement.",
+    "decision": "delete_unverifiable",
+    "dqLevel": null,
+    "reason": "In-store house-made juice; no authoritative packaged deck exists to verify ingredients against the rules.",
+    "justification": "Cannot confirm the absence of L1/L2/L3 signals (added sugar, gums, seed oils) without a verifiable ingredient statement; per sourcing standards, do not guess.",
+    "confidence": "high",
+    "notes": "Marked delete_unverifiable per brief instruction for in-store house-made juices with no retrievable deck."
+  },
+  {
+    "id": 250,
+    "name": "Lakewood Organic Fresh Pressed Pure Pineapple Juice (32 oz)",
+    "verified": true,
+    "sources": [
+      "https://lakewoodorganic.com/products/lakewood-organic-pure-pineapple-juice-32-ounce-pack-of-6",
+      "https://www.wholefoodsmarket.com/product/lakewood-organic-pure-pineapple-juice-32-fl-oz-b000rehxqs",
+      "https://www.heb.com/product-detail/lakewood-organic-fresh-pressed-pure-pineapple-juice/455676"
+    ],
+    "ingredients_found": "Organic pineapple juice (single ingredient). 100% juice, not from concentrate, pasteurized, no additives, no preservatives.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "100% single-fruit organic pineapple juice, not from concentrate, nothing added; pasteurized (shelf-stable) rather than cold-pressed/HPP, so Tier 2.",
+    "justification": "P4: no added sugar/concentrate; P3: no seed oils; retains native bromelain but heat pasteurization keeps it below the cold-pressed Tier 1 bar.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 251,
+    "name": "POM Wonderful 100% Pomegranate Juice (48 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/grocery/product/pom-wonderful-pom-wonderful-100-pomegranate-juice-48-ounce-bottle-b00fzhel2g",
+      "https://www.heb.com/product-detail/pom-wonderful-100-pomegranate-juice/1591292",
+      "https://tools.myfooddata.com/nutrition-facts/412725/wt1"
+    ],
+    "ingredients_found": "100% Pomegranate Juice from Concentrate. No added sugars, acids, colors, preservatives, or flavors.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Reconstituted FROM CONCENTRATE. The brief's ALLOWED juice zone explicitly requires 'not from concentrate,' and P4 flags fruit juice concentrate as an L2 signal.",
+    "justification": "P4 (Glycemic/Hepatic): the brief treats Juice as a savory/staple category and explicitly excludes from-concentrate juice from the clean tier zone; heat concentration also strips the native fresh matrix (P3/P5).",
+    "confidence": "medium",
+    "notes": "Judgment call: this is a genuine 100% single-fruit juice with NO added sugar and no sweetener-concentrate, so under a narrower reading of 'concentrate as a sweetener' it could be argued to Tier 2. Disqualified here on the brief's explicit and repeated 'not from concentrate' requirement for the allowed zone."
+  },
+  {
+    "id": 252,
+    "name": "Evolution Fresh Organic Green Devotion Cold Pressed Juice (32 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.evolutionfresh.com/product/organic-green-devotion/",
+      "https://www.safeway.com/shop/product-details.970071265.html",
+      "https://www.kroger.com/p/evolution-fresh-organic-green-devotion-cold-pressed-juice-blend/0076235704411"
+    ],
+    "ingredients_found": "Organic juices (celery, cucumber, spinach, romaine lettuce, kale, lemon, parsley). 100% juice, not from concentrate.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% cold-pressed HPP vegetable/fruit juice, single-press whole-food matrix, nothing added, no sugar/concentrate/gums/oils.",
+    "justification": "P4: negligible added glycemic load (leafy-green/celery/cucumber base); P1: no emulsifiers/gums; P3: no seed oils; HPP cold-press preserves the native matrix, meeting the Tier 1 cold-pressed standard.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 253,
+    "name": "Central Market In-Store Cold Pressed Apple Lemon Ginger Juice (32 oz)",
+    "verified": false,
+    "sources": [],
+    "ingredients_found": "No retrievable authoritative ingredient deck. In-store, house-made Central Market juice with no published packaged ingredient statement.",
+    "decision": "delete_unverifiable",
+    "dqLevel": null,
+    "reason": "In-store house-made juice; no authoritative packaged deck exists to verify ingredients against the rules.",
+    "justification": "Cannot confirm absence of L1/L2/L3 signals without a verifiable ingredient statement; per sourcing standards, do not guess.",
+    "confidence": "high",
+    "notes": "Marked delete_unverifiable per brief instruction for in-store house-made juices with no retrievable deck."
+  },
+  {
+    "id": 254,
+    "name": "H-E-B Organics Cold-Pressed Juice - Hydration (14 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-organics-cold-pressed-juice-hydration/5073005",
+      "https://world.openfoodfacts.org/product/0041220589906/cold-pressed-juice-hydration-h-e-b-organics",
+      "https://spoonfulapp.com/products/h-e-b-organics-hydration-cold-pressed-juice/MDA0MTIyMDU4OTkwNg=="
+    ],
+    "ingredients_found": "Organic peach juice, organic banana puree, organic coconut water, organic pineapple juice, organic mango puree, magnesium (magnesium chloride), potassium (potassium chloride).",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "100% organic cold-pressed juice/puree plus added electrolyte mineral salts (magnesium/potassium chloride); no added sugar, no seed oils, no gums.",
+    "justification": "P4: no added sugar or concentrate; P3: no seed oils; P1: no gums. Added mineral electrolytes are benign fortification (not a bloating agent per the anti-pseudoscience matrix) but take it off the strict 'nothing added' Tier 1 line, so Tier 2.",
+    "confidence": "high",
+    "notes": "CORRECTS existing flags: current_flags ['seed','sugar'] are wrong — the verified deck has no added sugar and no seed oil (electrolyte salts only)."
+  },
+  {
+    "id": 255,
+    "name": "H-E-B Organics Cold-Pressed Juice - Sweet Green Blend (12 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-organics-cold-pressed-juice-sweet-green-blend/15851080"
+    ],
+    "ingredients_found": "Organic apple juice, organic mango puree, organic banana puree, organic cucumber juice, organic lemon juice, organic kale juice, organic spinach juice, organic spirulina. 100% juice, USDA Organic.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% organic cold-pressed fruit/vegetable juice blend, nothing added, no sugar/concentrate/gums/seed oils; whole-food spirulina addition only.",
+    "justification": "P4: sweetness is from whole-fruit juice/puree, no added sugar; P1: no emulsifiers/gums; P3: no seed oils; cold-pressed whole-food matrix meets Tier 1.",
+    "confidence": "high",
+    "notes": "CORRECTS existing flags: current_flags ['seed','sugar'] are wrong — verified 100% juice deck has no added sugar and no seed oil."
+  },
+  {
+    "id": 256,
+    "name": "Suja Organic Mighty Dozen Cold Pressed Juice (46 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.sujaorganic.com/products/mighty-dozen-multi-pack",
+      "https://www.kroger.com/p/suja-organic-mighty-dozen-cold-pressed-juice-drink/0085921300589",
+      "https://www.publix.com/pd/suja-organic-mighty-dozen-cold-pressed-juice-drink/RIO-PCI-188789"
+    ],
+    "ingredients_found": "Organic apple juice, organic celery juice, organic cucumber juice, organic kale juice, organic collard greens juice, organic lemon juice, organic peppermint tea (purified water, organic peppermint leaf, organic spearmint leaf), organic ginger juice, organic spinach juice, organic spirulina powder, organic chlorella powder, organic barley grass powder.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% organic cold-pressed (HPP) juice with whole-food green powders and herbal tea; no added sugar, no concentrate, no seed oils, no gums.",
+    "justification": "P4: no added sugar (sweetness from apple juice only); P1: no emulsifiers/gums; P3: no seed oils; HPP cold-press preserves native matrix — Tier 1.",
+    "confidence": "high",
+    "notes": "CORRECTS existing flags: current_flags ['seed','sugar'] are wrong. Retail 'Juice Drink' label reflects added tea/green powders, NOT any sweetener — the verified deck has zero added sugar."
+  },
+  {
+    "id": 257,
+    "name": "H-E-B Organics Cold Pressed Juice - Unwind (14 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-organics-cold-pressed-juice-unwind/5073007",
+      "https://foodisgood.com/product/heb-organics-unwind-cold-pressed-juice/",
+      "https://spoonfulapp.com/products/h-e-b-organics-unwind-cold-pressed-juice/MDA0MTIyMDcyODQ3Mw=="
+    ],
+    "ingredients_found": "Organic chamomile tea, organic strawberry juice, organic cherry juice, organic fig puree, organic bilberry puree, organic honey powder.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Organic honey powder = added sugar/syrup in the Juice (savory/staple) category, which the P4 sugar rule disqualifies (~10g added sugar).",
+    "justification": "P4 (Glycemic/Hepatic): added honey powder floods the hepatic portal vein without a protective fibrous matrix; honey powder is also typically carrier-processed. Added sugar in a staple category is an automatic L2 disqualification.",
+    "confidence": "high",
+    "notes": "Raw honey is an allowed sweetener only in inherently-SWEET categories; Juice is treated as savory/staple, so any added sugar disqualifies."
+  },
+  {
+    "id": 258,
+    "name": "Suja Organic Plant-Based Protein Drink - Chocolate (12 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.sujaorganic.com/products/chocolate-protein-shake",
+      "https://www.heb.com/product-detail/suja-organic-plant-based-protein-drink-chocolate/12101511",
+      "https://www.kroger.com/p/suja-organic-classic-chocolate-protein-shake/0081861702527"
+    ],
+    "ingredients_found": "Organic coconut milk (water, coconut cream), organic almond milk (water, almond butter), organic Suja protein blend (pea, rice & hemp), organic cocoa powder, organic cane sugar, organic natural flavors, organic acacia fiber, organic vanilla extract, potassium citrate, sodium citrate, calcium citrate, organic stevia leaf extract, dipotassium phosphate, vitamin C, organic guar gum, magnesium chloride, salt, gellan gum, choline bitartrate, organic cinnamon, plus added vitamins/minerals.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Organic cane sugar (added sugar, L2) plus L3 gums (guar gum, gellan gum) and isolated protein blend + natural flavors.",
+    "justification": "P4: added cane sugar in a non-sweet drink is an L2 disqualification; P1: guar and gellan gums are L3 mucosal/emulsifier disruptors; P2: pea/rice/hemp isolate is an engineered protein. Multiple independent fails.",
+    "confidence": "high",
+    "notes": "Also carries acacia fiber and stevia; primary disqualifier logged as L2 (added cane sugar), with L3 gums as additional fails."
+  },
+  {
+    "id": 259,
+    "name": "Naked Juice Mighty Mango Juice Blend (46 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Naked-Natural-Juice-Smoothie-Mighty/dp/B000WLW9S8",
+      "https://www.thefreshgrocer.com/product/naked-100-juice-blend-mighty-mango-64-fl-oz-id-00082592660640",
+      "https://www.walmart.com/ip/Naked-Juice-Mighty-Mango-Flavored-100-Fruit-Smoothie-Blend-15-2-fl-oz/10801718"
+    ],
+    "ingredients_found": "Mango puree, apple juice from concentrate (water, apple juice concentrate), orange juice, banana puree, lemon juice, inulin, natural flavor, ascorbic acid (vitamin C), beta-carotene, vitamin E acetate, niacinamide, D-calcium pantothenate, pyridoxine hydrochloride, cyanocobalamin.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Inulin (engineered fiber filler, L3); also apple juice FROM CONCENTRATE and added natural flavor — not a clean 100% single-press juice.",
+    "justification": "P1/engineered-fiber: added inulin is an L3 engineered fiber that ferments in the colon (bulking gut); P4/P5: apple juice from concentrate and 'natural flavor' strip the product from the clean allowed juice zone.",
+    "confidence": "high",
+    "notes": "Marketed as '100% juice/smoothie' but the deck includes engineered inulin, from-concentrate juice, and natural flavor. Existing 'tool' flag understates it; this is a hard disqualify."
+  }
+]

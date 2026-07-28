@@ -1,0 +1,205 @@
+[
+  {
+    "id": 330,
+    "name": "Primal Kitchen Chicken Pesto Bowl (10 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.instacart.com/products/21286610-primal-kitchen-chicken-pesto-frozen-meal-10-0-oz",
+      "https://www.jewelosco.com/shop/product-details.960562638.html"
+    ],
+    "ingredients_found": "Riced Cauliflower, Cooked Dark Meat Chicken (Dark Meat Chicken, Water, Sea Salt), Broccoli, Yellow Zucchini, Basil, Organic Extra Virgin Olive Oil, Organic Almond Butter (Almonds), Garlic Puree (Garlic, Vinegar), Salt, Organic Lemon Juice Concentrate, Organic Black Pepper.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean whole-food matrix: dark meat chicken + cauliflower/broccoli/zucchini + EVOO + almond butter + spices. Zero seed oils, zero added sugar, zero gums/emulsifiers. Whole30-approved / Paleo.",
+    "justification": "Native protein and vegetable structures with stable EVOO/almond lipids (P3) and no mucosal-disrupting emulsifiers (P1) or hepatic-lipogenesis sugars (P4) — a fully clean, bioavailable meal.",
+    "confidence": "high",
+    "notes": "Current formulation is dairy-free (almond butter + EVOO), differing from the listing's claimed deck (parmesan/avocado oil pesto + diced tomatoes). Lemon juice concentrate is an acidulant, not an added sweetener."
+  },
+  {
+    "id": 331,
+    "name": "Saffron Road Chicken Tikka Masala (10 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Saffron-Road-Chicken-Masala-Frozen/dp/B00L9Z6KMM",
+      "https://www.saffronroad.com/products/chicken-tikka-masala",
+      "https://www.kroger.com/p/saffron-road-chicken-tikka-masala-with-basmati-rice-gluten-free-frozen-dinner/0085706300200"
+    ],
+    "ingredients_found": "White Meat Chicken (White Meat Chicken, Water, Potato Starch, Sea Salt), Basmati Rice (Water, Basmati Rice), Water, Onions, Tomato Paste, Contains 2% or Less of: Lowfat Yogurt (Cultured Pasteurized Lowfat Milk), Cream, Olive Oil, Garlic, Spices (Spices, Paprika, Sea Salt, Turmeric), Ginger, Cumin Seeds, Native Corn Starch, Cane Sugar, Sea Salt, Fenugreek Leaves.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Added Cane Sugar in a savory/staple Frozen Meal category.",
+    "justification": "Added cane sugar in a savory staple drives rapid glycemic influx and de novo hepatic lipogenesis (P4), an automatic L2 downgrade despite the meal being otherwise seed-oil-free (uses olive oil).",
+    "confidence": "high",
+    "notes": "Fat is clean (olive oil, ghee/dairy). Listing's claim of '0g added sugar' is contradicted by the real deck, which lists cane sugar."
+  },
+  {
+    "id": 332,
+    "name": "Cappello's Almond Flour Uncured Pepperoni Pizza (12 oz)",
+    "verified": true,
+    "sources": [
+      "https://cappellos.com/products/uncured-pepperoni-pizza",
+      "https://www.wholefoodsmarket.com/grocery/product/cappello-s-cappello-s-almond-flour-thin-crust-uncured-pepperoni-pizza-gluten-free-frozen-pizza-12oz-b07qf7ccfc",
+      "https://www.amazon.com/Cappellos-Grain-Almond-Uncured-Pepperoni/dp/B07QF7CCFC"
+    ],
+    "ingredients_found": "Crust: Eggs, almond flour, arrowroot flour, cassava flour, organic coconut milk (organic coconut, water, organic guar gum), coconut oil, extra virgin olive oil, psyllium husk, lemon juice, sea salt, apple cider vinegar, honey. Toppings: Pizza Sauce (Water, Crushed Tomatoes, Olive Oil, Red Wine Vinegar, Tapioca Flour, Salt, Roasted Garlic, Molasses, Oregano, Red Pepper, Basil), Whole Milk Mozzarella, Uncured Pepperoni (Pork, Beef, Salt, Water, Spice, Sugar, Extractives of Paprika, Cultured Celery Juice, Sea Salt, Lactic Acid, Starter Culture, Natural Flavoring), White Cheddar Cheese.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Guar gum (in coconut milk) — L3 emulsifier/gum. Also L2 added sugar in a savory item: honey in crust, molasses in sauce, sugar in pepperoni.",
+    "justification": "Added industrial guar gum strips the mucin/tight-junction shield (P1, L3), and multiple added sugars (honey/molasses/sugar) in a savory staple drive hepatic lipogenesis (P4, L2).",
+    "confidence": "high",
+    "notes": "Listing's crust deck omitted the guar gum, honey, molasses and pepperoni sugar present in the real deck."
+  },
+  {
+    "id": 333,
+    "name": "Whole Foods Market Kitchens Chicken Tikka Masala (12 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/product/whole-foods-kitchens-chicken-tikka-masala-meal-12-oz-b07xqc3b64",
+      "https://foodisgood.com/product/whole-foods-market-chicken-tikka-masala/",
+      "https://us.amazon.com/Whole-Foods-Market-Chicken-Masala/dp/B07XQC3B64"
+    ],
+    "ingredients_found": "Cooked turmeric rice (water, basmati rice, onions, safflower oil, spices including turmeric, sea salt), tikka masala sauce (tomatoes, pasteurized heavy cream, water, ginger puree, garlic, tomato paste, unsalted butter, extra virgin olive oil, sea salt, paprika, tikka masala seasoning, green serrano peppers, dehydrated garlic, turmeric, garam masala seasoning), seasoned chicken (chicken breast meat with rib meat, water, salt), spinach, cilantro.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Safflower oil in the turmeric basmati rice — industrial seed oil.",
+    "justification": "Refined safflower oil carries PUFA hydroperoxides/aldehydes that skew the omega-6:omega-3 ratio and impair insulin sensitivity (P3, L3), hard-disqualifying a savory staple.",
+    "confidence": "high",
+    "notes": "Sauce fat is clean (butter, cream, EVOO), but the rice uses safflower oil — contradicting the listing's '100% seed-oil free' claim."
+  },
+  {
+    "id": 334,
+    "name": "Mimi Cheng's Heritage Pork Dumplings (10 oz)",
+    "verified": true,
+    "sources": [
+      "https://mimichengs.com/pages/ingredients",
+      "https://www.ewg.org/foodscores/products/860011963714-MimiChengsHeritagePorkDumplingsHeritagePork/",
+      "https://www.instacart.com/products/54973886-mimi-cheng-s-dumplings-7-0-oz"
+    ],
+    "ingredients_found": "Filling: Berkshire pork, chive, ginger, sesame oil, sunflower oil, soy sauce (water, soybeans, wheat, salt), water, cooking wine (water, rice, wheat, salt, caramel), salt, potato starch, spices, white pepper powder. Dough: unbleached wheat flour (malted barley flour, niacin, reduced iron, thiamin mononitrate, riboflavin, folic acid), water, sunflower oil.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Sunflower oil in both filling and dough — industrial seed oil.",
+    "justification": "Refined sunflower oil in both components introduces oxidized PUFA lipids that embed into cellular membranes and drive inflammatory eicosanoid cascades (P3, L3).",
+    "confidence": "high",
+    "notes": "Premium Berkshire pork and toasted sesame oil present, but sunflower oil (not disclosed in the listing) disqualifies. Caramel in cooking wine is a minor color, not the DQ driver."
+  },
+  {
+    "id": 335,
+    "name": "Amylu Foods Country Style Chicken Sausage Bites (7 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Amylu-Breakfast-Ingredients-Antibiotics-Gluten-Free/dp/B0DXVZ2DHH",
+      "https://www.wholefoodsmarket.com/product/amylu-country-style-chicken-sausage-breakfast-bites-12-oz-b0cvldvzcq",
+      "https://foodisgood.com/product/amylu-breakfast-bites-country-style-chicken-sausage/"
+    ],
+    "ingredients_found": "Chicken Raised Without Antibiotics, Contains 2% or less of: Sea Salt, Spices, Parsley, Crushed Red Pepper, Water, Vinegar.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean whole-food chicken with only sea salt, spices, parsley, crushed red pepper and vinegar. Zero seed oils, zero added sugar, zero gums/fillers, no nitrites, no isolates.",
+    "justification": "A native whole-meat protein matrix with no engineered isolates or binders (P2) and no emulsifiers or sugars (P1/P4) — maximally bioavailable clean protein.",
+    "confidence": "medium",
+    "notes": "Real deck contains no EVOO coating (listing claimed one) and no soy protein isolate — it is not an engineered 'tool' product; the 'tool' flag is incorrect. Sold as 7 oz and 12 oz Breakfast Bites; decks identical."
+  },
+  {
+    "id": 336,
+    "name": "Kevin's Natural Foods Thai Coconut Chicken Entree (16 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/grocery/product/kevin-s-natural-foods-kevin-s-natural-foods-thai-coconut-chicken-breast-16-oz-b082vwhv2g",
+      "https://www.amazon.com/Kevins-Natural-Foods-Chicken-Sous-Vide/dp/B082VWHV2G",
+      "https://www.kevinsnaturalfoods.com/products/thai-style-coconut-chicken-frozen-bowl"
+    ],
+    "ingredients_found": "Chicken: Boneless Skinless Chicken Breast, Water, Vinegar, Sea Salt, Yeast Extract, Citrus Extract, Cultured Onion Juice, Black Pepper. Thai Coconut Sauce: Coconut Milk (Coconut Cream, Water), Water, Coconut Sugar, Lime Juice Concentrate, Spices, Tapioca Starch, Yeast Extract, Basil, Sea Salt, Lemongrass Puree, Dehydrated Garlic, Dehydrated Onion, Turmeric, Xanthan Gum, Dehydrated Ginger, Black Pepper, Monk Fruit Extract.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Xanthan gum in the coconut sauce (L3 gum). Also L2 added sugar: coconut sugar in a savory item.",
+    "justification": "Xanthan gum acts as a detergent-like surfactant on the epithelial mucin layer (P1, L3), and added coconut sugar in a savory staple drives glycemic influx/lipogenesis (P4, L2).",
+    "confidence": "high",
+    "notes": "Actual deck contains no sunflower oil (the listing's 'seed' flag is inaccurate); the true disqualifiers are xanthan gum and coconut sugar. Monk fruit extract present as a secondary sweetener."
+  },
+  {
+    "id": 337,
+    "name": "Banza Chickpea Crust Plain Frozen Pizza (2-Pack)",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/grocery/product/banza-banza-plain-crust-frozen-pizza-from-chickpeas-high-protein-gluten-free-lower-carb-vegan-pizza-crust-2-pack-13-4oz-b08dyzr5gs",
+      "https://www.amazon.com/Banza-Plain-Chickpea-Pizza-Crust/dp/B08DYZR5GS",
+      "https://www.eatbanza.com/products/plain-crust"
+    ],
+    "ingredients_found": "Chickpeas, Water, Tapioca, Cocoa Butter, Olive Oil, Less than 2% of: Yeast, Oregano, Garlic Powder, Salt, Date Powder, Sunflower Lecithin, Xanthan Gum, Baking Powder (Calcium Carbonate, Sodium Acid Pyrophosphate, Sodium Bicarbonate, Monocalcium Phosphate).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Sunflower lecithin and xanthan gum (L3 emulsifiers/gums). Also L2 added sugar: date powder in a savory item.",
+    "justification": "Sunflower lecithin plus xanthan gum are mucosal-barrier-disrupting emulsifiers (P1, L3), and date powder adds sugar to a savory staple (P4, L2).",
+    "confidence": "high",
+    "notes": "Plain 2-pack crust deck confirmed. The 'tool'-only flag understates it — real deck contains gums, emulsifier and sugar, so it is disqualified, not merely engineered."
+  },
+  {
+    "id": 338,
+    "name": "Deep Indian Kitchen Chicken Tikka Masala (9 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.kroger.com/p/deep-indian-kitchen-chicken-tikka-masala-with-basmati-rice-frozen-meal/0001143306114",
+      "https://www.fredmeyer.com/p/deep-indian-kitchen-chicken-tikka-masala-with-basmati-rice-frozen-meal/0001143306114",
+      "https://www.walmart.com/ip/Deep-Indian-Kitchen-Chicken-Tikka-Masala-9oz-Frozen-Packaged-Meal/143101982"
+    ],
+    "ingredients_found": "Chicken Breast, Tomatoes, Onions, Water, Expeller-Pressed Canola Oil, Yogurt, Cream, Nonfat Dry Milk, Spices, Garlic, Cashews, Lemon Juice, Salt, Butter, Sugar, Potato Starch, Syrup Blend (Rice Syrup, Grape Juice), Tapioca Starch, Paprika Oleoresin, Ghee, Fenugreek Leaves, Cilantro, Turmeric, Vinegar, Mango Powder. Rice: Water, Basmati Rice, Expeller-Pressed Canola Oil, Ghee, Salt, Spices.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Expeller-pressed canola oil (L3 seed oil) in both sauce and rice. Also L2 added sugar: cane sugar plus rice syrup/grape juice syrup blend.",
+    "justification": "Refined canola oil delivers oxidized PUFAs (P3, L3) and the added sugar/rice-grape syrup blend drives hepatic lipogenesis in a savory staple (P4, L2) — compounding disqualifiers.",
+    "confidence": "high",
+    "notes": "Matches listing's seed+sugar flags. Expeller-pressed does not exempt canola from the L3 seed-oil rule."
+  },
+  {
+    "id": 339,
+    "name": "Scott & Jon's 20g Protein Shrimp Scampi Bowl (8 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/scott-jon-s-shrimp-scampi-pasta-bowl/3032510",
+      "https://scottandjons.com/shrimp-scampi-bowl/",
+      "https://foodisgood.com/product/scott-jons-meal-shrimp-scampi-with-linguini-pasta-bowl/"
+    ],
+    "ingredients_found": "Cooked Pasta (Water, Durum Wheat Semolina), Tomatoes, Shrimp, Water, White Cooking Wine (Wine [Contains Sulfites], Salt, Malic Acid), Soybean Oil, Granulated Garlic, Salt, Sodium Carbonate, Sodium Citrate, Nonfat Dry Milk, Natural Flavor, Buttermilk Solids, Dried Parsley, Xanthan Gum.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Soybean oil (L3 seed oil) and xanthan gum (L3 gum).",
+    "justification": "Industrial soybean oil introduces oxidized PUFA lipids (P3, L3) and xanthan gum disrupts the epithelial mucin barrier (P1, L3), degrading an otherwise lean shrimp/durum base.",
+    "confidence": "high",
+    "notes": "Matches listing's seed+emul flags."
+  },
+  {
+    "id": 340,
+    "name": "Healthy Choice Café Steamers Crustless Chicken Pot Pie",
+    "verified": true,
+    "sources": [
+      "https://www.healthychoice.com/cafe-steamers/crustless-chicken-pot-pie",
+      "https://www.kroger.com/p/healthy-choice-cafe-steamers-crustless-chicken-pot-pie-frozen-meal/0007265500117",
+      "https://www.frysfood.com/p/healthy-choice-cafe-steamers-crustless-chicken-pot-pie-frozen-meal/0007265500117"
+    ],
+    "ingredients_found": "Sauce: Water, Modified Corn Starch, Chicken Flavor, Soybean Oil, Butter, Onions, Nonfat Dry Milk, Chardonnay Wine, Garlic, Potassium Chloride, Sea Salt, Spices, Canola Oil, Olive Oil, Xanthan Gum, Guar Gum. Chicken: Chicken Breast, Water, Olive Oil, Isolated Soy Protein Product (Isolated Soy Protein, Modified Potato Starch, Corn Starch, Carrageenan, Soy Lecithin), Dextrose, Potassium Chloride, Salt, Sodium Phosphates, Flavoring. Dumplings: Water, Wheat Flour, Whole Eggs, Durum Wheat Flour, Salt, Spices, Natural Flavor, Oleoresin Turmeric. Vegetables: Corn, Carrots, Peas.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Soybean oil + canola oil (L3 seed oils); xanthan gum, guar gum, carrageenan, soy lecithin (L3 emulsifiers/gums); modified corn/potato starch and isolated soy protein (L3 engineered). Also L2 dextrose added sugar.",
+    "justification": "A dense stack of seed oils (P3), mucosal-stripping gums/emulsifiers (P1), an engineered soy-protein isolate (P2) and added dextrose (P4) — a textbook UPF trap failing every principle.",
+    "confidence": "high",
+    "notes": "Matches listing's seed+emul+sugar flags. UPF marketing trap ('Healthy Choice')."
+  },
+  {
+    "id": 341,
+    "name": "Hungry-Man Selects Classic Fried Chicken Meal (16 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Hungry-Man-Selects-Classic-Chicken-Frozen/dp/B000Q7LZRY",
+      "https://www.walmart.com/ip/Hungry-Man-Selects-Classic-Fried-Chicken-Frozen-Meal-16-oz-frozen/15754263",
+      "https://www.brookshires.com/product/hungryman-selects-classic-fried-chicken-16-ounce-id-00051000065148"
+    ],
+    "ingredients_found": "Fried Chicken: Chicken, Water, Enriched Wheat Flour, Soybean Oil, Soy Protein Isolate, Salt, Sodium Phosphates, Monosodium Glutamate. Mashed Potatoes: Rehydrated Potato Flakes (Water, Potatoes, Mono and Diglycerides, Disodium Dihydrogen Pyrophosphate, Sodium Bisulfite, Citric Acid, BHT), Soybean Oil, Water, Salt, Dried Dairy Blend, Mono- and Diglycerides, BHT, Beta Carotene. Corn: Corn, Water, Sugar, Salt. Brownie: Sugar, Water, Enriched Wheat Flour, Soybean Oil, Cocoa Powder, Liquid Whole Eggs, Acacia and Xanthan Gums, Sodium Bicarbonate (contains Hydrogenated Vegetable Oil), Salt, Mono and Diglycerides with BHT, Caramel Color, Natural and Artificial Flavor, Vanilla Extract, Beta Carotene.",
+    "decision": "disqualify",
+    "dqLevel": "L1",
+    "reason": "Hydrogenated vegetable oil (L1 partially hydrogenated / trans fat) in the brownie leavening. Also L2 BHT preservative + added sugar, and L3 soybean oil, mono-/diglycerides, xanthan/acacia gums, soy protein isolate.",
+    "justification": "Industrial trans fat (PHO) is an automatic L1 hard fail for altering membrane fluidity (P3), stacked on BHT (L2), seed oils and emulsifiers (P3/P1) and added sugar (P4) — an extreme UPF trap.",
+    "confidence": "high",
+    "notes": "Matches listing's seed+sugar flags, but the true top-severity driver is L1 hydrogenated vegetable oil, plus L2 BHT chemical preservative."
+  }
+]

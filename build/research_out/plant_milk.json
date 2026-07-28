@@ -1,0 +1,188 @@
+[
+  {
+    "id": 48,
+    "name": "Elmhurst 1925 Unsweetened Milked Almonds",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/product/elmhurst-milked-unsweetened-almond-beverage-32-fl-oz-b07hfjj49p",
+      "https://www.amazon.com/Elmhurst-Milked-Unsweetened-Ingredients-Friendly/dp/B078WVVRPB",
+      "https://elmhurst1925.com/products/unsweetened-milked-almonds"
+    ],
+    "ingredients_found": "Filtered Water, Almonds.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Two-ingredient whole-nut milk (water + almonds), zero gums/oils/sugar/additives; conventional (not organic) almonds keep it below gold-standard Tier 1.",
+    "justification": "HydroRelease processing keeps the intact whole-nut protein and lipid matrix (Principle 2 native protein, Principle 3 stable lipids) with no emulsifiers to strip the mucosal shield (Principle 1). Clean but conventional = practical clean staple.",
+    "confidence": "high",
+    "notes": "Uses up to 4x more almonds than typical brands; no gums or emulsifiers. Not USDA Organic."
+  },
+  {
+    "id": 49,
+    "name": "Three Trees Organic Unsweetened Original Almond Milk",
+    "verified": true,
+    "sources": [
+      "https://www.threetrees.com/almond-milk-organic-unsweetened",
+      "https://www.amazon.com/Three-Trees-Almondmilk-Unsweetened-Original/dp/B07QHBJQV1",
+      "https://www.wholefoodsmarket.com/product/three-trees-organic-original-almondmilk-unsweetened-28-fl-oz-b07qhbjqv1"
+    ],
+    "ingredients_found": "Filtered Water, Organic Almonds, French Grey Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Organic whole-nut milk: only organic almonds + water + salt. Zero gums, oils, sugar, natural flavors or emulsifiers.",
+    "justification": "High organic almond-to-water ratio preserves the native intact nut protein/lipid matrix (Principles 2 and 3) with no gums or surfactants to compromise tight junctions (Principle 1). Gold-standard clean whole-food plant milk.",
+    "confidence": "high",
+    "notes": "Marketed as clean 4-ingredient / no gum or oil; ~10.5g protein per bottle."
+  },
+  {
+    "id": 50,
+    "name": "MALK Organics Unsweetened Almond Milk",
+    "verified": true,
+    "sources": [
+      "https://malk-organics.helpscoutdocs.com/article/33-unsweetened-almond",
+      "https://www.amazon.com/MALK-Unsweetened-Almond-Milk-28/dp/B06ZYG9KKS",
+      "https://malkorganics.com/products/almond-milk"
+    ],
+    "ingredients_found": "Filtered Water, Organic Almonds, Himalayan Pink Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Three-ingredient organic whole-nut milk (organic almonds + water + Himalayan salt); zero gums, seed oils, fillers or additives.",
+    "justification": "Intact organic almond matrix delivers native protein and stable lipids (Principles 2, 3) with no emulsifiers/gums to strip the mucin layer (Principle 1). Gold-standard clean plant milk.",
+    "confidence": "high",
+    "notes": "Explicitly 'No Gums or Fillers.'"
+  },
+  {
+    "id": 51,
+    "name": "Elmhurst 1925 Unsweetened Oat Milk",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Elmhurst-1925-Unsweetened-Milk-Ounce/dp/B082WHZGKM",
+      "https://www.bevnet.com/news/2022/elmhurst-1925-launches-reformulated-unsweetened-oat-milk/",
+      "https://www.goodeggs.com/elmhurst/unsweetened-oat-milk/65b1671f5d25ea001259fb17"
+    ],
+    "ingredients_found": "Filtered Water, Whole Grain Oats, Salt.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean 3-ingredient oat milk (water + whole grain oats + salt); zero gums, seed oils, phosphates or added sugar. Conventional oats, not fermented/sprouted.",
+    "justification": "Free of all disruptors, but oat milk is not enzymatically pre-digested/fermented so residual FODMAPs remain (Principle 5) and it lacks an intact protein matrix; conventional non-organic = clean-label fallback rather than gold standard.",
+    "confidence": "high",
+    "notes": "Reformulated 2022 to remove gums; described as cleanest oat milk in category with no added gums/emulsifiers."
+  },
+  {
+    "id": 52,
+    "name": "Three Trees Organic Vanilla Bean Unsweetened Almond Milk",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Three-Trees-Almondmilk-Unsweetened-Vanilla/dp/B07QHBM1Y3",
+      "https://www.heb.com/product-detail/three-trees-organic-vanilla-bean-nbsp-unsweetened-almond-milk/2756025",
+      "https://www.kroger.com/p/three-trees-organic-vanilla-bean-unsweetened-almondmilk/0085991800426"
+    ],
+    "ingredients_found": "Filtered Water, Organic Almonds, Organic Vanilla Extract, Organic Vanilla Beans.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Organic whole-nut milk flavored only with real organic vanilla extract and vanilla beans; zero added sugar, zero synthetic 'natural flavor', zero gums or oils.",
+    "justification": "Retains the intact organic almond protein/lipid matrix (Principles 2, 3) with genuine whole-food vanilla and no emulsifiers or added sugar (Principles 1, 4). Gold-standard clean plant milk.",
+    "confidence": "high",
+    "notes": "0g sugar per label; real Madagascar vanilla rather than natural flavor."
+  },
+  {
+    "id": 53,
+    "name": "Three Trees Unsweetened Pistachio Nutmilk",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Three-Trees-Nutmilk-Pistachio-Unsweetened/dp/B07QJLNTBZ",
+      "https://www.wholefoodsmarket.com/grocery/product/three-trees-organic-unsweetened-pistachio-nutmilk-28-fz-b07qjlntbz",
+      "https://www.ralphs.com/p/three-trees-organic-pistachio-unsweetened-nut-milk/0085991800427"
+    ],
+    "ingredients_found": "Filtered Water, Organic Pistachios, Organic Almonds, Organic Almond Extract, Pink Himalayan Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Organic whole-nut milk (pistachios + almonds + water + salt) flavored only with organic almond extract; zero sugar, gums, oils or thickeners.",
+    "justification": "Whole organic nut matrix provides native protein and dense lipids/micronutrients (Principles 2, 3) with no gums or added sugar (Principles 1, 4). Gold-standard clean plant milk.",
+    "confidence": "high",
+    "notes": "4 clean ingredients; ~10.5g protein per bottle."
+  },
+  {
+    "id": 54,
+    "name": "MALK Organics Original Oat Milk",
+    "verified": true,
+    "sources": [
+      "https://malk-organics.helpscoutdocs.com/article/37-original-oat",
+      "https://www.amazon.com/Malk-Organic-Original-Oat-Milk/dp/B07RCNGW9R",
+      "https://www.wholefoodsmarket.com/grocery/product/malk-organics-malk-original-oat-28-fl-oz-b07rcngw9r"
+    ],
+    "ingredients_found": "Organic Gluten-Free Oats, Filtered Water, Himalayan Pink Salt.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean 3-ingredient organic oat milk; zero gums, seed oils, or added sugar. The input 'emul' flag is not supported by the current deck.",
+    "justification": "Free of all L3 disruptors with no emulsifiers to strip the mucosal barrier (Principle 1); organic whole-grain oats but not fermented/sprouted (Principle 5) and no intact protein matrix, so a clean staple rather than gold-standard.",
+    "confidence": "high",
+    "notes": "Corrects prior 'emul' flag; brand explicitly markets 'No Gums or Fillers.'"
+  },
+  {
+    "id": 55,
+    "name": "Califia Farms Organic Unsweetened Almond Milk",
+    "verified": true,
+    "sources": [
+      "https://www.califiafarms.com/products/organic-almondmilk/",
+      "https://www.amazon.com/Califia-Farms-Organic-Unsweetened-Calorie/dp/B0BCDCYZGJ",
+      "https://www.kroger.com/p/califia-farms-dairy-free-organic-unsweetened-original-almond-milk/0081363602335"
+    ],
+    "ingredients_found": "Water, Organic Almonds, Sea Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Organic 3-ingredient almond milk (water + organic almonds + sea salt); zero gums, oils, or added sugar. The input 'sugar' flag is not supported by the current deck.",
+    "justification": "Certified organic whole-nut matrix with intact protein/lipids (Principles 2, 3), free of emulsifiers and added sugar (Principles 1, 4). Distinct clean organic line from Califia's standard gum-laden almond milk.",
+    "confidence": "high",
+    "notes": "Corrects prior 'sugar' flag; USDA Organic, Non-GMO, free of oils and gums."
+  },
+  {
+    "id": 56,
+    "name": "365 by Whole Foods Market Organic Unsweetened Almondmilk",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/grocery/product/365-by-whole-foods-market-365-by-whole-foods-market-organic-almondmilk-unsweetened-64-fl-oz-b074h6m4m4",
+      "https://www.amazon.com/365-Everyday-Value-Almondmilk-Unsweetened/dp/B074H6M4M4"
+    ],
+    "ingredients_found": "Organic Almond Beverage (Filtered Water, Organic Almonds), Sea Salt, Tricalcium Phosphate, Gellan Gum, Organic Locust Bean Gum, Vitamin A Palmitate, Ergocalciferol (Vitamin D2), DL-alpha-tocopherol Acetate (Vitamin E), Cyanocobalamin (Vitamin B12).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains gellan gum and organic locust bean gum (L3 emulsifiers/gums).",
+    "justification": "Hydrocolloid gums act as surfactants that strip the mucin layer and compromise epithelial tight junctions (Principle 1), disqualifying it regardless of being organic and sugar-free.",
+    "confidence": "high",
+    "notes": "Organic and zero added sugar, but two gums hard-disqualify per L3."
+  },
+  {
+    "id": 57,
+    "name": "Califia Farms Standard Unsweetened Almondmilk",
+    "verified": true,
+    "sources": [
+      "https://www.califiafarms.com/products/unsweetened-almondmilk-2/",
+      "https://www.kroger.com/p/califia-farms-dairy-free-unsweetened-plain-almond-milk/0085290900330",
+      "https://spoonfulapp.com/products/califia-farms-unsweetened-almondmilk/NDA2MTQ2MjUwNzUyNg=="
+    ],
+    "ingredients_found": "Almondmilk (Water, Almonds), Calcium Carbonate, Sunflower Lecithin, Sea Salt, Natural Flavor, Guar Gum, Gellan Gum, Vitamin A Palmitate, Vitamin D2, Potassium Citrate.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains sunflower lecithin, guar gum, and gellan gum (L3 emulsifiers/gums) plus natural flavor.",
+    "justification": "Industrial emulsifier (sunflower lecithin) and two hydrocolloid gums act as detergents on the mucosal shield and tight junctions (Principle 1), hard-disqualifying the product though it has zero added sugar.",
+    "confidence": "high",
+    "notes": "Distinct from Califia's clean organic line (id 55)."
+  },
+  {
+    "id": 58,
+    "name": "Ripple Unsweetened Original Plant-Based Milk",
+    "verified": true,
+    "sources": [
+      "https://ripplefoods.com/products/ripple-shelf-stable-unsweetened-original-milk-1-pack",
+      "https://www.amazon.com/Ripple-Foods-Original-Unsweetened-Nutritious/dp/B074KL78Z9",
+      "https://foodisgood.com/product/ripple-unsweetened-original-nutritious-plantbased-milk/"
+    ],
+    "ingredients_found": "Water, Pea Protein Blend (Water, Pea Protein), Vegetable Oil (High Oleic Sunflower and/or Safflower Oil), Tricalcium Phosphate, Dipotassium Phosphate, Sea Salt, Natural Flavor, Gum Arabic, Guar Gum, Gellan Gum, Vitamin A Palmitate, Vitamin D2, Vitamin B12.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains high oleic sunflower/safflower oil (L3 seed oil) plus guar gum and gellan gum (L3 gums).",
+    "justification": "Refined seed oil introduces oxidation-prone PUFAs/aldehydes into membranes (Principle 3) and the added gums disrupt the mucosal barrier (Principle 1); an engineered pea-protein isolate matrix compounds the disqualification (Principle 2).",
+    "confidence": "high",
+    "notes": "High protein (8g) but hard-disqualified on seed oil and gums."
+  }
+]

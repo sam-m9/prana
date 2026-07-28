@@ -1,0 +1,207 @@
+[
+  {
+    "id": 201,
+    "name": "Naked Whey Grass-Fed Unflavored (Naked Nutrition)",
+    "verified": true,
+    "sources": [
+      "https://nakednutrition.com/products/grass-fed-whey-protein-powder",
+      "https://www.amazon.com/NAKED-WHEY-Grass-Protein-Powder/dp/B00NBDMN8U",
+      "https://www.walmart.com/ip/NAKED-Whey-Isolate-Protein-2-Ingredients-30g-Grass-Fed-Protein-Unflavored-Undenatured-GMO-Soy-Gluten-Free-Preservatives-28-Servings/17613255836"
+    ],
+    "ingredients_found": "100% Grass-Fed Whey Protein (whey protein concentrate). Single ingredient. No sweeteners, no gums, no lecithin, no added sugar.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Single-ingredient cold-processed grass-fed whey concentrate; zero gums, zero sweeteners, zero added sugar. Engineered/isolated protein caps it at Tier 2 (cannot be Tier 1).",
+    "justification": "Passes every pre-filter (P1 no emulsifiers/gums, P3 no seed oils, P4 no added sugar), but per P2 a processed whey protein is not a native whole-food matrix, so it is a clean functional tool at Tier 2, not a Gold-Standard whole food.",
+    "confidence": "high",
+    "notes": "Unflavored concentrate variant audited. Shipped catalog had this at Tier 1; corrected to Tier 2 because any engineered protein powder cannot be Tier 1."
+  },
+  {
+    "id": 202,
+    "name": "One Ingredient Grass-Fed Whey Protein Powder (Promix Nutrition)",
+    "verified": true,
+    "sources": [
+      "https://promixnutrition.com/products/one-ingredient-whey-protein-powder",
+      "https://www.amazon.com/Promix-One-Ingredient-Whey-Servings/dp/B08P24F3L9",
+      "https://promixnutrition.com/products/unflavored-whey-protein-powder"
+    ],
+    "ingredients_found": "100% Grass-Fed Native Whey Protein (concentrate). Single ingredient. Brand states free of gums, fillers, stevia, artificial sweeteners and refined sugar.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "True single-ingredient grass-fed native whey concentrate; zero gums, zero sweeteners, zero lecithin, zero added sugar. Engineered protein caps at Tier 2.",
+    "justification": "Clean on all five principles (no gums/emulsifiers P1, no seed oils P3, no added sugar P4), but a processed whey concentrate is not a native whole-food matrix (P2), so it lands at Tier 2 as a clean macro tool.",
+    "confidence": "high",
+    "notes": "Unflavored concentrate audited. Shipped catalog had Tier 1; corrected to Tier 2."
+  },
+  {
+    "id": 203,
+    "name": "100% Grass-Fed Whey Protein Isolate - Unflavored (Transparent Labs)",
+    "verified": true,
+    "sources": [
+      "https://www.transparentlabs.com/products/whey-protein-isolate",
+      "https://isitclean.org/food/transparent-labs-whey-protein-isolate-unflavored/",
+      "https://www.vitaminshoppe.com/p/transparent-labs-proteinseries-unflavored-2-2-lb-powder/tpl-15466"
+    ],
+    "ingredients_found": "Unflavored: Grass-Fed Whey Protein Isolate, Sunflower Lecithin (approx 100mg). No natural flavors, no stevia, no gums, no added sugar (flavored versions add Natural Flavors + Stevia Extract, which are NOT in the unflavored SKU).",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Whey isolate + sunflower lecithin only; zero gums, zero sweeteners, zero added sugar. Sunflower lecithin is a minor emulsifier and the isolate is engineered, so Tier 2 (never Tier 1).",
+    "justification": "No added sugar (P4) and no gums (P1) clears the pre-filter; sunflower lecithin is a supporting emulsifier flag and the cross-flow isolate is a non-native engineered protein (P2), placing it firmly at Tier 2.",
+    "confidence": "high",
+    "notes": "Audited the Unflavored variant per instructions. Flavored variants add stevia extract (pure) and would still be Tier 2; only the unflavored SKU is scored here."
+  },
+  {
+    "id": 204,
+    "name": "Grass-Fed Whey Protein Isolate - Unflavored (Promix Nutrition)",
+    "verified": true,
+    "sources": [
+      "https://promixnutrition.com/products/unflavored-whey-protein-isolate",
+      "https://www.amazon.com/Promix-Protein-Isolate-Powder-Unflavored/dp/B06W9J1SQK",
+      "https://www.amazon.com/Whey-Protein-Isolate-Powder-Unflavored/dp/B01F7JQGI8"
+    ],
+    "ingredients_found": "Grass-Fed Whey Protein Isolate, Sunflower Lecithin. (Native cold-processed isolate with naturally occurring lactoferrin and L-carnitine; sunflower lecithin added for blending.) No gums, no sweeteners, no added sugar.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Whey isolate + sunflower lecithin; zero gums, zero sweeteners, zero added sugar. Emulsifier + engineered isolate cap at Tier 2.",
+    "justification": "Clears the pre-filter (no added sugar P4, no gums P1); sunflower lecithin is only a minor emulsifier and a micro-filtered isolate is a non-native engineered protein (P2) — a clean Tier 2 tool.",
+    "confidence": "high",
+    "notes": "Shipped catalog flagged this 'clean'/Tier 1, but the product actually contains sunflower lecithin. Corrected to Tier 2 (emulsifier present + engineered isolate)."
+  },
+  {
+    "id": 205,
+    "name": "Native Fuel 100% Whey Protein - Unflavored (Ascent)",
+    "verified": true,
+    "sources": [
+      "https://www.ascentprotein.com/products/unflavored-protein-powder",
+      "https://www.amazon.com/Ascent-Native-Fuel-Protein-Powder/dp/B01N7VLTW3",
+      "https://thefeed.com/products/ascent-native-fuel-whey-protein-2lb-bag"
+    ],
+    "ingredients_found": "Whey Protein Isolate Blend (Native Whey Protein Isolate, Whey Protein Isolate), Whey Protein Concentrate, Lecithin (sunflower). No sweeteners, no gums, no added sugar.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Native whey isolate/concentrate blend + lecithin; zero gums, zero sweeteners, zero added sugar. Emulsifier + engineered protein cap at Tier 2.",
+    "justification": "No added sugar (P4) and no gums (P1) clears the pre-filter; the added lecithin emulsifier and the filtered/engineered protein matrix (P2) place it at Tier 2 as a clean functional tool.",
+    "confidence": "high",
+    "notes": "Unflavored variant audited; contains lecithin (shipped catalog said 'zero artificial additives' but a lecithin emulsifier is present)."
+  },
+  {
+    "id": 206,
+    "name": "Grass-Fed Whey Isolate - Unflavored (RAW Nutrition)",
+    "verified": false,
+    "sources": [
+      "https://getrawnutrition.com/products/raw-nutrition-protein",
+      "https://www.gnc.com/whey-protein/raw-nutrition-grass-fed-whey.html",
+      "https://www.vitaminshoppe.com/p/raw-grass-fed-whey-isolate-protein-peanut-butter-1-98-lb-powder/grw0007",
+      "https://www.iherb.com/pr/raw-nutrition-grass-fed-whey-isolate-protein-vanilla-1-63-lb-740-g/137090"
+    ],
+    "ingredients_found": "Could not verify an Unflavored SKU. RAW Nutrition (getrawnutrition.com, Informed Sport-certified grass-fed whey isolate matching the catalog's price/size/cert) is sold flavored ONLY; every flavor's deck is: Grass-Fed Whey Protein Isolate, [Peanut Flour], Erythritol, Natural Flavor, Salt, Gum Blend (Guar Gum, Gum Acacia, Xanthan Gum), Steviol Glycosides. No unflavored/additive-free version of this brand's isolate was found.",
+    "decision": "delete_unverifiable",
+    "dqLevel": null,
+    "reason": "The specific 'Unflavored (RAW Nutrition)' isolate as described (Informed-certified grass-fed isolate) could not be confirmed to exist; the brand's actual isolate is flavored-only and every flavor contains erythritol, a guar/acacia/xanthan gum blend, and steviol glycosides — which would each independently disqualify.",
+    "justification": "Per the sourcing standard, an ingredient deck that cannot be credibly confirmed is set verified:false / delete_unverifiable; note that if this maps to the real (flavored) RAW Nutrition isolate it fails P1 (gum blend strips the mucin layer) and the sweetener matrix (erythritol polyol + stevia blended with gums).",
+    "confidence": "medium",
+    "notes": "Brand ambiguity: 'RAW Nutrition' (getrawnutrition.com / CBUM Isolate) is flavored-only with erythritol+gums+stevia (DQ). A different single-ingredient brand 'Raw Organic Whey / Raw Grass Fed Whey' (raworganicwhey.com) IS clean unflavored, but that is a concentrate and is NOT Informed-certified, so it does not match this catalog entry. Unverifiable as specified."
+  },
+  {
+    "id": 207,
+    "name": "Isopure Zero Carb Unflavored 100% Whey Isolate (Isopure)",
+    "verified": true,
+    "sources": [
+      "https://www.iherb.com/pr/isopure-zero-carb-protein-powder-unflavored-1-lb-454-g/72950",
+      "https://www.heb.com/product-detail/isopure-zero-carb-whey-protein-isolate-powder-unflavored/5599031",
+      "https://www.vitacost.com/isopure-zero-carb-protein-powder-unflavored"
+    ],
+    "ingredients_found": "Whey Protein Isolate, Soy Lecithin. (Unflavored Zero Carb; some pack runs also carry an added vitamin/mineral blend for immune support, but no sweeteners, no gums, no added sugar.)",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Whey isolate + soy lecithin; zero gums, zero sweeteners, zero added sugar. Emulsifier + engineered isolate cap at Tier 2.",
+    "justification": "Clears the pre-filter with no added sugar (P4) and no gums (P1); soy lecithin is a supporting emulsifier and the maximally processed isolate is a non-native engineered protein (P2) — a clean Tier 2 tool.",
+    "confidence": "high",
+    "notes": "Unflavored variant audited. Soy lecithin present (matches shipped 'emul' flag). Vitamin-fortified pack variants exist but do not change the tier."
+  },
+  {
+    "id": 208,
+    "name": "Naked Vanilla Grass-Fed Whey (Naked Nutrition)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/nutrition-Vanilla-Ingredients-Gmo-Free-Servings/dp/B0787RNSPQ",
+      "https://nakednutrition.com/products/vanilla-whey-protein-2lb",
+      "https://www.walmart.com/ip/NAKED-Nutrition-Vanilla-Whey-Protein-1Lb-3-Ingredients-Natural-Grass-Fed-Whey-Protein-Powder-Vanilla-Coconut-Sugar-GMO-Free-Soy-Free-Gluten-Free-Aid/683657187"
+    ],
+    "ingredients_found": "Grass-Fed Whey Protein (concentrate), Natural Vanilla Flavor, Organic Coconut Sugar. 5g added sugar per serving.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Added organic coconut sugar (5g/serving) in a protein staple — added sugar in the Clear Whey (savory/staple) category is an L2 disqualifier.",
+    "justification": "Violates P4 (Glycemic Influx): added sugar in a protein-staple powder floods the hepatic portal vein without a protective whole-food matrix, driving de novo lipogenesis and fluid retention. Clear Whey is a designated staple category, so any added sugar trashes it.",
+    "confidence": "high",
+    "notes": "Coconut sugar is still added sugar; 'organic/natural' does not exempt it. Clean of gums/artificial sweeteners, but the added sugar is the disqualifier."
+  },
+  {
+    "id": 209,
+    "name": "Impact Whey Isolate - Unflavored (MyProtein)",
+    "verified": true,
+    "sources": [
+      "https://us.myprotein.com/p/sports-nutrition/impact-whey-isolate/10852482/",
+      "https://foodisgood.com/product/myprotein-impact-whey-isolate-unflavored/",
+      "https://revita-wellness.com/products/myprotein-impact-whey-isolate-1kg-unflavoured"
+    ],
+    "ingredients_found": "Whey Protein Isolate (Milk), Emulsifier (Sunflower Lecithin). Unflavored. No sweeteners, no gums, no added sugar.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Whey isolate + sunflower lecithin; zero gums, zero sweeteners, zero added sugar. Emulsifier + engineered isolate cap at Tier 2.",
+    "justification": "No added sugar (P4) and no gums (P1) clears the pre-filter; sunflower lecithin is a minor emulsifier and the isolate is a non-native engineered protein (P2), so it is a clean, cost-efficient Tier 2 tool.",
+    "confidence": "high",
+    "notes": "Unflavored variant audited; sunflower lecithin present (matches shipped 'emul' flag)."
+  },
+  {
+    "id": 210,
+    "name": "Gold Standard 100% Whey - Double Rich Chocolate (Optimum Nutrition)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/optimum-nutrition-gold-standard-100-whey-24g-protein-powder-double-rich-chocolate/13198011",
+      "https://www.kroger.com/p/optimum-nutrition-gold-standard-double-rich-chocolate-flavored-100-whey-protein-powder/0074892706993",
+      "https://www.vitaminshoppe.com/p/optimum-nutrition-100-whey-gold-double-rich-chocolate-2-lb-powder/op-1009"
+    ],
+    "ingredients_found": "Protein Blend (Whey Protein Isolate, Whey Protein Concentrate, Hydrolyzed Whey Protein Isolate), Cocoa (Processed with Alkali), Natural and Artificial Flavor, Lecithin (Sunflower and/or Soy), Salt, Cellulose Gum, Xanthan Gum, Sucralose, Acesulfame Potassium.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains sucralose AND acesulfame potassium (synthetic sweeteners) plus cellulose gum AND xanthan gum (gums). Any one of these is a hard disqualifier.",
+    "justification": "Fails P1 (Mucosal Shielding): cellulose gum and xanthan gum act as detergents on the gut lining, and sucralose/acesulfame-K are synthetic sweeteners flagged as gut-disrupting by the Sweetener Matrix. Trashed regardless of protein quality.",
+    "confidence": "high",
+    "notes": "Shipped catalog wrongly kept this at Tier 2 (flags emul+tool) despite sucralose, acesulfame-K, and two gums. Corrected to disqualify."
+  },
+  {
+    "id": 211,
+    "name": "Loaded Protein - Vanilla Peanut Butter (Ryse Supps)",
+    "verified": true,
+    "sources": [
+      "https://world.openfoodfacts.org/product/0850041914299/loaded-protein-peanut-butter-flavor-ryse",
+      "https://www.amazon.com/Ryse-Loaded-Protein-Powder-Digestive-Friendly/dp/B08H5T2NSR",
+      "https://www.heb.com/product-detail/ryse-loaded-whey-protein-powder-drink-mix-vanilla-peanut-butter/6445502"
+    ],
+    "ingredients_found": "Instantized Whey Protein Isolate, Instantized Whey Protein Concentrate, Peanut Flour, Medium Chain Triglyceride Powder (MCTs from Palm Kernel and Coconut Oil, Sodium Caseinate, Silicon Dioxide, Sunflower Lecithin), Organic Agave Inulin, Natural and Artificial Flavor, Salt, Gum Blend (Cellulose Gum, Xanthan Gum, Carrageenan), Sucralose, Acesulfame Potassium.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Sucralose and acesulfame potassium (synthetic sweeteners) + a gum blend (cellulose gum, xanthan gum, carrageenan) + agave inulin (engineered fiber). Multiple independent disqualifiers.",
+    "justification": "Fails P1 (Mucosal Shielding): carrageenan, cellulose and xanthan gums plus inulin strip the mucin layer and ferment into gas/bloat, and the sucralose/acesulfame-K duo is trashed by the Sweetener Matrix. A compromised ultra-processed tool.",
+    "confidence": "high",
+    "notes": "Shipped catalog kept this at Tier 3; per the strict clear-whey rules gums + synthetic sweeteners are hard disqualifiers, so corrected to disqualify."
+  },
+  {
+    "id": 212,
+    "name": "ISO100 Hydrolyzed Whey Isolate - Gourmet Chocolate (Dymatize)",
+    "verified": true,
+    "sources": [
+      "https://dymatize.com/products/iso100-gourmet-chocolate",
+      "https://www.kroger.com/p/dymatize-iso100-hydrolyzed-gourmet-chocolate-100-whey-protein-isolate-powder/0070501635318",
+      "https://www.gnc.com/whey-protein/360014.html"
+    ],
+    "ingredients_found": "Hydrolyzed Whey Protein Isolate, Whey Protein Isolate, Cocoa (Processed with Alkali), and less than 2% of: Salt, Soy Lecithin, Natural and Artificial Flavor, Potassium Chloride, Sucralose, Steviol Glycosides (Stevia).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains sucralose (synthetic sweetener), and stevia (steviol glycosides) blended with sucralose. Sucralose alone is a hard disqualifier.",
+    "justification": "Fails the Sweetener Matrix: sucralose is a synthetic sweetener that disrupts the gut microbiome/mucosal barrier (P1), and here it is blended with steviol glycosides — a disqualifying combination independent of protein quality.",
+    "confidence": "high",
+    "notes": "Current formulation uses sucralose + steviol glycosides + soy lecithin (the shipped catalog's note about CMC/xanthan appears outdated, but the sucralose still disqualifies it either way)."
+  }
+]

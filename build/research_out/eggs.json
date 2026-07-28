@@ -1,0 +1,199 @@
+[
+  {
+    "id": 93,
+    "name": "World's Best Eggs Organic Pasture Raised Large Eggs",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/world-s-best-eggs-organic-pasture-raised-large-eggs/3927534",
+      "https://coyotecreekfarm.com/pages/pasture-raised-organic-eggs",
+      "https://www.cornucopia.org/scorecard/eggs/worlds-best-eggs-coyote-creek-farm/"
+    ],
+    "ingredients_found": "Organic pasture-raised whole shell eggs (single ingredient). Hens forage on pasture and eat 100% USDA-certified-organic feed milled on-site at Coyote Creek Organic Feed Mill.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient whole shell eggs; USDA Organic + pasture-raised husbandry with on-site organic feed mill.",
+    "justification": "Native, undenatured protein matrix (Principle 2) from pasture-raised hens maximizes amino-acid bioavailability with zero L1/L2/L3 additives, seed oils or sugars.",
+    "confidence": "high",
+    "notes": "Coyote Creek Farm brand. Whole shell eggs, not a liquid/processed product."
+  },
+  {
+    "id": 94,
+    "name": "Central Market Organic Pasture Raised No-Soy Large Brown Eggs",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/central-market-organic-pasture-raised-no-soy-large-brown-eggs/2089029",
+      "https://www.centralmarket.com/product/central-market-organic-pasture-raised-no-soy-large-brown-eggs-12-ct/2089029",
+      "https://www.instacart.com/products/16760413-central-market-organic-pasture-raised-no-soy-large-brown-eggs-12-ct"
+    ],
+    "ingredients_found": "Organic pasture-raised whole shell eggs (single ingredient). USDA Organic, Grade A, Certified Humane pasture-raised, hens fed 100% soy-free organic feed, no hormones or antibiotics.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient whole shell eggs; USDA Organic + pasture-raised + soy-free feed.",
+    "justification": "Pasture-raised, soy-free husbandry yields a native bioavailable protein matrix (Principle 2) while removing soy-driven digestive load; zero L1/L2/L3 signals.",
+    "confidence": "high",
+    "notes": "Soy-free feed is a Tier-1 husbandry upgrade. Whole shell eggs, not liquid/processed."
+  },
+  {
+    "id": 95,
+    "name": "Vital Farms Extra Large Pasture-Raised Eggs",
+    "verified": true,
+    "sources": [
+      "https://certifiedhumane.org/vital-farms/",
+      "https://us.amazon.com/Vital-Farms-Pasture-Raised-Eggs-18/dp/B01MZHDHVM"
+    ],
+    "ingredients_found": "Pasture-raised whole shell eggs (single ingredient). Certified Humane, 108 sq ft of pasture per hen, no antibiotics.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient whole shell eggs; Certified Humane pasture-raised husbandry.",
+    "justification": "Pasture foraging produces a native, undenatured egg protein matrix (Principle 2) with no additives, seed oils or sugars to compromise mucosal integrity or lipid stability.",
+    "confidence": "high",
+    "notes": "Certified Humane but not organic. Whole shell eggs, not liquid/processed."
+  },
+  {
+    "id": 96,
+    "name": "New Barn Organic Pasture Raised Brown Eggs",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/new-barn-organic-pasture-raised-brown-eggs/10937551",
+      "https://www.newbarnorganics.com/pages/eggs",
+      "https://erewhon.com/product/8311981000/regenerative-organic-certified-pasture-raised-large-brown-eggs"
+    ],
+    "ingredients_found": "Organic pasture-raised whole shell eggs (single ingredient). Regenerative Organic Certified (ROC), USDA Organic, Certified Humane, heritage-breed hens on continuous pasture, 100% organic vegetarian feed.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient whole shell eggs; Regenerative Organic Certified + pasture-raised (top husbandry tier).",
+    "justification": "Regenerative-organic pasture management yields the most nutrient-dense native protein matrix (Principle 2); zero L1/L2/L3 additives, sugars or seed oils.",
+    "confidence": "high",
+    "notes": "First nationally-distributed ROC egg brand. Whole shell eggs, not liquid/processed."
+  },
+  {
+    "id": 97,
+    "name": "Central Market Pasture-Raised Heirloom Colorful Large Grade A Eggs",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/central-market-pasture-raised-heirloom-colorful-large-grade-a-eggs/8446072",
+      "https://www.centralmarket.com/product/central-market-pasture-raised-heirloom-colorful-large-grade-a-eggs-12-ct/8446072"
+    ],
+    "ingredients_found": "Pasture-raised whole shell eggs (single ingredient). Heritage-breed hens, 108 sq ft pasture per hen, vegetarian feed free of hormones/antibiotics, Grade A.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient whole shell eggs; pasture-raised heritage-breed husbandry.",
+    "justification": "Pasture-raised heritage hens deliver a carotenoid-dense, native protein matrix (Principle 2) with zero additives, sugars or seed oils.",
+    "confidence": "high",
+    "notes": "Not organic-labeled. Whole shell eggs, not liquid/processed."
+  },
+  {
+    "id": 98,
+    "name": "Central Market Pasture Raised Large Brown Eggs (18 Count)",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-pasture-raised-large-brown-eggs-12-ct/2089028",
+      "https://www.heb.com/product-detail/central-market-pasture-raised-large-brown-eggs/2089028"
+    ],
+    "ingredients_found": "Pasture-raised whole shell eggs (single ingredient). Grade A, pasture-raised hens, vegetarian feed, no hormones/antibiotics.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient whole shell eggs; pasture-raised husbandry. Current 'tool' flag is incorrect for a whole shell egg.",
+    "justification": "Pasture-raised whole eggs are a native bioavailable protein source (Principle 2), not an engineered isolate; no L1/L2/L3 signals warrants Tier 1.",
+    "confidence": "high",
+    "notes": "18-count value pack of the same pasture-raised line. Whole shell eggs, not liquid/processed."
+  },
+  {
+    "id": 99,
+    "name": "365 by Whole Foods Market Pasture Raised Large Brown Grade A Eggs",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/product/365-everyday-value-pasture-raised-large-brown-grade-a-eggs-b07pfdz17t",
+      "https://www.ewg.org/foodscores/products/099482498061-365WholeFoodsMarketPastureRaisedLargeBrownGradeaEggs/"
+    ],
+    "ingredients_found": "Pasture-raised whole shell eggs (single ingredient). Non-GMO vegetarian feed, no antibiotics, outdoor pasture access, meets Whole Foods Animal Welfare Standards. 0g carbs, 0g sugar per egg.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient whole shell eggs; pasture-raised husbandry. Current 'tool' flag is incorrect for a whole shell egg.",
+    "justification": "Pasture-raised whole eggs provide a native undenatured protein matrix (Principle 2) with zero additives; economical but still Tier-1 husbandry.",
+    "confidence": "high",
+    "notes": "Whole shell eggs, not liquid/processed."
+  },
+  {
+    "id": 100,
+    "name": "Pete & Gerry's Organic Pasture Raised Large Eggs",
+    "verified": true,
+    "sources": [
+      "https://www.peteandgerrys.com/products/organic-pasture-raised-eggs",
+      "https://www.aspca.org/shopwithyourheart/business-and-farmer-resources/farm-animal-welfare-certification-guide/pete-gerrys"
+    ],
+    "ingredients_found": "Organic pasture-raised whole shell eggs (single ingredient). USDA Certified Organic + Certified Humane Pasture Raised, 108 sq ft outdoor space per hen, organic feed.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient whole shell eggs; USDA Organic + Certified Humane pasture-raised. Current 'tool' flag is incorrect for a whole shell egg.",
+    "justification": "Dual-certified organic pasture-raised husbandry yields a complete, bioavailable native protein matrix (Principle 2) with no L1/L2/L3 signals.",
+    "confidence": "high",
+    "notes": "Whole shell eggs, not liquid/processed."
+  },
+  {
+    "id": 101,
+    "name": "H-E-B Select Ingredients 100% Liquid Egg Whites",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-cage-free-liquid-egg-whites/2420515",
+      "https://cooklist.com/product/h-e-b-select-ingredients-cage-free-liquid-egg-whites-1548015",
+      "https://world.openfoodfacts.org/product/0041220500581/100-liquid-egg-whites-h-e-b"
+    ],
+    "ingredients_found": "100% liquid egg whites (pasteurized cage-free egg whites). Single ingredient; no gums, no seed oils, no added sugar, no color, no preservatives. (Distinct from H-E-B 'Original Real Egg' and Hill Country Fare products, which do contain xanthan/guar gum and color.)",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Pure single-ingredient pasteurized egg-white isolate; conventional cage-free, no husbandry upgrade, so capped at Tier 2.",
+    "justification": "Clean egg-white protein with zero gums/seed oils/sugars passes every pre-filter (Principles 1,3,4); as a fat-free liquid isolate from conventional cage-free hens it is a clean macro tool rather than a Tier-1 native whole food.",
+    "confidence": "high",
+    "notes": "Liquid egg-white carton verified as plain egg whites only. Explicitly '100%' with no additive deck, unlike the gum-containing 'Real Egg' lines."
+  },
+  {
+    "id": 102,
+    "name": "Egglife Original Egg White Wraps",
+    "verified": true,
+    "sources": [
+      "https://www.kroger.com/p/egglife-original-egg-white-wraps/0081002354000",
+      "https://www.egglifefoods.com/learn/faq"
+    ],
+    "ingredients_found": "Cage Free Egg Whites, Less than 2% of Xanthan Gum, Sea Salt, Natural Flavor, Nisin (Natural Preservative).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Xanthan gum (L3 industrial gum/emulsifier); also carries the preservative nisin.",
+    "justification": "Xanthan gum is an added industrial gum that acts as a surfactant on the intestinal mucin layer, stripping the mucosal shield and triggering an immediate L3 gut flag (Principle 1).",
+    "confidence": "high",
+    "notes": "Processed egg-white wrap, not whole eggs. Nisin is an added preservative on top of the L3 gum."
+  },
+  {
+    "id": 103,
+    "name": "Three Little Pigs Uncured Bacon & Swiss Egg Bites",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Three-Little-4-Pack-Sous-Vide-Uncured/dp/B08KKWCJGL",
+      "https://www.gfifoods.com/27731-les-trois-petit-4-pack-egg-bite-with-baconswiss"
+    ],
+    "ingredients_found": "Eggs, Swiss Cheese (Pasteurized Part-Skim Milk, Cheese Culture, Salt, Enzymes), Uncured Bacon (Pork, Water, Sea Salt, Less than 2% Natural Cane Sugar, Celery Powder, Spices), Cream, Sea Salt, Xanthan Gum, Garlic, Spices.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Xanthan gum (L3 gum/emulsifier); also added cane sugar in the bacon (L2 hidden sugar in a savory staple).",
+    "justification": "Added xanthan gum strips the mucosal barrier (Principle 1, L3), and the added cane sugar in a savory product drives hepatic lipogenesis (Principle 4, L2); either alone disqualifies.",
+    "confidence": "high",
+    "notes": "Sous-vide egg-bite convenience product, not whole eggs. Sold as 'Three Little Pigs' / Les Trois Petits Cochons."
+  },
+  {
+    "id": 104,
+    "name": "Crack'd The No-Egg Egg (Plant-Based Egg Substitute)",
+    "verified": true,
+    "sources": [
+      "https://www.tesco.com/groceries/en-GB/products/311935187",
+      "https://www.crackd.com/faq",
+      "https://plantx.uk/products/crackd-the-no-egg-egg"
+    ],
+    "ingredients_found": "Water, Pea Protein (3%), Corn Oil, Thickener (Methyl Cellulose), Pea Starch, Gelling Agent (Gellan Gum), Flavourings, Firming Agent (Calcium Lactate), Dried Inactive Yeast, Acid (Lactic Acid), Black Salt, Acidity Regulator (Potassium Bitartrate), Colour (Beta Carotene), Stabilisers (Calcium Carbonate, Guar Gum, Cellulose Gum), Vitamins (D & B12), Dextrose.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Corn oil (L3 industrial seed oil) plus multiple L3 gums (gellan gum, guar gum, cellulose gum, methylcellulose); also added dextrose (L2 sugar in a savory staple).",
+    "justification": "Refined corn oil carries cytotoxic lipid hydroperoxides that hard-disqualify a savory staple (Principle 3, L3), and the stacked gums strip the mucosal barrier (Principle 1); an engineered pea-protein isolate is also a denatured, lower-bioavailability protein (Principle 2).",
+    "confidence": "medium",
+    "notes": "Not an egg product at all (plant-based substitute). Ingredient deck is the UK/EU formula; the US retail version may vary slightly by region but plant-egg substitutes uniformly rely on seed oils + gelling gums. Disqualifies regardless."
+  }
+]

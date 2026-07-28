@@ -1,0 +1,189 @@
+[
+  {
+    "id": 283,
+    "name": "Good Culture 2% Low Fat Classic Cottage Cheese (16 oz)",
+    "verified": true,
+    "sources": [
+      "https://goodculture.com/product/simply-cottage-cheese-16-oz-lowfat-classic/",
+      "https://www.heb.com/product-detail/good-culture-2-low-fat-classic-cottage-cheese/2156390",
+      "https://www.wegmans.com/shop/product/940403-Cottage-Cheese-Low-Fat-Classic"
+    ],
+    "ingredients_found": "Cultured Skim Milk, Cultured Whole Milk, Cream, Celtic Sea Salt, Live and Active Cultures (Lactobacillus paracasei).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% clean cultured whole-food dairy: milk, cream, sea salt, live cultures. Zero seed oils, zero added sugar, zero gums/carrageenan/thickeners.",
+    "justification": "Live active cultures (L. paracasei) pre-digest lactose and support mucosal integrity (P5/P1), and the intact native casein-whey matrix delivers highly bioavailable protein without immune-activating additives (P2).",
+    "confidence": "high",
+    "notes": "Unusually clean vs. most cottage cheeses which add gums/stabilizers; this deck has none."
+  },
+  {
+    "id": 284,
+    "name": "La Traversetolese Parmigiano Reggiano DOP (0.5 lb Wedge)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/la-traversetolese-parmigiano-reggiano-dop/2459614",
+      "https://www.eataly.com/us_en/magazine/culture-and-tradition/discover-parmigiano-reggiano-dop",
+      "https://www.gourmetfoodstore.com/la-traversetolese-white-gold-parmigiano-reggiano-16546"
+    ],
+    "ingredients_found": "Raw cow's milk, salt, rennet (animal).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Three-ingredient traditional DOP cheese: raw milk, salt, calf rennet. Zero L1/L2/L3 signals; 24+ month aging naturally eliminates lactose.",
+    "justification": "24+ month enzymatic maturation fully pre-digests lactose and denatures/cleaves casein into readily absorbed peptides (P2/P5), giving a highly bioavailable protein-fat matrix with no additives.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 285,
+    "name": "Wild Planet Wild Sardines in Organic Extra Virgin Olive Oil (4.38 oz)",
+    "verified": true,
+    "sources": [
+      "https://wildplanetfoods.com/products/wild-planet-sardines",
+      "https://www.vitacost.com/wild-planet-wild-sardines-in-extra-virgin-olive-oil",
+      "https://www.frysfood.com/p/wild-planet-wild-sardines-in-extra-virgin-olive-oil/0082969600080"
+    ],
+    "ingredients_found": "Sardines (Sardinops sagax or Sardinops melanostictus), Organic Extra Virgin Olive Oil, Water, Sea Salt, Aqueous Natural Smoke.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Whole wild-caught fish packed in organic EVOO (not a seed oil), sea salt, natural smoke. Zero added sugar, zero seed oils, zero gums/preservatives.",
+    "justification": "Intact whole-fish protein-lipid matrix rich in bioavailable EPA/DHA packed in stable monounsaturated EVOO shifts the omega-6:3 ratio anti-inflammatory (P3) with no glycemic or emulsifier load.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 286,
+    "name": "EPIC Provisions Venison Sea Salt & Pepper Bar (1.5 oz)",
+    "verified": true,
+    "sources": [
+      "https://epicprovisions.com/products/venison-sea-salt-pepper-bar",
+      "https://jerkyingredients.com/2020/04/20/epic-bar-sea-salt-pepper-venison-bar/",
+      "https://www.kroger.com/p/epic-sea-salt-pepper-venison-bars-12-count/0073215302536"
+    ],
+    "ingredients_found": "Venison, Encapsulated Lactic Acid (not from milk), Sea Salt, Water, Black Pepper, Cultured Celery Powder, Onion Powder, Garlic Powder.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% grass-fed venison with only salt, spices, and celery-powder cure. Zero added sugar, zero seed oils, zero synthetic nitrites, zero fillers/gums.",
+    "justification": "Whole-muscle grass-fed protein with intact native structure (P2) and no glycemic influx (P4) or mucosal-disrupting emulsifiers (P1); cure is celery-derived rather than synthetic nitrite.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 287,
+    "name": "Chomps Original Grass-Fed Beef Meat Stick (1.15 oz)",
+    "verified": true,
+    "sources": [
+      "https://chomps.com/products/gluten-free-snack-beef-jerky-stick-original",
+      "https://www.qfc.com/p/chomps-grass-fed-finished-original-beef-meat-stick-1-15oz/0085658400418",
+      "https://thefeed.com/products/chomps-grass-fed-and-finished-beef-sticks"
+    ],
+    "ingredients_found": "Grass Fed & Finished Beef, Water, Less than 2% of: Encapsulated Lactic Acid, Sea Salt, Cultured Celery Powder (Celery Powder, Sea Salt), Cherry Powder, Black Pepper, Red Pepper, Garlic Powder, Coriander, Stuffed in a Beef Collagen Casing.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Grass-fed/finished beef, salt, spices, celery + cherry powder cure. Zero added sugar (cherry powder is a natural curing agent, not a sweetener), zero seed oils, zero synthetic nitrites, zero gums.",
+    "justification": "Intact grass-fed whole-muscle protein (P2) with no seed-oil hydroperoxides (P3), no added sugar (P4), and no emulsifiers/gums stripping the mucosal layer (P1).",
+    "confidence": "high",
+    "notes": "Cherry powder present for natural nitrate conversion, not as added sugar."
+  },
+  {
+    "id": 288,
+    "name": "Eden Foods Organic Sea Salt Dry Roasted Soybeans (4 oz)",
+    "verified": false,
+    "sources": [
+      "https://store.edenfoods.com/category-beans/",
+      "https://www.amazon.com/Eden-Organic-Roasted-Pumpkin-Resealable/dp/B000LKX01K",
+      "https://store.edenfoods.com/tamari-roasted-almonds-organic-4-oz/"
+    ],
+    "ingredients_found": "No authoritative ingredient statement found for an Eden Foods 'Sea Salt Dry Roasted Soybeans (4 oz)' product. Eden's current snack line shows Dry Roasted Spicy Pumpkin Seeds, Tamari Roasted Almonds, and snack mixes, plus canned/dry black and yellow soybeans — but no dry-roasted soybean snack matching this name could be located.",
+    "decision": "delete_unverifiable",
+    "dqLevel": null,
+    "reason": "Product's real ingredient deck could not be verified on the brand site or any major retailer/database after multiple targeted searches; the SKU as named does not appear to exist in Eden's catalog.",
+    "justification": "Sourcing standard requires the actual ingredient statement; without it the item cannot be safely tiered (some Eden roasted snacks, e.g. Quiet Moon mix, use organic safflower oil, so a clean deck cannot be assumed).",
+    "confidence": "low",
+    "notes": "Possibly discontinued, misnamed, or confused with Eden's canned soybeans / roasted pumpkin seeds. Unverifiable per brief."
+  },
+  {
+    "id": 289,
+    "name": "Vital Farms Pasture-Raised Hard Boiled Eggs (2 ct)",
+    "verified": true,
+    "sources": [
+      "https://vitalfarms.com/pasture-raised-hard-boiled-eggs/",
+      "https://www.kroger.com/p/vital-farms-pasture-raised-hard-boiled-eggs/0085138700764",
+      "https://www.publix.com/pd/vital-farms-pasture-raised-hard-boiled-eggs/RIO-PCI-617537"
+    ],
+    "ingredients_found": "Hard Boiled Eggs, Water, Citric Acid (to maintain freshness).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Whole pasture-raised eggs, water, trace citric acid for freshness. Zero added sugar, zero seed oils, zero gums or preservatives of concern.",
+    "justification": "Intact native lipid-protein matrix of pasture-raised eggs delivers highly bioavailable choline and complete protein (P2) with no glycemic or emulsifier burden (P1/P4).",
+    "confidence": "high",
+    "notes": "Deck is eggs/water/citric acid; any sea-salt is a separate dip packet, not in the ingredient statement."
+  },
+  {
+    "id": 290,
+    "name": "Brami Italian Snacking Lupini Beans - Sea Salt (5.3 oz)",
+    "verified": true,
+    "sources": [
+      "https://enjoybrami.com/products/lupini-beans-sardinian-sea-salt",
+      "https://www.vitacost.com/brami-italian-snacking-lupini-beans",
+      "https://tc.farm/italian-snacking-lupini-beans-sardinian-sea-salt-5-3oz/"
+    ],
+    "ingredients_found": "Lupini Beans, Water, Vinegar, Sea Salt, Lactic Acid (from vegetable fermentation).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Whole brined/fermented Mediterranean lupini beans with water, vinegar, sea salt, and lactic acid. Zero seed oils, zero added sugar, zero gums. (Current flags 'seed'/'sugar' are incorrect; deck contains no seed oil and no sugar — and no EVOO despite the old audit note.)",
+    "justification": "Lacto-fermented / brined whole legume: fermentation attenuates antinutrients and FODMAPs (P5) while the intact high-fiber protein matrix avoids glycemic influx (P4); no emulsifiers to strip the mucosal shield (P1).",
+    "confidence": "high",
+    "notes": "Retail decks list this variant as 'Sardinian Sea Salt' / 'Sea Salt & Vinegar'; base ingredients identical and clean regardless of flavor label."
+  },
+  {
+    "id": 291,
+    "name": "H-E-B Organics Raw Almonds & Pumpkin Seeds (8 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-organics-raw-almonds/1831976",
+      "https://www.heb.com/product-detail/h-e-b-organics-pumpkin-seeds/1832103",
+      "https://us.openfoodfacts.org/product/0041220942053/pumpkin-seeds-h-e-b-organics"
+    ],
+    "ingredients_found": "Organic Almonds, Organic Pumpkin Seeds. (Raw, unroasted, unsalted — each component verified as a single-ingredient organic item.)",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Raw whole organic almonds and pumpkin seeds. No roasting oil, no salt, no added sugar, no gums. 'Seed' in current flags refers to whole pumpkin seeds, not seed oil — not a disqualifier.",
+    "justification": "Unadulterated whole-food nut/seed matrix with intact fats (no thermal seed-oil oxidation, P3) and no glycemic or emulsifier load; caloric-dense whole food ideal for surplus.",
+    "confidence": "medium",
+    "notes": "Exact combined-mix SKU not directly found online; verified via H-E-B Organics single-ingredient raw almonds and raw pumpkin seeds decks (both organic, nothing added)."
+  },
+  {
+    "id": 292,
+    "name": "EPIC Provisions Bison Bacon Cranberry Bar (1.5 oz)",
+    "verified": true,
+    "sources": [
+      "https://epicprovisions.com/products/bisonbaconcranberrybar",
+      "https://www.vitacost.com/epic-grass-fed-bacon-cranberry-bison-bar",
+      "https://www.kroger.com/p/epic-uncured-bacon-cranberry-bison-bars/0073215302511"
+    ],
+    "ingredients_found": "Bison, Uncured Bacon (Pork, Water, Brown Sugar, Salt, Vinegar, Celery Powder, Sea Salt), Dried Cranberries (Cranberries, Apple Juice Concentrate), Lactic Acid, Celery Powder, Sea Salt.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Added sugar in a savory meat snack: brown sugar (in the bacon) plus apple juice concentrate (sweetening the cranberries). ~4g added sugar.",
+    "justification": "Added mono/disaccharides in an otherwise savory meat staple flood the hepatic portal vein without a protective matrix, driving de novo lipogenesis and insulin spikes (P4 → L2 disqualification).",
+    "confidence": "high",
+    "notes": "Classic 'healthy meat snack' sugar trap; whole-food bison base compromised by two sugar sources."
+  },
+  {
+    "id": 293,
+    "name": ":ratio Protein 25g High Protein Dairy Snack (5.3 oz)",
+    "verified": true,
+    "sources": [
+      "https://ratioyogurt.com/products/vanilla-protein-dairy-snack/",
+      "https://www.amazon.com/ratio-PROTEIN-Dairy-Snack-Vanilla/dp/B08L4YDD28",
+      "https://www.heb.com/product-detail/ratio-25g-protein-vanilla-dairy-snack/13014512"
+    ],
+    "ingredients_found": "Cultured Pasteurized Ultra-Filtered Nonfat Milk, Cultured Pasteurized Milk, Whey Protein Concentrate, Nonfat Milk, Sunflower Oil, Sucralose, Natural Flavor, Carrageenan (plus fruit juice concentrate for color in flavored variants).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Multiple L3 disqualifiers: Sunflower Oil (industrial seed oil), Carrageenan (emulsifier/gum), and Sucralose (synthetic sweetener). Any one alone trashes the product.",
+    "justification": "Carrageenan strips the mucin/tight-junction barrier driving endotoxemia and bloat (P1); sunflower oil contributes oxidized PUFA hydroperoxides skewing the omega-6:3 ratio (P3); sucralose is a synthetic non-caloric sweetener (Sweetener Matrix TRASH).",
+    "confidence": "high",
+    "notes": "Engineered high-protein dairy snack; audited plain/vanilla variant, but all flavors share the sunflower oil + carrageenan + sucralose base."
+  }
+]

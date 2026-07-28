@@ -1,0 +1,204 @@
+[
+  {
+    "id": 236,
+    "name": "Walkers Pure Butter Shortbread (Walkers Shortbread Ltd.)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Walkers-Pure-Butter-Shortbread-Rounds/dp/B000V9XM1O",
+      "https://www.walkersshortbread.com/shortbread-fingers/"
+    ],
+    "ingredients_found": "Wheat Flour, Butter (from Milk), Sugar, Salt.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean 4-ingredient deck: no seed oils, lecithin, gums, polyols, or synthetic additives. Refined wheat flour + refined cane sugar (no fermentation/sprouting) keep it a clean-label fallback rather than an optimized whole-food matrix.",
+    "justification": "Passes all L1/L2/L3 pre-filters (P3 lipid: whole butter fat, zero oxidized seed-oil PUFAs; P1: no emulsifiers). Refined flour and plain sugar mean no enzymatic pre-digestion (P5), so it sits at Tier 3 in an inherently-sweet category where sugar is judged by the Sweetener Matrix, not auto-trashed.",
+    "confidence": "high",
+    "notes": "Audited the plain/original 'Pure Butter' Rounds variant. Vanilla variant adds non-fat dry milk + natural vanilla but is also clean."
+  },
+  {
+    "id": 237,
+    "name": "Central Market Pure Butter Shortbread (Central Market)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/central-market-pure-butter-shortbread/849341",
+      "https://www.instacart.com/products/225327-central-market-pure-butter-shortbread-5-3-oz",
+      "https://www.ewg.org/foodscores/products/041220167135-CentralMarketPureButterShortbread/"
+    ],
+    "ingredients_found": "Enriched Wheat Flour (Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamin), Butter (Cream, Salt), Sugar, Salt.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean four-ingredient shortbread: no seed oils, lecithin, gums, polyols, or synthetic additives. Enriched refined wheat flour + refined cane sugar, no fermentation.",
+    "justification": "Clears every pre-filter (P3: whole butter fat, no seed oils; P1: no emulsifiers). Synthetic mineral/vitamin fortification of enriched flour is explicitly NOT a bloat/disqualifier per the anti-pseudoscience matrix. Lack of pre-digestion (P5) caps it at Tier 3.",
+    "confidence": "high",
+    "notes": "Made in the Scottish Highlands; equivalent deck to Walkers. Enriched flour fortification is not a disqualifier."
+  },
+  {
+    "id": 238,
+    "name": "Go Raw Organic Original Super Cookies (Go Raw)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/go-raw-organic-original-super-cookies/1281819",
+      "https://www.instacart.com/products/284525-go-raw-cookies-super-original-3-oz",
+      "https://buyithealthy.com/i-20212141-go-raw-original-super-cookies-3-oz-6-pack.html"
+    ],
+    "ingredients_found": "Organic Dates, Organic Sprouted Sesame Seeds, Organic Unsulphured Coconut, Organic Coconut Sugar, Sea Salt.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Sprouted-seed, whole-food matrix with zero L1/L2/L3 signals; sweetened primarily by whole-fruit dates plus a small amount of organic coconut sugar. Sprouting is a genuine Tier-1 pre-digestion trait; the added coconut sugar (not on the Tier-1 sweetener list) drops it one notch to Tier 2.",
+    "justification": "Directly embodies P5 (enzymatic pre-digestion / antinutrient attenuation via <105F sprouting of sesame, reducing phytic acid and FODMAP load) and P4 (dates provide sugar inside an intact fibrous fruit matrix). No seed oils, gums, or synthetic sweeteners. Coconut sugar is an unrefined granulated sugar rather than a Tier-1 whole-fruit/honey/maple sweetener, so ceiling is Tier 2.",
+    "confidence": "medium",
+    "notes": "Marketing says 'no added sugar' yet coconut sugar appears in the deck; original variant audited. Coconut sugar quantity is small (dates dominate)."
+  },
+  {
+    "id": 239,
+    "name": "Belgian Butter Crisp Wafers (Jules Destrooper)",
+    "verified": true,
+    "sources": [
+      "https://www.julesdestrooper.com/en/products/butter-crisps",
+      "https://www.amazon.com/Jules-Destrooper-Crisp-Butter-Packaging/dp/B00H7RYXSO",
+      "https://www.wegmans.com/shop/product/240079-Butter-Crisps"
+    ],
+    "ingredients_found": "Wheat Flour, Sugar, Butter (18%) (Milk), Eggs, Raising Agent: Ammonium Carbonates, Sea Salt.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean traditional Belgian deck: whole butter fat, eggs, wheat flour, sugar, salt. Ammonium carbonate is a benign traditional leavening agent (not an L2/L3 additive). No seed oils, lecithin, gums, or synthetic flavors.",
+    "justification": "Passes all pre-filters (P3: whole butter, no seed-oil hydroperoxides; P1: no emulsifiers/gums). Refined wheat flour + refined sugar without fermentation (P5) place it at Tier 3 clean-label fallback.",
+    "confidence": "high",
+    "notes": "EU deck confirmed via manufacturer. No vegetable/seed oils used."
+  },
+  {
+    "id": 240,
+    "name": "Organic Vanilla Cream Ancient Grain Biscuits (Olyra)",
+    "verified": true,
+    "sources": [
+      "https://olyrafoods.com/products/vanilla-sandwich-breakfast-biscuits",
+      "https://www.amazon.com/Olyra-Biscuit-Brkfast-Vanilla-5-3/dp/B0DNNJJDST"
+    ],
+    "ingredients_found": "Whole grain flour (spelt, lupine, barley, oat), sustainable palm oil, prebiotic fibers (FOS), cane sugar, cocoa butter, rice starch, agave inulin, flaxseed flour, baking soda, sunflower lecithin, sea salt, natural flavors.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Multiple L3 disqualifiers: palm oil, sunflower lecithin (emulsifier), and engineered fiber fillers FOS + agave inulin.",
+    "justification": "Sunflower lecithin strips the mucin/tight-junction shield (P1); palm oil is a disqualifying refined oil (P3); FOS and agave inulin are engineered fermentable fibers that deliver a concentrated FODMAP load to the colon, driving gas and visceral distension (P5). Prior 'clean' flag was incorrect.",
+    "confidence": "high",
+    "notes": "Current catalog audit flagged 'clean' — this is a misclassification; the real deck disqualifies on three L3 counts."
+  },
+  {
+    "id": 241,
+    "name": "Grain-Free Mexican Wedding Cookies (Siete Foods)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/siete-grain-free-mexican-wedding-cookies/5046505",
+      "https://sietefoods.com/products/mexican-wedding-cookies",
+      "https://www.wholefoodsmarket.com/grocery/product/siete-siete-grain-free-mexican-wedding-cookies-b08qm46fgg"
+    ],
+    "ingredients_found": "Grain Free Flour Blend (Almond Flour, Tapioca Flour, Arrowroot Flour, Cassava Flour, Chickpea Flour), Coconut Sugar, Coconut Oil, Powdered Sugar (Sugar, Tapioca Flour), Pecan Pieces, Avocado Oil, Apple Cider Vinegar, Sea Salt, Baking Soda, Cinnamon, Orange Peel Powder, Vanilla Extract, Jasmine Tea Extract.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "No industrial seed oils (only coconut + avocado oil), no lecithin, gums, polyols, or synthetic sweeteners. Fats and nut flour are clean; sweetened with coconut sugar plus refined powdered cane sugar.",
+    "justification": "Clears all pre-filters (P3: coconut/avocado oils are stable, non-seed-oil fats). Refined starch fillers (tapioca/arrowroot/cassava) plus added refined powdered sugar keep it a clean-label fallback rather than a whole-food Tier 1/2 matrix. Sugar allowed here as an inherently-sweet category.",
+    "confidence": "high",
+    "notes": "Chickpea flour is a whole-food flour, not a protein isolate; prior 'tool' flag overstated. No disqualifiers present."
+  },
+  {
+    "id": 242,
+    "name": "Crunchy Almond Flour Chocolate Chip Cookies (Simple Mills)",
+    "verified": true,
+    "sources": [
+      "https://simplemills.com/Products/Product/Crunchy-Chocolate-Chip-Cookies.aspx",
+      "https://www.heb.com/product-detail/simple-mills-crunchy-almond-flour-chocolate-chip-cookies/2109655",
+      "https://www.wholefoodsmarket.com/grocery/product/simple-mills-simple-mills-almond-flour-chocolate-chip-cookies-gluten-free-and-delicious-crunchy-cookies-organic-coconut-oil-good-for-snacks-packaging-may-vary-b071z2hwyc"
+    ],
+    "ingredients_found": "Nut & Seed Flour Blend (Almonds, Organic Coconut, Flaxseeds), Tapioca Starch, Chocolate Chips (Cane Sugar, Unsweetened Chocolate, Cocoa Butter), Organic Coconut Sugar, Organic Coconut Oil, Arrowroot, Vanilla Extract, Sea Salt, Baking Soda, Cream of Tartar, Rosemary Extract (for freshness).",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "No industrial seed oils (coconut oil only), no soy lecithin in the chocolate chips, no gums or polyols. Whole nut/seed flour base; sweetened with cane sugar (in chips) + organic coconut sugar.",
+    "justification": "Passes all pre-filters (P3: coconut oil, no seed-oil hydroperoxides; P1: chocolate chips are cocoa-butter-only with no emulsifier). The 'flaxseed' component is whole-seed flour, not seed oil, so the prior 'seed' flag was a misread. Refined cane sugar + starch fillers cap it at Tier 3 in this sweet category.",
+    "confidence": "high",
+    "notes": "Prior catalog flags ['seed','sugar'] were incorrect on the seed-oil point; chocolate chips contain no soy lecithin in the current deck."
+  },
+  {
+    "id": 243,
+    "name": "Grain-Free Chocolate Chip Cookies (Hu Kitchen)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/hu-grain-free-chocolate-chip-cookies/6487098",
+      "https://www.wholefoodsmarket.com/grocery/product/hu-hu-kitchen-cookies-grain-free-chocolate-chip-2-25-ounce-b08qykgs19",
+      "https://www.amazon.com/Hu-Cookies-Gluten-Chocolate-Certified/dp/B08Z6GBPSY"
+    ],
+    "ingredients_found": "Date, Organic Coconut Oil, Organic Cocoa Butter, Organic Unsweetened Chocolate, Fiber (from Chicory Root or the Agave Plant), Cassava Flour, Cashew Flour, Egg (Free-Range, Certified Humane), Flaxseed, Sea Salt, Baking Soda, Vanilla Bean, Organic Rosemary Extract.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Added chicory root / agave inulin fiber — an engineered isolated fiber filler used to boost fiber and cut sugar.",
+    "justification": "Isolated chicory/agave inulin is a concentrated fermentable fiber (FODMAP) that reaches the colon intact, producing excess H2/CH4 gas and visceral distension under the hyper-caloric amplification effect (P5). Otherwise the deck is excellent (dates as whole-fruit sweetener, coconut oil, cocoa butter, no seed oils/gums), but the inulin filler is a hard L3 flag.",
+    "confidence": "high",
+    "notes": "No soy lecithin or industrial seed oil despite prior ['seed','emul'] flags; the true disqualifier is the added chicory/agave inulin fiber. Marketed 'No Added Sugar' (sweetened by dates)."
+  },
+  {
+    "id": 244,
+    "name": "Salted Caramel Cookies (Wackym's Kitchen)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/wackym-s-kitchen-salted-caramel-chocolate-chip-cookies/2414074",
+      "https://www.freshbybrookshires.com/product/wackyms-kitchen-salted-caramel-allnatural-crunchy-cookies-8-ounce-id-00854590008058",
+      "https://www.wackymskitchen.com/varieties/"
+    ],
+    "ingredients_found": "Unbleached/unbromated flour (wheat and barley flour, reduced iron, thiamine mononitrate, riboflavin, folic acid), cane sugar, butter (cream, salt), cage-free eggs, molasses, natural vanilla extract, baking powder (monocalcium phosphate, sodium bicarbonate, corn starch), baking soda, citric acid, salt.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean butter-and-flour cookie: no seed oils, no hydrogenated oils, no lecithin, gums, polyols, dyes, or synthetic preservatives. Sweetened with cane sugar + molasses.",
+    "justification": "Clears all pre-filters (P3: whole butter fat, no seed oils; P1: no emulsifiers/gums; unbromated flour avoids the L2 potassium-bromate flag). Refined flour + refined cane sugar without fermentation keep it a Tier 3 clean-label fallback in this inherently-sweet category.",
+    "confidence": "medium",
+    "notes": "Deck is for the salted-caramel crunchy variety; no chocolate chips/soy lecithin in the base cookie. Corn starch here is a minor baking-powder component, not an engineered fiber."
+  },
+  {
+    "id": 245,
+    "name": "Honey Cinnamon Seed & Nut Sweet Thins (Simple Mills)",
+    "verified": true,
+    "sources": [
+      "https://simplemills.com/Products/Product/Honey-Cinnamon-Seed-Nut-Flour-Sweet-Thins.aspx",
+      "https://www.amazon.com/Simple-Mills-Honey-Cinnamon-Sweet/dp/B08QYB28ZW",
+      "https://www.kroger.com/p/simple-mills-seed-nut-flour-honey-cinnamon-sweet-thins-cookies/0085606900564"
+    ],
+    "ingredients_found": "Seed & Nut Flour Blend (Watermelon Seeds, Cashews, Sunflower Seeds, Flax Seeds), Tapioca Starch, Arrowroot, Coconut Sugar, Organic Coconut Oil, Honey, Honey Extract, Organic Cinnamon, Baking Soda, Rosemary Extract (for freshness), Sea Salt, Cream of Tartar, Vanilla Extract.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "No industrial seed oils (the 'sunflower' is whole sunflower SEED flour, not oil; only coconut oil is used), no lecithin, gums, polyols, or synthetic sweeteners. Sweetened with honey (Tier-1 sweetener) plus coconut sugar.",
+    "justification": "Clears all pre-filters (P3: coconut oil only; the seed components are intact whole-seed flours, not extracted seed oils). Honey is a Tier-1 sweetener, but the added coconut sugar plus refined tapioca/arrowroot starch fillers cap it at Tier 3. Prior ['seed','emul'] flags were misreads.",
+    "confidence": "high",
+    "notes": "Watermelon/sunflower/flax are whole seeds in the flour blend, not seed oils; no emulsifier present."
+  },
+  {
+    "id": 246,
+    "name": "The Complete Cookie - Chocolate Chip (Lenny & Larry's)",
+    "verified": true,
+    "sources": [
+      "https://www.lennylarry.com/products/the-complete-cookie-chocolate-chip",
+      "https://www.publix.com/pd/lenny-and-larrys-the-complete-cookie-cookie-chocolate-chip-soft-baked/RIO-PCI-513824",
+      "https://spoonfulapp.com/products/lenny-larrys-the-complete-cookie-chocolate-chip-12-count/MDc4NzY5MjgzMzIyMQ=="
+    ],
+    "ingredients_found": "Enriched Wheat Flour, Protein Blend (Vital Wheat Gluten, Pea Protein, Rice Protein), Semi-Sweet Chocolate Chips (Unsweetened Chocolate, Sugar, Cocoa Butter, Dextrose, Natural Vanilla Extract), Inulin, Cane Sugar, Invert Sugar, Vegetable Glycerine, Palm Fruit Oil, Sunflower Lecithin, Natural Flavor, Baking Soda, Salt, Xanthan Gum, Guar Gum.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Stacked L3 disqualifiers: palm fruit oil, sunflower lecithin (emulsifier), xanthan gum, guar gum, inulin and vegetable glycerine (engineered fiber/humectant fillers), plus engineered protein isolates.",
+    "justification": "Xanthan/guar gums and sunflower lecithin act as detergents on the mucin/tight-junction barrier (P1); inulin adds a concentrated FODMAP gas load (P5); palm oil is a disqualifying refined oil (P3); vital wheat gluten + pea/rice isolates are denatured engineered proteins resistant to clean cleavage (P2). Textbook ultra-processed disqualification.",
+    "confidence": "high",
+    "notes": "Prior audit correctly FAILED this item."
+  },
+  {
+    "id": 247,
+    "name": "15g Protein Cookie - Chocolate Chip (Quest Nutrition)",
+    "verified": true,
+    "sources": [
+      "https://www.questnutrition.com/products/chocolate-chip-cookies",
+      "https://www.amazon.com/Quest-Nutrition-Chocolate-Protein-Cookie/dp/B077QK3NX4",
+      "https://www.ewg.org/foodscores/products/888849006007-QuestProteinCookieChocolateChip/"
+    ],
+    "ingredients_found": "Protein Blend (Milk Protein Isolate, Whey Protein Isolate), Butter (Cream, Natural Flavor), Polydextrose, Erythritol, Palm Oil, Unsweetened Chocolate, Water, Calcium Caseinate, Cocoa Butter, Glycerin. Contains less than 2%: Natural Flavors, Lecithin (Sunflower, Canola, and/or Soy), Sea Salt, Baking Soda, Sodium Caseinate, Xanthan Gum, Sucralose, Stevia.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Multiple hard disqualifiers: erythritol (polyol), sucralose (synthetic sweetener), polydextrose (engineered fiber filler), palm oil, canola-lecithin (seed-oil emulsifier) + xanthan gum, and engineered protein isolates.",
+    "justification": "Erythritol and polydextrose draw osmotic water into the gut lumen causing distension (P4/P5); sucralose and gums disrupt the microbiome and mucosal barrier (P1); milk/whey isolates + caseinate are denatured engineered proteins (P2); palm oil and canola lecithin are disqualifying refined lipids (P3). Fails the Sweetener Matrix outright.",
+    "confidence": "high",
+    "notes": "Prior audit correctly FAILED this item. Some batches list soluble corn fiber in place of polydextrose; either is an L3 engineered fiber filler."
+  }
+]

@@ -1,0 +1,205 @@
+[
+  {
+    "id": 70,
+    "name": "Rustichella d'Abruzzo Spaghetti (17.5 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/rustichella-d-abruzzo-spaghetti/473613",
+      "https://www.ardkeen.com/products/rustichella-dabruzzo-spaghetti-durum-wheat-semolina-pasta-500g",
+      "https://www.manicaretti.com/producers/rustichella-d-abruzzo"
+    ],
+    "ingredients_found": "Durum Wheat Semolina, Water. Bronze-die extruded, air-dried in temperature-controlled chambers for up to 56 hours.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% durum wheat semolina + water, hand-carved bronze-die extrusion, verified 56-hour low-temperature slow drying.",
+    "justification": "A pure whole-food durum matrix with zero L1/L2/L3 disruptors; genuine bronze-die + long slow drying preserves an intact starch/protein matrix (P4/P5) with no gums, seed oils or added sugar.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 71,
+    "name": "Central Market Organic Bronze Cut Pappardelle Pasta (17.6 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/central-market-organic-bronze-cut-pappardelle-pasta/4226005",
+      "https://www.centralmarket.com/product/central-market-organic-bronze-cut-pappardelle-pasta-176-oz/4226005"
+    ],
+    "ingredients_found": "Organic Semolina (Durum Wheat). Bronze-cut, made in / imported from Gragnano, Italy (non-egg organic variant).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% organic durum semolina, bronze-die cut, produced in Gragnano where traditional slow low-temperature drying is standard.",
+    "justification": "Single-ingredient durum matrix, zero L1/L2/L3; bronze extrusion and Gragnano slow-drying method give an intact, well-tolerated starch matrix (P4/P5).",
+    "confidence": "medium",
+    "notes": "Slow-drying inferred from Gragnano bronze-cut production; exact drying spec not printed on the retailer page (heb.com/centralmarket.com return 403 to direct fetch). Audited the plain organic semolina variant, not the separate egg pappardelle SKU."
+  },
+  {
+    "id": 72,
+    "name": "Jovial Organic Einkorn Penne Rigate (12 oz)",
+    "verified": true,
+    "sources": [
+      "https://jovialorganic.com/product/jovial-einkorn-100-organic-whole-grain-penne-rigate-einkorn-pasta-high-protein-non-gmo-usda-certified-organic-lower-carb/",
+      "https://jovialfoods.com/pages/pasta-manufacturer",
+      "https://www.vitacost.com/jovial-organic-einkorn-whole-wheat-pasta-penne-rigate"
+    ],
+    "ingredients_found": "Organic Whole Grain Einkorn Wheat, Water. Pressed through bronze dies and slowly dried at low temperatures.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Bronze-die + ancient grain (einkorn / Triticum monococcum), single unhybridized whole-grain flour with water, slow-dried.",
+    "justification": "Unhybridized ancient einkorn with a fragile low-FODMAP gluten matrix (P5), zero L1/L2/L3 additives, bronze-die and slow drying preserve native structure for lower GI load.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 73,
+    "name": "Higher Harvest by H-E-B Organic Red Lentil Fusilli (8 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/higher-harvest-by-h-e-b-gluten-free-organic-15g-protein-red-lentil-fusilli-pasta-noodles/4945506",
+      "https://www.centralmarket.com/product/higher-harvest-by-h-e-b-gluten-free-organic-15g-protein-red-lentil-fusilli-pasta-noodles-8-oz/4945506",
+      "https://cooklist.com/product/h-e-b-organics-gluten-free-red-lentil-fusilli-pasta-2563247"
+    ],
+    "ingredients_found": "Organic Red Lentil Flour.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean single-ingredient legume pasta (100% organic red lentil flour), no gums, starches, oils or sugar.",
+    "justification": "Single whole-legume flour, zero L1/L2/L3; high protein-to-carb macro tool with no hydrocolloid binders, so no mucosal stripping (P1). Clean but engineered/pulse form keeps it at Tier 2.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 74,
+    "name": "Sgambaro Organic Emmer Pasta Tortiglioni (17.6 oz)",
+    "verified": true,
+    "sources": [
+      "https://italianproducts.com/product/sgambaro-organic-pasta-with-emmer-wheat-farro-dicoccum-spaghetti-no5-1-1-lb/",
+      "https://www.mypanier.com/products/sgambaro-organic-emmer-farro-dicoccum-trivelline-pasta-1-1lb",
+      "https://emporioitaliano.com/products/sgambaro-organic-farro-dicocco-spaghetti-n-5"
+    ],
+    "ingredients_found": "Organic Emmer Wheat Flour (Farro Dicoccum). Bronze-die drawn (trafilatura al bronzo).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Bronze-die + ancient grain (emmer / farro dicoccum), single organic ancient-wheat flour, no additives.",
+    "justification": "Ancient emmer wheat with an intact, less-hybridized gluten matrix (P5), zero L1/L2/L3, bronze extrusion for a native whole-food staple.",
+    "confidence": "medium",
+    "notes": "Sgambaro sells both einkorn (Farro Monococco) and emmer (Farro Dicoccum) lines; audited the emmer/farro dicoccum deck (single organic emmer flour). Exact tortiglioni SKU page not directly fetchable, but all Sgambaro farro shapes share the single-flour, bronze-die spec."
+  },
+  {
+    "id": 75,
+    "name": "Pastificio Liguori Organic Bronze Cut Spaghetti IGP (16 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.pastaliguori.com/en/product/spaghetti-biologiche/",
+      "https://www.pastaliguori.com/en/",
+      "https://www.amazon.com/Liguori-Pasta-Gragnano-Rigate-Italian/dp/B06Y26J4L8"
+    ],
+    "ingredients_found": "Organic Durum Wheat Semolina, Water. Pasta di Gragnano IGP: bronze-die extruded and slow-dried at low temperature (IGP-regulated method).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% organic durum semolina + water; Gragnano IGP certification legally guarantees bronze-die extrusion and slow low-temperature drying.",
+    "justification": "Pure durum matrix, zero L1/L2/L3; the IGP designation is a binding guarantee of bronze-die + slow drying, preserving an intact starch matrix (P4/P5).",
+    "confidence": "high",
+    "notes": "Brand page returns 403 to automated fetch, but IGP Gragnano spec + retailer listings confirm durum semolina/water, bronze die and slow drying."
+  },
+  {
+    "id": 76,
+    "name": "Rummo Lenta Lavorazione Spaghetti No. 3 (16 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.wegmans.com/shop/product/962425-Spaghetti-No-3",
+      "https://www.kroger.com/p/rummo-spaghetti-no-3-pasta/0001097820003",
+      "https://tools.myfooddata.com/nutrition-facts/566990/wt1"
+    ],
+    "ingredients_found": "Semolina (99%), Niacin, Ferrous Lactate, Thiamine Mononitrate, Riboflavin, Folic Acid. Bronze-cut, Lenta Lavorazione (slow) process.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean durum semolina, bronze-cut and slow-processed; only additions are standard synthetic vitamin/mineral enrichment (no sugar, oil, gum or dye).",
+    "justification": "Enrichment (niacin, iron, B-vitamins, folic acid) is benign fortification, not a mucosal/lipid/glycemic disruptor (Anti-Pseudoscience Matrix); durum semolina + bronze die is clean, but the added synthetic vitamins keep it out of the 100% whole-food Tier 1.",
+    "confidence": "high",
+    "notes": "Current catalog flag 'tool' is inaccurate: this is enriched durum semolina, not an engineered protein isolate. Borderline Tier 2/Tier 3; placed at Tier 2 on strength of durum + bronze-die slow process."
+  },
+  {
+    "id": 77,
+    "name": "Explore Cuisine Organic Edamame & Mung Bean Fettuccine (8 oz)",
+    "verified": true,
+    "sources": [
+      "https://explorecuisine.com/products/organic-edamame-mung-bean-fettuccine",
+      "https://www.vitacost.com/explore-cuisine-organic-edamame-mung-bean-fettuccine",
+      "https://www.amazon.com/Explore-Cuisine-Organic-Edamame-Fettuccine/dp/B004UB9P38"
+    ],
+    "ingredients_found": "Organic Edamame (Green Soybean) Flour, Organic Mung Bean Flour.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Two-ingredient clean legume pasta, no gums, starches, oils or sugar.",
+    "justification": "Pure pulse-flour blend, zero L1/L2/L3; extreme protein density with no hydrocolloid binders means no mucosal disruption (P1). Clean but engineered legume form → Tier 2.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 78,
+    "name": "Central Market Organic Bronze Cut Rigatoni (16 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-organic-bronze-cut-rigatoni-16-oz/1876816",
+      "https://www.heb.com/product-detail/central-market-organic-bronze-cut-rigatoni/1876816",
+      "https://centralmarket.com/product/central-market-organic-rigatoni-bronze-cut16-oz/"
+    ],
+    "ingredients_found": "Organic Durum Wheat Semolina. Bronze-die cut, product of Italy.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean single-ingredient organic durum semolina, bronze-die cut; low-temperature slow drying not explicitly verified for this SKU.",
+    "justification": "Pure durum matrix, zero L1/L2/L3; bronze-die extrusion is confirmed but drying spec is unverified, so held at Tier 2 (clean durum staple) rather than Tier 1.",
+    "confidence": "medium",
+    "notes": "Retailer pages 403 to automated fetch; Gragnano/slow-dry not explicitly confirmed for the rigatoni SKU, so not elevated to Tier 1. Current catalog flag 'tool' is inaccurate (plain durum semolina, no isolate)."
+  },
+  {
+    "id": 79,
+    "name": "Barilla Protein+ Spaghetti (14.5 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.barilla.com/en-us/products/pasta/protein-plus",
+      "https://www.amazon.com/Barilla-ProteinPlus-Multigrain-Spaghetti-Pasta/dp/B001A5V49A",
+      "https://www.publix.com/pd/barilla-protein-plus-spaghetti-pasta---plant-based-pasta---made-from-lentils-chickpeas-and-peas---non-gmo-kosher/RIO-PCI-101071"
+    ],
+    "ingredients_found": "Semolina (Wheat), Durum Wheat Flour, Lentil Flour, Pea Protein, Chickpea Flour, Barley Flour, Spelt Flour. Vitamins/minerals: Niacin, Iron (Ferrous Sulfate), Thiamine Mononitrate, Riboflavin, Folic Acid.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Engineered multigrain + legume protein blend containing added pea protein (isolated protein fraction); clean of any L1/L2/L3 disqualifier (no seed oils, sugar, gums or dyes).",
+    "justification": "Passes the pre-filter with zero seed oils/sugars/gums, but the added pea-protein fraction (P2 engineered isolate) caps it at Tier 2 as a clean protein tool; vitamin enrichment is benign fortification.",
+    "confidence": "high",
+    "notes": "Current catalog flag 'tool' is correct. Added protein is 'pea protein' per Barilla's label."
+  },
+  {
+    "id": 80,
+    "name": "Banza Chickpea Penne (8 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.eatbanza.com/products/banza-chickpea-penne",
+      "https://www.wegmans.com/shop/product/624749-Penne-Made-from-Chickpeas",
+      "https://www.amazon.com/Banza-Chickpea-Pasta-Protein-Healthy/dp/B00XXOY4QQ"
+    ],
+    "ingredients_found": "Chickpeas, Tapioca, Pea Starch, Xanthan Gum.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Xanthan gum (industrial hydrocolloid / emulsifier-thickener).",
+    "justification": "Xanthan gum is an L3 gut-mechanism disruptor (P1): hydrocolloids act as surfactants that strip the mucin shield and alter intestinal transit, triggering an automatic pre-filter disqualification regardless of otherwise-clean chickpea base.",
+    "confidence": "high",
+    "notes": "Refined tapioca and pea starch are added fillers; xanthan gum alone is the disqualifying L3 agent."
+  },
+  {
+    "id": 81,
+    "name": "Rummo Protein Linguine Pasta No. 13 (14.1 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.pastarummo.it/en/protein-maximum-2/",
+      "https://www.prnewswire.com/news-releases/pasta-rummo-launches-maxima-an-organic-protein-pasta-with-an-authentic-al-dente-bite-302491144.html",
+      "https://www.amazon.com/Rummo-Pasta-Fusilli-Protein-Organic/dp/B0FMC23RZP"
+    ],
+    "ingredients_found": "Organic Durum Wheat Semolina, Organic Pea Flour (yellow pea, dry-milled and air-sifted). No isolates, gums or additives.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean two-ingredient durum semolina + whole pea-flour blend (natural dry-milling, not chemical isolate), no seed oils, sugar, gums or dyes.",
+    "justification": "Passes the pre-filter fully; protein is boosted by whole pea flour (not an engineered isolate), so it is a clean Tier 2 durum/legume staple with an intact matrix and no mucosal disruptors (P1/P2).",
+    "confidence": "high",
+    "notes": "The current catalog audit ('Durum Wheat Semolina, Wheat Protein Isolate, Fava Bean Protein Isolate') is INACCURATE. Rummo's 14.1 oz organic protein line (Maxima) is durum semolina + organic yellow pea flour only — no wheat/fava isolates. Flag should be simple clean/tool, not isolate-based."
+  }
+]

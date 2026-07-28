@@ -1,0 +1,196 @@
+[
+  {
+    "id": 177,
+    "name": "Rigoni di Asiago Fiordifrutta Organic Fruit Spread (Wild Blueberry / Cherry)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Rigoni-Asiago-Fiordifrutta-Organic-Blueberry/dp/B004ROBE8W",
+      "https://www.rigonidiasiago-usa.com/fiordifrutta-products/",
+      "https://www.vitacost.com/rigoni-di-asiago-fiordifrutta-organic-fruit-spread-wild-berries-8-82-oz"
+    ],
+    "ingredients_found": "Organic wild blueberries, organic apple juice (concentrate), fruit pectin. No added sugar; sweetened only with organic apple juice.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Whole organic fruit + organic apple-juice sweetening + traditional fruit pectin; zero cane sugar, seed oils, gums, dyes, or preservatives.",
+    "justification": "A fruit-only preserve with an intact whole-food glycemic matrix (P4) and no mucosal-disrupting emulsifiers/gums (P1); pectin is a native gelling agent, not a disqualifying gum.",
+    "confidence": "high",
+    "notes": "Sweetener is fruit juice only; both flavors follow the same fruit + apple-juice + pectin formula."
+  },
+  {
+    "id": 178,
+    "name": "Chia Smash Superfood Fruit Spread (Raspberry / Wild Blueberry)",
+    "verified": true,
+    "sources": [
+      "https://smashfoods.com/products/raspberry-chia-smash",
+      "https://www.amazon.com/Raspberry-Chia-Smash-Superfood-Diabetic/dp/B094V16SMY"
+    ],
+    "ingredients_found": "Raspberries, dates, chia seeds, lemon juice concentrate, fruit pectin, rowanberry extract.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Whole-fruit + date sweetening with whole chia seeds for structure; zero added refined sugar, seed oils, gums, dyes, or preservatives.",
+    "justification": "Sweetened by whole fruit and dates (Tier-1 sweetener) inside an intact fiber matrix (P4); chia adds native fiber with no emulsifier/gum load (P1).",
+    "confidence": "high",
+    "notes": "Rowanberry extract is a natural fruit extract, not a synthetic additive."
+  },
+  {
+    "id": 179,
+    "name": "St. Dalfour Fruit Spread (Fig Royale / Wild Blueberry)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/St-Dalfour-Royal-Natural-Ingredients/dp/B07N4HP8R4",
+      "https://www.stdalfour.com/fruit-spreads"
+    ],
+    "ingredients_found": "Figs, fruit juice concentrates (grape and date), lemon juice, fruit pectin. No cane sugar, no artificial ingredients.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Fruit-only preserve sweetened by grape/date juice concentrate with lemon juice and fruit pectin; zero cane sugar, corn syrup, seed oils, gums, or preservatives.",
+    "justification": "Whole fruit + fruit-juice sweetening delivers a native glycemic matrix (P4); traditional kettle cooking with pectin only, no mucosal disruptors (P1).",
+    "confidence": "high",
+    "notes": "Fruit juice concentrate composition can vary slightly by flavor; both audited variants are cane-sugar-free."
+  },
+  {
+    "id": 180,
+    "name": "Crofter's Organic \"Just Fruit\" Spread (Strawberry / Apricot)",
+    "verified": true,
+    "sources": [
+      "https://croftersorganic.com/product/just-fruit-strawberry/",
+      "https://www.wholefoodsmarket.com/product/crofters-organic-organic-strawberry-just-fruit-spread-b01e4uofo8"
+    ],
+    "ingredients_found": "Organic apple juice concentrate, organic strawberries, apple pectin, ascorbic acid (vitamin C), citric acid.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% fruit-juice sweetened organic spread; zero cane sugar, seed oils, gums, synthetic dyes, or preservatives.",
+    "justification": "Fruit-juice sweetening keeps sugar inside a whole-food matrix (P4); ascorbic/citric acid are benign acidulants, not gut-disrupting emulsifiers (P1).",
+    "confidence": "high",
+    "notes": "Apricot variant uses the same apple-juice + fruit + pectin base."
+  },
+  {
+    "id": 181,
+    "name": "World of Chia Raspberry Fruit Spread",
+    "verified": true,
+    "sources": [
+      "https://www.worldofchia.com/product/premium-chia-raspberry-fruit-spread/",
+      "https://www.heb.com/product-detail/world-of-chia-raspberry-agave-chia-spread/1817026"
+    ],
+    "ingredients_found": "Raspberries, organic agave nectar, organic chia seeds, lime juice.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean deck with whole chia for structure, but sweetened primarily with organic agave nectar (a refined natural syrup) rather than whole fruit, honey, or maple.",
+    "justification": "Agave is not a disqualifier (not HFCS, synthetic, or polyol) so it passes the pre-filter, but as a refined high-fructose syrup it is not a Tier-1 whole-fruit/honey sweetener and delivers a faster glycemic influx (P4); no gums or seed oils (P1).",
+    "confidence": "medium",
+    "notes": "Agave nectar is outside the explicit Tier-1/2/3 sweetener whitelist; placed at Tier 3 as a clean, non-disqualifying natural syrup rather than a whole-food sweetener."
+  },
+  {
+    "id": 182,
+    "name": "Crofter's Organic Premium Spread (Strawberry / Berry Harvest)",
+    "verified": true,
+    "sources": [
+      "https://croftersorganic.com/product/premium-strawberry/",
+      "https://www.amazon.com/Crofters-Organic-Premium-Spread-Strawberry/dp/B015UBV4N0"
+    ],
+    "ingredients_found": "Organic strawberries, organic cane sugar, natural apple pectin, ascorbic acid (vitamin C), citric acid.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean organic cane-sugar fruit preserve; zero seed oils, gums, synthetic dyes, or preservatives.",
+    "justification": "Organic unrefined cane sugar is the Tier-3 allowed sweetener in an inherently-sweet category (P4); otherwise a clean fruit + pectin matrix with no mucosal disruptors (P1).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 183,
+    "name": "H-E-B More Fruit Strawberry Fruit Spread",
+    "verified": true,
+    "sources": [
+      "https://foodisgood.com/product/heb-more-fruit-strawberry-fruit-spread/",
+      "https://spoonfulapp.com/products/h-e-b-more-fruit-strawberry-fruit-spread-155-oz/MDA0MTIyMDE5MzY1Mw==",
+      "https://www.heb.com/product-detail/h-e-b-more-fruit-strawberry-fruit-spread/126762"
+    ],
+    "ingredients_found": "Strawberries, sugar, water, less than 2% of: fruit pectin, citric acid, carob bean gum, black carrot juice concentrate.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Carob bean (locust bean) gum — an L3 disqualifying emulsifier/gum on the banned gum list.",
+    "justification": "Carob/locust bean gum acts as a surfactant that strips the intestinal mucin layer and compromises tight junctions (P1), triggering an automatic L3 disqualification regardless of the otherwise clean fruit base.",
+    "confidence": "high",
+    "notes": "Prior audit flagged 'dye' incorrectly — the color is black carrot juice concentrate (natural), not a synthetic dye; the true disqualifier is carob bean gum, which the prior audit missed."
+  },
+  {
+    "id": 184,
+    "name": "Smucker's Simply Fruit Spread (Strawberry / Apricot)",
+    "verified": true,
+    "sources": [
+      "https://www.smuckers.com/fruit-spreads/simply-fruit/simply-fruit-strawberry-fruit-spread",
+      "https://shop.smucker.com/smuckers-simply-fruit-strawberry-spreadable-fruit-10-oz"
+    ],
+    "ingredients_found": "Fruit syrup, strawberries, fruit pectin, lemon juice concentrate, red grape juice concentrate (for color), natural flavor.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Fruit-only sweetened (fruit syrup / juice concentrate); zero cane sugar, HFCS, seed oils, gums, or synthetic dyes.",
+    "justification": "Sweetened solely by fruit juice/syrup inside a fruit + pectin matrix (P4), with color from natural grape juice concentrate; no emulsifiers or gums that would disrupt the mucosal barrier (P1).",
+    "confidence": "medium",
+    "notes": "Contains 'natural flavor,' a minor non-whole-food marker, but no disqualifying additive; both strawberry and apricot variants are cane-sugar-free."
+  },
+  {
+    "id": 185,
+    "name": "Good Good No Added Sugar Strawberry Jam",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Sweet-Jam-Stevia-Good-Strawberry/dp/B07HD52FR1",
+      "https://goodgoodbrand.com/products/strawberry-jam-12-oz"
+    ],
+    "ingredients_found": "Strawberries (58%), water, sweeteners (erythritol, stevia extract), fruit pectin, rowanberry extract, lemon powder, citric acid, carrot-blackcurrant concentrate (for color), ascorbic acid.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Erythritol (polyol) plus stevia blended with erythritol — both TRASH conditions under the Sweetener Matrix.",
+    "justification": "Erythritol is an unfermentable polyol that reaches the colon and drives osmotic water shifts and bacterial fermentation (P5/P1), and stevia blended with a polyol is explicitly disqualified by the Sweetener Matrix.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 186,
+    "name": "Bonne Maman Apricot Preserves",
+    "verified": true,
+    "sources": [
+      "https://bonnemaman.us/products/apricot-preserves",
+      "https://www.amazon.com/Bonne-Maman-Apricot-Preserves-13-Ounce/dp/B000EXWL8W"
+    ],
+    "ingredients_found": "Apricots, sugar, brown cane sugar, concentrated lemon juice, fruit pectin. No HFCS, no artificial coloring/flavors, no preservatives.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean cane-sugar fruit preserve; zero seed oils, gums, synthetic dyes, or preservatives.",
+    "justification": "A clean fruit + cane-sugar + pectin preserve passes every pre-filter; added cane sugar is not auto-trashed in an inherently-sweet category and places it at the Tier-3 sweetener level (P4), with no mucosal disruptors (P1).",
+    "confidence": "high",
+    "notes": "Prior audit flagged 'emul' — incorrect; the deck contains fruit pectin only, no gums or emulsifiers."
+  },
+  {
+    "id": 187,
+    "name": "Polaner Sugar Free with Fiber Strawberry Preserves",
+    "verified": true,
+    "sources": [
+      "https://polanerspreads.com/product/sugar-free-strawberry-preserves-with-fiber/",
+      "https://www.amazon.com/Polaner-Sugar-Free-Strawberry-Preserves-Fiber/dp/B00061EYRI"
+    ],
+    "ingredients_found": "Water, strawberries, maltodextrin, polydextrose, fruit pectin, citric acid, guar gum, natural flavor, sucralose, potassium sorbate and sodium benzoate (to preserve freshness), calcium chloride, Red 40.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Red 40 synthetic dye and sodium benzoate (L2), plus sucralose (synthetic sweetener), guar gum (L3), and polydextrose (engineered fiber filler).",
+    "justification": "Multiple hard disqualifiers stack here — an L2 petroleum dye and chemical preservative alongside an L3 synthetic sweetener, gum, and engineered fiber — hitting the gut barrier (P1), glycemic (P4), and preservative-load axes simultaneously.",
+    "confidence": "high",
+    "notes": "Textbook UPF 'sugar free' trap; highest severity cited is L2 (Red 40 / sodium benzoate)."
+  },
+  {
+    "id": 188,
+    "name": "Welch's Concord Grape Jelly",
+    "verified": true,
+    "sources": [
+      "https://www.welchs.com/en-us/fruit-spreads/concord-grape-jelly/",
+      "https://foodisgood.com/product/welchs-concord-grape-jelly/"
+    ],
+    "ingredients_found": "Concord grapes, corn syrup, high fructose corn syrup, fruit pectin, citric acid, sodium citrate.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "High fructose corn syrup (and corn syrup) as the primary sweeteners — an explicit jam-category disqualifier.",
+    "justification": "HFCS floods the hepatic portal vein with fructose absent any protective fiber/protein matrix, maximizing de novo lipogenesis and insulin spikes (P4); an engineered sweetener substrate with no whole-food value.",
+    "confidence": "high",
+    "notes": ""
+  }
+]

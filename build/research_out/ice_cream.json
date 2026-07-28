@@ -1,0 +1,206 @@
+[
+  {
+    "id": 165,
+    "name": "Queen & Bean Vanilla Bean Ice Cream (Ice Cream For Bears)",
+    "verified": true,
+    "sources": [
+      "https://www.goodeggs.com/icecreamforbears/queen-bean-ice-cream/6957de41ab73d10012aa3de0",
+      "https://www.forbes.com/sites/andrewwatman/2025/07/31/honey-sweetened-ice-cream-for-bears-is-the-poster-child-for-clean-ingredients/",
+      "https://icecreamforbears.com/pages/philosophy"
+    ],
+    "ingredients_found": "Milk, Cream, Raw Honey, Skim Milk, Egg Yolk, Vanilla Extract, Vanilla Bean. Dairy is truly grass-fed, regeneratively raised (e.g., Working Cows Dairy, certified Grassfed by A Greener World).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Grass-fed regenerative dairy + raw honey (Tier-1 sweetener) + egg yolks + vanilla; zero gums/stabilizers, zero seed oils, zero refined sugar.",
+    "justification": "Grass-fed native dairy matrix (P2 peptide recognition) with honey as the only sweetener avoids hepatic sugar flooding (P4), and egg-yolk lecithin replaces any industrial emulsifier so the mucosal shield stays intact (P1).",
+    "confidence": "high",
+    "notes": "Honey-sweetened French-style ice cream; a clear Gold-Standard clean deck."
+  },
+  {
+    "id": 166,
+    "name": "Tahitian Vanilla Bean A2/A2 Ice Cream (Alec's Ice Cream)",
+    "verified": true,
+    "sources": [
+      "https://www.alecsicecream.com/products/tahitian-vanilla-bean",
+      "https://www.amazon.com/Alecs-Cream-Tahitian-Vanilla-Dairy/dp/B0GCKFNFYT",
+      "https://world.openfoodfacts.org/product/0850015096006/tahitian-vanilla-bean-alec-s-ice-cream"
+    ],
+    "ingredients_found": "Cream, Skim Milk, Organic Raw Cane Sugar, Cassava Root Fiber, Organic Egg Yolks, Tahitian Vanilla Extract, Vanilla Beans. (A2/A2 dairy; brand markets cassava root fiber as an added prebiotic fiber.)",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Cassava Root Fiber — an added isolated/engineered prebiotic fiber (functional equivalent of soluble corn fiber/inulin fillers), which is L3-disqualifying.",
+    "justification": "The isolated concentrated fiber is not a native whole-food carbohydrate; added engineered fibers reach the colon undigested and drive rapid bacterial fermentation, gas, and visceral distension (P5), the very bloating the protocol screens out.",
+    "confidence": "medium",
+    "notes": "Would otherwise be Tier 1 (A2/A2 grass-fed dairy, clean deck). Disqualification rests on treating brand-added cassava root fiber as an engineered fiber filler; borderline but consistent with the L3 fiber rule. Current 'clean' flag is incorrect — cassava fiber was omitted from the prior audit."
+  },
+  {
+    "id": 167,
+    "name": "Organic Super Premium Vanilla Bean Ice Cream (Straus Family Creamery)",
+    "verified": true,
+    "sources": [
+      "https://www.strausfamilycreamery.com/products/ice-cream/organic-vanilla-bean-ice-cream/",
+      "https://www.amazon.com/Straus-Family-Creamery-Organic-Vanilla/dp/B0147QLUVK",
+      "https://www.kroger.com/p/straus-family-organic-vanilla-bean-ice-cream/0078483010030"
+    ],
+    "ingredients_found": "Pasteurized Organic Cream, Organic Nonfat Milk, Organic Cane Sugar, Organic Egg Yolks, Organic Vanilla Extract, Organic Ground Vanilla Bean.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean 6-ingredient organic deck (cream/milk + egg yolks + organic cane sugar + vanilla), zero gums/stabilizers/seed oils; organic pasture-raised but not A2- or grass-fed-certified, so conventional-but-clean = Tier 3.",
+    "justification": "No emulsifiers or gums keeps tight junctions intact (P1) and no seed oils avoids oxidized-lipid load (P3); organic cane sugar is the accepted sweet-category fallback (P4), but the dairy lacks the A2/grass-fed bioavailability edge required for Tier 1.",
+    "confidence": "high",
+    "notes": "Premium organic pasture-based dairy; a reasonable auditor could argue Tier 1, but without A2 or grass-fed certification it sits at Tier 3 per the ice-cream rule."
+  },
+  {
+    "id": 168,
+    "name": "Vanilla Bean Fine Ice Cream (McConnell's Fine Ice Creams)",
+    "verified": true,
+    "sources": [
+      "https://mcconnells.com/products/vanilla-bean",
+      "https://www.kroger.com/p/mcconnell-s-vanilla-bean-ice-cream-pint/0007520982494",
+      "https://tools.myfooddata.com/nutrition-facts/2484376/wt1"
+    ],
+    "ingredients_found": "Cream, Milk, Cane Sugar, Non-Fat Milk Solids, Egg Yolks, Milk Protein Concentrate, Tapioca Starch, R.R. Lochhead Vanilla, Vanilla Beans.",
+    "decision": "tier2",
+    "dqLevel": "L3",
+    "reason": "Milk Protein Concentrate is an engineered/isolated protein (P2 'tool' flag) which caps the product at Tier 2; otherwise clean — no gums, no seed oils (tapioca starch is a native starch, not a gum).",
+    "justification": "MPC is a forced-isolated protein whose altered matrix resists normal enzymatic cleavage (P2), so despite grass-fed Central Coast dairy and no gums/oils it cannot reach Tier 1; it remains a safe, clean, macro-dense Tier-2 tool.",
+    "confidence": "high",
+    "notes": "Prior audit ('grass-fed... nonfat dry milk') omitted the Milk Protein Concentrate and tapioca starch that appear on the real deck."
+  },
+  {
+    "id": 169,
+    "name": "Madagascar Vanilla Dairy-Free Frozen Dessert (Frönen)",
+    "verified": true,
+    "sources": [
+      "https://www.eatfronen.com/products/madagascar-vanilla",
+      "https://www.wholefoodsmarket.com/product/fronen-frozen-dessert-madagascar-vanilla-b07qd6pkvx",
+      "https://www.amazon.com/Fronen-Frozen-Dessert-Madagascar-Vanilla/dp/B07QD6PKVX"
+    ],
+    "ingredients_found": "Coconut Cream, Honey, Water, Vanilla Extract (Madagascar vanilla bean). 4-ingredient deck.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Whole-food coconut base + honey (Tier-1 sweetener) + vanilla; zero gums, zero seed oils, zero refined sugar.",
+    "justification": "A clean whole-food fat matrix (coconut cream) sweetened only with honey avoids sugar flooding (P4) and carries no emulsifiers/gums to strip the mucosal layer (P1); hypoallergenic dairy-free bulking option.",
+    "confidence": "high",
+    "notes": "Coconut-based, not dairy (so A2 gate is N/A). Prior audit listed 'banana' and 'skim milk' — not present; the real deck is coconut cream, honey, water, vanilla."
+  },
+  {
+    "id": 170,
+    "name": "Organic Vanilla Bean Ice Cream (365 by Whole Foods Market)",
+    "verified": true,
+    "sources": [
+      "https://world.openfoodfacts.org/product/0099482478124/organic-vanilla-bean-ice-cream-365-everyday-value",
+      "https://www.amazon.com/365-Everyday-Value-Cream-Vanilla/dp/B07FW7WJ3H",
+      "https://foodisgood.com/product/365-by-whole-foods-market-organic-ice-cream-vanilla-bean/"
+    ],
+    "ingredients_found": "Organic Milk, Organic Cream, Organic Cane Sugar, Organic Nonfat Dry Milk, Vanilla Extract, Organic Stabilizers (Organic Locust Bean Gum, Organic Guar Gum), Organic Vanilla Bean.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Organic Locust Bean Gum + Organic Guar Gum — industrial gums/stabilizers (L3), disqualifying even though certified organic.",
+    "justification": "Added gums act as surfactants that strip the mucin layer and compromise tight junctions (P1), driving fluid retention and low-grade inflammation regardless of organic sourcing.",
+    "confidence": "high",
+    "notes": "Prior 'sugar' flag missed the gums; organic stabilizers still disqualify. Cane sugar itself is acceptable in this sweet category."
+  },
+  {
+    "id": 171,
+    "name": "French Premium Vanilla Bean Ice Cream (Van Leeuwen)",
+    "verified": true,
+    "sources": [
+      "https://vanleeuwenicecream.com/product/vanilla-bean-ice-cream/",
+      "https://foodisgood.com/product/van-leeuwen-vanilla-bean-french-ice-cream/",
+      "https://thrivemarket.com/p/van-leeuwen-ice-cream-vanilla-bean-french-ice-cream"
+    ],
+    "ingredients_found": "Milk, Cream, Cane Sugar, Egg Yolks, Vanilla Extract (grain alcohol, vanilla bean), Salt, Vanilla Bean.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean French deck (milk/cream + egg yolks + cane sugar + vanilla), zero gums/stabilizers, zero seed oils; conventional (not A2/grass-fed) dairy = Tier 3.",
+    "justification": "Extra egg yolks (natural lecithin) replace industrial emulsifiers so the mucosal shield is preserved (P1) and no seed oils means no oxidized-lipid burden (P3); conventional dairy lacks the A2/grass-fed edge for Tier 1.",
+    "confidence": "high",
+    "notes": "Prior 'sugar' flag is non-disqualifying in this sweet category; deck is genuinely gum-free."
+  },
+  {
+    "id": 172,
+    "name": "Creamy Creations 1905 Vanilla Ice Cream (H-E-B)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-creamy-creations-1905-vanilla-ice-cream/313590",
+      "https://foodisgood.com/product/heb-creamy-creations-1905-vanilla-ice-cream/",
+      "https://www.instacart.com/products/2624300-h-e-b-creamy-creations-1905-vanilla-indulgent-custard-style-premium-ice-cream-made-with-fresh-cream-and-the-ultimate-bourbon-vanilla-pint"
+    ],
+    "ingredients_found": "Milk, Cream, Skim Milk, Sugar, Fructose, Dextrose, less than 2% of: Egg, Natural Vanilla Flavor, Natural Flavor, Annatto (color), Carob Bean Gum, Guar Gum.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Carob Bean Gum + Guar Gum — industrial gums/stabilizers (L3), disqualifying.",
+    "justification": "The gum stabilizer blend disrupts the epithelial mucin barrier and tight junctions (P1); added fructose/dextrose compound rapid glycemic influx (P4). Prior 'tool' flag understated the actual gum content.",
+    "confidence": "high",
+    "notes": "Real deck contains two gums plus fructose and annatto — not the clean base described in the prior audit."
+  },
+  {
+    "id": 173,
+    "name": "Madagascan Vanilla Bean Gelato (Talenti)",
+    "verified": true,
+    "sources": [
+      "https://www.talentigelato.com/us/en/p/madagascan-vanilla-bean-gelato.html/00186852000389",
+      "https://foodisgood.com/product/talenti-gelato-madagascan-vanilla-bean/",
+      "https://www.wholefoodsmarket.com/product/talenti-madagascan-vanilla-bean-gelato-ice-cream-1-each-b0040ih5a6"
+    ],
+    "ingredients_found": "Milk, Sugar, Cream, less than 2% of: Dextrose, Vanilla Extract, Sunflower Lecithin, Guar Gum, Tara Gum, Carob Bean Gum, Vanilla Bean Specks, Lemon Peel, Natural Flavor.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Three gums (Guar, Tara, Carob Bean) plus Sunflower Lecithin emulsifier — L3 emulsifiers/gums, disqualifying.",
+    "justification": "Stacked gums and an added lecithin emulsifier act as detergents on the epithelial mucin layer, degrading tight junctions and promoting endotoxemia and bloat (P1).",
+    "confidence": "high",
+    "notes": "Real deck (gums + sunflower lecithin) differs from the prior audit's claimed MPC/egg-yolk base, but still disqualifies. No egg yolks in this gelato."
+  },
+  {
+    "id": 174,
+    "name": "Vanilla Chocolate Crunch Greek Yogurt Bars (Yasso)",
+    "verified": true,
+    "sources": [
+      "https://www.yasso.com/p/vanilla-chocolate-crunch-bars.html/00850001974059",
+      "https://www.kroger.com/p/yasso-frozen-greek-yogurt-vanilla-chocolate-crunch-bars/0085000197405",
+      "https://tools.myfooddata.com/nutrition-facts/807215/wt1"
+    ],
+    "ingredients_found": "Nonfat Milk, Milk Chocolate Flavored Coating (Coconut Oil, Sugar, Cocoa Powder, Nonfat Dry Milk, Whole Milk Powder, Chocolate Liquor, Soybean Oil, Soy Lecithin, Vanilla Extract), Sugar, Greek Yogurt (Nonfat Milk, Milk Protein Concentrate, Cultures), Milk Protein Concentrate, Maltodextrin, Cream, Crisp Quinoa, Natural Flavor, Guar Gum, Locust Bean Gum.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Soybean Oil (industrial seed oil, L3) + Guar Gum + Locust Bean Gum + Soy Lecithin emulsifier + Milk Protein Concentrate isolate; multiple L3 disqualifiers.",
+    "justification": "Solvent-extracted soybean oil delivers oxidized PUFA hydroperoxides that skew membrane omega-6:3 ratios (P3), while gums and lecithin strip the mucosal barrier (P1) — a stacked engineered dessert.",
+    "confidence": "high",
+    "notes": "Prior audit paradoxically said 'zero seed oils' while listing coconut/palm oil; real deck also contains soybean oil. Clearly disqualified."
+  },
+  {
+    "id": 175,
+    "name": "Low-Calorie Vanilla Bean Ice Cream (Halo Top)",
+    "verified": true,
+    "sources": [
+      "https://halotop.com/dairy-ice-cream/vanilla-bean",
+      "https://www.walmart.com/ip/Halo-Top-Vanilla-Bean-Light-Ice-Cream-With-A-Good-Source-of-Protein-Lower-Calorie-Frozen-Dessert-16-fl-oz-Pint/174511849",
+      "https://www.kroger.com/p/halo-top-low-calorie-vanilla-bean-light-ice-cream/0085808900305"
+    ],
+    "ingredients_found": "Ultrafiltered Skim Milk, Skim Milk, Erythritol, Soluble Corn Fiber, Cream, Sugar, Vegetable Glycerine, Egg Yolks, Inulin, 1% or less Natural Flavors, Ground Vanilla Beans, Cellulose Gel, Cellulose Gum, Sea Salt, Stevia Leaf Extract (Reb M), Caramel Color, Vitamin A Palmitate.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Erythritol (polyol) + Soluble Corn Fiber & Inulin (engineered fibers) + Vegetable Glycerine + Cellulose Gum/Gel + stevia blended with all of the above — multiple L3 Sweetener-Matrix disqualifiers.",
+    "justification": "Polyols and engineered fibers ferment osmotically in the colon causing gas and distension (P5), cellulose gum strips the mucosal shield (P1) — the exact 'light/protein' engineering pattern the protocol trashes.",
+    "confidence": "high",
+    "notes": "Textbook disqualification; the stevia here is blended with erythritol/fiber/gums, not pure."
+  },
+  {
+    "id": 176,
+    "name": "CarbSmart Fudge Frozen Dessert Bars (Breyers)",
+    "verified": true,
+    "sources": [
+      "https://www.breyers.com/us/en/p/carbsmart-fudge-bar.html/00075856061017",
+      "https://foodisgood.com/product/breyers-carbsmart-fudge-bars-dairy-dessert/",
+      "https://www.kroger.com/p/breyers-carbsmart-fudge-frozen-dessert-bars/0007585606101"
+    ],
+    "ingredients_found": "Skim Milk, Water, Maltitol Syrup, Polydextrose, Coconut Oil, Dutched Cocoa (Processed With Alkali), Cream, less than 2% of: Whey, Glycerin, Soluble Corn Fiber, Mono and Diglycerides, Guar Gum, Carob Bean Gum, Tara Gum, Acesulfame Potassium, Sucralose, Natural Flavor.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Maltitol (polyol) + Sucralose & Acesulfame-K (synthetic sweeteners) + Polydextrose/Soluble Corn Fiber (engineered fibers) + Mono/Diglycerides + three gums — a full stack of Sweetener-Matrix and L3 disqualifiers.",
+    "justification": "Synthetic sweeteners and polyols alter gut microbiota and osmotically ferment (P5), mono/diglyceride emulsifiers and gums strip the mucin barrier (P1) — maximally engineered UPF, hard disqualify.",
+    "confidence": "high",
+    "notes": "The most heavily engineered item in the category."
+  }
+]

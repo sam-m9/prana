@@ -1,0 +1,189 @@
+[
+  {
+    "id": 59,
+    "name": "Vacche Rosse Grana D'Oro Parmigiano Reggiano 36mo (Vacche Rosse)",
+    "verified": true,
+    "sources": [
+      "https://granadoro.it/prodotto/parmigiano-reggiano-vacche-rosse-30-36-mesi-1-kg/",
+      "https://www.ditalia.com/products/red-cow-vacche-rosse-parmigiano-reggiano",
+      "https://igourmet.com/products/parmigiano-reggiano-vacche-rosse-15-5-oz"
+    ],
+    "ingredients_found": "Raw cow's milk (from Reggiana Red Cows), salt, rennet",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Raw single-breed (Vacche Rosse Reggiana) cow's milk cheese aged 30-36 months; deck is only raw milk, salt, rennet — zero L1/L2/L3 signals.",
+    "justification": "Long 36-month aging enzymatically pre-digests casein and eliminates lactose (Principle 5), yielding highly bioavailable amino acids with no mucosal disruptors or seed oils (Principles 1 & 3).",
+    "confidence": "high",
+    "notes": "Retail wedges from this producer are the 30/36-month Grana d'Oro; standard DOP deck (raw milk/salt/rennet) with no additives permitted under DOP."
+  },
+  {
+    "id": 60,
+    "name": "Genuine Fulvi Pecorino Romano Del Lazio DOP (Fulvi)",
+    "verified": true,
+    "sources": [
+      "https://igourmet.com/products/genuine-fulvi-pecorino-romano-cheese-dop",
+      "https://www.murrayscheese.com/dp/fulvi-pecorino-romano",
+      "https://www.goodeggs.com/fulvi/pecorino-romano/65131906959b350011fae545"
+    ],
+    "ingredients_found": "Unpasteurized (raw) whole sheep's milk, rennet, salt",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% raw whole sheep's milk (naturally A2 beta-casein), salt, rennet — clean deck, zero L1/L2/L3.",
+    "justification": "Sheep's-milk casein is natively A2, avoiding the BCM-7 opioid peptides and osmotic lower-GI bloat of A1 cow dairy (Principle 2); aged raw milk deck has no gums, sugars, or seed oils.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 61,
+    "name": "Don Juan Manchego DOP Aged 12 Months (Don Juan)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/don-juan-manchego-dop-aged-12-months/413639",
+      "https://spoonfulapp.com/products/don-juan-12-month-aged-manchego-cheese/MDI1NTQwNzAwMDAwMw==",
+      "https://catalangourmet.com/manchego-artesano-dop-mitica-1-yr-raw-sheep-milk-2-6.html"
+    ],
+    "ingredients_found": "Raw Manchega sheep's milk, salt, rennet, cheese cultures",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Artisan raw Manchega sheep's-milk cheese dry-cured 12 months; A2 sheep casein, clean deck (milk, salt, rennet, cultures) with zero L1/L2/L3.",
+    "justification": "Raw sheep's milk is natively A2 (Principle 2) and 12-month aging pre-digests proteins and lactose (Principle 5); no emulsifiers, sugars, or seed oils present.",
+    "confidence": "high",
+    "notes": "This DOP retail wedge is the raw-milk 12-month version; a pasteurized-milk variant exists under the same brand but the 12-month DOP is raw."
+  },
+  {
+    "id": 62,
+    "name": "Good Culture Organic 4% Milkfat Cottage Cheese (Good Culture)",
+    "verified": true,
+    "sources": [
+      "https://goodculture.com/product/organic-cottage-cheese-16-oz-whole-milk-classic/",
+      "https://www.heb.com/product-detail/good-culture-organic-4-milkfat-cottage-cheese/3078691",
+      "https://www.kroger.com/p/good-culture-organic-whole-milk-cottage-cheese/0085997700506"
+    ],
+    "ingredients_found": "Organic skim milk, organic whole milk, organic cream, sea salt, live and active cultures (L. paracasei / Lactococcus & Lactobacillus spp.)",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean organic whole-milk cultured dairy with zero gums (no guar/xanthan/locust bean), no carrageenan, no added sugar — but conventional cow's milk (not raw/aged/A2), so capped below Tier 1.",
+    "justification": "Live-culture cottage cheese with an intact whole-food dairy matrix and no emulsifiers or added sugar keeps the mucosal shield intact (Principle 1); conventional A1-type cow casein and no aging keep it a clean staple rather than Gold Standard.",
+    "confidence": "high",
+    "notes": "Notably one of the very few gum-free cottage cheeses on shelf."
+  },
+  {
+    "id": 63,
+    "name": "Fromage Gruyère S.A. Le Gruyère AOP 1655 (Fromage Gruyère S.A.)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/fromage-gruyere-s-a-le-gruy-re-aop-1655/1746097",
+      "https://curedandcultivated.com/products/gruyere-cheese-1665",
+      "https://www.gruyere.com/en/le-gruyere-aop/characteristics"
+    ],
+    "ingredients_found": "Raw cow's milk (part-skim), bacterial cultures, salt, rennet",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Raw-milk Swiss AOP aged 12+ months; no additives or preservatives permitted under AOP — deck is milk, cultures, salt, rennet only.",
+    "justification": "Extended raw-milk aging renders it effectively lactose-free and pre-digests casein for high amino-acid bio-accessibility (Principle 5); zero emulsifiers, starches, or seed oils (Principles 1 & 3).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 64,
+    "name": "Raw Farm Whole Raw Milk Cheddar (Raw Farm)",
+    "verified": true,
+    "sources": [
+      "https://rawfarmusa.com/raw-cheese",
+      "https://www.heb.com/product-detail/raw-farm-cheddar-raw-cheese/3369505",
+      "https://www.goodeggs.com/rawfarm/raw-cheddar/68fc279c55f3780013aa7b56"
+    ],
+    "ingredients_found": "Whole raw milk, vegetable rennet, cultures, kosher sea salt",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Unpasteurized whole-raw-milk block cheddar aged 60+ days; brand explicitly states no cellulose or natamycin — clean 4-ingredient deck, zero L1/L2/L3.",
+    "justification": "Raw, minimally heated (never above 102F) cheese retains native enzymes and cultures that pre-digest lactose and casein (Principle 5); no anti-cake starch, cellulose, or seed oil (Principles 1 & 3).",
+    "confidence": "high",
+    "notes": "Current flags 'seed'/'emul' are incorrect — this block contains no seed oil and no gums/cellulose (unlike the shredded category norm)."
+  },
+  {
+    "id": 65,
+    "name": "Gourmet Grassmilk Raw Organic Cheddar (Organic Valley)",
+    "verified": true,
+    "sources": [
+      "https://www.organicvalley.coop/products/grassmilk-cheddar-cheese-block",
+      "https://us.amazon.com/Organic-Valley-Grassmilk-Cheddar-Cheese/dp/B06XWQDYFM",
+      "https://shop.sprouts.com/store/sprouts/products/56251-organic-valley-grassmilk-raw-organic-cheddar-cheese-block-8-oz"
+    ],
+    "ingredients_found": "Organic grass-fed cultured unpasteurized (raw) milk, sea salt, vegetarian enzyme (rennet)",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% grass-fed, organic, raw-milk block cheddar aged 60+ days; deck is milk, salt, enzyme — zero L1/L2/L3. No added sugar and no seed oil present.",
+    "justification": "Raw + 100% grass-fed dairy delivers a native, enzyme-active protein/fat matrix with high CLA and no mucosal disruptors (Principles 1, 3, 5).",
+    "confidence": "high",
+    "notes": "Current flags 'seed'/'sugar' are incorrect — no seed oil and no added sugar in the verified deck."
+  },
+  {
+    "id": 66,
+    "name": "Seriously Sharp White Cheddar Bar (Cabot)",
+    "verified": true,
+    "sources": [
+      "https://cabotcreamery.com/products/cheese-seriously-sharp-bar-dairy",
+      "https://www.amazon.com/Cabot-Creamery-Seriously-Cheddar-Parchment/dp/B06VXZ2933",
+      "https://www.gfifoods.com/19043-cabot-seriously-sharp-white-cheddar-bar"
+    ],
+    "ingredients_found": "Pasteurized milk, cheese cultures, salt, enzymes",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean 4-ingredient conventional pasteurized block cheddar; zero seed oils, gums, anti-cake starch, or added sugar — but conventional (not raw/grass-fed/A2), so capped at Tier 2.",
+    "justification": "A pure block cheese deck aged to remove lactose keeps GI workload low with no emulsifiers or oxidized lipids (Principles 1 & 3); conventional A1-type cow milk and no premium sourcing place it at Practical Staple.",
+    "confidence": "high",
+    "notes": "Current flags 'seed'/'tool' are incorrect — no seed oil and no engineered isolate; it is a clean whole-food block cheese."
+  },
+  {
+    "id": 67,
+    "name": "Grass-Fed Aged Irish Cheddar (Kerrygold)",
+    "verified": true,
+    "sources": [
+      "https://www.kerrygoldusa.com/products/aged-cheddar-cheese/",
+      "https://www.heb.com/product-detail/kerrygold-grass-fed-aged-irish-cheddar-cheese/737298",
+      "https://www.amazon.com/Kerrygold-Aged-Cheddar-7-oz/dp/B0011EGW2O"
+    ],
+    "ingredients_found": "Pasteurized milk, salt, cheese cultures, enzymes",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Grass-fed Irish aged cheddar with a clean 4-ingredient deck (milk, salt, cultures, enzymes); zero L1/L2/L3. Grass-fed sourcing qualifies for Tier 1 per the cheese rubric.",
+    "justification": "Pasture-raised grass-fed dairy provides a favorable lipid profile and stable native fats (Principle 3) with aging that reduces lactose (Principle 5); no gums, seed oils, or added sugar.",
+    "confidence": "high",
+    "notes": "Current flag 'seed' is incorrect — no seed oil in the verified deck. Pasteurized (not raw), but grass-fed and aged."
+  },
+  {
+    "id": 68,
+    "name": "Sharp Fine Cut Shredded Cheddar Cheese (Sargento)",
+    "verified": true,
+    "sources": [
+      "https://www.sargento.com/our-cheese/shredded-cheese/sargento-shredded-sharp-natural-cheddar-cheese-fine-cut",
+      "https://go-upc.com/search?q=046100400661",
+      "https://www.amazon.com/Sargento-Shredded-Sharp-Cheddar-Cheese/dp/B01EIHCWLK"
+    ],
+    "ingredients_found": "Cheddar Cheese [Pasteurized Milk, Cheese Culture, Salt, Enzymes, Annatto (Vegetable Color)], Potato Starch and Powdered Cellulose (to prevent caking), Natamycin (a natural mold inhibitor)",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Powdered cellulose + potato starch anti-caking agents (L3 gum/engineered filler) and natamycin preservative (L2). Annatto is a natural color and is allowed.",
+    "justification": "Powdered cellulose and starch anti-cake coatings act as mucosal-stripping/undigested fillers on the cheese surface (Principle 1), and natamycin adds a synthetic-class mold inhibitor — disqualifying a shredded product versus the equivalent clean block.",
+    "confidence": "high",
+    "notes": "Classic shredded-cheese anti-cake matrix; buy the plain block instead."
+  },
+  {
+    "id": 69,
+    "name": "Just Like Mature Cheddar Slices (Violife)",
+    "verified": true,
+    "sources": [
+      "https://www.violife.com/en-us/products/dairy-free-cheese-slices/just-like-mature-cheddar-slices",
+      "https://www.heb.com/product-detail/violife-just-like-mature-cheddar-slices-dairy-free-cheese-alternative/7058003",
+      "https://www.kroger.com/p/violife-just-like-mature-cheddar-slices-dairy-free-vegan/0081093403010"
+    ],
+    "ingredients_found": "Filtered water, coconut oil, food starch-modified (potato & corn), potato starch, sea salt, mature cheddar flavor (vegan), olive extract, beta carotene (color), vitamin B12",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Ultra-processed dairy-free analog built on modified food starch and refined starch fillers (L3 engineered isolates/thickeners); ~0g protein. Not a whole-food cheese.",
+    "justification": "The product is a refined coconut-oil-and-starch emulsion with no intact protein matrix — the modified/engineered starches are exactly the undigested filler load the protocol filters out (Principles 1 & 5), delivering negligible bioavailable amino acids.",
+    "confidence": "high",
+    "notes": "Not real cheese; coconut oil itself is not a listed seed oil, but the modified food starch and 0g-protein UPF profile disqualify it."
+  }
+]

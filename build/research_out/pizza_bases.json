@@ -1,0 +1,205 @@
+[
+  {
+    "id": 13,
+    "name": "Against the Grain Three Cheese Gourmet Pizza Shell",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/product/against-the-grain-three-cheese-pizza-shell-12-oz-b00ehjvf9a",
+      "https://againstthegraingourmet.com/products/three-cheese-pizza",
+      "https://www.amazon.com/Against-Grain-Three-Cheese-Pizza/dp/B076TF4317"
+    ],
+    "ingredients_found": "Tapioca Starch, Water, Eggs, Olive Oil and/or Avocado Oil, Cheddar Cheese (Pasteurized Milk, Cheese Cultures, Salt, Enzymes), Mozzarella Cheese (Cultured Pasteurized Milk, Salt, Enzymes), Milk, Parmesan Cheese (Pasteurized Milk, Cheese Cultures, Salt, Enzymes).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% clean matrix: only clean lipids (olive/avocado oil), real dairy and eggs, tapioca starch. Zero seed oils, zero gums/emulsifiers, zero added sugar, zero preservatives.",
+    "justification": "Highly bioavailable native dairy/egg protein (P2) with stable clean fats (P3) and no mucosal-disrupting emulsifiers (P1); no glycemic added-sugar load (P4).",
+    "confidence": "high",
+    "notes": "Oil is stated as 'olive oil and/or avocado oil' - both clean. Confirms current 'clean' flag."
+  },
+  {
+    "id": 14,
+    "name": "Outer Aisle Gourmet Cauliflower Pizza Crust",
+    "verified": true,
+    "sources": [
+      "https://www.outeraislegourmet.com/products/cauliflower-pizza-crust",
+      "https://www.wholefoodsmarket.com/product/outer-aisle-gourmet-italian-cauliflower-pizza-crust-5-oz-b089z96t5t",
+      "https://www.amazon.com/Cauliflower-Crusts-Italian-Gluten-Versatile/dp/B09L5H536D"
+    ],
+    "ingredients_found": "Fresh Cauliflower, Whole Cage-Free Liquid Eggs (Eggs, Citric Acid [to maintain color]), Parmesan Cheese (Pasteurized Skimmed Milk, Cheese Cultures, Salt, Enzymes), Nutritional Yeast, Garlic, Dried Basil, Dried Oregano.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Whole-food cauliflower/egg/parmesan matrix. Zero flour, zero seed oils, zero gums, zero added sugar, no preservatives.",
+    "justification": "Native egg and dairy protein with vegetable base (P2), no emulsifiers or gums to strip the mucosal shield (P1), and no seed-oil PUFA load (P3).",
+    "confidence": "high",
+    "notes": "Audited the plain Italian variant. Confirms current 'clean' flag."
+  },
+  {
+    "id": 15,
+    "name": "Cappello's Grain-Free Almond Flour Naked Pizza Crust",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/grocery/product/cappello-s-cappello-s-gluten-free-frozen-almond-flour-thin-crust-naked-pizza-6oz-b07nsrz3qq",
+      "https://www.amazon.com/Cappellos-Pizza-Crust-Naked-Ounce/dp/B07NSRZ3QQ",
+      "https://foodisgood.com/product/cappellos-naked-pizza-crust-almond-flour-crust/?diet=low-fodmap"
+    ],
+    "ingredients_found": "Eggs, Almond Flour, Arrowroot Flour, Cassava Flour, Organic Coconut Milk (Organic Coconut, Water, Organic Guar Gum), Coconut Oil, Extra Virgin Olive Oil, Psyllium Husk, Lemon Juice, Sea Salt, Apple Cider Vinegar, Honey.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Contains Honey (added sugar/syrup in a savory staple category = L2), plus Organic Guar Gum carried in the coconut milk (L3 emulsifier/gum).",
+    "justification": "Added honey delivers a direct glycemic influx into a savory staple (P4) and guar gum acts as a mucosal-stripping emulsifier (P1) - both disqualify despite otherwise clean almond/coconut lipids.",
+    "confidence": "high",
+    "notes": "Current audit listed honey but treated it as acceptable and missed the guar gum hidden in the coconut milk sub-list. Per the category-aware savory sugar rule, honey disqualifies here."
+  },
+  {
+    "id": 16,
+    "name": "365 by Whole Foods Market Grain-Free Cauliflower Crust",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/product/365-by-whole-foods-market-frozen-cauliflower-crust-readytobake-crust-b07b335x8k",
+      "https://tools.myfooddata.com/nutrition-facts/2308212/wt1/",
+      "https://foodisgood.com/product/365-whole-foods-market-gluten-free-cauliflower-readytobake-crust/"
+    ],
+    "ingredients_found": "Cauliflower Puree (Cauliflower, Water), Chickpea Flour, Mozzarella Cheese (Pasteurized Milk, Cheese Cultures, Salt, Microbial Rennet), Potato Flour, Water, Cage Free Egg Whites, Xanthan Gum, Spices (Rosemary, Basil, Thyme, Oregano, Marjoram).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Xanthan Gum (L3 emulsifier/gum binder).",
+    "justification": "Xanthan gum acts as a detergent-like emulsifier that strips the mucin layer and compromises tight junctions (P1), triggering an L3 gut flag amplified in bulking volumes.",
+    "confidence": "high",
+    "notes": "IMPORTANT: current audit is inaccurate - it claimed tapioca starch + EVOO and 'zero synthetic binders,' but multiple sources confirm the real deck contains xanthan gum and chickpea/potato flour. Changed from 'clean' to disqualify."
+  },
+  {
+    "id": 17,
+    "name": "Food For Life Ezekiel 4:9 Sprouted Grain English Muffins",
+    "verified": true,
+    "sources": [
+      "https://www.foodforlife.com/product/english-muffins/ezekiel-49-sprouted-whole-grain-english-muffins",
+      "https://www.kroger.com/p/food-for-life-ezekiel-4-9-sprouted-grain-english-muffins/0007347200119",
+      "https://www.heb.com/product-detail/food-for-life-ezekiel-4-9-sprouted-whole-grain-english-muffins/1215744"
+    ],
+    "ingredients_found": "Organic Sprouted Wheat, Organic Sprouted Barley, Organic Sprouted Millet, Organic Malted Barley, Organic Sprouted Lentils, Organic Sprouted Soybeans, Organic Sprouted Spelt, Filtered Water, Yeast, Organic Wheat Gluten, Sea Salt.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "100% safe - zero seed oils, zero added sugar, zero gums, zero preservatives. Sprouted-grain pre-digestion is a Tier-1-grade feature, but added Organic Wheat Gluten (an isolated/engineered protein, P2 'tool') caps it at Tier 2.",
+    "justification": "Sprouting activates phytase to pre-digest phytic acid and FODMAPs (P5), but the added vital wheat gluten isolate prevents a 100% native whole-food matrix (P2), so it lands at clean Tier 2 rather than Tier 1.",
+    "confidence": "medium",
+    "notes": "Tier judgment call: sprouting favors Tier 1, but added vital wheat gluten is an engineered protein isolate that restricts from Tier 1 - consistent with the existing 'tool' flag. Malted barley is grain-derived malt, not counted as added sugar."
+  },
+  {
+    "id": 18,
+    "name": "Central Market Fresh Bakery Sourdough Pizza Dough",
+    "verified": false,
+    "sources": [
+      "https://www.centralmarket.com/product-category/bakery/bread-and-rolls/dough/483465.1303224.1304006",
+      "https://www.heb.com/product-detail/central-market-frozen-pizza-dough/10389013"
+    ],
+    "ingredients_found": "",
+    "decision": "delete_unverifiable",
+    "dqLevel": null,
+    "reason": "No authoritative ingredient deck could be located for a Central Market fresh-bakery SOURDOUGH pizza dough. Retailer listings surface only a 'roasted garlic olive oil' fresh dough and a frozen dough (canola + sugar) - neither matches, and fresh-bakery items publish no full ingredient statement.",
+    "justification": "Cannot verify the real ingredient statement; per sourcing standards an unverifiable product is set verified:false and slated for deletion rather than guessed.",
+    "confidence": "low",
+    "notes": "The current audit's ingredient list (cultured sourdough starter, EVOO, sea salt, yeast) could not be corroborated by any authoritative source. Possibly a store-specific fresh bakery SKU or discontinued/variable."
+  },
+  {
+    "id": 19,
+    "name": "Simple Mills Almond Flour Pizza Dough Mix",
+    "verified": true,
+    "sources": [
+      "https://simplemills.com/Products/Product/Pizza-Dough-Mix.aspx",
+      "https://www.amazon.com/Simple-Mills-Almond-Naturally-Gluten/dp/B00ZWA8BTA",
+      "https://foodsocial.io/ingredient/almond-flour-pizza-dough-baking-mix-simple-mills/"
+    ],
+    "ingredients_found": "Almond Flour, Arrowroot, Flax Meal (Organic Flaxseed), Cauliflower, Baking Soda, Organic Oregano, Cream of Tartar, Organic Garlic. (Consumer adds olive oil, apple cider vinegar, and water.)",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean almond-flour whole-food matrix with zero seed oils, zero gums, zero added sugar, zero preservatives; user supplies EVOO. No engineered isolates.",
+    "justification": "Nutrient-dense almond/flax/cauliflower base (P3 stable fats, no seed-oil PUFA) with no emulsifiers or gums (P1) and no added-sugar glycemic load (P4).",
+    "confidence": "high",
+    "notes": "Current deck listed tapioca starch; the current formula uses cauliflower and flax meal - no disqualifiers either way. Upgraded from 'tool' to Tier 1 as no engineered isolate is present."
+  },
+  {
+    "id": 20,
+    "name": "Banza Plain Chickpea Pizza Crust (2-Pack)",
+    "verified": true,
+    "sources": [
+      "https://www.eatbanza.com/products/plain-crust",
+      "https://www.amazon.com/Banza-Plain-Chickpea-Pizza-Crust/dp/B08DYZR5GS",
+      "https://www.wholefoodsmarket.com/grocery/product/banza-banza-plain-crust-frozen-pizza-from-chickpeas-high-protein-gluten-free-lower-carb-vegan-pizza-crust-2-pack-13-4oz-b08dyzr5gs"
+    ],
+    "ingredients_found": "Chickpeas, Water, Tapioca, Cocoa Butter, Olive Oil and/or Avocado Oil, Less than 2% of: Yeast, Oregano, Garlic Powder, Salt, Date Powder, Sunflower Lecithin, Xanthan Gum, Baking Powder (Calcium Carbonate, Sodium Acid Pyrophosphate, Sodium Bicarbonate, Monocalcium Phosphate).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Sunflower Lecithin and Xanthan Gum (both L3 emulsifiers/gums), plus Date Powder (L2 added sugar in a savory staple).",
+    "justification": "Sunflower lecithin and xanthan gum act as mucosal-stripping emulsifiers (P1) and date powder adds a glycemic sugar load to a savory staple (P4).",
+    "confidence": "high",
+    "notes": "Current audit's deck (pea starch, no lecithin/date powder) is outdated; the current formula adds sunflower lecithin and date powder alongside xanthan gum. Confirms disqualification beyond the existing 'emul' flag."
+  },
+  {
+    "id": 21,
+    "name": "Rustic Crust Old World Flatbreads Sourdough Pizza Crust",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/rustic-crust-old-world-flatbreads-sourdough/11958521",
+      "https://www.instacart.com/products/53335-rustic-crust-old-world-pizza-crust-classic-sourdough-1-00-lb",
+      "https://www.amazon.com/Rustic-Crust-Sourdough-Pizza-8x16/dp/B004SI6DLK"
+    ],
+    "ingredients_found": "Unbleached/Unbromated Enriched Wheat Flour (Wheat Flour, Malted Barley Flour, Niacin, Reduced Iron, Thiamine Mononitrate, Riboflavin, Folic Acid), Filtered Water, Yeast, Non-GMO Canola Oil, Salt, Garlic Powder, Onion Powder, Basil, Enzymes.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Non-GMO Canola Oil (L3 industrial seed oil).",
+    "justification": "Refined canola oil carries oxidized PUFA hydroperoxides that skew the omega-6:omega-3 ratio and impair insulin sensitivity (P3), hard-disqualifying a savory staple regardless of the sourdough base.",
+    "confidence": "high",
+    "notes": "Confirms current 'seed' flag. Some Rustic Crust variants use soybean oil; the HEB Sourdough SKU uses non-GMO canola oil."
+  },
+  {
+    "id": 22,
+    "name": "Central Market Frozen Pizza Dough (16 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/central-market-frozen-pizza-dough/10389013",
+      "https://www.centralmarket.com/product/central-market-frozen-pizza-dough-16-oz/10389013",
+      "https://cooklist.com/product/central-market-frozen-pizza-dough-7561702"
+    ],
+    "ingredients_found": "Unbleached Enriched Wheat Flour (Wheat Flour, Niacin, Reduced Iron, Thiamine Mononitrate, Riboflavin, Folic Acid), Water, Canola Oil, Yeast, Sugar, Salt.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Canola Oil (L3 industrial seed oil) and added Sugar (L2 added sugar in a savory staple).",
+    "justification": "Canola oil adds an oxidized-PUFA inflammatory load (P3) and refined sugar drives a hepatic glycemic influx in a savory staple (P4) - double disqualification.",
+    "confidence": "high",
+    "notes": "Confirms current 'seed' + 'sugar' flags."
+  },
+  {
+    "id": 23,
+    "name": "Vicolo Organic Cornmeal Pizza Crust",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/product/vicolo-organic-cornmeal-pizza-crust-165-oz-b06xdrr5ww",
+      "https://www.amazon.com/Vicolo-Organic-Pizza-2-pack-Frozen/dp/B0010TCFXA",
+      "https://vicolopizza.com/organiccrust"
+    ],
+    "ingredients_found": "Organic Unbleached Wheat Flour, Water, Non-GMO Organic Corn Meal, Non-GMO Organic Soybean Oil, Yeast, Salt.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Non-GMO Organic Soybean Oil (L3 industrial seed oil).",
+    "justification": "Even organic soybean oil is a solvent/heat-refined high-PUFA seed oil generating cytotoxic lipid hydroperoxides (P3), hard-disqualifying a savory staple.",
+    "confidence": "high",
+    "notes": "Confirms current 'seed' flag. Organic grain base does not offset the seed-oil PUFA load."
+  },
+  {
+    "id": 24,
+    "name": "Boboli 12\" Original Pizza Crust",
+    "verified": true,
+    "sources": [
+      "https://spoonfulapp.com/products/boboli-pizza-crust-original-crust-pack-14-oz/MDA3MzEzMDAxMjM3Mw==",
+      "https://www.kroger.com/p/boboli-original-thin-pizza-crust/0007313001257",
+      "https://www.amazon.com/Boboli-Original-Pizza-Crust-Package/dp/B00ATSZITQ"
+    ],
+    "ingredients_found": "Wheat Flour, Water, Vegetable Oil (Palm), Salt, Yeast, Milk Casein, Sugar, Mozzarella Cheese [Milk, Cheese Culture, Salt, Enzymes], Preservatives [Calcium Propionate, Sorbic Acid], Fumaric Acid, Food Starch Modified (Potato), Whey, Leavening [Sodium Aluminum Phosphate, Sodium Phosphate], Mono- and Diglycerides, Lactic Acid, Natural Flavor, Artificial Colors, Enrichment [Niacin, Reduced Iron, Thiamin Mononitrate, Riboflavin, Folic Acid], Wheat Starch, Garlic, Soy Lecithin.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Added Sugar (L2 savory-staple sugar), chemical preservatives Calcium Propionate + Sorbic Acid (L2), and Artificial Colors (L2 synthetic dyes); plus Mono- and Diglycerides and Soy Lecithin (L3 emulsifiers).",
+    "justification": "A severe UPF stack: emulsifiers strip the mucosal barrier (P1), added sugar drives lipogenesis (P4), and regulatory-gap dyes/preservatives compound the disqualification.",
+    "confidence": "high",
+    "notes": "Current formula uses palm oil (not soybean oil as the prior audit stated) and adds artificial colors; multiple independent L2/L3 disqualifiers. Confirms disqualification."
+  }
+]

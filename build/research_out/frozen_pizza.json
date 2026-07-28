@@ -1,0 +1,188 @@
+[
+  {
+    "id": 272,
+    "name": "Talia di Napoli Margherita Pizza",
+    "verified": true,
+    "sources": [
+      "https://www.taliadinapoli.com/products/margherita",
+      "https://www.wholefoodsmarket.com/product/talia-di-napoli-authentic-margherita-pizza-hand-made-in-naples-italy-b0b6d83cdg",
+      "https://www.foodservicedirect.com/talia-di-napoli-margherita-pizza-14-1-ounce-10-per-case-315003.html"
+    ],
+    "ingredients_found": "Flour, Water, Whole Canned Tomatoes (Tomatoes, Tomato Juice, Citric Acid), Mozzarella Cheese (Milk, Salt, Enzymes), Extra Virgin Olive Oil, Salt, Parmesan Cheese, Basil. Crust is 00 flour naturally leavened with mother-dough sourdough starter (no added yeast), risen 24h; cryogenically frozen with no additives or preservatives.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Wild sourdough (mother-dough) 00-flour crust + Italian whole tomatoes + real Campania mozzarella + EVOO; zero seed oils, sugar, gums, conditioners, or preservatives.",
+    "justification": "Enzymatic pre-digestion via authentic sourdough fermentation attenuates FODMAPs/phytic acid (P5), stable EVOO lipids avoid hydroperoxide load (P3), and the clean whole-food dairy/tomato matrix preserves mucosal integrity (P1).",
+    "confidence": "high",
+    "notes": "Audit the classic (non-gluten-free) Margherita; a certified-vegan variant also exists. Citric acid in canned tomatoes is a native acidulant, not a disqualifier."
+  },
+  {
+    "id": 273,
+    "name": "Bola Pizza GodMother Pizza",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/bola-pizza-godmother-pizza/1604135",
+      "https://www.centralmarket.com/product/bola-pizza-frozen-pizza-godmother-137-oz/1604135",
+      "https://bolapizza.com/about-bola-pizza/"
+    ],
+    "ingredients_found": "Dough (Unbleached Hard Wheat Enriched Flour [Niacin, Reduced Iron, Thiamine Mononitrate, Riboflavin, Folic Acid], Malted Barley Flour, Water, Salt, Yeast), Crushed Tomatoes (Vine-Ripened Organic California Tomatoes, Organic Tomato Juice, Sea Salt, Calcium Chloride, Citric Acid), Smoked Mozzarella Cheese (rBGH/rBST-free Pasteurized Part-Skim Milk, Salt, Enzymes), Yellow Onion, Garlic. 3-day cold-ferment dough; no preservatives, stabilizers, artificial colors or flavors; bromate-free, non-GMO.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "100% clean conventional deck: enriched wheat crust (3-day cold ferment), organic tomatoes, real smoked mozzarella; zero seed oils, added sugar, gums, or preservatives. Malted barley flour is a native flour component, not added syrup.",
+    "justification": "No emulsifiers/gums (P1) or seed-oil hydroperoxides (P3) and no added sugar in this savory staple (P4); conventional yeast/enriched wheat rather than wild sourdough or ancient grain keeps it below Tier 1 on enzymatic pre-digestion (P5).",
+    "confidence": "high",
+    "notes": "No olive oil in the topping deck. Enriched-flour fortification is not a disqualifier per the anti-pseudoscience guardrails."
+  },
+  {
+    "id": 274,
+    "name": "Genio Della Pizza Margherita",
+    "verified": true,
+    "sources": [
+      "https://www.instacart.com/products/28003664-genio-margherita-pizza-13-2-oz",
+      "https://www.amazon.com/Genio-Della-Pizza-Margherita-13-8/dp/B08GX86C9Q",
+      "https://www.thekitchn.com/genio-della-pizza-margherita-pizza-review-23626927"
+    ],
+    "ingredients_found": "Crust (Soft Wheat Flour, Water, Salt, Yeast, Dry Wheat Sourdough), Tomato Sauce (Tomato Passata, Water, Salt, Corn Starch), Buffalo Mozzarella (Buffalo's Milk, Natural Whey Starter, Salt, Enzymes), Sunflower Oil, Basil Leaves.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Sunflower Oil (industrial seed oil, L3); tomato sauce also contains corn starch. Contradicts the prior 'zero additives' audit.",
+    "justification": "Sunflower oil is a PUFA-heavy solvent/refined seed oil that generates cytotoxic lipid hydroperoxides and skews the omega-6:omega-3 ratio toward pro-inflammatory eicosanoids, hard-disqualifying a savory staple (P3).",
+    "confidence": "high",
+    "notes": "Prior current_flags of 'clean' were incorrect; the real deck lists sunflower oil and corn starch."
+  },
+  {
+    "id": 275,
+    "name": "Central Market Frozen Pizza - Bianca Truffled Mushroom",
+    "verified": false,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-frozen-pizza-bianca-truffled-mushroom-1464-oz/8609513",
+      "https://www.nutritionix.com/i/central-market-h-e-b/bianca-truffled-mushroom-neapolitan-pizza/660e898bd64dbc0008750f92",
+      "https://www.eatthismuch.com/calories/bianca-truffled-mushroom-neapolitan-pizza-4666394"
+    ],
+    "ingredients_found": "No verbatim ingredient statement could be located. Retailer/nutrition listings confirm the product (14.64 oz, Neapolitan crust from an ancient Neapolitan mill, mushrooms, cheese, truffle) and calorie data, but no source published the full ingredient deck. Direct retailer pages return 403.",
+    "decision": "delete_unverifiable",
+    "dqLevel": null,
+    "reason": "Could not verify the actual ingredient statement after multiple searches; the truffle-oil base (commonly sunflower/canola-infused with synthetic 2,4-dithiapentane flavor) is a genuine unresolved seed-oil/additive risk.",
+    "justification": "Per sourcing standards, absence of a credible verbatim ingredient deck requires verified:false rather than assuming the marketing 'zero preservatives' claim; ingredients must never be invented.",
+    "confidence": "low",
+    "notes": "White pizza (no tomato). Truffle oils frequently use a refined seed-oil carrier and synthetic truffle aroma, which would be an L3 disqualifier if confirmed."
+  },
+  {
+    "id": 276,
+    "name": "Alex's Awesome Sourdough Mushroom Pizza",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Alexs-Awesome-Sourdough-Mushroom-Organic/dp/B0875DQH28",
+      "https://www.instacart.com/products/19658341-alex-s-awesome-sourdough-handmade-organic-sourdough-pizza-mushroom-13-2-oz",
+      "https://www.ewg.org/foodscores/products/860997002629-AlexsAwesomeSourdoughThoughtfullySourcedMushroomArtisanOrganicPizzaMushroom/"
+    ],
+    "ingredients_found": "Crust: Organic Wheat, Filtered Water, Organic Sourdough Starter (Organic Wheat, Filtered Water), Organic Extra Virgin Olive Oil, Sea Salt. Sauce: Organic Crushed Tomatoes (Organic Tomatoes, Organic Tomato Puree, Organic EVOO, Sea Salt, Organic Basil, Organic Garlic). Cheese: Organic Mozzarella (Cultured Pasteurized Organic Milk, Sea Salt, Vegetable Enzymes), Organic Cheddar (Pasteurized Organic Milk, Cheese Cultures, Sea Salt, Vegetable Enzymes). Organic Mushrooms, Organic Oregano. No added sugar, no soy/canola oil, non-GMO Project Verified.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Authentic organic sourdough-fermented crust + EVOO + real organic mozzarella/cheddar + clean organic tomato sauce; zero seed oils, sugar, gums, or conditioners.",
+    "justification": "Genuine sourdough fermentation activates phytase and pre-digests FODMAPs/phytic acid for low bloat (P5); EVOO provides stable lipids (P3) and the organic whole-food dairy matrix protects mucosal integrity (P1) with no glycemic disruptors (P4).",
+    "confidence": "high",
+    "notes": "Deck confirms organic dairy but does not substantiate the prior 'grass-fed A2' claim; still qualifies as Tier 1 on the clean sourdough whole-food matrix."
+  },
+  {
+    "id": 277,
+    "name": "Central Market Frozen Pizza - Margherita",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-frozen-pizza-margherita-141-oz/8609508",
+      "https://www.instacart.com/products/236402-central-market-margherita-pizza-with-basil-pesto-sachet-14-99-oz"
+    ],
+    "ingredients_found": "Pizza: Wheat Flour, Water, Peeled Tomatoes, Mozzarella Cheese (Milk, Salt, Rennet), Cherry Tomatoes, Salt, Extra Virgin Olive Oil, Yeast. Authentic Neapolitan crust from an ancient Neapolitan mill, lengthy fermentation, hand-stretched and stone-baked, 100% sourced/made in Italy.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean whole-food Neapolitan deck: wheat flour + Italian tomatoes + real mozzarella + EVOO; zero seed oils, added sugar, gums, or preservatives.",
+    "justification": "Clean flour + tomato + real cheese + EVOO with no emulsifiers/gums (P1), no seed-oil hydroperoxides (P3), and no added sugar in a savory staple (P4); lengthy Italian fermentation supports partial FODMAP attenuation (P5).",
+    "confidence": "medium",
+    "notes": "The verbatim pizza-base deck was captured from the closely-related Central Market Margherita SKU (pesto-sachet variant); the plain 14.1 oz base composition is consistent (yeast-leavened, not wild sourdough). If treated as clean-conventional it would read Tier 2, but it meets the brief's Tier 1 clean-flour+tomato+real-cheese+EVOO definition."
+  },
+  {
+    "id": 278,
+    "name": "Cappello's Classic Crispy Crust Five Cheese Pizza",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/grocery/product/cappellos-cappello-s-classic-crispy-crust-five-cheese-pizza-gluten-free-frozen-pizza-18oz-b0dwhftx62",
+      "https://www.amazon.com/CAPPELLOS-Cheese-Crispy-Crust-Pizza/dp/B0DWHFTX62",
+      "https://cappellos.com/products/five-cheese-pizza"
+    ],
+    "ingredients_found": "Water, Mozzarella Cheese (Pasteurized Milk, Cheese Cultures, Salt, Enzymes), Gluten Free Wheat Starch, Diced Tomatoes in Tomato Juice, Cornstarch, White Cheddar Cheese, Crushed Tomatoes, Olive Oil, Tapioca Flour, Sugar, Yeast, Buckwheat Flour, Salt, Rice Starch, Parmesan Cheese, Fontina Cheese, Asiago Cheese, Onions, Carrots, Psyllium Husk Powder, Guar Gum, Garlic, Basil, Oregano, Garlic Powder, Baking Soda.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Guar Gum (L3 gum) plus added Sugar (L2 added sugar in a savory staple), alongside cornstarch and rice starch fillers.",
+    "justification": "Guar gum is a mucosal-stripping industrial thickener that compromises tight junctions and promotes bloating/endotoxemia (P1), and added sugar in a savory staple drives hepatic de novo lipogenesis and insulin spikes (P4).",
+    "confidence": "high",
+    "notes": "Prior 'tool' flag understated it; the real deck contains a gum and added sugar, so it is disqualified rather than capped at Tier 2. Crust is gluten-free wheat starch, not a whole-food flour."
+  },
+  {
+    "id": 279,
+    "name": "Banza Four Cheese Chickpea Crust Pizza",
+    "verified": true,
+    "sources": [
+      "https://www.eatbanza.com/products/four-cheese",
+      "https://www.amazon.com/Banza-Cheese-Gluten-Chickpea-Pizza/dp/B0BXV1DZCS",
+      "https://www.jewelosco.com/shop/product-details.970077732.html"
+    ],
+    "ingredients_found": "Crust: Chickpeas, Water, Tapioca, Cocoa Butter, Olive Oil, <2% of: Yeast, Oregano, Garlic Powder, Salt, Date Powder, Sunflower Lecithin, Xanthan Gum, Baking Powder (Calcium Carbonate, Sodium Acid Pyrophosphate, Sodium Bicarbonate, Monocalcium Phosphate). Sauce: Tomatoes, Date Powder, Salt, Basil, Garlic Powder, Oregano. Cheeses: Mozzarella, White Cheddar, Provolone, Parmesan.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Xanthan Gum and Sunflower Lecithin (L3 emulsifiers/gums) plus Date Powder (added fruit sugar in both crust and sauce, L2 in a savory staple).",
+    "justification": "Xanthan gum and sunflower lecithin act as surfactants that strip the mucin layer and disrupt tight junctions (P1), while date powder adds free sugar to a savory base, stimulating de novo lipogenesis (P4).",
+    "confidence": "high",
+    "notes": "Prior flags (emul, sugar) are corroborated by the real deck; the product is disqualified/trashed."
+  },
+  {
+    "id": 280,
+    "name": "Table 87 Margherita Coal Oven Pizza",
+    "verified": true,
+    "sources": [
+      "https://www.wegmans.com/shop/product/789024-Pizza-Coal-Oven-Margherita",
+      "https://www.gfifoods.com/113700-table-87-coal-oven-margherita-pizza",
+      "https://www.freshdirect.com/pdp.jsp?productId=fro_pid_3502649"
+    ],
+    "ingredients_found": "Enriched Wheat Flour (Wheat Flour, Malted Barley Flour, Niacin, Iron, Thiamin Mononitrate, Riboflavin, Folic Acid), Mozzarella Cheese (Pasteurized Milk, Vinegar, Salt, Enzymes), Water, Tomatoes (Plum Tomatoes, Tomato Juice, Fresh Basil Leaf, Salt, Citric Acid), Grana Cheese (Cultured Milk, Salt, Enzymes), Non-GMO Expeller Pressed Canola Oil, Salt, Non-GMO Shortening (Non-GMO Palm Oil), Cane Sugar, Organic Barley Malt Syrup, Basil, Yeast.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Canola Oil (L3 industrial seed oil) plus Cane Sugar and Barley Malt Syrup (L2 added sugar in a savory staple); palm-oil shortening also present.",
+    "justification": "Expeller-pressed canola remains a refined PUFA seed oil generating oxidized lipid species (P3), and cane sugar + barley malt syrup deliver rapid glycemic influx to a savory staple driving visceral lipogenesis (P4).",
+    "confidence": "high",
+    "notes": "Prior audit correctly flagged this; confirmed disqualified despite 'Brooklyn coal-fired' marketing."
+  },
+  {
+    "id": 281,
+    "name": "Amy's Organic Thin Crust Margherita Pizza",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Amys-Pizzas-Margherita-Pizza-Frozen/dp/B001001M5Q",
+      "https://stopandshop.com/groceries/frozen/frozen-pizza/frozen-cheese-pizza/amys-organic-thin-crust-margherita-pizza-frozen-13-oz-box.html",
+      "https://www.amys.com/our-foods/margherita-pizza"
+    ],
+    "ingredients_found": "Organic Unbleached Wheat Flour, Filtered Water, Organic Tomato Puree, Whole Milk Mozzarella Cheese (Pasteurized Whole Milk, Culture, Vinegar, Citric Acid, Lactic Acid, Salt, Enzymes), Organic Extra Virgin Olive Oil, Parmesan Cheese, Organic Honey, Organic Basil, Sea Salt, Expeller Pressed High Oleic Safflower And/Or Sunflower Oil, Organic Garlic, Organic Cane Sugar, Yeast, Spices.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Expeller-Pressed High Oleic Safflower/Sunflower Oil (L3 seed oil) plus Organic Honey and Organic Cane Sugar (L2 added sugar in a savory staple).",
+    "justification": "Safflower/sunflower oil introduces refined seed-oil lipids into a savory staple (P3), and added honey + cane sugar produce a glycemic surge without a protective fibrous/protein matrix (P4), regardless of the organic halo.",
+    "confidence": "high",
+    "notes": "Prior audit correct; confirmed disqualified."
+  },
+  {
+    "id": 282,
+    "name": "Quest Thin Crust 4-Cheese Pizza",
+    "verified": true,
+    "sources": [
+      "https://www.kroger.com/p/quest-thin-crust-4-cheese-frozen-pizza/0088884900716",
+      "https://www.questnutrition.com/products/cheese-pizza",
+      "https://spoonfulapp.com/products/quest-thin-crust-pizza-4-cheese/MDgyMjI0OTAwNzE2NQ=="
+    ],
+    "ingredients_found": "Crust: Water, Cellulose, Milk Protein Isolate, Whey Protein Isolate, Vegetable Oil (Canola And/Or Sunflower Oil), Soluble Corn Fiber, Xanthan Gum, Yeast, Sunflower Lecithin, Sea Salt, Citrus Fiber, Sodium Bicarbonate. Sauce: Water, Tomato Paste, Vegetable Oil (Canola And/Or Olive Oil), Garlic Powder, Sea Salt, Oregano, Basil, Onion Powder, Black Pepper, Cayenne Pepper. Cheeses: Low-Moisture Mozzarella, Provolone, Pecorino Romano (Sheep's Milk), Fontina.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Vegetable oil (canola/sunflower) in crust and sauce (L3 seed oil) plus Cellulose, Xanthan Gum, Sunflower Lecithin, Soluble Corn Fiber (L3 gums/emulsifiers/engineered fibers) and Milk/Whey Protein Isolates.",
+    "justification": "Multiple mucosal-disrupting emulsifiers/gums and an engineered fiber filler compromise gut barrier integrity (P1), seed oils add oxidized lipids (P3), and forced protein isolates are denatured non-native matrices resistant to normal proteolysis (P2).",
+    "confidence": "high",
+    "notes": "Highly engineered ultra-processed matrix; confirmed disqualified."
+  }
+]

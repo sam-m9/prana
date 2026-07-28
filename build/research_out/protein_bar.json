@@ -1,0 +1,202 @@
+[
+  {
+    "id": 189,
+    "name": "Almond Honey Protein Bar (Rise Bar)",
+    "verified": true,
+    "sources": [
+      "https://risebar.com/products/almond-honey-protein-bars",
+      "https://risebar.com/pages/rise-bar-ingredients",
+      "https://www.walmart.com/ip/Rise-Whey-Protein-Bars-Almond-Honey-Breakfast-Bar-Protein-Snack-18g-Protein-4g-Fiber-Just-3-Whole-Food-Ingredients-Gluten-Free-Soy-Free-12-Count/175564911"
+    ],
+    "ingredients_found": "Almonds, Honey, Whey Protein Isolate.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Passes every pre-filter (no seed oils, gums, polyols, synthetic sweeteners); sweetened only by raw honey with an almond base. Contains whey protein isolate (engineered protein isolate = 'tool'/L3), which caps it out of Tier 1.",
+    "justification": "Honey + almond matrix satisfies Principle 4 (no rapid-influx refined sugar) and Principle 3 (no oxidized seed oils), but the artificially isolated whey (Principle 2, denatured/engineered isolate) keeps it at the clean-tool Tier 2 rather than the native whole-food gold standard.",
+    "confidence": "high",
+    "notes": "Only 3 ingredients; cleanest engineered-protein bar in the set."
+  },
+  {
+    "id": 190,
+    "name": "Chocolate Sea Salt Protein Bar (RXBAR)",
+    "verified": true,
+    "sources": [
+      "https://www.rxbar.com/en_US/whats-inside.html",
+      "https://www.heb.com/product-detail/rxbar-12g-protein-bar-chocolate-sea-salt/2047058",
+      "https://smartlabel.kelloggs.com/Product/Index/10857777004307"
+    ],
+    "ingredients_found": "Dates, Egg Whites, Cashews, Almonds, Chocolate, Cocoa, Natural Flavors, Sea Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Whole-food egg-white + nut base sweetened only by dates (whole fruit). Zero seed oils, gums, polyols, synthetic sweeteners, dyes or preservatives.",
+    "justification": "Textbook Tier-1 exemplar: native egg-white/almond/cashew protein matrix (Principle 2) with dates providing a fiber-buffered whole-fruit sugar (Principle 4) and no mucosal disruptors (Principle 1).",
+    "confidence": "high",
+    "notes": "The named RXBAR-style gold standard in the brief."
+  },
+  {
+    "id": 191,
+    "name": "Grass-Fed Beef Habanero Cherry Walnut Bar (EPIC Provisions)",
+    "verified": true,
+    "sources": [
+      "https://foodisgood.com/product/epic-bar-beef-habanero-cherry/",
+      "https://www.heb.com/product-detail/epic-9g-protein-beef-bar-habanero-cherry-walnut/1704529",
+      "https://www.kingsoopers.com/p/epic-habanero-cherry-walnut-beef-bars/0073215302532"
+    ],
+    "ingredients_found": "Beef, Dried Cherries, Walnuts, Water, Encapsulated Lactic Acid, Sea Salt, Cultured Celery Powder, Black Pepper, Crushed Habanero Peppers.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% grass-fed whole muscle-meat matrix with whole dried fruit and walnuts. Verified no added sugar and no sunflower oil in the dried cherries; zero seed oils, gums, polyols, synthetic sweeteners or preservatives.",
+    "justification": "Native, undenatured animal-protein source (Principle 2) with the lowest possible glycemic and lipid-oxidation burden (Principles 3 & 4) and no emulsifiers stressing the mucosal layer (Principle 1).",
+    "confidence": "high",
+    "notes": "Savory whole-food bar. Confirmed dried cherries carry no added sugar/seed-oil sub-ingredients. Some listings show it as periodically discontinued/repackaged, but current H-E-B/retailer decks match."
+  },
+  {
+    "id": 192,
+    "name": "Coconut Cashew Collagen Protein Bar (Primal Kitchen)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Primal-Kitchen-Coconut-Collagen-Protein/dp/B01MS1SA5B",
+      "https://www.kroger.com/p/primal-kitchen-coconut-cashew-collagen-fuel-bar/0085676900604"
+    ],
+    "ingredients_found": "Cashew Butter, Soluble Tapioca Fiber, Bovine Collagen Peptides, Organic Pumpkin Seeds, Cashews, Egg Whites, Honey, Coconut, Organic Coconut Flour, Water, Natural Flavors, Sea Salt, Vanilla Extract, Sunflower Lecithin, Organic Rosemary Extract, Organic Monk Fruit Extract.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Sunflower lecithin (emulsifier) + soluble tapioca fiber (engineered fiber filler); monk fruit is blended with these fillers.",
+    "justification": "The added sunflower-lecithin emulsifier strips the mucin/tight-junction barrier (Principle 1) and the soluble tapioca fiber is an engineered filler that ferments to gas in bulk intake (Principle 5) - both L3 disruptors, so it is trashed despite the honey/nut base.",
+    "confidence": "high",
+    "notes": "Prior audit claim of 'zero synthetic emulsifiers' is incorrect - sunflower lecithin is present."
+  },
+  {
+    "id": 193,
+    "name": "Freshly Ground Peanut Butter Chocolate Chip Bar (G2G Bar)",
+    "verified": true,
+    "sources": [
+      "https://g2gbar.com/products/peanut-butter-chocolate-chip",
+      "https://www.walmart.com/ip/G2G-Protein-Bar-Peanut-Butter-Chocolate-Chip-Gluten-Free-Clean-Ingredients-Refrigerated-for-Freshness-Pack-of-8/834649312"
+    ],
+    "ingredients_found": "Freshly Ground Peanut Butter, Whey Protein Isolate, Honey, Organic Brown Rice Syrup, Certified Organic Gluten-Free Oats, Semi-Sweet Chocolate Chips (Evaporated Cane Sugar, Chocolate Liquor, Cocoa Butter), Peanuts, Cocoa Powder, Organic Flax Seed Meal, Organic Tapioca Flour, Organic Coconut Oil, Organic Coconut Sugar Crystals, Non-GMO Sunflower Lecithin (an Emulsifier), Sea Salt, Vanilla Extract, Organic Cinnamon.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Sunflower lecithin (emulsifier), explicitly labeled 'an Emulsifier' on the deck.",
+    "justification": "Added sunflower-lecithin surfactant compromises intestinal tight junctions and the mucin shield (Principle 1), an automatic L3 gut flag that trashes the product regardless of the otherwise clean peanut/honey/coconut-oil base.",
+    "confidence": "high",
+    "notes": "Refrigerated bar. Base is otherwise whole-food; only the lecithin disqualifies."
+  },
+  {
+    "id": 194,
+    "name": "Organic Peanut Butter Chocolate Chip Bar (ALOHA)",
+    "verified": true,
+    "sources": [
+      "https://aloha.com/products/peanut-butter-chocolate-chip-protein-bar",
+      "https://www.kroger.com/p/aloha-peanut-butter-chocolate-chip-protein-bars/0084209610087"
+    ],
+    "ingredients_found": "Organic Peanuts, Organic Tapioca Fiber, Organic Protein Blend (Organic Brown Rice Protein, Organic Pumpkin Seed Protein), Organic Chocolate Chips (Organic Chocolate, Organic Cane Sugar, Organic Cocoa Butter, Organic Vanilla Extract), Organic Tapioca Syrup, Organic Vegetable Glycerin, Organic Roasted Pumpkin Seeds, Sea Salt, Organic Monk Fruit.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Vegetable glycerin and soluble tapioca fiber (engineered fiber fillers/humectants); monk fruit is blended with these fillers.",
+    "justification": "Vegetable glycerin and isolated tapioca fiber are engineered fillers that pass to the colon and drive bacterial gas/distension in bulking volumes (Principle 5), an L3 disqualifier the brief lists by name despite the organic label.",
+    "confidence": "high",
+    "notes": "Uses engineered plant-protein isolates plus fiber-syrup fillers - not a whole-food bar."
+  },
+  {
+    "id": 195,
+    "name": "Peanut Butter Brownie Organic Protein Bar (Kate's Real Food)",
+    "verified": true,
+    "sources": [
+      "https://katesrealfood.com/products/peanut-butter-brownie-protein-bars",
+      "https://www.garagegrowngear.com/products/peanut-butter-brownie-protein-bars-by-kates-real-food"
+    ],
+    "ingredients_found": "Organic Peanut Butter (dry roasted peanuts, salt), Organic Honey, Organic Gluten-Free Oats, Organic Pea Protein Crisps (pea protein isolate, rice starch), Organic Dark Chocolate (cane sugar, cocoa liquor, cocoa butter), Organic Pea Protein Isolate, Organic Cocoa Powder, Vanilla Extract, Cocoa Extract, Sea Salt.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Passes every pre-filter (no seed oils, gums, polyols, synthetic sweeteners). Honey-forward with a peanut/oat matrix, but contains organic pea protein isolate (engineered isolate = 'tool'/L3) which caps it at Tier 2.",
+    "justification": "Clean organic whole-food base sweetened mainly by honey with only minor organic cane sugar in the chocolate (Principle 4), no mucosal or lipid disruptors (Principles 1 & 3); the added pea protein isolate (Principle 2, engineered isolate) holds it below the native Tier-1 line.",
+    "confidence": "high",
+    "notes": "Cane sugar appears only inside the dark-chocolate sub-ingredient; honey is the primary sweetener."
+  },
+  {
+    "id": 196,
+    "name": "Chilled Organic Peanut Butter & Honey Protein Bar (Wella Organic)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/wella-chilled-organic-13g-protein-bar-peanut-butter-honey/2023792",
+      "https://www.centralmarket.com/product/wella-chilled-organic-13g-protein-bar-peanut-butter-and-honey-2-oz/2023792",
+      "https://www.instacart.com/products/17506971-wella-protein-snack-organic-powerful-peanut-bar-8-ea"
+    ],
+    "ingredients_found": "Organic Dry Roasted Peanuts, Organic Honey, Organic Milk Protein Concentrate, Organic Dry Egg Whites, Organic Non Fat Dry Milk, Organic Virgin Coconut Oil, Organic Dry Roasted Almonds, Organic Vanilla Extract.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Refrigerated whole-food matrix: peanuts/almonds + egg whites + whole-dairy protein (milk protein concentrate & non-fat dry milk, not isolates), sweetened only by raw honey. Coconut oil (not a seed oil). Zero seed oils, gums, polyols, synthetic sweeteners, fillers or preservatives.",
+    "justification": "Native egg-white and concentrated-dairy proteins retaining whole casein/whey structure (Principle 2), honey as the sole fiber-adjacent sweetener (Principle 4), and stable coconut fat (Principle 3) with no emulsifiers (Principle 1) place it at the whole-food gold standard.",
+    "confidence": "medium",
+    "notes": "Milk protein concentrate is a concentrate rather than a highly denatured isolate, so treated as whole-dairy for Tier 1; a stricter reading of 'engineered dairy protein' would cap it at Tier 2."
+  },
+  {
+    "id": 197,
+    "name": "20g Protein Bar - Cookies & Cream (Barebells)",
+    "verified": true,
+    "sources": [
+      "https://foodisgood.com/product/barebells-cookies-cream-protein-bar/",
+      "https://shop.barebells.com/products/barebells-cookies-cream-protein-bar",
+      "https://www.kroger.com/p/barebells-cookies-cream-protein-bar-55g/0085000042911"
+    ],
+    "ingredients_found": "Milk Protein Blend (Calcium Caseinate, Whey Protein Concentrate, Whey Protein Isolate), Glycerin, Maltitol, Bovine Collagen Hydrolysate, Polydextrose, Cocoa Butter, Water, Soy Protein Isolate, Dry Whole Milk, Sunflower Oil, Unsweetened Chocolate, Tapioca Starch, Natural and Artificial Flavors, Cocoa Processed with Alkali, Sunflower Lecithin, Sucralose.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Sucralose (synthetic sweetener), maltitol (polyol), polydextrose + glycerin (engineered fiber fillers), sunflower oil (seed oil), and sunflower lecithin (emulsifier) - stacked L3 disruptors.",
+    "justification": "A multi-vector UPF: synthetic sweetener + polyol + engineered fibers ferment osmotically (Principles 4 & 5), oxidized sunflower oil skews the lipid membrane (Principle 3), and sunflower lecithin strips the mucosal barrier (Principle 1).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 198,
+    "name": "21g Protein Bar - Chocolate Chip Cookie Dough (Quest Nutrition)",
+    "verified": true,
+    "sources": [
+      "https://www.questnutrition.com/products/chocolate-chip-cookie-dough-protein-bar",
+      "https://www.amazon.com/Quest-Nutrition-Chocolate-Protein-Friendly/dp/B00DLDH1N2",
+      "https://www.heb.com/product-detail/quest-21g-protein-bars-chocolate-chip-cookie-dough/2127389"
+    ],
+    "ingredients_found": "Protein Blend (Milk Protein Isolate, Whey Protein Isolate), Polydextrose, Almonds, Water, Unsweetened Chocolate, Erythritol, Cocoa Butter, Glycerin. Less than 2%: Natural Flavors, Salt, Lecithin (Sunflower and/or Soy), Stevia, Sucralose.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Sucralose (synthetic sweetener), erythritol (polyol), polydextrose + glycerin (engineered fiber fillers), lecithin (emulsifier); stevia is blended with polyols/fillers.",
+    "justification": "Engineered dairy isolates carried by synthetic sucralose, sugar-alcohol erythritol and polydextrose fillers (Principles 2, 4, 5) plus a lecithin emulsifier (Principle 1) - a textbook engineered UPF, trashed.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 199,
+    "name": "20g High Protein Bar - Brownie Crunch (think!)",
+    "verified": true,
+    "sources": [
+      "https://www.thinkproducts.com/products/high-protein-bar-brownie-crunch",
+      "https://www.iherb.com/pr/think-high-protein-bars-brownie-crunch-10-bars-2-1-oz-60-g-each/23398",
+      "https://www.heb.com/product-detail/think-20g-protein-bar-brownie-crunch/1189752"
+    ],
+    "ingredients_found": "Protein Blend (Soy Protein Isolate, Calcium Caseinate, Whey Protein Isolate), Maltitol Syrup, Vegetable Glycerin, Alkalized Cocoa Powder, Water, Almond Butter, Fractionated Palm Kernel Oil, High Oleic Sunflower Oil, Sunflower and/or Soy Lecithin, Natural Flavor, Tapioca Starch, Unsweetened Chocolate, Salt.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Maltitol syrup (polyol), vegetable glycerin (engineered filler), fractionated palm kernel oil + high oleic sunflower oil (seed/industrial oils), and sunflower/soy lecithin (emulsifier).",
+    "justification": "Stacked L3 disruptors: polyol + glycerin filler (Principles 4 & 5), fractionated palm-kernel and sunflower oils driving oxidized-lipid load (Principle 3), and lecithin emulsifier stripping the mucosal barrier (Principle 1).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 200,
+    "name": "Opti-Meal 16g Low Carb Protein Bar - Chocolate Peanut Butter (H-E-B)",
+    "verified": true,
+    "sources": [
+      "https://spoonfulapp.com/products/h-e-b-opti-meal-chocolate-peanut-butter-protein-bars/MDAwNDEyMjA3MTA1NA==",
+      "https://www.carbmanager.com/food-detail/nb:5c860bbc4615d01434f4ee6d/opti-meal-protein-bars-chocolate-peanut-butter",
+      "https://www.heb.com/product-detail/h-e-b-optimeal-low-carb-16g-protein-bars-chocolate-peanut-butter/14217011"
+    ],
+    "ingredients_found": "Dark Chocolate Flavored Coating (Sugar, Palm Kernel Oil, Cocoa Powder, Dry Whole Milk, Soy Lecithin, Salt), Isolated Soy Protein, Fructooligosaccharides, Isolated Soy Protein (Isolated Soy Protein, Tapioca Starch, Salt), Corn Syrup, Peanut Butter, Chicory Root Inulin, Glycerin, Crisp Rice (Rice Flour, Sugar, Calcium Carbonate, Salt), Vitamins and Minerals, Maltodextrin, Natural Flavor, Soy Lecithin, Canola Oil, Salt, Wheat Flakes, Almond Butter, Dried Unsweetened Coconut.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Palm kernel oil + canola oil (industrial/seed oils), soy lecithin (emulsifier), chicory root inulin + fructooligosaccharides + glycerin + maltodextrin (engineered fiber fillers), corn syrup.",
+    "justification": "Layered engineered soy isolate with seed oils oxidizing membranes (Principle 3), soy lecithin degrading the mucosal barrier (Principle 1), and inulin/FOS/glycerin fillers driving colonic fermentation and gas (Principle 5) - a full UPF stack, trashed.",
+    "confidence": "high",
+    "notes": ""
+  }
+]

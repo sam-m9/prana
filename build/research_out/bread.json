@@ -1,0 +1,179 @@
+[
+  {
+    "id": 37,
+    "name": "Ezekiel 4:9 Sprouted Whole Grain Bread (Food For Life)",
+    "verified": true,
+    "sources": [
+      "https://www.foodforlife.com/product/breads/ezekiel-49-sprouted-whole-grain-bread",
+      "https://sbnf.net/products/ezekiel-4-9-sprouted-grain-bread-original-organic"
+    ],
+    "ingredients_found": "Organic Sprouted Wheat, Filtered Water, Organic Sprouted Barley, Organic Sprouted Millet, Organic Malted Barley, Organic Sprouted Lentils, Organic Sprouted Soybeans, Organic Sprouted Spelt, Organic Wheat Gluten, Yeast, Sea Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Flourless sprouted whole-grain and legume matrix; zero seed oils, zero added sugar, zero gums/preservatives.",
+    "justification": "Sprouting activates endogenous phytase to pre-digest phytic acid and FODMAPs (Principle 5) and the grain+legume blend yields a complete, highly bioavailable amino-acid profile with minimal glycemic influx.",
+    "confidence": "high",
+    "notes": "Original variant audited. Contains added baker's yeast but base is sprouted, not conditioned; qualifies as Gold Standard."
+  },
+  {
+    "id": 38,
+    "name": "Old Fashioned Sourdough Spelt Bread (Berlin Natural Bakery)",
+    "verified": true,
+    "sources": [
+      "https://www.berlinnaturalbakery.com/products/sourdough-spelt-bread",
+      "https://www.wholefoodsmarket.com/grocery/product/berlin-bakery-sourdough-spelt-bread-24-oz-b071xv88v9"
+    ],
+    "ingredients_found": "Organic Whole Grain Spelt Flour, Filtered Water, Sea Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Three-ingredient ancient-grain (spelt) loaf leavened by 24+ hour wild sourdough fermentation; zero oil, sugar, gums or preservatives.",
+    "justification": "Long wild acidification of a whole ancient grain maximally pre-digests fructans/FODMAPs (Principle 5), giving a low-bloat, high-tolerance staple with an intact whole-food matrix.",
+    "confidence": "high",
+    "notes": "Fermented at least 24 hours per brand; classic Gold Standard sourdough."
+  },
+  {
+    "id": 39,
+    "name": "Ezekiel 4:9 Sprouted Grain Flax Bread (Food For Life)",
+    "verified": true,
+    "sources": [
+      "https://www.foodforlife.com/product/breads/ezekiel-49-flax-sprouted-whole-grain-bread",
+      "https://www.heb.com/product-detail/food-for-life-ezekiel-4-9-flax-bread/1586732"
+    ],
+    "ingredients_found": "Organic Sprouted Wheat, Filtered Water, Organic Sprouted Flax, Organic Sprouted Barley, Organic Sprouted Millet, Organic Malted Barley, Organic Sprouted Lentils, Organic Sprouted Soybeans, Organic Sprouted Spelt, Organic Wheat Gluten, Yeast, Sea Salt, Rolled in Organic Flax Seeds.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Sprouted grain/legume base plus sprouted flax; zero seed oils, added sugar, gums or preservatives.",
+    "justification": "Sprouting pre-digests antinutrients (Principle 5) while ALA-rich flax supports a favorable membrane omega-3 balance (Principle 3); intact whole-food matrix with slow glycemic influx.",
+    "confidence": "high",
+    "notes": "Flax is a whole seed, not an extracted oil; not a disqualifier."
+  },
+  {
+    "id": 40,
+    "name": "Scratch-Baked Artisan Sourdough Loaf (Central Market Bakery)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/central-market-sourdough-loaf/5689028"
+    ],
+    "ingredients_found": "Unbleached Enriched Flour (Wheat Flour, Malted Barley Flour, Niacin, Reduced Iron, Thiamine Mononitrate, Riboflavin, Folic Acid), Water, Sourdough (Water, Fermented Wheat Flour), Organic Sifted Wheat Flour, and contains less than 1.5% of each of the following: Sea Salt, Yeast, Wheat Gluten, Malted Barley Extract, Microbial Enzymes (Amylase, Amyloglucosidase, Lipase, Xylanase).",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean deck (no oil, sugar, gums, dyes or preservatives) but refined enriched white flour and added commercial yeast make it a yeast-accelerated hybrid rather than a pure whole-grain wild ferment.",
+    "justification": "The genuine sourdough culture provides some acidification, but added baker's yeast shortens fermentation and the refined flour lacks the whole-food matrix, so it falls short of the full FODMAP pre-digestion of Tier 1 (Principle 5).",
+    "confidence": "medium",
+    "notes": "Enrichment vitamins and microbial enzymes are processing aids/fortification, not L2/L3 disruptors per spec. Matched to Central Market Sourdough Loaf packaged deck; in-store scratch bake may vary slightly."
+  },
+  {
+    "id": 41,
+    "name": "Local Artisan Sourdough Bread (Easy Tiger)",
+    "verified": true,
+    "sources": [
+      "https://spoonfulapp.com/products/easy-tiger-austin-sourdough-boule/NjY0NTQxNjQ4NDYyMA==",
+      "https://us.openfoodfacts.org/product/18683288/austin-sourdough-easy-tiger",
+      "https://www.amazon.com/Easy-Tiger-Bakery-Bread-Sourdough/dp/B0882158GS"
+    ],
+    "ingredients_found": "Unbleached Flour (Wheat Flour, Enzyme), Water, Sea Salt, Malt Powder (Malted Barley Flour, Wheat Flour, Dextrose).",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Malt Powder contains Dextrose — an added sugar in a savory staple category.",
+    "justification": "Added dextrose delivers rapid monosaccharide influx to the hepatic portal vein without a protective matrix (Principle 4), which the pre-filter disqualifies in any bread; the sugar rule is absolute regardless of the otherwise-clean sourdough base.",
+    "confidence": "medium",
+    "notes": "Packaged retail Easy Tiger 'Austin Sourdough' deck (multiple listings) lists dextrose inside the malt powder. The unpackaged in-cafe loaf may be only flour/water/salt/starter, but the verifiable retail product is disqualified."
+  },
+  {
+    "id": 42,
+    "name": "San Francisco Style Sourdough Sliced (Izzio Artisan Bakery)",
+    "verified": true,
+    "sources": [
+      "https://www.kroger.com/p/izzio-artisan-bakery-san-francisco-style-sourdough-bread/0065708206040",
+      "https://izziobakery.com/shop/artisan-sourdough-sandwich-bread/organic-san-francisco-style-sandwich-bread/"
+    ],
+    "ingredients_found": "Wheat Flour, Water, Sourdough Culture (Wheat Flour, Water), Whole Wheat Flour, Sea Salt, Malted Barley Flour, Enzymes.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Genuine wild sourdough culture (no added baker's yeast) with a clean deck — zero seed oils, added sugar, gums, dyes or preservatives.",
+    "justification": "Leavening is driven solely by the wild sourdough culture, giving true long-fermentation acidification and FODMAP pre-digestion (Principle 5); malted barley flour and enzymes are non-sweetener processing components, not disqualifiers.",
+    "confidence": "medium",
+    "notes": "Predominantly refined wheat flour with some whole wheat; enzymes are dough-improver processing aids (not the DATEM/mono-diglyceride conditioners the spec bans). Original current_flag 'tool' is unwarranted — no engineered isolate present."
+  },
+  {
+    "id": 43,
+    "name": "Organic Fitness Whole Rye Bread (Mestemacher)",
+    "verified": true,
+    "sources": [
+      "https://www.mestemacher-gmbh.com/product/natural-fitness-bread-usa/",
+      "https://www.wholefoodsmarket.com/grocery/product/mestemacher-bread-fitness-17-6-ounce-b00514dbgu",
+      "https://europeandeli.com/products/organic-whole-kernel-rye-water-organic-whole-rye-flour-organic-oat-flakes-organic-barley-flakes-organic-flax-seed-sea-salt-organic-sesame-yeast-may-contain-traces-of-soy-milk-and-tree-nuts"
+    ],
+    "ingredients_found": "Whole kernel rye, water, oat kernels, wholemeal rye flour, iodized salt, wheat germ, oat fiber, yeast. (Organic whole-rye variant: organic whole kernel rye, water, organic whole rye flour, organic oat flakes, organic barley flakes, organic flax seed, sea salt, organic sesame, yeast.)",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Whole-kernel rye brick loaf with a fully clean deck (no oil, sugar, gums or preservatives) but yeast-leavened rather than wild-fermented or sprouted.",
+    "justification": "Intact whole rye kernels give high fiber and low glycemic influx (Principle 4), but standard yeast leavening bypasses the long acidification needed to fully pre-digest rye fructans (Principle 5), so it lands in the clean fallback tier rather than Gold Standard.",
+    "confidence": "medium",
+    "notes": "Exact 'Organic Fitness' variant naming is ambiguous across Mestemacher's Fitness / Organic Whole Rye lines; all found variants are clean (rye, seeds, salt, yeast) and none contain sugar, oil, gums or preservatives, so the tier holds regardless of which variant."
+  },
+  {
+    "id": 44,
+    "name": "Ezekiel 4:9 Sprouted Grain Cinnamon Raisin Bread (Food For Life)",
+    "verified": true,
+    "sources": [
+      "https://www.foodforlife.com/product/breads/ezekiel-49-cinnamon-raisin-sprouted-whole-grain-bread",
+      "https://www.kroger.com/p/food-for-life-ezekiel-4-9-organic-cinnamon-raisin-sprouted-grain-bread/0007347201131"
+    ],
+    "ingredients_found": "Organic Sprouted Wheat, Filtered Water, Organic Raisins, Organic Sprouted Barley, Organic Sprouted Millet, Organic Malted Barley, Organic Sprouted Lentils, Organic Sprouted Soybeans, Organic Sprouted Spelt, Fresh Yeast, Organic Wheat Gluten, Sea Salt, Organic Cinnamon.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Sprouted grain/legume base sweetened only by whole organic raisins (whole fruit); no added refined sugar, syrup, oil, gums or preservatives.",
+    "justification": "Raisins are a whole-food fruit (an allowed Tier-1 sweetener), not extracted/added sugar, so no glycemic pre-filter is triggered (Principle 4); the sprouted matrix retains full enzymatic pre-digestion (Principle 5).",
+    "confidence": "high",
+    "notes": "Flavored variant audited as named. Sweetness derives from whole raisins, not added sugar — remains Tier 1; original 'tool' flag is unwarranted."
+  },
+  {
+    "id": 45,
+    "name": "Classic White Bread (Hero Bread)",
+    "verified": true,
+    "sources": [
+      "https://foodisgood.com/product/hero-classic-white-bread/",
+      "https://www.hero.co/products/sliced-white-bread",
+      "https://www.fredmeyer.com/p/hero-classic-white-bread/0086000822233"
+    ],
+    "ingredients_found": "Water, Resistant Wheat Starch, Wheat Protein, Olive Oil, Yeast, Milled Flaxseed, Contains Less than 2% of Vinegar, Salt, Fava Bean Protein, Guar Gum, Cultured Wheat Flour, Wheat Flour, Enzymes, Monk Fruit Extract, Ascorbic Acid, Sunflower Lecithin.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Guar Gum and Sunflower Lecithin (L3 emulsifiers/gums), plus engineered fiber/protein isolates (resistant wheat starch, wheat protein, fava bean protein).",
+    "justification": "Guar gum and sunflower lecithin act as surfactants that strip the intestinal mucin layer and compromise tight junctions (Principle 1), and the forced-isolate protein/fiber matrix is a denatured engineered construct (Principle 2) — both trigger the L3 pre-filter, disqualifying it.",
+    "confidence": "high",
+    "notes": "Olive oil and monk fruit are individually acceptable, but the gums/lecithin and engineered isolates are hard L3 disqualifiers. Original 'tool' flag is insufficient — product is filtered out, not capped."
+  },
+  {
+    "id": 46,
+    "name": "21 Whole Grains and Seeds Bread (Dave's Killer Bread)",
+    "verified": true,
+    "sources": [
+      "https://www.daveskillerbread.com/21-whole-grains-and-seeds",
+      "https://www.amazon.com/Daves-Killer-Bread-Grains-Organic/dp/B001F79MMY"
+    ],
+    "ingredients_found": "Organic whole wheat (organic whole wheat flour, organic cracked whole wheat), water, organic cane sugar, organic 21 Whole Grains and Seeds mix (organic whole flax seeds, organic sunflower seeds, organic tri-color quinoa, organic ground whole flax seeds, organic triticale, organic pumpkin seeds, organic rolled barley, organic rolled oats, organic rolled rye, organic blue cornmeal, organic millet, organic rolled spelt, organic brown rice flour, organic amaranth flour, organic yellow cornmeal, organic KAMUT khorasan wheat, organic sorghum flour, organic buckwheat flour, organic quinoa, organic poppy seeds), organic wheat gluten, organic oat fiber, contains 2% or less of each of the following: yeast, organic molasses, sea salt, organic cultured wheat flour, organic vinegar, organic acerola cherry powder, enzymes.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Contains organic cane sugar and organic molasses — added sugar/syrup in a savory staple.",
+    "justification": "Added cane sugar and molasses flood the hepatic portal vein with rapid free sugar (Principle 4), which the pre-filter disqualifies in bread regardless of the otherwise whole-grain seed matrix; 'organic' does not exempt added sugar.",
+    "confidence": "high",
+    "notes": "Whole-grain/seed content is genuinely high, but added sugar is an absolute savory-staple disqualifier. Matches original 'seed'/DQ assessment (driver is sugar, not seed oil)."
+  },
+  {
+    "id": 47,
+    "name": "Seeded Hamburger Buns / Commercial Wheat Loaves (H-E-B Bake Shop)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-enriched-seeded-hamburger-buns/395777"
+    ],
+    "ingredients_found": "Enriched wheat flour, water, sugar, yeast, soybean oil, and 2% or less of: salt, sesame seeds, sunflower lecithin, wheat gluten, natural flavor, calcium sulfate, calcium phosphate, wheat flour, potassium.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains soybean oil (L3 industrial seed oil) and sunflower lecithin (L3 emulsifier), plus added sugar (L2) in a savory staple.",
+    "justification": "Solvent-extracted soybean oil carries oxidized PUFA hydroperoxides that skew membrane omega ratios (Principle 3), sunflower lecithin disrupts the mucosal barrier (Principle 1), and added sugar drives lipogenic glycemic influx (Principle 4) — a triple pre-filter fail.",
+    "confidence": "high",
+    "notes": "Verified deck differs from the original audit (no HFCS, monoglycerides or calcium propionate in this H-E-B Select Ingredients version — it uses cane sugar and soybean oil instead), but the product remains disqualified on seed oil + emulsifier + added sugar."
+  }
+]

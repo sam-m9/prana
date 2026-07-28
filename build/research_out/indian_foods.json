@@ -1,0 +1,206 @@
+[
+  {
+    "id": 294,
+    "name": "Masala Mama Tikka Masala Indian Simmer Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.vitacost.com/masala-mama-simmer-sauce-all-natural",
+      "https://masalamamafoods.com/tikka-masala",
+      "https://www.amazon.com/Cooking-Masala-Luscious-Tomato-Vegetarian/dp/B08G4BXMTM"
+    ],
+    "ingredients_found": "Tomato, Cream, Onion, Yogurt, Water, Tomato Paste, Date, Ginger, Garlic, Butter, Extra Virgin Olive Oil, Salt, Paprika, Lemon Juice, Spices, Garam Masala, Chickpea Flour, Turmeric, Citrus Fiber, Kasoori Methi (Fenugreek Leaves). Contains milk.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean whole-food matrix: tomato, cream, yogurt, butter and extra-virgin olive oil as the fat base, whole spices; no industrial seed oil, no added cane sugar/syrup, no gums. Sweetness comes from whole date (an allowed Tier-1 whole-fruit sweetener). Citrus fiber is a whole-food-derived fiber, not a gum.",
+    "justification": "P3: fats are EVOO/dairy butter (stable, non-oxidized) with zero PUFA seed oils. P4: no free added sugar flooding the portal vein; sweetness is whole-fruit date within a fiber/protein matrix, so no de novo lipogenesis trigger.",
+    "confidence": "high",
+    "notes": "The original catalog audit (claimed Coconut Milk, Cashews, Ghee) does NOT match the real deck; actual deck uses cream/butter/EVOO plus date and citrus fiber. Still passes clean."
+  },
+  {
+    "id": 295,
+    "name": "Central Market Fresh Artisanal Paneer Cheese",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/gopi-fresh-paneer-low-sodium-cheese/12029537",
+      "https://www.heb.com/product-detail/sach-organic-paneer-cheese-original/5960073",
+      "https://www.centralmarket.com/product/gopi-paneer/3432025"
+    ],
+    "ingredients_found": "Pasteurized Whole Milk, Culture, Enzymes, Vinegar (acid-set fresh cheese). Comparable HEB fresh paneers verified as: milk + acid (vinegar/acetic acid/lactic acid), ± salt.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Acid-set whole-milk fresh cheese: milk plus a curdling acid/culture. No seed oil, no added sugar, no gums or stabilizers. Conventional cow whole-milk dairy (not A2/sheep/goat specified), so capped below Tier 1.",
+    "justification": "P2: intact native casein from a simple acid-set curd is highly recognizable to pepsin/trypsin, giving clean amino-acid delivery. P1: absence of emulsifiers/gums leaves the mucosal shield intact.",
+    "confidence": "medium",
+    "notes": "The exact Central Market-branded SKU deck was not independently located online; verified by product class (paneer is inherently milk + acid + optional salt and cannot contain seed oil/sugar/gums) plus multiple HEB fresh-paneer decks."
+  },
+  {
+    "id": 296,
+    "name": "Masala Mama Goa Coconut Curry Simmer Sauce",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Masala-Mama-Coconut-Natural-Simmer/dp/B01N1PWWIJ",
+      "https://masalamamafoods.com/coconut-curry",
+      "https://www.instacart.com/products/19131571-masala-mama-simmer-sauce-coconut-curry-mild-10-oz"
+    ],
+    "ingredients_found": "Onion, Coconut Cream, Water, Tomato, Garlic, Ginger, Date, Tamarind Paste, Extra Virgin Olive Oil, Paprika, Salt, Spices, Mustard Seeds, Citrus Fiber, Turmeric. Contains tree nuts (coconut) and mustard.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Clean whole-food coconut base: coconut cream + EVOO fats, tomato, tamarind, whole spices/mustard seeds; no seed oil, no added cane sugar/syrup, no gums. Sweetness from whole date (allowed Tier-1 whole fruit). Citrus fiber is whole-food fiber, not a gum.",
+    "justification": "P3: dense, stable coconut and EVOO lipids with zero oxidized PUFA seed oils. P4: no free added sugar; date is whole fruit within a fiber matrix.",
+    "confidence": "high",
+    "notes": "Original catalog audit (claimed Coconut Oil, no date, no citrus fiber) does not match the real deck; actual deck uses EVOO + date + citrus fiber. Still passes clean."
+  },
+  {
+    "id": 297,
+    "name": "Organic Valley Grassmilk Organic Ghee",
+    "verified": true,
+    "sources": [
+      "https://www.vitacost.com/organic-valley-pasture-raised-ghee-clarified-butter",
+      "https://www.organicvalley.coop/products/ghee-clarified-butter",
+      "https://www.amazon.com/Organic-Valley-Ghee-13-Ounces/dp/B0046IIPMW"
+    ],
+    "ingredients_found": "Organic Butterfat (Milk) [from Organic Butter: Pasteurized Organic Sweet Cream (Milk), Lactic Acid, clarified].",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient clarified organic (pasture-raised/grass-fed) butterfat. Zero L1/L2/L3 signals; no seed oil, sugar, gums, or additives. Grass-fed ghee is the textbook Tier-1 clean fat.",
+    "justification": "P3: heat-stable saturated/short-chain butterfat (butyric acid) with no oxidized PUFAs; clarification removes lactose/whey. P1: butyrate supports colonocyte/mucosal integrity.",
+    "confidence": "high",
+    "notes": "Ingredient (clarified butterfat) is unambiguous. Could not independently confirm a distinct 'Grassmilk'-labeled ghee SKU vs the standard Organic Valley pasture-raised ghee; either way the deck is single-ingredient butterfat and clean."
+  },
+  {
+    "id": 298,
+    "name": "Central Market Organics Whole Black Gram Lentils (Urad Dal)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Vedica-Organics-Organic-Whole-Black/dp/B00BIYEOHW",
+      "https://www.amazon.com/Organic-Black-Pounds-lentils-Certified/dp/B0751JN8P2",
+      "https://darsa-organics.com/products/darsa-organics-black-gram-lentils-whole-2-lb-sabut-urad-usda-organic-non-gmo-chemical-free-gluten-free-kosher-pantry-staples-dried-lentils"
+    ],
+    "ingredients_found": "100% Organic Whole Black Gram Lentils (Urad). Single ingredient dried legume.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient raw whole legume. Zero L1/L2/L3. A clean whole-food pulse protein/fiber staple.",
+    "justification": "P4/P5: whole pulse delivers protein and fiber within an intact matrix; soaking/cooking activates phytase-type pre-digestion and attenuates FODMAP/phytate load for bloat-free delivery.",
+    "confidence": "medium",
+    "notes": "Exact Central Market Organics SKU deck not located online; verified by product class (dried urad dal is a single-ingredient legume) across multiple organic urad-whole decks."
+  },
+  {
+    "id": 299,
+    "name": "Central Market Organics Organic Split Red Lentils (Masoor Dal)",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Organic-Mogar-Black-Split-Dehusked/dp/B00BIYAE08",
+      "https://darsa-organics.com/products/black-gram-split-with-skin",
+      "https://www.indusvalleyorganic.com/product-page/organic-black-gram-whole-urad-sabut"
+    ],
+    "ingredients_found": "100% Organic Split Red Lentils (Masoor Dal). Single ingredient dried legume.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient raw split legume. Zero L1/L2/L3. Clean whole-food pulse. Reclassified up from the catalog's 'tool' flag: a whole dried lentil is not an engineered isolate.",
+    "justification": "P4/P5: intact pulse protein/fiber matrix; cooking pre-digests antinutrients (phytic acid) and short-chain carbs for low GI workload.",
+    "confidence": "medium",
+    "notes": "Exact Central Market Organics SKU deck not located; verified by product class (masoor dal is a single-ingredient split legume)."
+  },
+  {
+    "id": 300,
+    "name": "365 by Whole Foods Market Organic Brown Basmati Rice",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/grocery/product/365-by-whole-foods-market-365-by-whole-foods-market-organic-brown-basmati-indian-rice-32-oz-b084nj1jxh",
+      "https://www.amazon.com/365-Whole-Foods-Market-Organic/dp/B084NJ1JXH",
+      "https://spoonfulapp.com/products/365-whole-foods-market-organic-indian-basmati-rice/MDA5OTQ4MjUwMDk0OA=="
+    ],
+    "ingredients_found": "Organic Brown Basmati Rice. Single ingredient (32 oz dry bulk).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Single-ingredient whole-grain brown basmati rice (bran intact). Zero L1/L2/L3, no seed oil, no sugar. Whole-food clean carbohydrate base.",
+    "justification": "P4: intact whole-grain fiber/bran moderates glycemic rate of influx vs refined grain, limiting hepatic lipogenesis.",
+    "confidence": "high",
+    "notes": "This is the dry bulk bag (single ingredient). Note: the separate 90-second microwave-pouch version of this line adds organic sunflower oil + salt and would NOT pass — this audited SKU is the plain 32 oz dry rice."
+  },
+  {
+    "id": 301,
+    "name": "Royal Organic Traditional Aged Basmati Rice",
+    "verified": true,
+    "sources": [
+      "https://authenticroyal.com/products/basmati-rice/organic-basmati-rice/",
+      "https://www.amazon.com/Royal-White-Basmati-Rice-Organic/dp/B0DKTTQH19",
+      "https://www.amazon.com/Organic-Royal-Traditional-Basmati-Rice/dp/B08L5XSSYV"
+    ],
+    "ingredients_found": "Organic White Basmati Rice. Single ingredient, naturally aged; vegan, gluten-free, no additives.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Single-ingredient clean rice with zero seed oil/sugar/gums, but it is refined white (bran/germ removed) rather than whole-grain, so it sits at the clean-conventional-staple tier rather than Tier 1.",
+    "justification": "P4: clean carbohydrate tool; refined white basmati lacks the intact whole-grain fiber matrix, giving a faster glycemic influx than brown, hence capped below Tier 1 despite being additive-free.",
+    "confidence": "medium",
+    "notes": "Explicit ingredient statement not published online, but authoritative brand pages confirm the product is 100% aged organic basmati with no additives."
+  },
+  {
+    "id": 302,
+    "name": "Kevin's Natural Foods Paleo Chicken Tikka Masala",
+    "verified": true,
+    "sources": [
+      "https://foodisgood.com/product/kevins-natural-foods-chicken-tikka-masala/",
+      "https://www.kevinsnaturalfoods.com/products/chicken-tikka-masala",
+      "https://www.instacart.com/products/21361434-kevin-s-natural-foods-chicken-tikka-masala-16-0-oz"
+    ],
+    "ingredients_found": "Chicken Breast (Water, Vinegar, Yeast Extract, Sea Salt, Cultured Onion Juice, Black Pepper, Citrus Extract); Sauce: Water, Coconut Milk, Tomato Paste, Spices, Coconut Nectar, Dehydrated Onion, Coconut Butter, Cilantro, Coconut Sugar, Tapioca Starch, Yeast Extract, Paprika, Sea Salt, High Oleic Sunflower Oil, Turmeric, Dehydrated Garlic, Lime Juice Concentrate, Mustard Seed, Black Pepper, Ginger, Xanthan Gum, Monk Fruit Extract.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "High Oleic Sunflower Oil (L3 industrial seed oil) and Xanthan Gum (L3 gum), plus Coconut Sugar + Coconut Nectar (L2 added sugar in a savory category). Monk fruit is blended into a sweetened/gummed matrix.",
+    "justification": "P3: sunflower oil introduces oxidizable PUFA lipids. P1: xanthan gum strips the mucosal shield/tight junctions. P4: free added coconut sugars/nectar drive glycemic influx and lipogenesis.",
+    "confidence": "high",
+    "notes": "Multiple stacked disqualifiers; 'Paleo/Keto' marketing does not change the deck."
+  },
+  {
+    "id": 303,
+    "name": "Saffron Road Frozen Chicken Tikka Masala with Basmati Rice",
+    "verified": true,
+    "sources": [
+      "https://www.saffronroad.com/products/chicken-tikka-masala",
+      "https://www.amazon.com/Saffron-Road-Chicken-Masala-Frozen/dp/B00L9Z6KMM",
+      "https://www.instacart.com/products/48223-saffron-road-gluten-free-chicken-tikka-masala-with-basmati-rice-frozen-dinner-10-0-oz"
+    ],
+    "ingredients_found": "White Meat Chicken (White Meat Chicken, Water, Potato Starch, Sea Salt), Basmati Rice (Water, Basmati Rice), Water, Onions, Tomato Paste, 2% or less of: Lowfat Yogurt, Cream, Olive Oil, Garlic, Spices (Spices, Paprika, Sea Salt, Turmeric), Ginger, Cumin Seeds, Native Corn Starch, Cane Sugar, Sea Salt, Fenugreek Leaves.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Contains Cane Sugar — added sugar in a savory/staple category (L2 auto-disqualify).",
+    "justification": "P4: free added cane sugar in a savory meal floods the hepatic portal vein without a protective matrix, triggering insulin spikes and de novo lipogenesis.",
+    "confidence": "high",
+    "notes": "REFORMULATED since the catalog audit: the product is now marketed 'Seed Oil Free' and uses Olive Oil, NOT the Sunflower Oil listed in the old audit — so the seed-oil flag no longer applies. However it still contains Cane Sugar, so it remains disqualified on L2."
+  },
+  {
+    "id": 304,
+    "name": "Sukhi's Chicken Tikka Masala Frozen Meal with Naan",
+    "verified": true,
+    "sources": [
+      "https://www.kroger.com/p/sukhi-s-chicken-tikka-masala-with-rice-naan-frozen-meal/0076722602505",
+      "https://sukhis.myshopify.com/products/chicken-tikka-masala-curry-frozen-meal-naan",
+      "https://www.heb.com/product-detail/sukhi-s-chicken-tikka-masala-frozen-meal/2105745"
+    ],
+    "ingredients_found": "White Chicken; Tikka Sauce [Water, Tomato Paste, Cream, Cane Sugar, Ginger, Expeller Pressed Canola Oil, Vinegar, Garlic, Butter, Spices, Rice Flour, Salt, Jalapeno, Vegetable Broth Concentrate, Cilantro, Curry Paste, Oleoresin Paprika, Onion Powder, Xanthan Gum, Turmeric, Garlic Powder, Lemon Juice Concentrate, Fenugreek Leaves, Oleoresin Cardamom]; Water, Sugar, Salt, Baking Soda; Rice (Water, Basmati Rice); Naan [Enriched Wheat Flour, Water, Yeast, Sugar, Canola Oil, Salt].",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Expeller Pressed Canola Oil (L3 seed oil, in both sauce and naan) and Xanthan Gum (L3 gum), plus Cane Sugar + Sugar (L2 added sugar in a savory meal).",
+    "justification": "P3: canola oil contributes oxidizable/industrial PUFA lipids. P1: xanthan gum disrupts the mucosal barrier. P4: multiple added sugars drive glycemic influx and lipogenesis.",
+    "confidence": "high",
+    "notes": "Disqualifiers appear in both the tikka sauce and the naan component."
+  },
+  {
+    "id": 305,
+    "name": "Brooklyn Delhi Cashew Butter Masala Simmer Sauce",
+    "verified": true,
+    "sources": [
+      "https://brooklyndelhi.com/products/cashew-butter-masala",
+      "https://www.wholefoodsmarket.com/grocery/product/brooklyn-delhi-brooklyn-delhi-cashew-butter-masala-indian-simmer-sauce-with-cashew-cream-tomatoes-sweet-paprika-12-ounces-mild-enough-for-a-kid-flavorful-enough-for-a-foodie-no-artificial-additives-b08tgwr3hv",
+      "https://www.instacart.com/products/25850321-brooklyn-delhi-mild-cashew-butter-masala-indian-simmer-sauce-12-oz"
+    ],
+    "ingredients_found": "Water, Organic Coconut Cream, Tomato Paste, Onions, Non-GMO Expeller Pressed Canola Oil, Garlic, Ginger, Lemon Juice, Non-GMO Cashew Butter, Spices (including Paprika & Turmeric), Tamarind, Brown Sugar, Salt, Fenugreek Leaves.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Non-GMO Expeller Pressed Canola Oil (L3 industrial seed oil) plus Brown Sugar (L2 added sugar in a savory category).",
+    "justification": "P3: canola oil adds industrial PUFA lipids to a sauce that otherwise had a clean coconut/cashew fat base. P4: added brown sugar drives glycemic influx and lipogenesis in a savory sauce.",
+    "confidence": "high",
+    "notes": "'Nothing Artificial' marketing does not offset the seed oil + added sugar. Confirms the catalog audit."
+  }
+]

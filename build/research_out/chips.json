@@ -1,0 +1,205 @@
+[
+  {
+    "id": 224,
+    "name": "MASA Organic Tortilla Chips in Grass-Fed Beef Tallow (MASA)",
+    "verified": true,
+    "sources": [
+      "https://www.masachips.com/products/masa-chips",
+      "https://www.amazon.com/MASA-Seed-Free-Tortilla-Chips/dp/B0BQCXCMQB",
+      "https://www.dorothylane.com/item/ancientcrunchmasaseedoilfreetortillachipstraditional"
+    ],
+    "ingredients_found": "Organic Corn, Grass-Fed Beef Tallow, Sea Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Three-ingredient nixtamalized organic-corn matrix fried exclusively in heat-stable grass-fed beef tallow; zero seed oils, zero added sugar, zero gums/additives.",
+    "justification": "Nixtamalized whole corn engages endogenous mineral/antinutrient attenuation (Principle 5) and the saturated grass-fed tallow provides lipid stability with no PUFA hydroperoxide load (Principle 3) - a gold-standard clean whole-food staple.",
+    "confidence": "high",
+    "notes": "Audit plain/original Traditional variant; flavored (e.g. Cobanero) variants add spices."
+  },
+  {
+    "id": 225,
+    "name": "San Nicasio Extra Virgin Olive Oil Potato Chips (San Nicasio)",
+    "verified": true,
+    "sources": [
+      "https://almazarasdelasubbetica.com/en/products/san-nicasio-potato-chips/",
+      "https://olivaoliva.com/en/san-nicasio/9153-san-nicasio-potato-chips-with-himalayan-pink-salt-bag-of-150-gr.html",
+      "https://www.bienmanger.com/2F39214_Hand_Cooked_Extra_Virgin_Potato_Chips_With_Himalayan_Salt.html"
+    ],
+    "ingredients_found": "Potatoes (59.2%), Extra Virgin Olive Oil (40%), Pink Himalayan Salt (0.8%).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Hand-cooked in 40% single-origin PDO Priego de Cordoba extra virgin olive oil; zero seed oils, zero added sugar, no additives or preservatives.",
+    "justification": "Artisanal European staple cooked in monounsaturated EVOO delivers exceptional lipid membrane stability with no oxidized-PUFA burden (Principle 3) and a clean three-ingredient whole-food matrix.",
+    "confidence": "high",
+    "notes": "Olive oil is not a seed oil (allowed). US pack listed as 5.3 oz; EU pack 150 g."
+  },
+  {
+    "id": 226,
+    "name": "EPIC Baked Pork Rinds - Pink Himalayan Sea Salt (EPIC Provisions)",
+    "verified": true,
+    "sources": [
+      "https://epicprovisions.com/products/pink-himalayan-sea-salt-baked-rinds",
+      "https://www.amazon.com/EPIC-Pink-Himalayan-Baked-Rinds/dp/B08Z9LSX4V",
+      "https://www.pureformulas.com/product/baked-pork-rinds-pink-himalayan-sea-salt/1000061295"
+    ],
+    "ingredients_found": "Baked Pork Skins, Pork Fat, Pink Himalayan Sea Salt, Sea Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Whole-animal collagenous protein oven-baked in its own rendered pork fat; zero seed oils, 0g carbohydrate, 0g added sugar, no synthetic binders or additives.",
+    "justification": "Native whole-animal protein/collagen matrix with a fully saturated, oxidation-resistant lipid (Principles 2 and 3) and zero mucosal disruptors, giving a clean high-bioavailability savory staple.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 227,
+    "name": "Jackson's Sea Salt Sweet Potato Chips in Avocado Oil (Jackson's)",
+    "verified": true,
+    "sources": [
+      "https://snackjacksons.com/products/sea-salt-sweet-potato-chips-in-avocado-oil-5oz-8-bags",
+      "https://www.goodeggs.com/jacksons/sea-salt-avocado-oil-sweet-potato-chips/6760b1869b715b001408d1fe",
+      "https://www.walmart.com/ip/Jackson-s-Sweet-Potato-Kettle-Chips-with-Sea-Salt-Avocado-Oil-Allergen-Friendly-5-oz/2839149504"
+    ],
+    "ingredients_found": "Sweet Potatoes, Avocado Oil, Sea Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Three-ingredient whole sweet-potato tuber kettle-cooked in 100% avocado oil; zero seed oils, zero added sugar, no gums or additives.",
+    "justification": "Whole-tuber carbohydrate matrix cooked in monounsaturated avocado oil gives clean caloric density with no oxidized-lipid or additive load (Principle 3); the brief's named gold-standard example.",
+    "confidence": "high",
+    "notes": "Avocado oil is not a seed oil (allowed)."
+  },
+  {
+    "id": 228,
+    "name": "Siete Organic Maiz Totopos Sea Salt Tortilla Chips (Siete Foods)",
+    "verified": true,
+    "sources": [
+      "https://sietefoods.com/shop/chips-and-snacks/maiz-chips/maiz-sea-salt-totopos-corn-tortilla-chips-7-5oz/",
+      "https://www.amazon.com/Siete-Totopos-Tortilla-Organic-Preservative/dp/B0C34RLD58",
+      "https://www.heb.com/product-detail/siete-corn-tortilla-chips-maiz-totopos-sea-salt/9139049"
+    ],
+    "ingredients_found": "Nixtamalized Corn Blend (Organic White Corn, Organic Yellow Corn, Lime), Avocado Oil, Sea Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Nixtamalized organic corn fried in avocado oil; zero seed oils, zero added sugar, no emulsifiers or preservatives.",
+    "justification": "Lime nixtamalization enhances mineral bioavailability and antinutrient attenuation (Principle 5), and avocado oil supplies a stable monounsaturated lipid with no PUFA oxidation (Principle 3).",
+    "confidence": "high",
+    "notes": "Maiz (corn) line, distinct from Siete's grain-free cassava chips; may contain coconut (shared line)."
+  },
+  {
+    "id": 229,
+    "name": "Boulder Canyon Kettle Cooked Potato Chips - Avocado Oil (Boulder Canyon)",
+    "verified": true,
+    "sources": [
+      "https://www.vitacost.com/boulder-canyon-avocado-oil-sea-salt-kettle-potato-chips",
+      "https://www.amazon.com/Boulder-Canyon-Kettle-Cooked-Avocado/dp/B00EEG5934",
+      "https://www.utzsnacks.com/products/boulder-canyon-avocado-oil-canyon-cut-kettle-potato-chips-sea-salt"
+    ],
+    "ingredients_found": "Potatoes, Avocado Oil, Sea Salt.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean three-ingredient conventional potato chip kettle-cooked in 100% avocado oil; zero seed oils, zero added sugar, no gums or additives.",
+    "justification": "Fully passes the pre-filter with a stable monounsaturated frying lipid (Principle 3); capped at Tier 2 as a conventional (non-organic, non-artisanal) practical staple rather than a gold-standard matrix.",
+    "confidence": "high",
+    "notes": "Audit the plain Sea Salt / Classic variant; the Malt Vinegar variant differs. Avocado oil is not a seed oil."
+  },
+  {
+    "id": 230,
+    "name": "Wilde Protein Chips - Sea Salt / Buffalo (Wilde Chips)",
+    "verified": true,
+    "sources": [
+      "https://www.wildebrands.com/products/sea-salt-and-vinegar",
+      "https://www.amazon.com/Vinegar-Chicken-Chips-Wilde-Certified/dp/B091BF2SGQ",
+      "https://tools.myfooddata.com/nutrition-facts/2587725/wt1"
+    ],
+    "ingredients_found": "Antibiotic-Free Chicken Breast, Native Tapioca Starch, High Oleic Expeller Pressed Sunflower Oil, Egg Whites, Chicken Bone Broth, and less than 2% of Sodium Citrate, Natural Flavors, Sea Salt, Maltodextrin, Citric Acid, Spices (Sea Salt / Buffalo seasoning varies).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "High Oleic Expeller Pressed Sunflower Oil (industrial seed oil, L3); also contains maltodextrin (engineered filler).",
+    "justification": "Sunflower oil is an L3 industrial seed oil that hard-disqualifies a savory staple due to PUFA-derived hydroperoxide/aldehyde load skewing membrane omega-6:3 and inflammation (Principle 3).",
+    "confidence": "high",
+    "notes": "Wilde reformulated to high-oleic sunflower oil across the line; the catalog's 'Coconut Oil' claim is outdated. Exact deck confirmed on Sea Salt & Vinegar; base ingredients are shared across Sea Salt/Buffalo variants."
+  },
+  {
+    "id": 231,
+    "name": "Barnana Organic Himalayan Pink Salt Plantain Chips (Barnana)",
+    "verified": true,
+    "sources": [
+      "https://barnana.com/products/organic-plantain-chips-himalayan-pink-salt",
+      "https://www.wholefoodsmarket.com/grocery/product/barnana-barnana-organic-plantain-chips-with-himalayan-pink-salt-5-oz-b078ydxvjt",
+      "https://www.amazon.com/Barnana-Plantain-Chips-Himalayan-Ounce/dp/B078YDXVJT"
+    ],
+    "ingredients_found": "Organic Plantains, Organic Coconut Oil, Organic Himalayan Pink Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Three-ingredient organic green-plantain matrix cooked in 100% organic coconut oil; zero seed oils, zero added sugar, no gums or additives.",
+    "justification": "Green-plantain resistant starch fried in fully saturated, oxidation-resistant coconut oil (Principle 3) delivers a clean organic whole-food staple with minimal glycemic and mucosal burden.",
+    "confidence": "high",
+    "notes": "Coconut oil is not a seed oil (allowed). Processed alongside tree nuts/coconut."
+  },
+  {
+    "id": 232,
+    "name": "LesserEvil Organic Avocado Oil Cassava Strips (LesserEvil)",
+    "verified": false,
+    "sources": [
+      "https://www.lesserevil.com/",
+      "https://lesserevil.com/blogs/lesserevil-101/innovation-at-lesserevil/"
+    ],
+    "ingredients_found": "",
+    "decision": "delete_unverifiable",
+    "dqLevel": null,
+    "reason": "No LesserEvil product named 'Cassava Strips' (or a cassava chip/strip matching the claimed deck) could be located; LesserEvil's cassava line is Power Curls (which include egg whites) and Paleo Puffs (coconut oil + additional flours), neither matching the catalog's stated ingredients.",
+    "justification": "Could not confirm the exact product exists or its current ingredient statement after a genuine multi-source search; per sourcing standards this is unverifiable and must not be guessed.",
+    "confidence": "low",
+    "notes": "Possible confusion with LesserEvil Power Curls or a different brand's cassava strips (e.g. Artisan Tropic). Marked unverifiable rather than invented."
+  },
+  {
+    "id": 233,
+    "name": "Jackson's Carolina BBQ Sweet Potato Chips (Jackson's)",
+    "verified": true,
+    "sources": [
+      "https://snackjacksons.com/products/carolina-bbq-sweet-potato-chips-in-avocado-oil-5oz-8-bags",
+      "https://www.kroger.com/p/jackson-s-carolina-bbq-sweet-potato-chips/0085682300475",
+      "https://www.goodeggs.com/jacksons/carolina-bbq-avocado-oil-sweet-potato-chips/6760b185bd05c40012f04dcb"
+    ],
+    "ingredients_found": "Sweet Potatoes, Avocado Oil, Carolina BBQ Seasoning Blend (Sugar, Vinegar Powder [Maltodextrin, White Distilled Vinegar], Sea Salt, Tomato Powder, Spices, Citric Acid, Torula Yeast, Garlic Powder, Yeast Extract, Extractives of Paprika, Natural Smoke Flavor).",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Added Sugar in a savory chip (L2), plus Maltodextrin (engineered filler) in the BBQ seasoning blend.",
+    "justification": "Although cooked in clean avocado oil, added cane sugar in a savory staple floods the hepatic portal vein without a protective matrix, driving de novo lipogenesis and insulin spikes (Principle 4) - an automatic L2 disqualification.",
+    "confidence": "high",
+    "notes": "Clean frying oil (avocado); fails on the seasoning blend only."
+  },
+  {
+    "id": 234,
+    "name": "Quest Tortilla Style Protein Chips - Nacho Cheese (Quest Nutrition)",
+    "verified": true,
+    "sources": [
+      "https://www.questnutrition.com/products/nacho-cheese-protein-chips",
+      "https://www.kroger.com/p/quest-nutrition-nacho-cheese-tortilla-style-protein-chips-4-oz/0088884900875",
+      "https://www.heb.com/product-detail/quest-tortilla-style-18g-protein-chips-nacho-cheese/2743521"
+    ],
+    "ingredients_found": "Protein Blend (Milk Protein Isolate, Whey Protein Isolate), Vegetable Oil (Sunflower, Canola, and/or Soybean Oil), Natural Flavors, Calcium Caseinate, Soluble Corn Fiber, Corn Starch, and less than 2%: Psyllium Husk, Salt, Cheddar Cheese Powder, Romano Cheese, Buttermilk Powder, Butter, Tomato Powder, Onion Powder, Garlic Powder, Spice, Nonfat Dry Milk, Whey Powder, Chia Seed, Paprika Extract (Color), Turmeric Oleoresin (Color), Lecithin (Sunflower, Canola, and/or Soy), Calcium Carbonate, Yeast Extract, Stevia Sweetener.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Vegetable Oil (Sunflower/Canola/Soybean) - industrial seed oils (L3); plus Soluble Corn Fiber (engineered fiber filler) and Lecithin (emulsifier).",
+    "justification": "A highly engineered UPF matrix stacking L3 industrial seed oils (Principle 3), an emulsifier that strips the mucin/tight-junction barrier (Principle 1), and an engineered soluble-corn-fiber filler - multiple hard disqualifiers.",
+    "confidence": "high",
+    "notes": "Current deck uses Stevia Sweetener, not the sucralose in the catalog audit (reformulated); still disqualified on seed oil and soluble corn fiber."
+  },
+  {
+    "id": 235,
+    "name": "Doritos Protein Nacho Cheese Chips (Frito-Lay / Doritos)",
+    "verified": true,
+    "sources": [
+      "https://www.kroger.com/p/doritos-protein-nacho-cheese-tortilla-chips/0002840079837",
+      "https://www.marianos.com/p/doritos-protein-nacho-cheese-tortilla-chips/0002840079837",
+      "https://www.safeway.com/shop/product-details.971377551.html"
+    ],
+    "ingredients_found": "Milk Protein (Casein), Vegetable Oil (Corn, Canola, Soybean, and/or Sunflower Oil), Corn, Rice Flour, Corn Starch, and less than 2%: Cheddar Cheese, Salt, Oat Fiber, Natural Flavors, Whey, Potassium Salt, Buttermilk, Romano Cheese, Whey Protein Concentrate, Onion Powder, Tomato Powder, Corn Syrup Solids, Spices, Citric Acid, Garlic Powder, Lactic Acid, Yeast Extract, Red and Green Bell Peppers, Sugar, Paprika Extract (Color), Vegetable Juice (Color), Annatto Extract (Color).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Vegetable Oil (Corn/Canola/Soybean/Sunflower) - industrial seed oils (L3); plus added Sugar and Corn Syrup Solids in a savory chip (L2).",
+    "justification": "Industrial seed-oil blend generates oxidized-lipid inflammatory load (Principle 3) and the added sugar/corn-syrup solids drive hepatic lipogenesis in a savory staple (Principle 4) - stacked hard disqualifiers.",
+    "confidence": "high",
+    "notes": "The Doritos PROTEIN version uses only natural colors (paprika/vegetable juice/annatto), NOT the Yellow 5/6 or MSG in the catalog audit (which describe classic Doritos); it still fails hard on seed oils and added sugar."
+  }
+]

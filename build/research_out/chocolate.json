@@ -1,0 +1,196 @@
+[
+  {
+    "id": 306,
+    "name": "Central Market Organic 85% Cacao Dark Chocolate Bar",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-organic-85percent-cacao-dark-chocolate-bar-316-oz/1666998",
+      "https://www.heb.com/product-detail/central-market-85-organic-cacao-dark-chocolate/1666998"
+    ],
+    "ingredients_found": "Organic Cocoa Mass, Organic Cocoa Butter, Organic Cane Sugar, Organic Vanilla Pods (Fair Trade Certified).",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean 4-ingredient bean-to-bar dark chocolate: cocoa mass + cocoa butter + organic cane sugar + vanilla; zero lecithin, zero seed oils, zero gums.",
+    "justification": "Passes every pre-filter (P1/P3 clean — real cocoa butter, no emulsifiers or seed oils). Organic unrefined cane sugar in an inherently-sweet category is the Tier-3-defining sweetener (P4), not a Tier-1 native sweetener.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 307,
+    "name": "Alter Eco 90% Organic Super Blackout Dark Chocolate Bar",
+    "verified": true,
+    "sources": [
+      "https://www.alterecofoods.com/products/dark-super-blackout",
+      "https://www.vitacost.com/alter-eco-organic-dark-chocolate-bar-super-blackout-90-cocoa"
+    ],
+    "ingredients_found": "Organic cacao beans, organic cocoa butter, organic raw cane sugar, organic vanilla beans. (May contain milk, hazelnuts, almonds, coconut, soy.)",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean 4-ingredient deck: cacao beans + cocoa butter + raw cane sugar + vanilla; zero lecithin/emulsifiers, zero seed oils, zero gums.",
+    "justification": "Passes all pre-filters (P1/P3 clean — cocoa butter as the only fat, no emulsifier). Organic raw cane sugar in a sweet category caps it at Tier 3 under the Sweetener Matrix (P4).",
+    "confidence": "high",
+    "notes": "Marketed as keto/low-sugar but the deck is whole-food clean; 'may contain soy' is a shared-line allergen statement, not soy lecithin in the recipe."
+  },
+  {
+    "id": 308,
+    "name": "Hu Organic Simple Dark Chocolate Bar",
+    "verified": true,
+    "sources": [
+      "https://hukitchen.com/products/hu-simple",
+      "https://www.kroger.com/p/hu-simple-dark-chocolate-bar/0085018000604"
+    ],
+    "ingredients_found": "Organic cacao (Fair Trade), organic unrefined coconut sugar (Fair Trade), organic cocoa butter (Fair Trade). 70% cacao.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "3-ingredient deck, explicitly no soy/sunflower lecithin, no emulsifiers, no refined sugar, no seed oils, no gums; sweetened with unrefined coconut sugar.",
+    "justification": "Passes every pre-filter (P1/P3 clean). Unrefined whole coconut sugar is a non-synthetic, non-polyol whole-food sweetener; in a sweet category this places it at the Tier-3 clean-label fallback (P4).",
+    "confidence": "high",
+    "notes": "Coconut sugar is not one of the explicitly named Tier-1 sweeteners (honey/maple/whole fruit), so it caps at Tier 3 alongside cane sugar."
+  },
+  {
+    "id": 309,
+    "name": "Theo Organic 70% Cacao Rich Dark Chocolate Bar",
+    "verified": true,
+    "sources": [
+      "https://theochocolate.com/pure-70/",
+      "https://www.wholefoodsmarket.com/product/theo-chocolate-organic-fair-trade-pure-70-dark-chocolate-bar-3-oz-b0030mv5ae"
+    ],
+    "ingredients_found": "Cocoa Beans*, Cane Sugar*, Cocoa Butter* (*organic, fair trade). (Made on equipment that also processes milk, wheat, tree nuts.)",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Strict 3-ingredient bean-to-bar deck; Theo uses no lecithin, no seed oils, no gums.",
+    "justification": "Passes all pre-filters (P1/P3 clean — cocoa butter only, no emulsifier). Organic cane sugar in a sweet category defines the Tier-3 assignment per the Sweetener Matrix (P4).",
+    "confidence": "high",
+    "notes": "Audited the plain 'Pure' 70% variant; flavored variants (Sea Salt/Orange/Mint) add other ingredients."
+  },
+  {
+    "id": 310,
+    "name": "Lindt Excellence 100% Cocoa Dark Chocolate Bar",
+    "verified": true,
+    "sources": [
+      "https://www.lindtusa.com/100-percent-cocoa-dark-chocolate-excellence-bar-394002",
+      "https://www.kroger.com/p/lindt-excellence-100-cocoa-unsweetened-chocolate-bar/0000954242599"
+    ],
+    "ingredients_found": "Chocolate, Cocoa Powder Processed with Alkali, Cocoa Butter. (May contain milk, soy, tree nuts.)",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Unsweetened 3-ingredient deck: chocolate + cocoa butter + alkalized cocoa powder; zero sugar, zero lecithin, zero seed oils, zero gums.",
+    "justification": "Passes every pre-filter (P1/P3 clean — cocoa butter is the sole fat, no emulsifier). Dutch/alkali processing is a pH treatment, not an L1/L2/L3 additive. Clean-label dark chocolate = Tier 3.",
+    "confidence": "high",
+    "notes": "100% cocoa, no added sweetener; alkalization lowers polyphenols but is not a disqualifier."
+  },
+  {
+    "id": 311,
+    "name": "Raaka 71% Cacao Unroasted Pink Sea Salt Dark Chocolate Bar",
+    "verified": true,
+    "sources": [
+      "https://www.raakachocolate.com/products/salted-super-dark",
+      "https://www.amazon.com/Raaka-Chocolate-cacao-1-8oz-Bean/dp/B077ZDW82N",
+      "https://barandcocoa.com/products/raaka-dark-chocolate-sea-salt"
+    ],
+    "ingredients_found": "Organic cacao beans, organic cane sugar, organic maple sugar, organic cacao butter, Peruvian pink sea salt.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean unroasted bean-to-bar deck; zero lecithin, zero seed oils, zero gums. Sweetened only with organic cane sugar + organic maple sugar.",
+    "justification": "Passes all pre-filters (P1/P3 clean — cacao butter only). Sweeteners are whole/unrefined (cane + maple sugar), acceptable under the Sweetener Matrix; presence of refined cane sugar caps it at Tier 3 (P4).",
+    "confidence": "high",
+    "notes": "Actual deck includes organic maple sugar in addition to cane sugar (not in prior audit); both are Matrix-allowed."
+  },
+  {
+    "id": 312,
+    "name": "Central Market Organic 71% Cacao Dark Chocolate Bar",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-organic-71percent-cacao-dark-chocolate-bar-316-oz/1479458",
+      "https://www.heb.com/product-detail/central-market-71-organic-cacao-dark-chocolate/1479458"
+    ],
+    "ingredients_found": "Organic Cocoa Mass, Organic Cane Sugar, Organic Cocoa Butter, Organic Vanilla.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean 4-ingredient organic deck; zero lecithin, zero seed oils, zero gums.",
+    "justification": "Passes every pre-filter (P1/P3 clean). Organic cane sugar in an inherently-sweet category is Matrix-allowed and Tier-3-defining (P4); prior 'sugar' flag does not disqualify in a sweet category.",
+    "confidence": "high",
+    "notes": "Audited plain variant; Orange and Pomegranate-Raspberry variants differ."
+  },
+  {
+    "id": 313,
+    "name": "H-E-B Organics 53% Cacao Dark Chocolate Bar with Raw Almonds",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-organics-53-cacao-dark-chocolate-bar-with-raw-almonds/2141891",
+      "https://spoonfulapp.com/products/h-e-b-organics-dark-chocolate-bar-with-raw-almonds/MDA0MTIyMDI4OTgzNw=="
+    ],
+    "ingredients_found": "Organic Cane Sugar, Organic Chocolate Liquor, Organic Cocoa Butter, Organic Almonds, Organic Vanilla Pods.",
+    "decision": "tier3",
+    "dqLevel": null,
+    "reason": "Clean organic deck of whole-food ingredients; zero lecithin, zero seed oils, zero gums. Sugar leads the deck but is organic cane sugar.",
+    "justification": "Passes all pre-filters (P1/P3 clean — cocoa butter + whole almonds, no emulsifier). Organic cane sugar in a sweet category is Matrix-allowed; caps at Tier 3 (P4). Whole raw almonds add native fat/protein matrix.",
+    "confidence": "medium",
+    "notes": "Lower-cacao (53%) so sugar is the first ingredient; retailer deck lists no lecithin."
+  },
+  {
+    "id": 314,
+    "name": "Chocolove Extreme 88% Dark Chocolate Bar",
+    "verified": true,
+    "sources": [
+      "https://www.chocolove.com/shop/extreme-dark-chocolate-88-cocoa/",
+      "https://www.wholefoodsmarket.com/grocery/product/chocolove-chocolove-chocolate-bar-extreme-dark-88-3-2-ounce-b01lxmsgp4"
+    ],
+    "ingredients_found": "Cocoa Liquor*, Sugar, Cocoa Butter*, Soy Lecithin, Vanilla. (*Fair Trade)",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Soy Lecithin (L3 industrial emulsifier).",
+    "justification": "Soy lecithin is an L3 surfactant/emulsifier that strips the intestinal mucin layer and compromises tight-junction integrity (P1), triggering the mandatory pre-filter disqualification regardless of otherwise-low sugar.",
+    "confidence": "high",
+    "notes": "Some batches may use sunflower lecithin; either is an L3 emulsifier."
+  },
+  {
+    "id": 315,
+    "name": "H-E-B 85% Cacao Dark Chocolate Bar",
+    "verified": true,
+    "sources": [
+      "https://foodisgood.com/product/heb-select-ingredients-85-cacao-dark-chocolate-bar/",
+      "https://www.heb.com/product-detail/h-e-b-85-cacao-dark-chocolate-bars/2158270",
+      "https://world.openfoodfacts.org/product/0041220349852/cacao-85-dark-chocolate-bar-heb"
+    ],
+    "ingredients_found": "Chocolate Liquor, Sugar, Cocoa Butter, Soy Lecithin (Emulsifier), Natural Vanilla Flavor.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Soy Lecithin (L3 industrial emulsifier).",
+    "justification": "Soy lecithin is an L3 emulsifier that acts as a detergent on the mucosal shield and tight junctions (P1), forcing an automatic pre-filter disqualification despite the clean cocoa base and low cost.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 316,
+    "name": "Lily's Extremely Dark Chocolate Bar (85% Cocoa)",
+    "verified": true,
+    "sources": [
+      "https://www.lilys.com/products/lilys-extremely-dark-chocolate-style-bar-2-8-oz.html",
+      "https://www.wholefoodsmarket.com/grocery/product/lilys-extremely-dark-chocolate-bar-28-oz-b07fk3vnfm"
+    ],
+    "ingredients_found": "Unsweetened Chocolate, Erythritol, Cocoa Butter, Chicory Root Fiber, Stevia Extract, Vanilla Extract.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Erythritol (polyol) + Chicory Root Fiber (engineered/inulin fiber filler) + Stevia blended with both.",
+    "justification": "Sweetener Matrix TRASH: the polyol erythritol and inulin/chicory-root fiber are undigested fermentable carbohydrates that reach the colon and produce excess gas and osmotic bloat (P1/P5), and blended stevia is disqualified. Classic keto marketing trap.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 317,
+    "name": "Cadbury Royal Dark Semi-Sweet Dark Chocolate Bar",
+    "verified": true,
+    "sources": [
+      "https://www.kroger.com/p/cadbury-royal-dark-dark-chocolate-candy-bar/0003400004033",
+      "https://www.walmart.com/ip/Cadbury-Royal-Dark-Dark-Chocolate-Candy-Bar-3-5-oz/22176424"
+    ],
+    "ingredients_found": "Semi-Sweet Chocolate (Sugar, Chocolate, Cocoa Butter, Milk Fat, Natural & Artificial Flavor, Lecithin (Soy), PGPR).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains PGPR (polyglycerol polyricinoleate) and Soy Lecithin — two L3 industrial emulsifiers — plus artificial flavor.",
+    "justification": "PGPR and soy lecithin are L3 emulsifiers that strip the mucin layer and disrupt tight junctions (P1); PGPR is used to cut cocoa butter, and combined with artificial flavor this is an ultra-processed disqualifier.",
+    "confidence": "high",
+    "notes": ""
+  }
+]

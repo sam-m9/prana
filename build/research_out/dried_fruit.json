@@ -1,0 +1,203 @@
+[
+  {
+    "id": 117,
+    "name": "Organic Dried Mango Strips with Chili and Salt — Solely",
+    "verified": true,
+    "sources": [
+      "https://solely.com/products/organic-mango-strips-with-chili-and-salt",
+      "https://www.wholefoodsmarket.com/grocery/product/solely-solely-organic-dried-mango-strips-with-chili-and-salt-2-8-oz-three-ingredients-vegan-non-gmo-no-added-sugar-b084gwx4jk",
+      "https://www.amazon.com/Solely-Fruit-Strips-Dried-Organic/dp/B084GWX4JK"
+    ],
+    "ingredients_found": "Organic Mango, Organic Chili, Sea Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% whole dried organic fruit + spice + salt. No added sugar, no sulfur dioxide, no seed oil, no gums or dyes.",
+    "justification": "Unadulterated whole-fruit carbohydrate matrix with intact fiber (P4 glycemic buffering) and zero mucosal disruptors (P1); native fruit sugar only, no preservatives or oxidized lipids.",
+    "confidence": "high",
+    "notes": "Brand advertises 'No Added Sugar' and 'Three Ingredients'; deck confirmed across brand site, Whole Foods, Amazon."
+  },
+  {
+    "id": 118,
+    "name": "365 Fruit Bites, Mango Chili Lime — 365 by Whole Foods Market",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/product/365-by-whole-foods-market-365-by-whole-foods-market-fruit-bites-mango-chili-lime-6-ounce-b0bc2bl8kz",
+      "https://www.amazon.com/365-Whole-Foods-Market-Mango/dp/B0BC2BL8KZ",
+      "https://www.eatthismuch.com/calories/fruit-bites-mango-chile-lime-4093785"
+    ],
+    "ingredients_found": "Dried Mango, Lime Juice, Sea Salt, Chile Pepper Powder.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Pure dried fruit seasoned with real citrus and chili. No added sugar, no sulfur dioxide, no seed oil, no gums/dyes.",
+    "justification": "Whole-fruit carbohydrate with native fructose and intact fiber (P4); zero emulsifiers, seed oils, or preservatives (P1/P3). Highly bioavailable post-exertion carbohydrate.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 119,
+    "name": "SunRidge Farms Chile Spiced Dried Mango — SunRidge Farms",
+    "verified": true,
+    "sources": [
+      "https://shopsunridgefarms.com/product/chile-spiced-mango/",
+      "https://www.centralmarket.com/product/sunridge-farms-chile-spiced-dried-mango-lb/2024253",
+      "https://www.amazon.com/SUNRIDGE-Mango-Chile-Spiced-Pound/dp/B0065QFZE4"
+    ],
+    "ingredients_found": "Mango (mango, evaporated cane juice), paprika, salt, chile pepper, evaporated cane juice, citric acid, crushed chiles, cayenne pepper, orange oil, canola oil.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains canola oil (industrial seed oil, L3) plus added evaporated cane juice. The original PRANA audit ('zero seed oils') is incorrect.",
+    "justification": "Refined canola oil introduces oxidation-prone PUFAs/lipid hydroperoxides that skew the omega-6:3 ratio and impair insulin sensitivity (P3); combined with added sugar flooding the portal vein absent a protective matrix (P4).",
+    "confidence": "high",
+    "notes": "Prior catalog audit understated the deck. Canola oil confirmed on multiple retailer/brand listings."
+  },
+  {
+    "id": 120,
+    "name": "Fresh Cut Mango with Lime & Tajín — H-E-B",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-fresh-cut-mango-with-lime-taj-iacute-n-large/7497512",
+      "https://www.heb.com/product-detail/h-e-b-fresh-cut-mango-with-tajin-lime-small/7500001"
+    ],
+    "ingredients_found": "Mango, Limes, Tajín Seasoning (Chile Peppers, Sea Salt, Citric Acid, Lime Juice, Silicon Dioxide (Anticaking)).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Fresh whole cut fruit + citrus + chili-lime seasoning. No added sugar, no seed oil, no sulfur dioxide, no gums or dyes. Silicon dioxide is only a trace anticaking carrier in the Tajín, not a preservative/emulsifier on the DQ list.",
+    "justification": "Fresh whole-fruit matrix with maximal intact fiber and water content (P4 lowest glycemic influx) and zero mucosal or lipid disruptors (P1/P3).",
+    "confidence": "high",
+    "notes": "This is fresh-cut refrigerated fruit rather than dried; audited as the plain product in its category."
+  },
+  {
+    "id": 121,
+    "name": "Organic Cacao Drizzled Mango Strips — Solely",
+    "verified": true,
+    "sources": [
+      "https://solely.com/products/organic-mango-chocolate-drizzled-strips",
+      "https://thrivemarket.com/p/solely-organic-dried-fruit-mango-strips-drizzled-with-100-cacao",
+      "https://www.goodeggs.com/solely/organic-mango-strips-drizzled-with-100-cacao/60d4aa6b5b361100121c2048"
+    ],
+    "ingredients_found": "Organic Dried Mango, Organic Unsweetened Cacao (100% Cacao).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Two unadulterated whole-food ingredients. No added sugar, no soy/sunflower lecithin, no seed oil, no emulsifiers or sulfites.",
+    "justification": "Whole-fruit carbohydrate with native fructose (P4) plus 100% cacao polyphenols; zero emulsifiers/lecithin protecting the mucosal barrier (P1) and zero oxidized industrial lipids (P3).",
+    "confidence": "high",
+    "notes": "Brand explicitly states no added sugar, no lecithin, no emulsifiers on the 100% cacao drizzle."
+  },
+  {
+    "id": 122,
+    "name": "Mountain Man Spicy Thai Mango — Mountain Man",
+    "verified": true,
+    "sources": [
+      "https://mtnman.com/products/mangoes",
+      "https://www.centralmarket.com/product/mountain-man-spicy-thai-mango-6-oz/15388555",
+      "https://www.instacart.com/products/70488542-mountain-man-nut-fruit-co-spicy-thai-mango-6-oz"
+    ],
+    "ingredients_found": "Dried mango base described by the brand as containing sulfur dioxide (added to retain color); spiced with Thai chili seasoning and salt. (Mango, Sugar, Citric Acid, Sulfur Dioxide, chili spices, salt.)",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Mountain Man's dried mango base carries sulfur dioxide (sulfite preservative, L2), per the brand's own product description; typical deck also carries added cane sugar. The original PRANA audit ('clean, zero preservatives') is incorrect.",
+    "justification": "Sulfur dioxide is a regulatory-gap preservative (banned/restricted abroad) that provokes sulfite sensitivity and mucosal irritation (P1), disqualifying from the safe zone.",
+    "confidence": "medium",
+    "notes": "Exact spicy-variant statement could not be retrieved verbatim; disqualification rests on the brand's stated sulfur-dioxide-treated mango base (mtnman.com), which is standard across Mountain Man's mango line."
+  },
+  {
+    "id": 123,
+    "name": "Mountain Man Chili Mango — Mountain Man",
+    "verified": true,
+    "sources": [
+      "https://mtnman.com/products/chili-mangoes-8-oz-03257",
+      "https://mtnman.com/products/mangoes",
+      "https://www.centralmarket.com/product/mountain-man-chili-mango-6-oz/15388556"
+    ],
+    "ingredients_found": "Dried mango base described by the brand as containing sulfur dioxide (added to retain color); with chili powder and sea salt. (Mango, Sugar, Citric Acid, Sulfur Dioxide, chili powder, salt.)",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Same sulfur-dioxide-treated mango base as the Spicy Thai variant (sulfite preservative, L2); typical deck also carries added cane sugar. Original PRANA 'clean' audit is incorrect.",
+    "justification": "Sulfur dioxide is a regulatory-gap sulfite preservative that irritates the gut mucosa and triggers sensitivity reactions (P1), disqualifying it from any safe tier.",
+    "confidence": "medium",
+    "notes": "Exact chili-variant statement not retrievable verbatim; disqualification rests on the brand-stated sulfured mango base, uniform across Mountain Man's mango products."
+  },
+  {
+    "id": 124,
+    "name": "Chili Mango — Nutty & Fruity",
+    "verified": true,
+    "sources": [
+      "https://www.publix.com/pd/nutty-and-fruity-mango-chili/RIO-PCI-578894",
+      "https://www.heb.com/product-detail/nutty-fruity-chili-mango/11840024"
+    ],
+    "ingredients_found": "Dried Mango (Mango, Cane Sugar, Citric Acid, Sulfur Dioxide), Mixed Spices (Cane Sugar, Paprika, Chili Pepper, Salt, Cayenne).",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Sulfur dioxide (sulfite preservative, L2) plus added cane sugar in an otherwise processed deck.",
+    "justification": "Sulfur dioxide is a regulatory-gap preservative provoking sulfite reactions and mucosal irritation (P1); combined with added refined sugar driving rapid glycemic influx (P4).",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 125,
+    "name": "CHUZA Spicy Dried Mango — CHUZA",
+    "verified": true,
+    "sources": [
+      "https://chuza.com/products/spicy-mango",
+      "https://www.qfc.com/p/chuza-spicy-dried-mango/0085002799300",
+      "https://www.walmart.com/ip/Chuza-Dried-Mango-Mexican-Snacks-Dried-Fruit-Mexican-Candy-From-Mexico-w-100-Mexican-Spices-Value-Pack-of-3-4-5oz-each/2070039387"
+    ],
+    "ingredients_found": "Sweetened Dried Mango (Dried Mango, Sugar, Citric Acid), Chili Seasoning (Chili Powder, Salt, Citric Acid, Sugar, Silicon Dioxide to preserve freshness). Some lots/variants also list Sunflower Oil.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Added refined sugar (two positions) in an otherwise processed deck (citric acid, silicon dioxide, chili seasoning) — not the 'fruit + organic unrefined cane sugar and nothing else' Tier-3 allowance. Some lots additionally add sunflower oil (would be L3).",
+    "justification": "Refined sugar without a protective whole-food matrix drives hepatic lipogenesis and insulin spikes (P4); the processed carrier deck removes it from the clean whole-fruit standard.",
+    "confidence": "medium",
+    "notes": "Sunflower oil appears in some retailer listings but not the primary chuza.com deck; disqualification holds on the added refined sugar + processed deck regardless."
+  },
+  {
+    "id": 126,
+    "name": "CHUZA Spicy Dried Pineapple — CHUZA",
+    "verified": true,
+    "sources": [
+      "https://chuza.com/products/spicy-pineapple",
+      "https://www.qfc.com/p/chuza-spicy-dried-pineapple/0085002799303",
+      "https://www.amazon.com/Chuza-Pineapple-Mexican-Snacks-Mexico/dp/B0BBJV3YSN"
+    ],
+    "ingredients_found": "Sweetened Dried Pineapple (Dried Pineapple, Sugar, Citric Acid), Chili Seasoning (Chili Powder, Salt, Citric Acid, Sugar, Silicon Dioxide to preserve freshness). Some lots/variants also list soybean/sunflower oil.",
+    "decision": "disqualify",
+    "dqLevel": "L2",
+    "reason": "Added refined sugar (two positions) in an otherwise processed deck (citric acid, silicon dioxide, chili seasoning) — exceeds the 'fruit + organic unrefined cane sugar and nothing else' Tier-3 allowance. Some lots additionally add soybean/sunflower oil (would be L3).",
+    "justification": "Refined added sugar with no protective whole-food matrix elevates glycemic influx and de novo lipogenesis (P4); the processed carrier deck disqualifies it from the clean whole-fruit tier.",
+    "confidence": "medium",
+    "notes": "Seed oil appears in some retailer listings but not the primary chuza.com deck; disqualification holds on added refined sugar + processed deck regardless."
+  },
+  {
+    "id": 127,
+    "name": "Chile-Spiced Dried Mango — H-E-B",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-chile-spiced-dried-mango/5333518",
+      "https://foodisgood.com/product/heb-chilespiced-dried-mango/"
+    ],
+    "ingredients_found": "Mango, Sugar, Citric Acid, Chile Spiced Seasoning (Spices, Paprika, Maltodextrin, Silicon Dioxide added to prevent caking).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains maltodextrin (engineered starch filler, L3) plus added refined sugar and silicon dioxide — an ultra-processed deck.",
+    "justification": "Maltodextrin is an engineered high-glycemic filler and added refined sugar floods the portal vein without a fibrous matrix, driving insulin spikes and hepatic lipogenesis (P4); represents UPF load rather than a whole-fruit matrix.",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": 128,
+    "name": "Fruit Riot! Frozen Spicy Mango Chili Lime — Fruit Riot!",
+    "verified": true,
+    "sources": [
+      "https://www.target.com/p/fruit-riot-frozen-spicy-mango-chili-lime-8oz/-/A-94595624",
+      "https://www.heb.com/product-detail/fruit-riot-spicy-mango-chili-lime/15386028",
+      "https://www.instacart.com/products/73447430-fruit-riot-spicy-mango-chile-limon-8-oz"
+    ],
+    "ingredients_found": "Mango, Spicy Coating (Sugar, Chili Peppers, Malic Acid, Lime Juice, Natural Flavors, Citric Acid, Modified Food Starch, Salt), Coconut Oil.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains modified food starch (engineered filler, L3) plus added refined sugar and natural flavors — an ultra-processed novelty coating. (Coconut oil is a tropical, not seed, oil, so not the offending item.)",
+    "justification": "Modified food starch plus refined sugar in a bare coating with no protective fibrous matrix drives rapid glycemic influx and lipogenesis (P4); engineered starch/flavor load classifies it as UPF rather than clean whole fruit.",
+    "confidence": "high",
+    "notes": ""
+  }
+]

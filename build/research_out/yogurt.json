@@ -1,0 +1,206 @@
+[
+  {
+    "id": 1,
+    "name": "Alexandre Family Farm A2 Organic 100% Grass-Fed Whole Milk Yogurt (Plain)",
+    "verified": true,
+    "sources": [
+      "https://alexandrefamilyfarm.com/products/a2-a2-organic-100-grass-fed-yogurt",
+      "https://www.goodeggs.com/alexandrekids/organic-grass-fed-a2-a2-cream-on-top-yogurt/60ddf3cf368edd0012971b6c",
+      "https://www.amazon.com/ALEXANDRE-FAMILY-FARMS-Organic-Yogurt/dp/B0BDGNCC49"
+    ],
+    "ingredients_found": "Organic Milk, Organic Cream, Live & Active Cultures (S. Thermophilus, L. Bulgaricus, L. Lactis, L. Acidophilus, Bifidobacterium Lactis). 100% grass-fed, A2/A2 beta-casein, cream-top (non-homogenized), whole milk (~6% butterfat).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "100% A2/A2 grass-fed whole-milk yogurt; clean 3-ingredient deck (milk, cream, cultures), zero added sugar, zero gums/thickeners, zero seed oils.",
+    "justification": "A2-only beta-casein avoids the BCM-7 peptide of A1 milk (Principle 2 native protein/peptide recognition), and the unadulterated non-homogenized whole-food fat matrix preserves mucosal integrity (Principle 1) with no glycemic load (Principle 4).",
+    "confidence": "high",
+    "notes": "Brand explicitly markets verified A2/A2 genetics. Plain variant audited. Direct page fetch blocked (403 anti-bot); deck corroborated across brand site, Good Eggs and Amazon via search."
+  },
+  {
+    "id": 2,
+    "name": "Straus Family Creamery Organic Whole Milk Plain Greek Yogurt",
+    "verified": true,
+    "sources": [
+      "https://www.strausfamilycreamery.com/products/greek-yogurt/organic-whole-plain-greek-yogurt/",
+      "https://www.wholefoodsmarket.com/product/straus-family-creamery-organic-plain-whole-milk-greek-yogurt-32-oz-b00naj0jk4",
+      "https://us.amazon.com/Straus-Family-Creamery-Yogurt-Organic/dp/B00NAJ0JK4"
+    ],
+    "ingredients_found": "Pasteurized Organic Whole Milk, Organic Sweet Cream (Buttermilk), Living Yogurt Cultures: L. Acidophilus, L. Bulgaricus, S. Thermophilus, Bifidobacterium Lactis. No gums, thickeners, stabilizers, pectin, or added sugar.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean organic whole-milk Greek yogurt, traditionally cultured/strained with no synthetic thickeners or pectin; zero added sugar. Conventional (non-A2) cow genetics keeps it out of Tier 1.",
+    "justification": "100% safe whole-milk dairy matrix with no emulsifiers (Principle 1) or added sugar (Principle 4); lacks the A2/sheep/goat pre-digestion optimization that defines Tier 1.",
+    "confidence": "high",
+    "notes": "Direct brand/WF page fetch blocked (403); deck confirmed via search across brand site, Whole Foods, Amazon. Plain whole-milk Greek variant audited."
+  },
+  {
+    "id": 3,
+    "name": "Bellwether Farms Plain Sheep Milk Yogurt",
+    "verified": true,
+    "sources": [
+      "https://bellwetherfarms.com/product/plain-sheep-milk-yogurt/",
+      "https://www.heb.com/product-detail/bellwether-farms-plain-sheep-milk-yogurt/1484670",
+      "https://www.amazon.com/BELLWETHER-FARMS-Plain-Sheep-Yogurt/dp/B08NGC4NM5"
+    ],
+    "ingredients_found": "Pasteurized Sheep Milk, Live Active Cultures: S. Thermophilus, L. Bulgaricus, L. Acidophilus & Bifidus.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Sheep milk yogurt (naturally A2-type casein), clean 2-component deck (sheep milk + cultures), zero added sugar, zero gums/stabilizers/seed oils.",
+    "justification": "Sheep-milk casein is a native, well-tolerated A2-type protein matrix (Principle 2) with high mineral/protein density and no mucosal disruptors (Principle 1) or added sugar (Principle 4).",
+    "confidence": "high",
+    "notes": "Plain variant audited. Direct fetch blocked (403); deck corroborated across brand site, H-E-B and Amazon via search."
+  },
+  {
+    "id": 4,
+    "name": "Fage Total 5% Plain Greek Yogurt",
+    "verified": true,
+    "sources": [
+      "https://usa.fage/products/yogurt/fage-total-5",
+      "https://www.heb.com/product-detail/fage-total-5-plain-greek-yogurt/796109",
+      "https://foodisgood.com/product/fage-total-5-milkfat-plain-greek-yogurt/"
+    ],
+    "ingredients_found": "Grade A Pasteurized Skimmed Milk and Cream, Live Active Yogurt Cultures (L. Bulgaricus, S. Thermophilus, L. Acidophilus, Bifidus, L. Casei). Additive- and preservative-free.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Authentically strained conventional Greek yogurt; milk + cream + cultures only, zero added sugar, zero thickeners/protein concentrates/seed oils. The brief's canonical clean Tier 2 example.",
+    "justification": "Naturally strained, macro-dense protein tool with a fully safe deck (no gums/Principle 1, no added sugar/Principle 4); conventional cow milk keeps it below the A2/sheep/goat Tier 1 threshold.",
+    "confidence": "high",
+    "notes": "Plain 5% variant audited. Direct fetch blocked (403); deck confirmed via search across FAGE USA, H-E-B, foodisgood."
+  },
+  {
+    "id": 5,
+    "name": "White Mountain Organic Plain Whole Milk Bulgarian Yogurt",
+    "verified": true,
+    "sources": [
+      "https://wmyogurt.com/",
+      "https://www.wholefoodsmarket.com/grocery/product/white-mountain-organic-plain-whole-milk-bulgarian-yogurt-32-fz-b015hvymau",
+      "https://www.amazon.com/White-Mountain-Organic-Bulgarian-Yogurt/dp/B015HVYMAU"
+    ],
+    "ingredients_found": "Organic Grade A Pasteurized Whole Milk, Live Cultures (L. Acidophilus, L. Bulgaricus, S. Thermophilus, B. Bifidum). No artificial thickeners, sweeteners, or hormones.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean organic whole-milk Bulgarian yogurt, 24-hour fermented, 2-component deck (milk + cultures), zero added sugar, zero gums/stabilizers/seed oils. Conventional cow genetics, unstrained.",
+    "justification": "Long 24-hour fermentation pre-digests lactose (Principle 5) and the deck carries no emulsifiers (Principle 1) or sugar (Principle 4); conventional (non-A2) whole cow milk places it in Tier 2 rather than the A2/sheep/goat/skyr Tier 1 set.",
+    "confidence": "high",
+    "notes": "Plain variant audited. Direct fetch blocked (403); deck corroborated via search across brand site, Whole Foods, Amazon."
+  },
+  {
+    "id": 6,
+    "name": "H-E-B Organics 18g Protein Nonfat Plain Greek Yogurt",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-organics-18g-protein-nonfat-greek-yogurt-plain/2078531",
+      "https://foodisgood.com/product/heb-organics-nonfat-plain-greek-yogurt/",
+      "https://www.centralmarket.com/product/h-e-b-organics-non-fat-plain-greek-yogurt-53-oz/2078546"
+    ],
+    "ingredients_found": "Cultured Pasteurized Grade A Organic Nonfat Milk, Live & Active Cultures (L. Acidophilus, Bifidus, L. Casei). No milk protein concentrate, no starch, no gums, no added sugar.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean strained organic nonfat Greek yogurt; single dairy ingredient plus cultures, high protein achieved by straining (not fortification), zero gums/starch/sugar/seed oils.",
+    "justification": "Fully safe organic protein staple with no emulsifiers (Principle 1) or added sugar (Principle 4); the 18g protein comes from concentration of native milk protein, not an engineered isolate, so it is a clean Tier 2 macro tool.",
+    "confidence": "high",
+    "notes": "Original catalog flag 'tool' overstated: verified deck shows NO protein concentrate/starch/gums, so it is a clean strained yogurt, not an engineered isolate. Direct fetch blocked (403); deck corroborated via H-E-B, foodisgood, Central Market listings for the same H-E-B Organics nonfat plain Greek line."
+  },
+  {
+    "id": 7,
+    "name": "365 by Whole Foods Market Organic Plain Nonfat Greek Yogurt",
+    "verified": true,
+    "sources": [
+      "https://www.wholefoodsmarket.com/product/365-by-whole-foods-market-365-everyday-value-organic-greek-nonfat-yogurt-plain-32-oz-b07myd18hm",
+      "https://foodisgood.com/product/365-by-whole-foods-market-organic-greek-nonfat-plain-yogurt/",
+      "https://www.amazon.com/365-Everyday-Value-Organic-Nonfat/dp/B07MYD18HM"
+    ],
+    "ingredients_found": "Cultured Pasteurized Organic Nonfat Milk, Live and Active Cultures (S. Thermophilus, L. Bulgaricus, L. Acidophilus, Bifidus, L. Paracasei). No added sugar, artificial flavors, or preservatives.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean strained organic nonfat Greek yogurt; organic nonfat milk + cultures only, zero added sugar, zero gums/thickeners/seed oils.",
+    "justification": "Fully safe organic protein staple, no mucosal disruptors (Principle 1) and no glycemic load (Principle 4); conventional strained cow-milk product = Tier 2.",
+    "confidence": "high",
+    "notes": "Plain nonfat variant audited. Direct fetch blocked (403); deck corroborated via Whole Foods, foodisgood, Amazon."
+  },
+  {
+    "id": 8,
+    "name": "Chobani Plain Nonfat Greek Yogurt",
+    "verified": true,
+    "sources": [
+      "https://www.chobani.com/products/yogurt/greek/nonfat-plain-large-size-tub",
+      "https://www.amazon.com/Chobani-Non-fat-Greek-Yogurt-Plain/dp/B008U5OSTQ",
+      "https://www.wegmans.com/shop/product/435233-Yogurt-Non-Fat-Greek-Plain"
+    ],
+    "ingredients_found": "Cultured Nonfat Milk, 6 Live and Active Cultures: S. Thermophilus, L. Bulgaricus, L. Acidophilus, Bifidus, L. Casei, L. Rhamnosus.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean triple-strained conventional nonfat Greek yogurt; cultured nonfat milk + cultures only, zero added sugar, zero gums or milk protein concentrate, zero seed oils.",
+    "justification": "Fully safe conventional protein staple with no emulsifiers (Principle 1) or added sugar (Principle 4); non-organic conventional cow milk = Tier 2.",
+    "confidence": "high",
+    "notes": "Plain nonfat variant audited. Direct fetch blocked (403); deck corroborated via Chobani, Amazon, Wegmans."
+  },
+  {
+    "id": 9,
+    "name": "Central Market 15g Protein Icelandic Style Skyr Nonfat Yogurt",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/central-market-17g-protein-icelandic-style-skyr-nonfat-yogurt-plain-53-oz/11984012",
+      "https://www.heb.com/product-detail/central-market-17g-protein-icelandic-style-skyr-nonfat-yogurt-plain/11984012",
+      "https://www.centralmarket.com/product/central-market-15g-protein-icelandic-style-skyr-nonfat-yogurt-vanilla-bean-53-oz/11982516"
+    ],
+    "ingredients_found": "PLAIN skyr deck: Grade A Nonfat Milk, Live & Active Cultures (B. species, L. Acidophilus, L. Bulgaricus, L. Paracasei, S. Thermophilus). No added sugar, no gums, no starch.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Traditionally-concentrated Icelandic skyr with a clean deck (nonfat milk + cultures), zero added sugar, zero gums/stabilizers. Meets the brief's Tier 1 'traditionally-strained skyr, clean deck, zero added sugar'.",
+    "justification": "Skyr's heavy straining yields a dense native-protein matrix that is enzymatically well-tolerated (Principles 2 & 5) with no emulsifiers (Principle 1) and no sugar (Principle 4).",
+    "confidence": "medium",
+    "notes": "SKU DISCREPANCY: Central Market's PLAIN 5.3oz skyr is branded 17g protein (clean deck, verified). The '15g Protein' 5.3oz cups in this line are all FLAVORED/SWEETENED variants (Vanilla Bean, Spiced Peach, Strawberry Rhubarb) containing sugar/cassava starch/pectin. No genuine '15g plain' SKU appears to exist. Audited the plain skyr per the brief (name specifies no flavor). VERIFY IN-STORE: if the stocked item is actually a 15g flavored cup, it is DISQUALIFIED (added sugar, L2)."
+  },
+  {
+    "id": 10,
+    "name": "H-E-B Organics Whole Milk Yogurt (Plain)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/h-e-b-organics-whole-milk-yogurt-plain/2088234",
+      "https://foodisgood.com/product/heb-organics-whole-milk-plain-yogurt/",
+      "https://www.instacart.com/products/16822759-h-e-b-organic-whole-milk-plain-yogurt-32-oz"
+    ],
+    "ingredients_found": "Cultured Pasteurized Grade A Organic Milk, Organic Corn Starch, Pectin, Vitamin D3.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Pectin (used as a thickener/stabilizer) and Organic Corn Starch (engineered thickener) - both explicitly disqualifying gums/stabilizers under the yogurt rule.",
+    "justification": "Added hydrocolloid thickeners (pectin) and starch act as texturizers/stabilizers that stress the mucosal shield and tight junctions in bulking volumes (Principle 1), and the starch adds a bare, matrix-free carbohydrate load.",
+    "confidence": "high",
+    "notes": "Zero added sugar and zero seed oils, but the pectin + corn starch thickeners are hard disqualifiers. Deck corroborated via H-E-B, foodisgood, Instacart (direct fetch blocked 403). Note: current catalog flag was 'seed' - actual disqualifier is L3 gums/thickeners, not seed oil."
+  },
+  {
+    "id": 11,
+    "name": "Oikos Triple Zero Vanilla High Protein Nonfat Greek Yogurt",
+    "verified": true,
+    "sources": [
+      "https://www.amazon.com/Dannon-Company-Oikos-Triple-Vanilla/dp/B01J7GO9P4",
+      "https://www.fairwaymarket.com/product/oikos-triple-zero-vanilla-blended-greek-nonfat-yogurt-32-oz-id-00036632019448",
+      "https://www.amazon.com/Dannon-Oikos-Triple-Blended-Vanilla/dp/B00T4E0O36"
+    ],
+    "ingredients_found": "Cultured Grade A Nonfat Milk, Water, Natural Flavors, Contains Less Than 1% Of: Tapioca Starch, Stevia Leaf Extract, Lemon Juice Concentrate, Sea Salt, Vitamin D3, Yogurt Cultures (S. Thermophilus & L. Bulgaricus).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains Tapioca Starch used as a stabilizer/thickener (disqualifying stabilizer under the yogurt rule); also water-diluted with lemon juice concentrate. Sweetened with stevia leaf extract only (no erythritol).",
+    "justification": "The tapioca-starch texturizer is an added stabilizer replacing native fat structure, burdening mucosal integrity in surplus volumes (Principle 1), and the water dilution plus starch degrade the native strained-protein matrix (Principle 2).",
+    "confidence": "high",
+    "notes": "Vanilla flavor audited (name specifies flavor). IMPORTANT: original catalog audit was inaccurate - actual deck has NO whey protein concentrate and NO 'modified food starch'; it uses tapioca starch and stevia. Sweetener is pure stevia leaf extract (no erythritol/polyols), but the starch stabilizer + water dilution disqualify it from the clean-stevia Tier 2 allowance. Deck corroborated via Amazon/Fairway (direct fetch blocked 403)."
+  },
+  {
+    "id": 12,
+    "name": ":ratio 25g Protein Dairy Snack",
+    "verified": true,
+    "sources": [
+      "https://ratioyogurt.com/products/vanilla-protein-dairy-snack/",
+      "https://www.heb.com/product-detail/ratio-25g-protein-vanilla-dairy-snack/13014512",
+      "https://www.amazon.com/ratio-PROTEIN-Dairy-Snack-Vanilla/dp/B08L4YDD28"
+    ],
+    "ingredients_found": "Cultured Pasteurized Ultra-Filtered Nonfat Milk, Milkfat, Avocado and/or Sunflower Oil, Whey Protein Concentrate; Contains 2% or less of: Sucralose, Erythritol, Natural Flavor, Carrageenan, Active Cultures. (Formulation/oil blend varies by lot/flavor.)",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Multiple hard disqualifiers: Sucralose (synthetic sweetener), Erythritol (polyol), Carrageenan (gum, L3), and Sunflower Oil (industrial seed oil, L3).",
+    "justification": "A fully engineered ultra-processed product: carrageenan strips the mucin/tight-junction shield (Principle 1), sunflower-oil PUFAs introduce oxidized-lipid load (Principle 3), and sucralose/erythritol are non-nutritive sweeteners that disrupt the gut in bulking volumes.",
+    "confidence": "high",
+    "notes": "Flavor/oil blend varies (avocado and/or sunflower oil; some SKUs cited with gelatin), but ALL variants contain sucralose + carrageenan, so it disqualifies regardless of flavor. Original catalog flag 'seed' understated the multiple disqualifiers. Deck corroborated via brand site, H-E-B, Amazon (direct fetch blocked 403)."
+  }
+]

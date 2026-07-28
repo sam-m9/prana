@@ -1,0 +1,205 @@
+[
+  {
+    "id": 105,
+    "name": "Isigny Ste Mère Beurre D'Isigny Salted Butter AOP (8.8 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/isigny-ste-mere-beurre-disigny-salted-butter-aop-88-oz/1055655",
+      "https://www.murrayscheese.com/dp/isigny-ste-mere-salted-butter",
+      "https://www.isigny-ste-mere.com/en/products/our-butters/"
+    ],
+    "ingredients_found": "Pasteurized cow's milk cream, lactic starters (cultures), salt (2%).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Cultured AOP/PDO Normandy butter, ~82% butterfat; clean deck of cream + lactic cultures + salt only.",
+    "justification": "Lactic culturing enzymatically pre-digests native dairy peptides (P2/P5) and the stable, unadulterated saturated butterfat carries zero oxidized PUFAs or emulsifiers (P1/P3) — a gold-standard European pure-lipid base.",
+    "confidence": "high",
+    "notes": "PDO (AOP) Normandy; cultured/slow-churned. Confirms current 'clean' flag."
+  },
+  {
+    "id": 106,
+    "name": "Les Prés Salés Butter with Camargue Sea Salt (8.8 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.centralmarket.com/product/les-pres-sales-butter-with-camargue-sea-salt-88-oz/2139208",
+      "https://igourmet.com/products/butter-with-camargue-sea-salt",
+      "https://cheesedelicatessen.com/les-pres-sales-butter-with-camargue-sea-salt-8-8-oz/"
+    ],
+    "ingredients_found": "Cream, Camargue sea salt. Churned to 82% butterfat; coarse hand-raked Camargue salt crystals.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Traditional European (Belgian Ardennes) slow-churned artisanal butter, ~82% butterfat; deck is cream + sea salt only.",
+    "justification": "An unadulterated European-quality churned fat with no seed oils, gums, or added sugar — stable saturated lipid matrix minimizing hydroperoxide/emulsifier load on the gut lining (P1/P3).",
+    "confidence": "high",
+    "notes": "Only two ingredients (cream, sea salt); no culturing or grass-fed claim, but qualifies as European-style artisanal butter."
+  },
+  {
+    "id": 107,
+    "name": "Échiré Semi-Salted Butter (8.8 oz)",
+    "verified": true,
+    "sources": [
+      "https://curedandcultivated.com/products/echire-aop-salted-french-butter",
+      "https://www.gourmetfoodstore.com/echire-echire-butter-in-a-bar-salted-12818",
+      "https://www.secretsfinefood.com/salted-butter-82-aoc.html"
+    ],
+    "ingredients_found": "Pasteurized cream (cow's milk), lactic starters (cultures), salt (2% max).",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "AOP Charentes-Poitou barrel-churned cultured French butter; clean deck of cream + cultures + salt.",
+    "justification": "Cultured, long-matured butterfat provides enzymatic pre-digestion of dairy peptides (P2/P5) and a clean, stable lipid base free of oxidized seed oils or emulsifiers (P1/P3).",
+    "confidence": "high",
+    "notes": "AOP/AOC; cultured. Confirms current 'clean' flag."
+  },
+  {
+    "id": 108,
+    "name": "Rumiano Organic Grass-Fed European Style Unsalted Butter (8 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/rumiano-organic-grass-fed-european-style-unsalted-butter/14560011",
+      "https://world.openfoodfacts.org/product/0811355003376/organic-unsalted-grassfed-butter-rumiano",
+      "https://rumianocheese.com/products/organic-sweet-cream-butter"
+    ],
+    "ingredients_found": "Organic pasteurized cream. (Single ingredient; unsalted.)",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Organic, pasture-raised grass-fed cream, European-style ~84% butterfat; single clean ingredient.",
+    "justification": "Grass-fed organic butterfat offers a favorable fatty-acid/beta-carotene profile and a stable lipid membrane with zero disruptors (P3), the anabolic clean-fat ideal per the anti-pseudoscience matrix.",
+    "confidence": "high",
+    "notes": "Grass-fed + organic; single-ingredient cream. Confirms current 'clean' flag."
+  },
+  {
+    "id": 109,
+    "name": "Le Gall Salted French Premium Butter (250 g / 8.8 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.laiterie-legall.fr/en/french-gourmet-butter-salted/",
+      "https://butchershopdirect.com/products/le-gall-french-premium-butter-salted-8-82-oz",
+      "https://www.mrmarcel.com/products/le-gall-salted-butter-250g"
+    ],
+    "ingredients_found": "Cream (from pasteurized French milk), lactic starters/cultures (2%, contains milk), Guérande salt (2%). 82% butterfat.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Traditional Breton cultured (slow-matured) churned butter; deck is cream + cultures + salt.",
+    "justification": "Extended lactic culturing pre-digests casein peptides (P2/P5) and delivers a stable, unadulterated saturated lipid base with no seed oils/gums (P1/P3).",
+    "confidence": "high",
+    "notes": "Cultured Breton butter. Confirms current 'clean' flag."
+  },
+  {
+    "id": 110,
+    "name": "Truly Grass Fed Naturally Creamy Salted Butter (8 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.trulygrassfed.com/products/salted-butter/",
+      "https://www.heb.com/product-detail/truly-grass-fed-naturally-creamy-salted-butter/4773003",
+      "https://grasslandbeef.com/products/truly-grass-fed-salted-butter-8-oz"
+    ],
+    "ingredients_found": "Pasteurized Cream, Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "~95% grass-fed Irish pasture dairy; clean two-ingredient deck (cream + salt).",
+    "justification": "Grass-fed Irish butterfat is a stable, bioavailable clean lipid with zero seed oils, sugars, or emulsifiers (P3) — belongs in the gold-standard European tier, not merely a Tier-2 tool.",
+    "confidence": "high",
+    "notes": "Upgraded from current 'tool' flag to Tier 1 — grass-fed clean butter, no engineered isolate present."
+  },
+  {
+    "id": 111,
+    "name": "Kerrygold Grass-Fed Pure Irish Salted Butter (8 oz)",
+    "verified": true,
+    "sources": [
+      "https://kerrygold.com/products/kerrygold-pure-irish-salted-butter/",
+      "https://www.kerrygoldusa.com/products/salted-butter/",
+      "https://www.kroger.com/p/kerrygold-grass-fed-salted-pure-irish-butter/0076770700106"
+    ],
+    "ingredients_found": "Pasteurized Cream, Salt.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Grass-fed Irish milkfat (naturally beta-carotene rich); clean two-ingredient deck.",
+    "justification": "Named exemplar of Tier-1 grass-fed butter; stable saturated lipid base with zero L1/L2/L3 disruptors (P3), maximizing clean caloric density.",
+    "confidence": "high",
+    "notes": "Audit is for the plain salted foil block, not the softer/spreadable tub. Upgraded from current 'tool' flag to Tier 1."
+  },
+  {
+    "id": 112,
+    "name": "Vital Farms Grass Fed Unsalted Butter Sticks (8 oz / 2 ct)",
+    "verified": true,
+    "sources": [
+      "https://vitalfarms.com/butter/",
+      "https://www.heb.com/product-detail/vital-farms-grass-fed-unsalted-butter-sticks/1994572",
+      "https://www.kroger.com/p/vital-farms-grass-fed-unsalted-butter/0086174500008"
+    ],
+    "ingredients_found": "Pasteurized Cream (Milk) [with lactic acid/cultures per label]. Unsalted, pasture-raised.",
+    "decision": "tier1",
+    "dqLevel": null,
+    "reason": "Pasture-raised grass-fed cream, clean single/cultured deck; no seed oils, sugars, or gums.",
+    "justification": "Pasture-raised butterfat with lactic acid culturing gives a bioavailable, stable clean lipid (P2/P3) — a named Tier-1 exemplar in the brief.",
+    "confidence": "high",
+    "notes": "Retailer listings show 'Pasteurized Cream (Milk)'; the lactic acid/culture noted in current audit is a clean dairy culture. Upgraded from 'tool' flag to Tier 1."
+  },
+  {
+    "id": 113,
+    "name": "Central Market European Style Salted Butter Sticks (16 oz / 4 ct)",
+    "verified": true,
+    "sources": [
+      "https://www.heb.com/product-detail/central-market-european-style-salted-butter-sticks/569523",
+      "https://www.centralmarket.com/product/central-market-european-style-salted-butter-sticks-4-ct/569523",
+      "https://cooklist.com/product/central-market-european-style-salted-butter-1759162"
+    ],
+    "ingredients_found": "Pasteurized Cream, Salt. ~82% butterfat; no synthetic hormones/antibiotics/pesticides.",
+    "decision": "tier2",
+    "dqLevel": null,
+    "reason": "Clean conventional store-brand sweet-cream butter (cream + salt); higher 82% butterfat but no grass-fed or cultured claim.",
+    "justification": "100% safe conventional staple — zero seed oils, sugars, gums, or preservatives (P3) — a hyper-efficient clean caloric tool, but lacking the grass-fed/cultured optimization that defines Tier 1.",
+    "confidence": "high",
+    "notes": "'European style' here denotes higher butterfat, not culturing; placed as clean conventional Tier 2. Current 'tool' flag revised — no engineered isolate, so Tier 2 clean conventional."
+  },
+  {
+    "id": 114,
+    "name": "Land O Lakes Butter Spread with Canola Oil (15 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.landolakes.com/products/butter-spreads/butter-with-canola-oil/",
+      "https://www.amazon.com/Land-Lakes-Butter-Canola-Oil/dp/B004E2YZHE"
+    ],
+    "ingredients_found": "Pasteurized Sweet Cream, Canola Oil, Salt.",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Contains industrial refined canola oil.",
+    "justification": "Refined canola is a PUFA-rich seed oil carrying cytotoxic hydroperoxides/aldehydes that skew membrane omega-6:3 ratios (P3) — an automatic L3 disqualification for a savory staple.",
+    "confidence": "high",
+    "notes": "Butter-canola blend spread. Confirms current 'seed' flag."
+  },
+  {
+    "id": 115,
+    "name": "Country Crock Dairy Free Plant Butter Spread with Olive Oil (10.5 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.countrycrock.com/en-us/our-products/plant-butter-cream/olive-sticks",
+      "https://www.kroger.com/p/country-crock-plant-butter/0002740000024",
+      "https://www.amazon.com/Country-Crock-Plant-Butter-Sticks/dp/B08H9FTZMN"
+    ],
+    "ingredients_found": "Blend of plant-based oils (Soybean, Palm Kernel, Palm Fruit, Olive), Water, Salt, Pea/Faba protein, Soy Lecithin, Citric/Lactic Acid, Natural Flavor, Vitamin E acetate, Vitamin A palmitate, Beta Carotene (color). (Stick vs tub vary slightly.)",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Industrial soybean seed oil, palm kernel oil, soy lecithin emulsifier, added natural flavor.",
+    "justification": "A UPF margarine-style spread stacking a refined seed oil (P3), a soy lecithin emulsifier that strips the mucosal shield (P1), and added flavors — multiple L3 disqualifiers.",
+    "confidence": "high",
+    "notes": "Formulation varies by pack (some stick versions use canola + sunflower lecithin); all variants fail on seed oil + emulsifier. Confirms current 'seed' flag."
+  },
+  {
+    "id": 116,
+    "name": "Land O Lakes Garlic & Herb Butter Spread (6.5 oz)",
+    "verified": true,
+    "sources": [
+      "https://www.landolakes.com/products/butter-spreads/garlic-herb-butter-spread/",
+      "https://www.heb.com/product-detail/land-o-lakes-garlic-herb-butter-spread/15444028",
+      "https://www.kroger.com/p/land-o-lakes-garlic-herb-butter-spread/0003450015100"
+    ],
+    "ingredients_found": "Cream, Water, Canola Oil, Garlic Powder, Garlic, Salt (<2%), Cornstarch, Onion Powder, Guar Gum, Citric Acid, Parsley, Potassium Sorbate (preservative).",
+    "decision": "disqualify",
+    "dqLevel": "L3",
+    "reason": "Canola oil (seed oil), guar gum (emulsifier), plus potassium sorbate preservative (L2).",
+    "justification": "A UPF compound spread combining refined canola (P3, L3), a guar gum emulsifier stripping tight-junction mucosa (P1, L3), and the chemical preservative potassium sorbate (L2) — multiple stacked disqualifiers.",
+    "confidence": "high",
+    "notes": "Also carries cornstarch filler. Confirms current 'seed' flag."
+  }
+]
