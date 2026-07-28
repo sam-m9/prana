@@ -220,7 +220,7 @@ const STORE_SHORT = {heb:'H·E·B', wf:'WHOLE FOODS', other:'ONLINE'};
 /* ---------- persistence ---------- */
 const PKEY='prana.appdata.v1';
 const DEFAULT = {
-  screen:'home', stores:['heb','wf','other'], dailyProtein:0,
+  screen:'home', stores:['heb','wf','other'], dailyProtein:0, log:[],
   listIds:[], outStock:{}, overrides:{}, decisions:{}, history:[], qIndex:0,
   ingested:[], rankTier:'ALL', dbCats:[], dbSort:'gd', dbQuery:'',
   catExtra:[], prodEdits:{}, prodAdds:[], prodDeleted:[],
@@ -228,11 +228,28 @@ const DEFAULT = {
 };
 let S = load();
 function load(){
-  try{ const j=JSON.parse(localStorage.getItem(PKEY)); if(j&&j._p) return Object.assign({}, DEFAULT, j); }catch(e){}
-  // No demo/seed data: the app starts empty. Only the real 341-product catalog
-  // (from the uploaded category doc) exists; list/queue/log are all user-built.
-  return Object.assign({}, DEFAULT);
+  let s;
+  try{ const j=JSON.parse(localStorage.getItem(PKEY)); if(j&&j._p) s=Object.assign({}, DEFAULT, j); }catch(e){}
+  // No demo/seed data: the app starts empty. Only the real verified catalog exists;
+  // list/queue/log are all user-built.
+  if(!s) s=Object.assign({}, DEFAULT);
+  if(!Array.isArray(s.log)) s.log=[];
+  // one-time migration: fold a legacy single-number daily total into the itemised log
+  if(s.dailyProtein>0 && !s.log.some(e=>e.date===today())){
+    s.log.push({id:'seed'+Date.now(), name:'Earlier today', detail:'carried over', protein:Math.round(s.dailyProtein), date:today(), ts:Date.now()});
+  }
+  s.dailyProtein=0;   // superseded by the log; kept only so old backups still import
+  return s;
 }
+/* ---------- daily protein log ---------- */
+function today(){ return new Date().toISOString().slice(0,10); }
+function logToday(){ return S.log.filter(e=>e.date===today()); }
+function dayProtein(){ return logToday().reduce((s,e)=>s+(+e.protein||0),0); }
+function addLogEntry(name, protein, detail){
+  const p=Math.max(0,Math.round(+protein||0));
+  S.log.push({id:'l'+Date.now()+'_'+Math.floor(Math.random()*1e4), name:(name||'Item').toString().trim()||'Item', detail:detail||'', protein:p, date:today(), ts:Date.now()});
+}
+function delLogEntry(id){ S.log=S.log.filter(e=>e.id!==id); renderOverlay(); render(); }
 let saveT;
 function save(){ clearTimeout(saveT); saveT=setTimeout(()=>{ const o=Object.assign({_p:1,_savedAt:new Date().toISOString()},S); try{localStorage.setItem(PKEY,JSON.stringify(o));}catch(e){} },120); }
 
@@ -293,14 +310,16 @@ function storeScoped(){
   return products().filter(p=>act.has(p.store)).sort((a,b)=>b.gd-a.gd);
 }
 function proteinToGo(){
-  const d=S.dailyProtein, t=targetProtein();
+  const d=dayProtein(), t=targetProtein();
   if(d>=t) return d===t? `TARGET HIT · ${t}g` : `TARGET HIT · +${d-t}g OVER`;
   return `${t-d}g TO GO · TARGET ${t}g`;
 }
 function homeHTML(){
   const pending = S.ingested.filter(id=>!S.decisions[id]).length;
   const top = storeScoped().slice(0,3);
-  const pct = Math.min(100, Math.round(S.dailyProtein/targetProtein()*100));
+  const dp = dayProtein();
+  const nItems = logToday().length;
+  const pct = Math.min(100, Math.round(dp/targetProtein()*100));
   return `<div class="pad" style="padding-top:14px">
     <div class="wordmark">PRANA</div><div class="subword">CLEAN · EATING · INTELLIGENCE</div>
     <div style="display:flex;gap:10px;margin-top:22px;align-items:stretch">
@@ -310,15 +329,18 @@ function homeHTML(){
       <button class="mic" onclick="openVoice()" title="Log protein by voice" aria-label="Log protein by voice"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#cf9a4a" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3" fill="#cf9a4a" stroke="none"/><path d="M5 11a7 7 0 0 0 14 0"/><line x1="12" y1="18" x2="12" y2="21.2"/><line x1="8.4" y1="21.2" x2="15.6" y2="21.2"/></svg></button>
     </div>
 
-    <div class="card porcelain" style="margin-top:16px;padding:22px">
+    <button class="card porcelain" style="margin-top:16px;padding:22px;width:100%;text-align:left;display:block" onclick="openLog()">
       <div style="display:flex;justify-content:space-between;align-items:center">
         <div style="font-size:10px;letter-spacing:3px;color:#6b675c;font-weight:700">PROTEIN · TODAY</div>
-        <button onclick="openWeight()" style="font-size:10px;letter-spacing:2px;color:#6b675c;font-weight:700;display:flex;align-items:center;gap:5px">TARGET ${targetProtein()}g <span style="font-size:11px">✎</span></button>
+        <span onclick="event.stopPropagation();openWeight()" style="font-size:10px;letter-spacing:2px;color:#6b675c;font-weight:700;display:inline-flex;align-items:center;gap:5px;cursor:pointer">TARGET ${targetProtein()}g <span style="font-size:11px">✎</span></span>
       </div>
-      <div class="big-num" style="font-size:56px;margin-top:8px">${S.dailyProtein}<span style="font-size:24px">g</span></div>
+      <div class="big-num" style="font-size:56px;margin-top:8px">${dp}<span style="font-size:24px">g</span></div>
       <div class="bar" style="margin-top:14px;background:rgba(38,36,31,.16)"><i style="width:${pct}%;background:linear-gradient(90deg,var(--copper-d),var(--copper))"></i></div>
-      <div style="font-size:10.5px;letter-spacing:1.5px;color:#6b675c;margin-top:12px;font-weight:700">${proteinToGo()}</div>
-    </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+        <div style="font-size:10.5px;letter-spacing:1.5px;color:#6b675c;font-weight:700">${proteinToGo()}</div>
+        <div style="font-size:10px;letter-spacing:1px;color:var(--copper-d);font-weight:700">${nItems} ITEM${nItems===1?'':'S'} · TAP TO EDIT →</div>
+      </div>
+    </button>
 
     <button class="card slate" style="margin-top:14px;padding:18px;width:100%;text-align:left" onclick="go('queue')">
       <div style="display:flex;justify-content:space-between;align-items:center">
@@ -359,8 +381,12 @@ function homeHTML(){
       <button class="btn-ghost" onclick="exportData()">EXPORT BACKUP</button>
       <button class="btn-ghost" onclick="document.getElementById('importfile').click()">RESTORE</button>
     </div>
-    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v17</div>
+    <button class="row-item" style="margin-top:10px;justify-content:center;border-style:dashed" onclick="document.getElementById('catfile').click()">
+      <span style="letter-spacing:1px;font-size:10px;color:var(--copper-l);font-weight:700">⤒ UPLOAD A CATEGORY · CSV / EXCEL → CSV</span>
+    </button>
+    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v18</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
+    <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
   </div>`;
 }
@@ -385,7 +411,6 @@ function queueHTML(){
   if(done) return `<div class="pad" style="padding-top:20px"><div class="h-title">REVIEW QUEUE</div><div class="h-sub">${total} / ${total}</div>${emptyQueue()}</div>`;
   const top=q[S.qIndex];
   const behind=q.slice(S.qIndex+1,S.qIndex+3);
-  const t3 = top.effTier===3;
   return `<div class="pad" style="padding-top:16px">
     <div style="display:flex;justify-content:space-between;align-items:center">
       <button class="tag t2" style="${S.history.length?'':'opacity:.35'}" onclick="undoDecision()">↺ UNDO</button>
@@ -396,16 +421,16 @@ function queueHTML(){
     <div class="deck" id="deck">
       ${behind.reverse().map((p,i)=>{const d=behind.length-i;return `<div class="qcard ${surfClass(p.effTier)}" style="transform:scale(${1-d*.05}) translateY(${d*14}px);opacity:${1-d*.28};z-index:${i}">${qcardInner(p,true)}</div>`;}).join('')}
       <div class="qcard ${surfClass(top.effTier)}" id="topcard" style="z-index:10">
-        <div class="stamp ag" id="stampA">${t3?'CONFIRM':'AGREE'}</div>
+        <div class="stamp ag" id="stampA">AGREE</div>
         <div class="stamp di" id="stampD">DISMISS</div>
         ${qcardInner(top,false)}
       </div>
     </div>
-    <div class="note" style="margin-top:6px;letter-spacing:1px;color:var(--mute)">${t3?'AGREE = confirm this hard fail → your avoid-list.':'AGREE = confirm this rating. Saves to your verified database'+(top.effTier<3?' & shopping list.':'.')}</div>
+    <div class="note" style="margin-top:6px;letter-spacing:1px;color:var(--mute)">AGREE = confirm this rating. Saves to your verified database &amp; shopping list.</div>
     <div style="display:flex;gap:9px;margin-top:16px">
       <button class="qbtn dis" onclick="decide('discard')">◄ DISMISS</button>
       <button class="qbtn ins" onclick="openDrawer(${top.id})">INSPECT</button>
-      <button class="qbtn ag" onclick="decide('accept')">${t3?'CONFIRM ►':'AGREE ►'}</button>
+      <button class="qbtn ag" onclick="decide('accept')">AGREE ►</button>
     </div>
   </div>`;
 }
@@ -440,7 +465,7 @@ function emptyQueue(){
 }
 function decide(kind){
   const q=queueList(); const top=q[S.qIndex]; if(!top) return;
-  const willAdd = kind==='accept' && top.effTier<3 && !S.listIds.includes(top.id);
+  const willAdd = kind==='accept' && !S.listIds.includes(top.id);
   S.history.push({id:top.id, idx:S.qIndex, kind, added:willAdd});
   S.decisions[top.id]=kind;
   if(willAdd) S.listIds.push(top.id);
@@ -555,7 +580,10 @@ function commentary(p){
   }
   const m=MECH[p.flags[0]];
   const t=p.effTier;
-  return `${p.band[0]} value at ${p.gd.toFixed(1)}g/$, but Tier ${t}: ${m?m.summary:'flagged.'} ${t===3?'A functional tool at best — not a clean-surplus staple.':'Passes hard-safety; flagged for review.'}`;
+  const tail = t===2
+    ? 'Passes every hard filter — a clean, macro-dense Tier-2 tool, just without the Tier-1 pre-digestive edge.'
+    : 'Passes every hard filter — an acceptable safe fallback when a Tier-1/2 pick is not on the shelf.';
+  return `${p.band[0]} value at ${p.gd.toFixed(1)}g/$. Tier ${t}: ${m?m.summary:''} ${tail}`;
 }
 function setRankTier(k){ S.rankTier=k; flowSel=0; render(); }
 function selFlow(i){ flowSel=i; render(); }
@@ -732,6 +760,7 @@ function openScience(){ OV={kind:'science'}; renderOverlay(true); }
 function openIngest(){ OV={kind:'ingest',step:1,data:{q:'',cands:[],pick:null,scanned:false}}; renderOverlay(true); }
 function openVoice(){ OV={kind:'voice',step:1,data:{transcript:'',items:[],total:0}}; renderOverlay(true); /* mic stays OFF until the user taps it */ }
 function openWeight(){ OV={kind:'weight',data:{lb: S.weightLb||'', }}; renderOverlay(true); }
+function openLog(){ OV={kind:'log',data:{name:'',protein:''}}; renderOverlay(true); }
 function openAddFood(){ OV={kind:'edit',id:null,data:blankFood()}; renderOverlay(true); }
 function openEditFood(id){ const p=byId(id); OV={kind:'edit',id,data:Object.assign({},p)}; renderOverlay(true); }
 function closeOverlay(){ stopMic(); const bd=document.getElementById('overlays'); const s=bd.querySelector('.sheet'),b=bd.querySelector('.backdrop');
@@ -739,7 +768,7 @@ function closeOverlay(){ stopMic(); const bd=document.getElementById('overlays')
 function renderOverlay(animate){
   const box=document.getElementById('overlays');
   if(!OV.kind){ box.innerHTML=''; return; }
-  const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML,weight:weightHTML}[OV.kind])();
+  const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML,weight:weightHTML,log:logHTML,import:importHTML}[OV.kind])();
   box.innerHTML=`<div class="backdrop" onclick="closeOverlay()"></div><div class="sheet" onclick="event.stopPropagation()"><div class="grab"></div>${inner}</div>`;
   requestAnimationFrame(()=>{ box.querySelector('.backdrop').classList.add('show'); box.querySelector('.sheet').classList.add('show'); });
 }
@@ -752,41 +781,27 @@ function principlesAudit(p){
   const over=!!S.overrides[p.id];
   const flags=new Set(p.flags);
   const t=over?1:p.effTier;
-  // A flag only bites when not overridden. Its SEVERITY tracks the product's tier, so
-  // the audit never contradicts the badge: a triggered principle is a hard ✕ FAIL on a
-  // Tier-3 item, a ▲ FLAG on a Tier-2 item (e.g. sugar where it naturally belongs, or a
-  // mild additive the catalog still clears). Tier is set from the same five principles.
+  // Every product in the catalog has already CLEARED the strict pre-filter — anything
+  // carrying seed oils, synthetic emulsifiers/gums, dyes, trans fat or hidden savory
+  // sugar was disqualified and removed. So no principle here is ever a hard ✕ FAIL;
+  // the audit only distinguishes Tier-1 (all pass) from the Tier-2/3 trade-offs (▲ FLAG).
   const bite=f=> !over && flags.has(f);
-  const sev=on=> !on?'pass':(t===3?'fail':'flag');
   const A=[];
-  { const s=sev(bite('emul'));
-    A.push({t:'01 · MUCOSAL SHIELDING', s,
-      d: s==='fail'?'Contains synthetic emulsifiers / gums that act like detergents on the gut lining, stripping the mucin layer — a hard exclusion.'
-        : s==='flag'?'Carries a stabiliser / gum in a supporting role — flagged, though the catalog still clears it as a practical Tier-2 pick.'
-        :'No synthetic emulsifiers, gums, polysorbates or carrageenan — the intestinal barrier stays intact.'}); }
+  A.push({t:'01 · MUCOSAL SHIELDING', s:'pass',
+    d:'No synthetic emulsifiers, gums, polysorbates or carrageenan — the intestinal barrier stays intact. (Any item carrying them was filtered out of the catalog.)'});
   { const s= bite('tool')?'flag':'pass';       // engineered isolate caps at Tier 2 — a flag, never a hard fail
     A.push({t:'02 · PROTEIN NATIVE STATE', s,
-      d: s==='flag'?'Relies on chemically isolated / engineered protein rather than a whole-food matrix — digestible, but not native. Caps the item at Tier 2.'
+      d: s==='flag'?'A clean protein isolate / concentrate (no gums, no sweeteners, no fillers) rather than a whole-food matrix — safe and macro-dense, but extracted, not native. Caps the item at Tier 2.'
         :'Whole-food protein in its native (or fermented / A2 pre-digested) matrix — cleaved cleanly, no inflammatory peptide fragments.'}); }
-  { const s=sev(bite('seed')||bite('pho'));
-    A.push({t:'03 · LIPID STABILITY', s,
-      d: s==='fail'?'Contains industrial seed oils / hydrogenated fat — oxidised omega-6 and aldehydes embed in cell membranes and drive inflammation. A hard exclusion.'
-        : s==='flag'?'Uses a refined / blended oil in a supporting role — flagged, though the catalog still rates it a practical Tier-2 pick.'
-        :'No refined seed oils or trans fats — only oxidatively stable, structurally intact lipids.'}); }
-  { const s=sev(bite('sugar'));
+  A.push({t:'03 · LIPID STABILITY', s:'pass',
+    d:'No refined seed oils or trans fats — only oxidatively stable, structurally intact lipids (EVOO, avocado oil, grass-fed dairy fat, cocoa butter). (Seed-oil items were filtered out.)'});
+  { const s= bite('sugar')?'flag':'pass';
     A.push({t:'04 · GLYCEMIC INFLUX', s,
-      d: s==='fail'?'Added sugar in a savory / staple food floods the liver → de novo lipogenesis (visceral & liver fat). A hard exclusion.'
-        : s==='flag'?'Added sugar, but in an inherently sweet item where it is expected — not the savory-staple disqualifier, so it stays a Tier-2 tool.'
-        :'No hidden added sugar in a savory or staple item — no rapid hepatic fructose flood.'}); }
-  A.push({t:'05 · ENZYMATIC PRE-DIGESTION', s: t===1?'pass':(t===2?'flag':'idle'),
+      d: s==='flag'?'Carries added sweetener — but only in an inherently-sweet category (chocolate, dessert, jam, cookie) and cleared by the Sweetener Matrix: whole fruit, raw honey, pure maple, unrefined cane or allulose only — never synthetic sweeteners or polyols. Not the savory-staple disqualifier.'
+        :'No hidden added sugar in a savory or staple item — no rapid hepatic fructose flood. (Savory items with added sugar were filtered out.)'}); }
+  A.push({t:'05 · ENZYMATIC PRE-DIGESTION', s: t===1?'pass':'flag',
     d: t===1?'Biologically pre-digested — long fermentation, wild culturing or sprouting has attenuated FODMAPs and antinutrients before you eat it.'
-      : t===2?'Clean, but fast-tracked — skips the fermentation / sprouting that pre-digests FODMAPs and antinutrients (the Tier 1 edge).'
-      : 'Not assessed — the item already fails a hard filter above.'});
-  // Tier-3 with no specific principle tripped (e.g. synthetic dyes / polyols) → degraded base
-  if(t===3 && !bite('emul') && !bite('seed') && !bite('pho') && !bite('sugar')){
-    A.push({t:'△ · DEGRADED / ULTRA-PROCESSED BASE', s:'fail',
-      d:'Synthetic dyes, polyols or other ultra-processed markers place this on a compromised, degraded ingredient base.'});
-  }
+      : 'Clean and safe, but fast-tracked — skips the long-ferment / sprouting / A2 / raw-aged step that gives Tier 1 its pre-digestive edge. Still a fully buyable pick.'});
   return A;
 }
 function drawerHTML(){
@@ -812,6 +827,10 @@ function drawerHTML(){
     ${m?`<div class="ladder" style="border-color:rgba(207,154,74,.35)"><div class="kicker" style="color:var(--copper-l)">MECHANISM SUMMARY</div>
       <div style="font-size:12px;line-height:1.6;margin-top:8px;color:#d4d1db">${esc(m.mechanism)}</div>
       <div style="font-size:10px;color:var(--mute3);margin-top:8px">${esc(m.cite)}</div></div>`:''}
+    ${p.ingr?`<div class="ladder" style="border-color:rgba(147,179,154,.28)"><div class="kicker" style="color:var(--sage-l)">✓ VERIFIED INGREDIENT DECK</div>
+      <div style="font-size:11.5px;line-height:1.55;margin-top:8px;color:#cfccd7">${esc(p.ingr)}</div>
+      ${p.src&&p.src.length?`<div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">${p.src.map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener" style="font-size:10px;letter-spacing:.5px;color:var(--copper-l);text-decoration:none;border:1px solid var(--line2);border-radius:8px;padding:5px 9px">SOURCE ${i+1} ↗</a>`).join('')}</div>`:''}
+      <div style="font-size:9.5px;letter-spacing:1px;color:var(--mute3);margin-top:9px">CONFIDENCE · ${esc((p.conf||'high').toUpperCase())} — ingredient statement verified online, not from the label alone.</div></div>`:''}
     <button class="btn-ghost" style="margin-top:16px" onclick="toggleOverride(${p.id})">${over?'↺ REVERT OVERRIDE':'■ OVERRIDE TO TIER 1'}</button>
     <div style="display:flex;gap:10px;margin-top:10px">
       <button class="${inList?'btn-ghost':'btn-bone'}" onclick="toggleList(${p.id})">${inList?'✓ IN LIST':'+ ADD TO LIST'}</button>
@@ -851,9 +870,32 @@ const TIERS_DOC=[
    d:'Zero seed oils, zero hidden sugar, zero emulsifiers/gums — plus a native matrix, slow low-temp processing and authentic pre-digestion (long ferment / sprouted / cultured), A2 casein, bronze-die, single-origin unheated fats.'},
   {t:2, name:'TIER 2 · PRACTICAL SURPLUS TOOL',
    d:'Passes every hard filter (no seed oils, no hidden savory sugar) but leans on mild conventional processing or engineered protein / fibre isolates. Macro-dense and accessible — without the pre-digestive edge of Tier 1.'},
-  {t:3, name:'TIER 3 · COMPROMISED / DISQUALIFIED',
-   d:'Fails one or more hard filters — seed oils, hidden sugar in savory staples, chemical emulsifiers/gums, polyols / artificial sweeteners, or a degraded ultra-processed base. Drives bloat, inflammation and fat storage.'},
+  {t:3, name:'TIER 3 · ACCEPTABLE SAFE FALLBACK',
+   d:'Completely safe to buy and eat — free of seed oils, hidden savory sugar, emulsifiers/gums, dyes and artificial sweeteners — but lacks the Tier-1/2 optimisations (e.g. fast-yeasted clean bread, a bean-to-bar dark chocolate sweetened only with unrefined cane, a clean-label basic). A good pick when a Tier-1/2 option is not on the shelf.'},
 ];
+// THE STRICT PRE-FILTER — run BEFORE anything is tiered. Any hit here disqualifies the
+// item and removes it from the catalog entirely, so every product you can see has already
+// passed all three severity gates.
+const PREFILTER_DOC=[
+  {lvl:'L1', tone:'crimson', h:'Settled-Science Bans', act:'HARD FAIL · disqualified & removed',
+   items:'Industrial trans fats · partially hydrogenated oils (PHOs).'},
+  {lvl:'L2', tone:'copper', h:'Regulatory-Gap Signals (banned abroad)', act:'DISQUALIFIED from the catalog',
+   items:'Potassium bromate · azodicarbonamide (ADA) · synthetic petroleum dyes (Red 40, Yellow 5/6, Titanium Dioxide) · chemical preservatives (BHA, BHT, TBHQ, propyl gallate, sodium benzoate) · AND hidden added sugar in any savory or staple food.'},
+  {lvl:'L3', tone:'copper', h:'Gut-Mechanism Disruptors', act:'DISQUALIFIED (or capped at Tier 2 if a clean isolate)',
+   items:'Emulsifiers/gums (carrageenan, CMC/cellulose gum, polysorbate 80, xanthan, guar, carob/locust bean, soy/sunflower lecithin, mono-/di-glycerides, DATEM) · industrial seed oils (canola, soybean, sunflower, safflower, corn, cottonseed, "vegetable", peanut, rapeseed, palm kernel) · engineered fibre fillers (soluble corn fibre, IMO, polydextrose, glycerin).'},
+];
+// THE SWEETENER MATRIX — in inherently-SWEET categories (chocolate, dessert, jam, ice
+// cream, cookie, candy, dried fruit, protein bar) added sugar is NOT auto-disqualifying;
+// it is judged here. Everywhere else, added sugar is an L2 hard disqualifier.
+const SWEETENER_MATRIX={
+  trash:'ALL synthetic sweeteners (sucralose, aspartame, acesulfame-K, saccharin) · ALL polyols (erythritol, xylitol, sorbitol, maltitol) · any stevia / monk-fruit BLENDED with erythritol, inulin/chicory root or gums.',
+  tiers:[
+    {t:1, allow:'Raw honey · 100% pure maple · whole fruit · native lactose.'},
+    {t:2, allow:'Pure 100% stevia or monk-fruit extract (zero erythritol, gums or fillers).'},
+    {t:3, allow:'Pure allulose (small amounts) · organic unrefined cane / coconut sugar (e.g. a bean-to-bar dark chocolate or a clean dessert).'},
+  ],
+  sweetCats:'Desserts · Ice Cream · Jam · Chocolate · Candy & Gummies · Cookies · Dried Fruit · Protein Bar'
+};
 function scienceHTML(){
   return `<div class="disp" style="font-family:var(--disp);font-weight:900;font-size:26px">${esc(SCIENCE.title)}</div>
     <div style="font-size:12.5px;line-height:1.65;margin-top:12px;color:#c3c0cb">Building a dense, muscular frame in a caloric surplus needs 1.6–2.2 g/kg of bioavailable protein. But in a surplus the daily volume of food is high, so any inflammatory or gut-disrupting agent is <b>amplified</b> — a food that is merely annoying at maintenance becomes real bloat and fat gain in bulking quantities. So PRANA ranks by protein-per-dollar, then audits every product — in <b>any</b> category — against five universal biological principles that sort it into three tiers.</div>
@@ -869,6 +911,23 @@ function scienceHTML(){
       <span class="dot-t" style="background:${tierDotColor(t.t)}"></span>
       <span style="font-weight:700;font-size:12px;letter-spacing:.5px;color:#e9e7ef">${esc(t.name)}</span></div>
       <div style="font-size:11.5px;line-height:1.6;margin-top:8px;color:var(--mute2)">${esc(t.d)}</div></div>`).join('')}
+    <div class="kicker" style="margin:26px 0 6px;color:var(--crimson-t)">THE STRICT PRE-FILTER · RUN BEFORE ANY TIERING</div>
+    <div style="font-size:12px;line-height:1.6;margin:0 0 10px;color:var(--mute2)">Every item is screened against three severity gates first. <b style="color:#e9e7ef">Any hit disqualifies it and removes it from the catalog entirely</b> — so all ${RAW.length} products you can browse have already cleared all three. Nothing compromised is shown as a fake "Tier 3" any more; it's simply gone.</div>
+    ${PREFILTER_DOC.map(x=>`<div class="ladder" style="border-color:${x.tone==='crimson'?'rgba(200,90,84,.3)':'rgba(207,154,74,.24)'}">
+      <div style="display:flex;gap:10px;align-items:baseline"><span class="big-num" style="font-size:16px;color:${x.tone==='crimson'?'var(--crimson-t)':'var(--copper-l)'};flex:0 0 auto">${x.lvl}</span>
+      <div style="flex:1;font-weight:700;font-size:12.5px;color:#e9e7ef">${esc(x.h)}</div></div>
+      <div style="font-size:11.5px;line-height:1.6;margin-top:8px;color:var(--mute2)">${esc(x.items)}</div>
+      <div style="font-size:10px;letter-spacing:.4px;margin-top:8px;color:${x.tone==='crimson'?'var(--crimson-t)':'var(--copper-l)'};font-weight:700">→ ${esc(x.act)}</div></div>`).join('')}
+
+    <div class="kicker" style="margin:26px 0 6px;color:var(--copper-l)">THE SWEETENER MATRIX</div>
+    <div style="font-size:12px;line-height:1.6;margin:0 0 10px;color:var(--mute2)">In savory or staple foods, added sugar is an automatic disqualifier. But in inherently-sweet categories — <span style="color:#cfccd7">${esc(SWEETENER_MATRIX.sweetCats)}</span> — a sweetener is expected, so it is judged by this matrix instead of auto-trashed.</div>
+    <div class="ladder" style="border-color:rgba(200,90,84,.3)"><div style="font-weight:700;font-size:12.5px;color:var(--crimson-t)">✕ ALWAYS TRASHED — in every category</div>
+      <div style="font-size:11.5px;line-height:1.6;margin-top:8px;color:var(--mute2)">${esc(SWEETENER_MATRIX.trash)}</div></div>
+    ${SWEETENER_MATRIX.tiers.map(x=>`<div class="ladder"><div style="display:flex;align-items:center;gap:9px">
+      <span class="dot-t" style="background:${tierDotColor(x.t)}"></span>
+      <span style="font-weight:700;font-size:12px;letter-spacing:.4px;color:#e9e7ef">TIER ${x.t} · ALLOWED SWEETENERS</span></div>
+      <div style="font-size:11.5px;line-height:1.6;margin-top:8px;color:var(--mute2)">${esc(x.allow)}</div></div>`).join('')}
+
     <div class="kicker" style="margin:26px 0 4px">CATEGORY DEEP-DIVES · THE SAME RULES, BY FOOD</div>
     ${SCIENCE.sections.map(s=>`<div class="ladder"><div style="font-weight:700;font-size:13px;color:#e9e7ef">${esc(s.h)}</div>
       <div style="font-size:12px;line-height:1.6;margin-top:7px;color:var(--mute2)">${esc(s.p)}</div></div>`).join('')}
@@ -977,17 +1036,122 @@ function stopVoice(){
   setTimeout(()=>{ if(OV.kind!=='voice') return; try{ localParse(OV.data.transcript||''); }catch(e){ OV.data.items=[]; OV.data.total=0; } OV.step=3; renderOverlay(); }, 700);
 }
 function editVoice(){ OV.step=1; renderOverlay(); /* mic stays OFF until tapped */ }
-function confirmVoice(){ S.dailyProtein+=OV.data.total; closeOverlay(); render(); toast('Logged +'+OV.data.total+'g protein'); }
-const FOODTBL=[['whey',24],['protein shake',24],['protein powder',24],['egg',6],['eggs',6],['chicken',31],['beef',26],['steak',26],['salmon',22],['tuna',26],['greek yogurt',17],['yogurt',9],['cottage cheese',14],['cheese',7],['milk',8],['lentil',18],['beans',15],['tofu',10],['peanut butter',7],['oats',5],['bar',20],['almonds',6],['turkey',29]];
-const QTY={'a':1,'an':1,'one':1,'two':2,'three':3,'four':4,'five':5,'six':6,'half':.5,'scoop':1,'cup':1,'bowl':1};
+function confirmVoice(){
+  const its=OV.data.items||[]; const tot=OV.data.total||0;
+  its.forEach(it=>addLogEntry(it.name, it.protein, it.qty));
+  closeOverlay(); render(); toast('Logged +'+tot+'g protein');
+}
+
+/* ---- voice food parsing ----
+   Understands quantities ("two boiled eggs", "half a chicken breast", "a scoop of whey"),
+   composite dishes ("chicken spinach wrap"), and a wide whole-food table. Each match takes
+   a sensible default PORTION and multiplies its protein by the quantity spoken. Everything
+   runs on-device — no text leaves the phone. */
+const QTYWORD={a:1,an:1,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,half:.5,quarter:.25,couple:2,few:3,several:3,double:2,triple:3};
+function numToken(tok){ if(tok==null) return null; if(QTYWORD[tok]!=null) return QTYWORD[tok];
+  if(/^\d+\/\d+$/.test(tok)){ const [a,b]=tok.split('/').map(Number); return b?a/b:null; }
+  const n=parseFloat(tok); return isFinite(n)?n:null; }
+// Ordered MOST-SPECIFIC first (multi-word dishes before the bare ingredient), so
+// "chicken spinach wrap" scores as a wrap, not as plain chicken. protein = grams per unit.
+const FOODS=[
+  {name:'Chicken & spinach wrap', unit:'wrap', protein:30, keys:['chicken spinach wrap','chicken and spinach wrap','chicken spinach roll','spinach chicken wrap']},
+  {name:'Chicken wrap', unit:'wrap', protein:28, keys:['chicken wrap','grilled chicken wrap']},
+  {name:'Turkey wrap', unit:'wrap', protein:27, keys:['turkey wrap']},
+  {name:'Protein shake', unit:'shake', protein:25, keys:['protein shake','protein smoothie']},
+  {name:'Whey protein', unit:'scoop', protein:24, keys:['whey protein','scoop of whey','protein powder','protein scoop','whey isolate','whey']},
+  {name:'Greek yogurt', unit:'cup', protein:17, keys:['greek yogurt','skyr']},
+  {name:'Cottage cheese', unit:'cup', protein:24, keys:['cottage cheese']},
+  {name:'Grilled chicken breast', unit:'breast', protein:31, keys:['grilled chicken breast','chicken breast','grilled chicken','roast chicken']},
+  {name:'Ground beef', unit:'serving', protein:25, keys:['ground beef','minced beef']},
+  {name:'Steak / beef', unit:'serving', protein:26, keys:['steak','beef']},
+  {name:'Salmon', unit:'fillet', protein:22, keys:['salmon']},
+  {name:'Tuna', unit:'can', protein:26, keys:['can of tuna','tuna']},
+  {name:'Shrimp', unit:'serving', protein:24, keys:['shrimp','prawns']},
+  {name:'Egg whites', unit:'serving', protein:11, keys:['egg whites','egg white']},
+  {name:'Egg', unit:'egg', protein:6, keys:['boiled egg','scrambled egg','fried egg','eggs','egg']},
+  {name:'Protein bar', unit:'bar', protein:20, keys:['protein bar','protein bars']},
+  {name:'Tempeh', unit:'serving', protein:18, keys:['tempeh']},
+  {name:'Tofu', unit:'serving', protein:10, keys:['tofu']},
+  {name:'Lentils / dal', unit:'cup', protein:18, keys:['lentils','lentil','dal','daal']},
+  {name:'Beans / chickpeas', unit:'cup', protein:15, keys:['chickpeas','black beans','beans','rajma']},
+  {name:'Peanut / nut butter', unit:'2 tbsp', protein:7, keys:['peanut butter','almond butter','nut butter']},
+  {name:'Almonds / nuts', unit:'handful', protein:6, keys:['almonds','cashews','walnuts','mixed nuts','nuts']},
+  {name:'Milk', unit:'cup', protein:8, keys:['glass of milk','milk']},
+  {name:'Cheese', unit:'slice', protein:7, keys:['cheese']},
+  {name:'Turkey', unit:'serving', protein:29, keys:['turkey']},
+  {name:'Ham / deli', unit:'serving', protein:18, keys:['ham','deli meat']},
+  {name:'Bacon', unit:'2 rashers', protein:12, keys:['bacon']},
+  {name:'Sausage', unit:'link', protein:14, keys:['sausage','sausages']},
+  {name:'Burger', unit:'burger', protein:25, keys:['hamburger','cheeseburger','burger']},
+  {name:'Burrito', unit:'burrito', protein:20, keys:['burrito']},
+  {name:'Sandwich', unit:'sandwich', protein:18, keys:['sandwich']},
+  {name:'Pizza', unit:'slice', protein:12, keys:['slice of pizza','pizza']},
+  {name:'Oats / oatmeal', unit:'bowl', protein:6, keys:['oatmeal','porridge','oats']},
+  {name:'Quinoa', unit:'cup', protein:8, keys:['quinoa']},
+  {name:'Rice', unit:'cup', protein:5, keys:['rice']},
+  {name:'Pasta', unit:'plate', protein:8, keys:['pasta','spaghetti']},
+  {name:'Bread / toast', unit:'slice', protein:4, keys:['slice of bread','toast','bread']},
+  {name:'Hummus', unit:'serving', protein:5, keys:['hummus']},
+];
+function findQty(pre){
+  const toks=pre.trim().split(' ').filter(Boolean).slice(-3);
+  let article=null;   // "a"/"an" is a weak default — a real number or fraction wins ("half a chicken")
+  for(let i=toks.length-1;i>=0;i--){ const tok=toks[i], q=numToken(tok);
+    if(q==null) continue;
+    if(tok==='a'||tok==='an'){ if(article==null) article=q; continue; }
+    return q;
+  }
+  return article!=null?article:1;
+}
 function localParse(text){
-  const t=(text||'').toLowerCase(); const items=[]; let total=0;
-  FOODTBL.forEach(([name,per])=>{ if(t.includes(name)){
-    let qty=1; const re=new RegExp('(\\w+)\\s+(?:\\w+\\s+){0,2}'+name); const m=t.match(re); if(m&&QTY[m[1]]!=null)qty=QTY[m[1]];
-    const g=Math.round(per*qty); if(items.some(i=>i.name.toLowerCase()===name))return;
-    items.push({name:name.replace(/\b\w/g,c=>c.toUpperCase()),qty:qty+' × '+per+'g',protein:g}); total+=g; } });
-  if(!items.length){ items.push({name:'Mixed intake',qty:'estimated',protein:20}); total=20; }
+  let t=(' '+(text||'').toLowerCase()+' ').replace(/[^a-z0-9\/\s]/g,' ').replace(/\s+/g,' ');
+  const items=[]; let total=0;
+  for(const f of FOODS){
+    let mIdx=-1;
+    for(const key of f.keys){ const i=t.indexOf(' '+key+' '); if(i>=0){ mIdx=i; break; } }
+    if(mIdx<0) continue;
+    const qty=findQty(t.slice(0,mIdx+1));
+    const g=Math.round(f.protein*qty);
+    const q=(qty===1?'1':(qty%1?qty.toFixed(2).replace(/0$/,''):qty))+' '+f.unit+(qty!==1&&!/\s/.test(f.unit)?'s':'')+' · ~'+f.protein+'g each';
+    items.push({name:f.name, qty:q, protein:g}); total+=g;
+    // blank every alias of this food so a more-generic entry can't double-count it
+    f.keys.forEach(k=>{ t=t.split(' '+k+' ').join('   '); });
+  }
+  if(!items.length){ items.push({name:'Mixed intake',qty:'rough estimate — edit after logging',protein:20}); total=20; }
   OV.data.items=items; OV.data.total=total;
+}
+
+/* DAILY PROTEIN LOG — the Protein·Today card opens this. Every logged item (voice or
+   manual) is an editable row; add or delete freely and the home total tracks live. */
+function logHTML(){
+  const items=logToday().slice().reverse(); const total=dayProtein(); const tgt=targetProtein();
+  const pct=Math.min(100,Math.round(total/tgt*100));
+  return `<div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">Protein today</div>
+      <button class="tag t2" onclick="closeOverlay()">DONE</button></div>
+    <div class="tile" style="text-align:center;margin-top:14px"><div style="font-size:9px;letter-spacing:2px;color:var(--mute3)">LOGGED TODAY · TARGET ${tgt}g</div>
+      <div class="big-num" style="font-size:44px;margin-top:4px">${total}<span style="font-size:20px">g</span></div>
+      <div class="bar" style="margin-top:12px"><i style="width:${pct}%;background:linear-gradient(90deg,var(--copper-d),var(--copper))"></i></div>
+      <div style="font-size:10px;letter-spacing:1.5px;color:var(--mute3);margin-top:10px;font-weight:700">${esc(proteinToGo())}</div></div>
+    <div class="kicker" style="margin:18px 0 8px">TODAY’S ENTRIES</div>
+    ${items.length? items.map(e=>`<div class="drow" style="margin-bottom:8px;align-items:center">
+        <div style="flex:1;min-width:0"><div style="font-weight:600">${esc(e.name)}</div>${e.detail?`<div style="font-size:10px;color:var(--mute3)">${esc(e.detail)}</div>`:''}</div>
+        <div class="big-num" style="font-size:20px">${e.protein}<span style="font-size:11px">g</span></div>
+        <button onclick="delLogEntry('${e.id}')" aria-label="Delete entry" title="Delete" style="margin-left:12px;color:var(--crimson-t);font-size:17px;background:none;border:none;line-height:1;cursor:pointer">✕</button></div>`).join('')
+      : '<div class="note">Nothing logged yet today. Add an item below, or use the mic.</div>'}
+    <div class="kicker" style="margin:18px 0 8px">ADD AN ITEM</div>
+    <div style="display:flex;gap:8px">
+      <input class="field" style="margin-top:0;flex:2" placeholder="e.g. Grilled chicken breast" value="${esc(OV.data.name||'')}" oninput="OV.data.name=this.value">
+      <input class="field" style="margin-top:0;flex:1;min-width:0" type="number" inputmode="decimal" min="0" placeholder="grams" value="${esc(String(OV.data.protein||''))}" oninput="OV.data.protein=this.value">
+    </div>
+    <button class="btn-bone" style="margin-top:10px" onclick="addManualLog()">+ ADD TO TODAY</button>
+    <button class="row-item" style="margin-top:10px;justify-content:center" onclick="openVoice()"><span style="font-size:11px;letter-spacing:1px;color:var(--copper-l)">🎙  LOG BY VOICE INSTEAD</span></button>`;
+}
+function addManualLog(){
+  const d=OV.data; const pr=+d.protein||0;
+  if(pr<=0){ toast('Enter grams of protein'); return; }
+  addLogEntry((d.name||'').trim()||'Manual entry', pr, 'added manually');
+  OV.data={name:'',protein:''}; renderOverlay(); render(); toast('Added +'+Math.round(pr)+'g');
 }
 
 /* WEIGHT → PROTEIN TARGET */
@@ -1012,7 +1176,7 @@ function saveWeight(){
 
 /* EDIT / ADD FOOD */
 function blankFood(){ return {id:null,name:'',size:'',price:0,protein:0,servings:1,store:'heb',stores:['heb'],cat:allCats()[0],tier:1,flags:['clean'],audit:'Custom entry.'}; }
-const FLAG_OPTS=[['clean','CLEAN · T1',1],['emul','EMULSIFIER · T2',2],['seed','SEED OIL · T2',2],['tool','ISOLATE · T2',2],['sugar','SUGAR · T3',3],['dye','DYES · T3',3],['pho','TRANS FAT · T3',3],['brom','BROMATE · T3',3]];
+const FLAG_OPTS=[['clean','WHOLE FOOD · T1',1],['tool','CLEAN ISOLATE · T2',2],['sugar','SWEET-CATEGORY · T3',3]];
 function editHTML(){
   const d=OV.data; const isNew=OV.id==null;
   return `<div style="display:flex;justify-content:space-between;align-items:center"><div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">${isNew?'Add food':'Edit food'}</div>
@@ -1035,7 +1199,7 @@ function editHTML(){
 function saveEditFood(){
   const d=OV.data;
   d.price=Math.max(0,+d.price||0); d.protein=Math.max(0,+d.protein||0); d.servings=Math.max(1,Math.round(+d.servings||1));
-  d.name=d.name.trim()||'Untitled food'; d.size=d.size.trim()||'1 pack'; d.tlabel=d.tlabel||({1:'Gold Standard',2:'Flagged',3:'Hard Fail'}[d.tier]);
+  d.name=d.name.trim()||'Untitled food'; d.size=d.size.trim()||'1 pack'; d.tlabel=d.tlabel||({1:'Gold Standard',2:'Clean Tool',3:'Safe Fallback'}[d.tier]);
   d.packProtein=Math.round(d.protein*d.servings*10)/10;
   if(OV.id==null){ d.id=nextId(); S.prodAdds.push(Object.assign({},d)); }
   else if(S.prodAdds.some(x=>x.id===OV.id)){ S.prodAdds=S.prodAdds.map(x=>x.id===OV.id?Object.assign({},d,{id:OV.id}):x); }
@@ -1060,6 +1224,128 @@ function onImportFile(e){ const f=e.target.files[0]; if(!f)return; const r=new F
   r.onload=()=>{ try{ const j=JSON.parse(r.result); if(j.app!=='PRANA'&&!j._p){ toast('Not a PRANA backup'); return; }
     Object.keys(DEFAULT).forEach(k=>{ if(j[k]!==undefined) S[k]=j[k]; }); save(); render(); toast('Restored from backup');
   }catch(err){ toast('Could not read file'); } finally{ e.target.value=''; } }; r.readAsText(f); }
+
+/* ---------- CATEGORY UPLOAD (CSV / TSV) ----------
+   Upload a whole new category as a spreadsheet (export the Excel sheet as CSV first) and
+   merge it into the local database. Column names are matched flexibly; only a product name
+   is strictly required. A preview sheet shows exactly what will be added before you commit. */
+function parseDelimited(text, delim){
+  const rows=[]; let row=[], field='', q=false;
+  text=text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+  for(let i=0;i<text.length;i++){ const c=text[i];
+    if(q){ if(c==='"'){ if(text[i+1]==='"'){ field+='"'; i++; } else q=false; } else field+=c; }
+    else if(c==='"') q=true;
+    else if(c===delim){ row.push(field); field=''; }
+    else if(c==='\n'){ row.push(field); rows.push(row); row=[]; field=''; }
+    else field+=c;
+  }
+  if(field.length||row.length){ row.push(field); rows.push(row); }
+  return rows.filter(r=>r.some(c=>String(c).trim()!==''));
+}
+const COLMAP={
+  name:['name','product','product name','item','title'],
+  cat:['category','cat','aisle','type'],
+  price:['price','cost','pack price','$','price ($)','price($)'],
+  size:['size','pack','size/pack','pack size','size / pack'],
+  protein:['protein','protein per serving','protein/serving','protein (g)','protein g','protein per serve'],
+  servings:['servings','servings per pack','serves','servings/pack','servings per pack'],
+  store:['store','retailer','availability','stores','where'],
+  tier:['tier','rating'],
+  flag:['flag','classification','class','flags'],
+  audit:['audit','notes','note','justification','reason','why'],
+  ingr:['ingredients','ingredient','deck','ingredient deck']
+};
+function normHeader(h){ return String(h||'').trim().toLowerCase(); }
+function mapHeaders(headerRow){
+  const idx={}; headerRow.forEach((h,i)=>{ const n=normHeader(h);
+    for(const key in COLMAP){ if(COLMAP[key].includes(n)){ if(idx[key]==null) idx[key]=i; } }
+  });
+  return idx;
+}
+function normStore(v){ const s=String(v||'').trim().toLowerCase();
+  if(/whole\s*foods|^wf$/.test(s)) return 'wf';
+  if(/h.?e.?b/.test(s)) return 'heb';
+  if(/online|direct|amazon|central|other/.test(s)) return 'other';
+  return 'heb'; }
+function num(v){ const n=parseFloat(String(v==null?'':v).replace(/[^0-9.\-]/g,'')); return isFinite(n)?n:0; }
+const IMPORT_FLAG_TIER={clean:1,tool:2,sugar:3,seed:2,emul:2};
+function onCatFile(e){ const f=e.target.files[0]; if(!f){return;}
+  if(/\.xlsx?$/i.test(f.name)){ toast('Save the Excel sheet as CSV first, then upload'); e.target.value=''; return; }
+  const r=new FileReader();
+  r.onload=()=>{ try{ buildImport(r.result, f.name); }catch(err){ toast('Could not read that file'); }
+    finally{ e.target.value=''; } };
+  r.readAsText(f);
+}
+function buildImport(text, fname){
+  const delim = (text.split('\n')[0]||'').split('\t').length > (text.split('\n')[0]||'').split(',').length ? '\t' : ',';
+  const rows=parseDelimited(text, delim);
+  if(rows.length<2){ toast('No rows found in the file'); return; }
+  const idx=mapHeaders(rows[0]);
+  if(idx.name==null){ toast('Need a "name" column'); return; }
+  const warnings=[]; const items=[];
+  for(let i=1;i<rows.length;i++){ const r=rows[i]; const g=k=>idx[k]!=null?r[idx[k]]:'';
+    const name=String(g('name')||'').trim(); if(!name) continue;
+    let cat=String(g('cat')||'').trim();
+    let flag=String(g('flag')||'').trim().toLowerCase(); if(!IMPORT_FLAG_TIER[flag]) flag='';
+    let tier=parseInt(num(g('tier')),10); if(!(tier>=1&&tier<=3)) tier=flag?IMPORT_FLAG_TIER[flag]:2;
+    if(!flag) flag=tier===1?'clean':tier===3?'sugar':'clean';
+    const protein=num(g('protein')), servings=Math.max(1,Math.round(num(g('servings'))||1)), price=num(g('price'));
+    if(protein<=0) warnings.push(`Row ${i+1} “${name}”: no protein value (set to 0).`);
+    if(price<=0) warnings.push(`Row ${i+1} “${name}”: no price (protein/$ will show —).`);
+    items.push({ name, cat:cat||'', store:normStore(g('store')), price, size:String(g('size')||'').trim()||'1 pack',
+      protein, servings, tier, flag, audit:String(g('audit')||'').trim()||'Imported entry — verify ingredients.',
+      ingr:String(g('ingr')||'').trim() });
+  }
+  if(!items.length){ toast('No usable rows'); return; }
+  // category resolution: prefer the sheet's category column; else infer one name from filename
+  const fileCat = fname.replace(/\.[^.]+$/,'').replace(/[_-]+/g,' ').trim();
+  const cats=[...new Set(items.map(x=>x.cat).filter(Boolean))];
+  const singleCat = cats.length? null : (fileCat||'Imported');
+  if(singleCat) items.forEach(x=>x.cat=singleCat);
+  const finalCats=[...new Set(items.map(x=>x.cat))];
+  const newCats=finalCats.filter(c=>!allCats().includes(c));
+  OV={kind:'import', data:{items, cats:finalCats, newCats, warnings, fname}};
+  renderOverlay(true);
+}
+function importHTML(){
+  const d=OV.data; const n=d.items.length;
+  const tc=d.items.reduce((a,x)=>{a[x.tier]=(a[x.tier]||0)+1;return a;},{});
+  return `<div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">Import preview</div>
+      <button class="tag t3" onclick="closeOverlay()">CANCEL</button></div>
+    <div class="note" style="text-align:left;margin-top:10px">From <b>${esc(d.fname)}</b> — <b>${n}</b> product${n===1?'':'s'} across ${d.cats.length} categor${d.cats.length===1?'y':'ies'}.</div>
+    <div class="tile" style="margin-top:12px;text-align:left">
+      <div style="font-size:11px;color:#cfccd7"><b>Categories:</b> ${esc(d.cats.join(', '))}</div>
+      ${d.newCats.length?`<div style="font-size:11px;color:var(--sage-l);margin-top:6px">＋ new categor${d.newCats.length===1?'y':'ies'}: ${esc(d.newCats.join(', '))}</div>`:''}
+      <div style="font-size:11px;color:var(--mute2);margin-top:6px">Tiers · T1 ${tc[1]||0} · T2 ${tc[2]||0} · T3 ${tc[3]||0}</div>
+    </div>
+    <div class="kicker" style="margin:16px 0 8px">FIRST ROWS</div>
+    ${d.items.slice(0,6).map(x=>`<div class="drow" style="margin-bottom:7px">
+      <span class="dot-t" style="background:${tierDotColor(x.tier)}"></span>
+      <div style="flex:1;min-width:0"><div style="font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(x.name)}</div>
+      <div style="font-size:10px;color:var(--mute3)">${esc(x.cat)} · ${esc(x.size)} · ${STORE_SHORT[x.store]} · $${x.price.toFixed(2)} · ${x.protein}g×${x.servings}</div></div>
+      <span class="tag t${x.tier}">T${x.tier}</span></div>`).join('')}
+    ${n>6?`<div class="note">…and ${n-6} more.</div>`:''}
+    ${d.warnings.length?`<div class="ladder" style="border-color:rgba(207,154,74,.3);margin-top:12px"><div class="kicker" style="color:var(--copper-l)">${d.warnings.length} WARNING${d.warnings.length===1?'':'S'}</div>
+      <div style="font-size:10.5px;line-height:1.5;color:var(--mute2);margin-top:6px">${d.warnings.slice(0,5).map(esc).join('<br>')}${d.warnings.length>5?'<br>…':''}</div></div>`:''}
+    <div style="display:flex;gap:10px;margin-top:18px">
+      <button class="btn-ghost" onclick="closeOverlay()">CANCEL</button>
+      <button class="btn-bone" onclick="commitImport()">＋ ADD ${n} TO DATABASE</button></div>
+    <div class="note" style="margin-top:10px">These merge into your local database as added products. Export a backup afterward to keep them safe.</div>`;
+}
+function commitImport(){
+  const d=OV.data; const TLABEL={1:'Gold Standard',2:'Clean Tool',3:'Safe Fallback'};
+  d.newCats.forEach(c=>{ if(!S.catExtra.includes(c)) S.catExtra.push(c); });
+  d.items.forEach(x=>{
+    const p={ id:nextId(), name:x.name, cat:x.cat, store:x.store, stores:[x.store],
+      price:Math.max(0,x.price), size:x.size, protein:Math.max(0,x.protein),
+      servings:Math.max(1,x.servings), packProtein:Math.round(x.protein*x.servings*10)/10,
+      tier:x.tier, tlabel:TLABEL[x.tier], flags:[x.flag], audit:x.audit };
+    if(x.ingr) p.ingr=x.ingr;
+    S.prodAdds.push(p);
+  });
+  const n=d.items.length; closeOverlay(); render(); toast('Imported '+n+' product'+(n===1?'':'s'));
+}
 
 /* ---------- boot ---------- */
 (function(){ const h=(location.hash||'').replace('#','');

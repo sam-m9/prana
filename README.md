@@ -1,8 +1,10 @@
 # PRANA — Clean-Eating Intelligence
 
 A self-contained, installable web app (PWA) that ranks food by **protein per dollar**, filtered
-through a 4-level clean-eating evidence ladder. Built from the PRANA build spec, the clean-hypertrophy
-science doc, and a seeded catalog of **341 real Austin-area products across 28 categories**.
+through a strict clean-eating pre-filter and a five-principle biological audit. Built from the PRANA
+build spec, the clean-hypertrophy science doc, and a catalog of **203 online-verified Austin-area
+products across 28 categories** — every item has cleared the pre-filter (seed oils, emulsifiers/gums,
+dyes, trans fat, hidden savory sugar and synthetic sweeteners are disqualified and removed, not shown).
 
 It is a single static site — no server, no build step, no tracking. All state lives in the browser
 (`localStorage`), so it works fully offline once loaded and can be installed to the iPhone Home Screen.
@@ -12,23 +14,26 @@ It is a single static site — no server, no build step, no tracking. All state 
 | File | Purpose |
 |---|---|
 | `index.html` | The entire app — 5 screens, overlays, gestures, persistence |
-| `data.js` | The 341-product catalog + the science/mechanism knowledge base |
+| `data.js` | The 203-product verified catalog + the science/mechanism knowledge base |
 | `manifest.webmanifest` | PWA manifest (name, icons, standalone display) |
 | `sw.js` | Service worker — offline caching + installability |
 | `icons/` | App icons (any / maskable / apple-touch) + `icon.svg` |
 
 ## Screens
 
-- **HOME** — daily protein vs 160 g target, store rocker (H·E·B / Whole Foods / Online), voice log, top protein-per-dollar, the Science panel, backup/restore.
+- **HOME** — daily protein vs target (tap the Protein·Today card to open the editable daily log — add/delete items, or log by voice), store rocker (H·E·B / Whole Foods / Online), top protein-per-dollar, the Science panel, backup/restore, and **category upload** (merge a new category from a CSV / Excel-exported sheet).
 - **QUEUE** — swipe to agree/dismiss each product's rating (right = agree, left = dismiss).
 - **RANK** — 3D carousel of every product sorted by g/$, with an evidence detail card.
 - **DATA** — search / multi-select category filter / sort, add-edit-delete foods & categories.
 - **LIST** — approved items grouped by store, with out-of-stock swap suggestions.
 
-Tap any product anywhere to open the **Evidence Drawer** (L1–L4 ladder + gut-mechanism summary,
-plus a manual "override to Tier 1"). The science and tiering come straight from the PRANA logic doc
-(A1/A2 casein, sourdough fermentation, bronze-die pasta, seed oils, emulsifiers, engineered isolates —
-and the pseudoscience it deliberately ignores).
+Tap any product anywhere to open the **Evidence Drawer** — a category-agnostic **five-principle audit**,
+the gut-mechanism summary, the **verified ingredient deck with source links**, and a manual "override to
+Tier 1". The science and tiering come straight from the PRANA logic doc (`docs/CATEGORIZATION_LOGIC.md`):
+the strict pre-filter (L1 bans, L2 regulatory-gap additives + hidden savory sugar, L3 seed oils / gums /
+sweeteners), the **Sweetener Matrix** for inherently-sweet categories, A1/A2 casein, sourdough
+fermentation, bronze-die pasta, engineered isolates — and the pseudoscience it deliberately ignores.
+Both the pre-filter and the Sweetener Matrix are viewable in-app from the Science panel.
 
 ## Deploy to Cloudflare Pages
 

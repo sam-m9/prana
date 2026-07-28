@@ -138,20 +138,24 @@ When asked to evaluate any food category or specific product list, format the ou
 The app is a fully static, offline single-file PWA — there is no live LLM at runtime. This
 spec is implemented two ways:
 
-1. **Deterministic engine (`index.html`).** Each catalog product carries `flags` that encode
-   the audited signals. The engine maps them to this model:
+1. **Deterministic engine (`index.html`).** The catalog is the **safe buyable zone only** —
+   any product that trips the strict pre-filter is DISQUALIFIED and removed from `data.js`
+   entirely (it is never shown as a fake "Tier 3"). So every product that ships carries one of
+   just three surviving `flags`:
 
-   | Flag | Principle | Severity | Pre-filter action |
+   | Flag | Meaning | Principle | Tier effect |
    |---|---|---|---|
-   | `pho` | P3 Lipid (trans fat) | L1 | Disqualify |
-   | `brom`, `preserv` | — regulatory additive | L2 | Disqualify |
-   | `dye` | — synthetic dye | L2 | Disqualify |
-   | `seed` | P3 Lipid (seed oil) | L3 | Disqualify |
-   | `emul` | P1 Mucosal (emulsifier/gum) | L3 | Disqualify |
-   | `sugar` | P4 Glycemic (added sugar) | L2 | Disqualify (savory/staple) |
-   | `tool` | P2 Protein (engineered isolate) | L3 | Capped at Tier 2 (kept if otherwise clean) |
-   | `clean` | passes all five | — | Safe zone → Tier 1/2/3 |
+   | `clean` | Whole-food clean — passes all five | all pass | Tier 1 (or a clean conventional Tier 2/3) |
+   | `tool` | Clean engineered isolate / concentrate or formulated protein bar (no gums, no sweeteners) | P2 Protein | Capped at Tier 2 |
+   | `sugar` | Matrix-approved added sweetener in an inherently-**sweet** category only | P4 Glycemic | Tier 2/3 (never a savory staple) |
 
-2. **Catalog generation (`data.js`).** `build/parse.py` → `products.json` → `build/build_data.py`.
-   To categorize new products exactly per this spec, run the System Prompt above over the
-   product's ingredient list, emit the resulting `flags` + `tier`, and rebuild `data.js`.
+   The disqualifying signals (`pho`=trans fat/L1; `brom`/`preserv`/`dye`=L2 additives; `seed`=seed
+   oil/L3; `emul`=emulsifier·gum/L3; `sugar` in a **savory/staple**=L2) are applied at build time
+   in `build/rebuild_from_research.js`; products carrying them are dropped, not tagged.
+
+2. **Catalog generation (`data.js`).** `build/rebuild_from_research.js` applies the online-verified
+   research (`build/research_merged.json`) over the source catalog: it deletes every `disqualify`
+   / `delete_unverifiable` decision and keeps `tier1`/`tier2`/`tier3`, re-deriving each kept
+   product's `tier`, `flags`, `audit`, verified `ingr` deck and `src` sources. To categorize new
+   products exactly per this spec, run the System Prompt above over the product's ingredient list,
+   emit the `decision` + tier, and re-run the rebuild.
