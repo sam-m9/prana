@@ -6,3 +6,10 @@ _d.html
 _t.html
 _t.png
 icons/_*.html
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
