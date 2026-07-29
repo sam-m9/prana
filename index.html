@@ -169,7 +169,13 @@ input{font-family:inherit}
   transform:translateY(100%);transition:transform .34s cubic-bezier(.2,.9,.25,1.1)}
 .sheet.show{transform:translateY(0)}
 .sheet::-webkit-scrollbar{display:none}
-.grab{width:42px;height:5px;border-radius:3px;background:#33313a;margin:0 auto 18px}
+.grab{width:42px;height:5px;border-radius:3px;background:#33313a;margin:0 auto}
+/* sticky top bar on every sheet — guarantees a visible exit no matter how tall the content */
+.sheettop{position:sticky;top:-22px;z-index:6;display:flex;align-items:center;justify-content:center;
+  margin:-22px -20px 12px;padding:16px 20px 8px;background:#151319;border-radius:28px 28px 0 0}
+.sheetx{position:absolute;right:12px;top:11px;width:32px;height:32px;border-radius:50%;border:1px solid var(--line2);
+  background:#0e0c12;color:#cfccd7;font-size:14px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.sheetx:active{background:#1a1820}
 .tile{flex:1;background:#0e0c12;border:1px solid var(--line2);border-radius:16px;padding:15px}
 .ladder{border:1px solid var(--line2);border-radius:16px;padding:15px;margin-top:9px;background:#0d0b11}
 .lvl-pass{color:var(--sage)} .lvl-fail{color:var(--crimson)} .lvl-flag{color:var(--copper-l)} .lvl-idle{color:var(--mute3)}
@@ -225,7 +231,7 @@ const DEFAULT = {
   ingested:[], rankTier:'ALL', dbCats:[], dbSort:'gd', dbQuery:'',
   catExtra:[], prodEdits:{}, prodAdds:[], prodDeleted:[],
   reduceMotion:false, proteinTarget:160, weightLb:0,
-  recipes:[], shopping:[], cookTab:'recipes'
+  recipes:[], shopping:[], cookTab:'recipes', lastBackup:0
 };
 let S = load();
 function load(){
@@ -252,7 +258,51 @@ function addLogEntry(name, protein, detail){
 }
 function delLogEntry(id){ S.log=S.log.filter(e=>e.id!==id); renderOverlay(); render(); }
 let saveT;
-function save(){ clearTimeout(saveT); saveT=setTimeout(()=>{ const o=Object.assign({_p:1,_savedAt:new Date().toISOString()},S); try{localStorage.setItem(PKEY,JSON.stringify(o));}catch(e){} },120); }
+function save(){ clearTimeout(saveT); saveT=setTimeout(()=>{ const o=Object.assign({_p:1,_savedAt:new Date().toISOString()},S); try{localStorage.setItem(PKEY,JSON.stringify(o));}catch(e){ toast('Storage full — export a backup'); } },120); }
+
+/* =====================================================================
+   DURABILITY — recipe images live in IndexedDB (not the tiny localStorage),
+   storage is asked to persist, and a rolling backup keeps data recoverable.
+   ===================================================================== */
+let IMG={}, _db=null, _idbOk=false, _storeEst=null;
+function idbOpen(){ return new Promise(res=>{ try{
+    if(!('indexedDB' in window)){ return res(null); }
+    const rq=indexedDB.open('prana',1);
+    rq.onupgradeneeded=()=>{ const db=rq.result; if(!db.objectStoreNames.contains('images')) db.createObjectStore('images'); };
+    rq.onsuccess=()=>{ _db=rq.result; _idbOk=true; res(_db); };
+    rq.onerror=()=>{ _idbOk=false; res(null); };
+  }catch(e){ _idbOk=false; res(null); } }); }
+function idbPut(k,v){ return new Promise(r=>{ if(!_db)return r(false); try{ const t=_db.transaction('images','readwrite'); t.objectStore('images').put(v,k); t.oncomplete=()=>r(true); t.onerror=()=>r(false);}catch(e){r(false);} }); }
+function idbDel(k){ return new Promise(r=>{ if(!_db)return r(false); try{ const t=_db.transaction('images','readwrite'); t.objectStore('images').delete(k); t.oncomplete=()=>r(true); t.onerror=()=>r(false);}catch(e){r(false);} }); }
+function idbAll(){ return new Promise(r=>{ if(!_db)return r({}); try{ const t=_db.transaction('images','readonly'); const st=t.objectStore('images'), out={}; const c=st.openCursor();
+    c.onsuccess=e=>{ const cur=e.target.result; if(cur){ out[cur.key]=cur.value; cur.continue(); } else r(out); }; c.onerror=()=>r(out);}catch(e){r({});} }); }
+// image accessor used everywhere a recipe photo is shown
+function recipeImg(r){ if(!r) return ''; return (IMG[r.id]!=null?IMG[r.id]:(r.image||'')); }
+// write/clear a recipe's image: prefer IDB, fall back to inline on the record
+function setRecipeImage(rec, dataUrl){
+  if(dataUrl){ if(_idbOk){ IMG[rec.id]=dataUrl; idbPut(rec.id,dataUrl); rec.image=''; rec.hasImage=true; } else { rec.image=dataUrl; rec.hasImage=true; } }
+  else { delete IMG[rec.id]; if(_idbOk) idbDel(rec.id); rec.image=''; rec.hasImage=false; }
+}
+async function hydrateImages(){
+  if(_idbOk){ IMG=await idbAll(); }
+  // migrate any legacy inline base64 out of localStorage into IDB
+  let moved=false;
+  (S.recipes||[]).forEach(r=>{ if(r.image && String(r.image).slice(0,5)==='data:'){ IMG[r.id]=r.image; r.hasImage=true; if(_idbOk){ idbPut(r.id,r.image); r.image=''; moved=true; } } });
+  if(moved) save();
+}
+/* rolling backup — one month-named file, complete with images */
+function collectBackup(){ const o=Object.assign({app:'PRANA',version:2,exportedAt:new Date().toISOString()},S); o.images=IMG; return o; }
+function downloadJSON(obj, filename){ const blob=new Blob([JSON.stringify(obj)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=filename; document.body.appendChild(a); a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },1500); }
+function backupNow(){ const d=new Date(); const mm=d.toISOString().slice(0,7); // YYYY-MM → one rolling file per month
+  downloadJSON(collectBackup(), 'prana-backup-'+mm+'.json'); S.lastBackup=Date.now(); save(); render(); toast('Backup saved · prana-backup-'+mm+'.json'); }
+function backupDue(){ return !S.lastBackup || (Date.now()-S.lastBackup) > 14*864e5; }
+function lastBackupLabel(){ if(!S.lastBackup) return 'never backed up'; const days=Math.floor((Date.now()-S.lastBackup)/864e5);
+  return days<=0?'backed up today':('backed up '+days+' day'+(days===1?'':'s')+' ago'); }
+function storageBytes(){ let ls=0; try{ ls=JSON.stringify(S).length; }catch(e){} let img=0; for(const k in IMG){ img+=(IMG[k]?IMG[k].length:0); } return {ls,img,total:ls+img}; }
+function fmtKB(n){ return n<1024?n+' B':(n<1048576?(n/1024).toFixed(0)+' KB':(n/1048576).toFixed(1)+' MB'); }
+function refreshStorageEstimate(){ try{ if(navigator.storage&&navigator.storage.estimate){ navigator.storage.estimate().then(e=>{ _storeEst=e; }); } }catch(e){} }
 
 /* ---------- live product composition ---------- */
 function products(){
@@ -378,14 +428,23 @@ function homeHTML(){
 
     <div class="hr"></div>
     <div class="kicker" style="margin-bottom:10px">YOUR DATA</div>
+    ${backupDue()?`<button class="card" style="width:100%;text-align:left;padding:14px;margin-bottom:10px;border:1px solid rgba(207,154,74,.45);background:rgba(207,154,74,.08)" onclick="backupNow()">
+      <div style="font-weight:700;font-size:12px;color:var(--copper-l);letter-spacing:.5px">⤓ TIME TO BACK UP</div>
+      <div style="font-size:11px;color:var(--mute2);margin-top:5px">It's been a while (${esc(lastBackupLabel())}). Tap to save this month's backup file — then keep it in Files/iCloud.</div></button>`:''}
+    ${(()=>{ const s=storageBytes(); const q=_storeEst&&_storeEst.quota; const used=q?Math.min(100,Math.round((_storeEst.usage/q)*100)):0;
+      return `<div class="tile" style="text-align:left;margin-bottom:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:10px;letter-spacing:1.5px;color:var(--mute3);font-weight:700">ON THIS DEVICE</span>
+          <span style="font-size:10px;color:${backupDue()?'var(--copper-l)':'var(--sage-l)'}">${esc(lastBackupLabel())}</span></div>
+        <div style="font-size:12px;color:#cfccd7;margin-top:6px">${fmtKB(s.total)} used${q?` of ~${fmtKB(q)}`:''} · ${S.recipes.length} recipe${S.recipes.length===1?'':'s'}${s.img?' · photos in IndexedDB':''}</div>
+        ${q?`<div class="bar" style="margin-top:8px"><i style="width:${used}%;background:linear-gradient(90deg,var(--sage),var(--sage-l))"></i></div>`:''}</div>`; })()}
     <div style="display:flex;gap:10px">
-      <button class="btn-ghost" onclick="exportData()">EXPORT BACKUP</button>
+      <button class="btn-bone" onclick="backupNow()">⤓ BACK UP NOW</button>
       <button class="btn-ghost" onclick="document.getElementById('importfile').click()">RESTORE</button>
     </div>
     <button class="row-item" style="margin-top:10px;justify-content:center;border-style:dashed" onclick="document.getElementById('catfile').click()">
       <span style="letter-spacing:1px;font-size:10px;color:var(--copper-l);font-weight:700">⤒ UPLOAD A CATEGORY · CSV / EXCEL → CSV</span>
     </button>
-    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v22</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Recipes & photos are saved durably (IndexedDB) and backups include everything. · v23</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -786,7 +845,7 @@ function renderOverlay(animate){
   if(!OV.kind){ box.innerHTML=''; return; }
   _ovGen++;   // an overlay is live → cancel any pending close-wipe
   const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML,weight:weightHTML,log:logHTML,import:importHTML,dq:dqHTML,recipe:recipeHTML,recipeedit:recipeEditHTML,imgview:imageHTML}[OV.kind])();
-  box.innerHTML=`<div class="backdrop" onclick="closeOverlay()"></div><div class="sheet" onclick="event.stopPropagation()"><div class="grab"></div>${inner}</div>`;
+  box.innerHTML=`<div class="backdrop" onclick="closeOverlay()"></div><div class="sheet" onclick="event.stopPropagation()"><div class="sheettop"><div class="grab"></div><button class="sheetx" onclick="closeOverlay()" aria-label="Close">✕</button></div>${inner}</div>`;
   requestAnimationFrame(()=>{ const bd=box.querySelector('.backdrop'), sh=box.querySelector('.sheet'); if(bd)bd.classList.add('show'); if(sh)sh.classList.add('show'); });
 }
 
@@ -1391,15 +1450,17 @@ function nextId(){ return 100000+S.prodAdds.length+Math.floor((Date.parse(new Da
 
 /* BACKUP */
 function exportData(){
-  const o=Object.assign({app:'PRANA',version:1,exportedAt:new Date().toISOString()},S);
-  const blob=new Blob([JSON.stringify(o,null,2)],{type:'application/json'});
-  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
-  a.download='prana-backup-'+new Date().toISOString().slice(0,10)+'.json'; a.click();
-  const n=document.getElementById('backupNote'); if(n)n.textContent='Backup downloaded.';
+  downloadJSON(collectBackup(), 'prana-backup-'+new Date().toISOString().slice(0,10)+'.json');
+  S.lastBackup=Date.now(); save();
+  const n=document.getElementById('backupNote'); if(n)n.textContent='Backup downloaded.'; render();
 }
 function onImportFile(e){ const f=e.target.files[0]; if(!f)return; const r=new FileReader();
   r.onload=()=>{ try{ const j=JSON.parse(r.result); if(j.app!=='PRANA'&&!j._p){ toast('Not a PRANA backup'); return; }
-    Object.keys(DEFAULT).forEach(k=>{ if(j[k]!==undefined) S[k]=j[k]; }); save(); render(); toast('Restored from backup');
+    Object.keys(DEFAULT).forEach(k=>{ if(j[k]!==undefined) S[k]=j[k]; });
+    // restore recipe images into the image store
+    if(j.images && typeof j.images==='object'){ IMG=Object.assign({}, j.images);
+      if(_idbOk){ Object.keys(IMG).forEach(k=>{ if(IMG[k]) idbPut(k, IMG[k]); }); } }
+    save(); render(); toast('Restored from backup');
   }catch(err){ toast('Could not read file'); } finally{ e.target.value=''; } }; r.readAsText(f); }
 
 /* ---------- CATEGORY UPLOAD (CSV / TSV) ----------
@@ -1572,10 +1633,10 @@ function confirmDeleteRecipe(id){
 function recipeListHTML(list){
   if(!S.recipes.length) return `<div class="note" style="text-align:center;padding:30px 10px">No recipes yet. Screenshot a reel, tap <b>Add a recipe</b>, pick the image — PRANA reads it. Or paste the caption / a link.</div>`;
   if(!list.length) return `<div class="note" style="padding:20px 4px">No recipes match “${esc(recipeQuery)}”.</div>`;
-  return list.map(r=>{ const arm=_delConfirm===r.id; const tot=rTotal(r);
+  return list.map(r=>{ const arm=_delConfirm===r.id; const tot=rTotal(r); const rimg=recipeImg(r);
     return `<div class="row-item" style="margin-bottom:10px;gap:12px;align-items:center;padding-right:8px">
       <div onclick="openRecipe('${r.id}')" style="display:flex;gap:12px;align-items:center;flex:1;min-width:0;cursor:pointer">
-        <div style="width:52px;height:52px;border-radius:12px;flex:0 0 auto;background:#141118 center/cover no-repeat${r.image?`;background-image:url('${r.image}')`:''};display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid var(--line2)">${r.image?'':'🍳'}</div>
+        <div style="width:52px;height:52px;border-radius:12px;flex:0 0 auto;background:#141118 center/cover no-repeat${rimg?`;background-image:url('${rimg}')`:''};display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid var(--line2)">${rimg?'':'🍳'}</div>
         <div style="flex:1;min-width:0"><div class="pname" style="font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.favorite?'★ ':''}${esc(r.title||'Untitled recipe')}</div>
           <div style="font-size:10px;color:var(--mute3);margin-top:3px">${(r.ingredients||[]).length} ingredient${(r.ingredients||[]).length===1?'':'s'}${tot?' · '+tot+' min':''}${r.servings?' · serves '+r.servings:''}${r.course?' · '+esc(r.course):''}${rSourceUrl(r)?' · 🔗':''}</div></div>
       </div>
@@ -1588,11 +1649,11 @@ function recipeLive(){ const el=document.getElementById('recipeList'); if(!el) r
   el.innerHTML=recipeListHTML(list); save(); }
 
 /* ---- full-size photo viewer (tap the recipe image) ---- */
-function openImage(id){ const r=recipeById(id); if(!r||!r.image) return; OV={kind:'imgview', id, data:{}}; renderOverlay(true); }
-function imageHTML(){ const r=recipeById(OV.id); if(!r||!r.image) return '';
+function openImage(id){ const r=recipeById(id); if(!r||!recipeImg(r)) return; OV={kind:'imgview', id, data:{}}; renderOverlay(true); }
+function imageHTML(){ const r=recipeById(OV.id); const rimg=r&&recipeImg(r); if(!rimg) return '';
   return `<div style="display:flex;justify-content:space-between;align-items:center"><div class="kicker">${esc(r.title||'Photo')}</div>
       <button class="tag t2" onclick="closeOverlay()">CLOSE</button></div>
-    <img src="${r.image}" alt="" style="width:100%;height:auto;border-radius:12px;margin-top:10px">
+    <img src="${rimg}" alt="" style="width:100%;height:auto;border-radius:12px;margin-top:10px">
     <div class="note" style="margin-top:8px">Your uploaded photo — pinch to zoom.</div>`; }
 
 /* ---- recipe detail ---- */
@@ -1600,14 +1661,14 @@ function openRecipe(id){ OV={kind:'recipe', id, data:{}}; renderOverlay(true); }
 function recipeById(id){ return S.recipes.find(r=>r.id===id); }
 function recipeHTML(){
   const r=recipeById(OV.id); if(!r) return '<div class="note">Recipe not found.</div>';
-  const ings=r.ingredients||[], steps=r.steps||[], equip=r.equipment||[], n=rNutr(r), tot=rTotal(r);
+  const ings=r.ingredients||[], steps=r.steps||[], equip=r.equipment||[], n=rNutr(r), tot=rTotal(r), rimg=recipeImg(r);
   const meta=[tot?tot+' min':'', r.servings?'serves '+r.servings:'', r.difficulty?esc(r.difficulty):'', r.cuisine?esc(r.cuisine):'', r.course?esc(r.course):''].filter(Boolean).join(' · ');
   const stars = r.rating>0? '★★★★★'.slice(0,r.rating)+'☆☆☆☆☆'.slice(0,5-r.rating) : '';
   const hasN = (+n.calories||+n.protein||+n.carbs||+n.fat)>0;
   return `<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
       <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:23px;letter-spacing:-.01em;flex:1">${r.favorite?'★ ':''}${esc(r.title||'Untitled recipe')}</div>
       <button class="tag t2" onclick="closeOverlay()">DONE</button></div>
-    ${r.image?`<img src="${r.image}" alt="" onclick="openImage('${r.id}')" style="width:100%;max-height:220px;object-fit:cover;border-radius:14px;margin-top:12px;border:1px solid var(--line2);cursor:zoom-in">
+    ${rimg?`<img src="${rimg}" alt="" onclick="openImage('${r.id}')" style="width:100%;max-height:220px;object-fit:cover;border-radius:14px;margin-top:12px;border:1px solid var(--line2);cursor:zoom-in">
       <div class="note" style="margin-top:5px;text-align:center">Tap the photo to view full size</div>`:''}
     ${r.description?`<div style="font-size:12.5px;line-height:1.6;margin-top:12px;color:#c3c0cb">${esc(r.description)}</div>`:''}
     ${meta?`<div style="font-size:11px;color:var(--mute3);margin-top:10px">${meta}${stars?' · <span style="color:var(--copper-l)">'+stars+'</span>':''}</div>`:(stars?`<div style="font-size:11px;color:var(--copper-l);margin-top:10px">${stars}</div>`:'')}
@@ -1652,7 +1713,7 @@ function blankRecipeData(){ return {title:'',description:'',sourceName:'',source
 function openAddRecipe(){ OV={kind:'recipeedit', id:null, data:blankRecipeData()}; renderOverlay(true); }
 function openEditRecipe(id){ const r=recipeById(id); if(!r) return; const n=rNutr(r);
   OV={kind:'recipeedit', id, data:{ title:r.title||'', description:r.description||'', sourceName:r.sourceName||'', sourceUrl:rSourceUrl(r),
-    image:r.image||'', servings:r.servings||'', prepTime:r.prepTime||'', cookTime:r.cookTime||'', totalTime:r.totalTime||r.time||'',
+    image:recipeImg(r), servings:r.servings||'', prepTime:r.prepTime||'', cookTime:r.cookTime||'', totalTime:r.totalTime||r.time||'',
     cuisine:r.cuisine||'', course:r.course||'', difficulty:r.difficulty||'', rating:r.rating||0, favorite:!!r.favorite,
     tags:(r.tags||[]).join(', '), ingrText:(r.ingredients||[]).join('\n'), stepText:(r.steps||[]).join('\n'), equipText:(r.equipment||[]).join('\n'),
     calories:n.calories||'', protein:n.protein||'', carbs:n.carbs||'', fat:n.fat||'', notes:r.notes||'', paste:'' }};
@@ -1725,7 +1786,7 @@ function saveRecipe(){
   let total=String(d.totalTime||'').replace(/[^0-9]/g,''); if(!total && (prep||cook)) total=String((+prep||0)+(+cook||0));
   const rec={ id: OV.id||rid(),
     title:(d.title||'').trim()||'Untitled recipe', description:(d.description||'').trim(),
-    sourceName:(d.sourceName||'').trim(), sourceUrl:(d.sourceUrl||'').trim(), image:d.image||'',
+    sourceName:(d.sourceName||'').trim(), sourceUrl:(d.sourceUrl||'').trim(), image:'', hasImage:false,
     servings:(String(d.servings||'')).trim(), prepTime:prep, cookTime:cook, totalTime:total,
     cuisine:(d.cuisine||'').trim(), course:(d.course||'').trim(), difficulty:(d.difficulty||'').trim(),
     rating:+d.rating||0, favorite:!!d.favorite,
@@ -1735,11 +1796,12 @@ function saveRecipe(){
     equipment:(d.equipText||'').split('\n').map(s=>s.trim()).filter(Boolean),
     nutrition:{calories:numOr(d.calories), protein:numOr(d.protein), carbs:numOr(d.carbs), fat:numOr(d.fat)},
     notes:(d.notes||'').trim(), createdAt: (recipeById(OV.id)||{}).createdAt || Date.now() };
+  setRecipeImage(rec, d.image||'');   // routes the photo to IndexedDB (or inline fallback)
   if(OV.id==null) S.recipes.push(rec);
   else S.recipes=S.recipes.map(r=>r.id===OV.id?rec:r);
   closeOverlay(); render(); toast('Recipe saved');
 }
-function deleteRecipe(id){ S.recipes=S.recipes.filter(r=>r.id!==id); _delConfirm=null; if(OV.kind)closeOverlay(); render(); toast('Recipe deleted'); }
+function deleteRecipe(id){ S.recipes=S.recipes.filter(r=>r.id!==id); delete IMG[id]; if(_idbOk) idbDel(id); _delConfirm=null; if(OV.kind)closeOverlay(); render(); toast('Recipe deleted'); }
 
 /* ---- recipe photo -> downscale -> OCR (on-device, lazy CDN; graceful fallback) ---- */
 function onRecipePhoto(e){ const f=e.target.files&&e.target.files[0]; e.target.value=''; if(!f) return;
@@ -1938,7 +2000,13 @@ function clearCheckedShop(){ S.shopping=S.shopping.filter(s=>!s.checked); render
   if(['home','queue','rank','data','list','cook'].includes(h)) S.screen=h; })();
 window.addEventListener('hashchange',()=>{ const h=(location.hash||'').replace('#',''); if(['home','queue','rank','data','list','cook'].includes(h)) go(h); });
 
-render();
+(async function boot(){
+  render();                                   // paint immediately from localStorage
+  try{ await idbOpen(); await hydrateImages(); }catch(e){}
+  try{ if(navigator.storage&&navigator.storage.persist) navigator.storage.persist().catch(()=>{}); }catch(e){}
+  refreshStorageEstimate();
+  render();                                   // repaint with images hydrated from IndexedDB
+})();
 if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
 </script>
 </body>
