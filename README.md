@@ -26,11 +26,17 @@ It is a single static site — no server, no build step, no tracking. All state 
 - **RANK** — 3D carousel of every product sorted by g/$, with an evidence detail card.
 - **DATA** — search / multi-select category filter / sort, add-edit-delete foods & categories.
 - **LIST** — approved items grouped by store, with out-of-stock swap suggestions.
-- **COOK** — a recipe book + shopping list. Add a recipe by **photo/screenshot** (on-device OCR reads
-  the text), by **pasting** the caption/recipe, or by saving a **link**; PRANA auto-parses it into title /
-  ingredients / method / servings / time, all editable. Tap ＋ on any ingredient (or "add all") to push it
-  to the **shopping list**, which matches items to the PRANA catalog where it can and keeps the rest as free
-  text — checkable rows, manual add, clear-checked.
+- **COOK** — a recipe book + shopping list. Add a recipe **three ways**: (1) **photo/screenshot** — on-device
+  OCR (grayscale + contrast pre-processing, tiny screenshots upscaled) reads the text; (2) **paste** the
+  caption/recipe; (3) **web link** — PRANA fetches the page (via a CORS proxy) and reads its embedded
+  schema.org/Recipe JSON-LD to pull title, ingredients, steps, times & nutrition automatically. Every recipe
+  carries the full field set — photo (tap to view full-size), description, source name + link, servings,
+  prep/cook/total time, cuisine, course, difficulty, personal rating, favorite, tags, ingredients, method,
+  equipment, per-serving nutrition (kcal/protein/carbs/fat), and notes — **all editable**, with a **delete
+  button on every recipe** (two-tap confirm in the list, plus Delete in detail/edit). Protein per serving can
+  be logged straight to your daily total. Tap ＋ on any ingredient (or "add all") to push it to the
+  **shopping list**, which matches items to the PRANA catalog where it can and keeps the rest as free text —
+  checkable rows, manual add, clear-checked.
 
 Tap any product anywhere to open the **Evidence Drawer** — a category-agnostic **five-principle audit**,
 the gut-mechanism summary, the **verified ingredient deck with source links**, and a manual "override to

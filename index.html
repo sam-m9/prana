@@ -385,7 +385,7 @@ function homeHTML(){
     <button class="row-item" style="margin-top:10px;justify-content:center;border-style:dashed" onclick="document.getElementById('catfile').click()">
       <span style="letter-spacing:1px;font-size:10px;color:var(--copper-l);font-weight:700">⤒ UPLOAD A CATEGORY · CSV / EXCEL → CSV</span>
     </button>
-    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v20</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v21</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -773,7 +773,7 @@ function renderOverlay(animate){
   const box=document.getElementById('overlays');
   if(!OV.kind){ box.innerHTML=''; return; }
   _ovGen++;   // an overlay is live → cancel any pending close-wipe
-  const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML,weight:weightHTML,log:logHTML,import:importHTML,dq:dqHTML,recipe:recipeHTML,recipeedit:recipeEditHTML}[OV.kind])();
+  const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML,weight:weightHTML,log:logHTML,import:importHTML,dq:dqHTML,recipe:recipeHTML,recipeedit:recipeEditHTML,imgview:imageHTML}[OV.kind])();
   box.innerHTML=`<div class="backdrop" onclick="closeOverlay()"></div><div class="sheet" onclick="event.stopPropagation()"><div class="grab"></div>${inner}</div>`;
   requestAnimationFrame(()=>{ const bd=box.querySelector('.backdrop'), sh=box.querySelector('.sheet'); if(bd)bd.classList.add('show'); if(sh)sh.classList.add('show'); });
 }
@@ -1552,32 +1552,75 @@ function recipesInner(){
     ${S.recipes.length?`<div class="searchwrap" style="margin-top:14px"><input class="search" placeholder="Search recipes…" value="${esc(recipeQuery)}" oninput="recipeQuery=this.value;recipeLive()"></div>`:''}
     <div id="recipeList" style="margin-top:14px">${recipeListHTML(list)}</div>`;
 }
+const COURSE_OPTS=['Breakfast','Lunch','Dinner','Snack','Dessert','Side','Drink','Sauce'];
+const DIFF_OPTS=['Easy','Medium','Hard'];
+// tolerant getters so recipes saved before the field expansion still read cleanly
+function rSourceUrl(r){ return r.sourceUrl||r.source||''; }
+function rTotal(r){ const t=r.totalTime||r.time||''; if(t) return t; const s=(+r.prepTime||0)+(+r.cookTime||0); return s?String(s):''; }
+function rNutr(r){ return r.nutrition||{}; }
+let _delConfirm=null, _delT=null;
+function confirmDeleteRecipe(id){
+  if(_delConfirm===id){ clearTimeout(_delT); _delConfirm=null; deleteRecipe(id); return; }
+  _delConfirm=id; clearTimeout(_delT); _delT=setTimeout(()=>{ _delConfirm=null; if(S.screen==='cook')render(); },3000);
+  render();
+}
 function recipeListHTML(list){
   if(!S.recipes.length) return `<div class="note" style="text-align:center;padding:30px 10px">No recipes yet. Screenshot a reel, tap <b>Add a recipe</b>, pick the image — PRANA reads it. Or paste the caption / a link.</div>`;
   if(!list.length) return `<div class="note" style="padding:20px 4px">No recipes match “${esc(recipeQuery)}”.</div>`;
-  return list.map(r=>`<button class="row-item" style="margin-bottom:10px;gap:12px;align-items:center" onclick="openRecipe('${r.id}')">
-      <div style="width:52px;height:52px;border-radius:12px;flex:0 0 auto;background:#141118 center/cover no-repeat${r.image?`;background-image:url('${r.image}')`:''};display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid var(--line2)">${r.image?'':'🍳'}</div>
-      <div style="flex:1;min-width:0"><div class="pname" style="font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(r.title||'Untitled recipe')}</div>
-        <div style="font-size:10px;color:var(--mute3);margin-top:3px">${(r.ingredients||[]).length} ingredient${(r.ingredients||[]).length===1?'':'s'}${r.time?' · '+r.time+' min':''}${r.servings?' · serves '+r.servings:''}${r.source?' · 🔗':''}</div></div>
-      <span style="color:var(--mute3)">›</span></button>`).join('');
+  return list.map(r=>{ const arm=_delConfirm===r.id; const tot=rTotal(r);
+    return `<div class="row-item" style="margin-bottom:10px;gap:12px;align-items:center;padding-right:8px">
+      <div onclick="openRecipe('${r.id}')" style="display:flex;gap:12px;align-items:center;flex:1;min-width:0;cursor:pointer">
+        <div style="width:52px;height:52px;border-radius:12px;flex:0 0 auto;background:#141118 center/cover no-repeat${r.image?`;background-image:url('${r.image}')`:''};display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid var(--line2)">${r.image?'':'🍳'}</div>
+        <div style="flex:1;min-width:0"><div class="pname" style="font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.favorite?'★ ':''}${esc(r.title||'Untitled recipe')}</div>
+          <div style="font-size:10px;color:var(--mute3);margin-top:3px">${(r.ingredients||[]).length} ingredient${(r.ingredients||[]).length===1?'':'s'}${tot?' · '+tot+' min':''}${r.servings?' · serves '+r.servings:''}${r.course?' · '+esc(r.course):''}${rSourceUrl(r)?' · 🔗':''}</div></div>
+      </div>
+      <button onclick="confirmDeleteRecipe('${r.id}')" title="Delete recipe" style="flex:0 0 auto;font-size:${arm?'10px':'15px'};letter-spacing:.5px;font-weight:700;color:var(--crimson-t);background:${arm?'rgba(200,90,84,.15)':'none'};border:1px solid ${arm?'rgba(200,90,84,.5)':'transparent'};border-radius:9px;padding:${arm?'7px 9px':'6px 8px'};cursor:pointer">${arm?'DELETE?':'🗑'}</button>
+    </div>`; }).join('');
 }
 function recipeLive(){ const el=document.getElementById('recipeList'); if(!el) return; const q=recipeQuery.trim().toLowerCase();
   let list=S.recipes.slice().sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
-  if(q) list=list.filter(r=>(r.title||'').toLowerCase().includes(q)||(r.tags||[]).join(' ').toLowerCase().includes(q)||(r.ingredients||[]).join(' ').toLowerCase().includes(q));
+  if(q) list=list.filter(r=>(r.title||'').toLowerCase().includes(q)||(r.tags||[]).join(' ').toLowerCase().includes(q)||(r.ingredients||[]).join(' ').toLowerCase().includes(q)||(r.cuisine||'').toLowerCase().includes(q)||(r.course||'').toLowerCase().includes(q));
   el.innerHTML=recipeListHTML(list); save(); }
+
+/* ---- full-size photo viewer (tap the recipe image) ---- */
+function openImage(id){ const r=recipeById(id); if(!r||!r.image) return; OV={kind:'imgview', id, data:{}}; renderOverlay(true); }
+function imageHTML(){ const r=recipeById(OV.id); if(!r||!r.image) return '';
+  return `<div style="display:flex;justify-content:space-between;align-items:center"><div class="kicker">${esc(r.title||'Photo')}</div>
+      <button class="tag t2" onclick="closeOverlay()">CLOSE</button></div>
+    <img src="${r.image}" alt="" style="width:100%;height:auto;border-radius:12px;margin-top:10px">
+    <div class="note" style="margin-top:8px">Your uploaded photo — pinch to zoom.</div>`; }
 
 /* ---- recipe detail ---- */
 function openRecipe(id){ OV={kind:'recipe', id, data:{}}; renderOverlay(true); }
 function recipeById(id){ return S.recipes.find(r=>r.id===id); }
 function recipeHTML(){
   const r=recipeById(OV.id); if(!r) return '<div class="note">Recipe not found.</div>';
-  const ings=r.ingredients||[]; const steps=r.steps||[];
+  const ings=r.ingredients||[], steps=r.steps||[], equip=r.equipment||[], n=rNutr(r), tot=rTotal(r);
+  const meta=[tot?tot+' min':'', r.servings?'serves '+r.servings:'', r.difficulty?esc(r.difficulty):'', r.cuisine?esc(r.cuisine):'', r.course?esc(r.course):''].filter(Boolean).join(' · ');
+  const stars = r.rating>0? '★★★★★'.slice(0,r.rating)+'☆☆☆☆☆'.slice(0,5-r.rating) : '';
+  const hasN = (+n.calories||+n.protein||+n.carbs||+n.fat)>0;
   return `<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px">
-      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:23px;letter-spacing:-.01em;flex:1">${esc(r.title||'Untitled recipe')}</div>
+      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:23px;letter-spacing:-.01em;flex:1">${r.favorite?'★ ':''}${esc(r.title||'Untitled recipe')}</div>
       <button class="tag t2" onclick="closeOverlay()">DONE</button></div>
-    ${r.image?`<img src="${r.image}" alt="" style="width:100%;max-height:220px;object-fit:cover;border-radius:14px;margin-top:12px;border:1px solid var(--line2)">`:''}
-    <div style="font-size:11px;color:var(--mute3);margin-top:10px">${r.time?r.time+' min · ':''}${r.servings?'serves '+r.servings+' · ':''}${(r.tags||[]).map(t=>esc(t)).join(' · ')||''}</div>
-    ${r.source?`<a href="${esc(r.source)}" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;font-size:11px;color:var(--copper-l);text-decoration:none;border:1px solid var(--line2);border-radius:9px;padding:6px 11px">🔗 OPEN SOURCE ↗</a>`:''}
+    ${r.image?`<img src="${r.image}" alt="" onclick="openImage('${r.id}')" style="width:100%;max-height:220px;object-fit:cover;border-radius:14px;margin-top:12px;border:1px solid var(--line2);cursor:zoom-in">
+      <div class="note" style="margin-top:5px;text-align:center">Tap the photo to view full size</div>`:''}
+    ${r.description?`<div style="font-size:12.5px;line-height:1.6;margin-top:12px;color:#c3c0cb">${esc(r.description)}</div>`:''}
+    ${meta?`<div style="font-size:11px;color:var(--mute3);margin-top:10px">${meta}${stars?' · <span style="color:var(--copper-l)">'+stars+'</span>':''}</div>`:(stars?`<div style="font-size:11px;color:var(--copper-l);margin-top:10px">${stars}</div>`:'')}
+    ${(r.tags||[]).length?`<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px">${r.tags.map(t=>`<span class="tag t2" style="font-size:9px">${esc(t)}</span>`).join('')}</div>`:''}
+    ${rSourceUrl(r)?`<a href="${esc(rSourceUrl(r))}" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;font-size:11px;color:var(--copper-l);text-decoration:none;border:1px solid var(--line2);border-radius:9px;padding:6px 11px">🔗 ${esc(r.sourceName||'OPEN SOURCE')} ↗</a>`:(r.sourceName?`<div style="font-size:11px;color:var(--mute3);margin-top:10px">Source: ${esc(r.sourceName)}</div>`:'')}
+    ${(tot||r.prepTime||r.cookTime)?`<div style="display:flex;gap:8px;margin-top:14px">
+      ${r.prepTime?`<div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:20px">${esc(String(r.prepTime))}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">PREP MIN</div></div>`:''}
+      ${r.cookTime?`<div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:20px">${esc(String(r.cookTime))}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">COOK MIN</div></div>`:''}
+      ${tot?`<div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:20px">${esc(tot)}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">TOTAL MIN</div></div>`:''}
+    </div>`:''}
+    ${hasN?`<div class="kicker" style="margin:18px 0 8px">NUTRITION · PER SERVING</div>
+      <div style="display:flex;gap:8px">
+        <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:19px">${+n.calories||0}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">KCAL</div></div>
+        <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:19px;color:var(--copper-l)">${+n.protein||0}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">PROTEIN</div></div>
+        <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:19px">${+n.carbs||0}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">CARBS</div></div>
+        <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:19px">${+n.fat||0}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">FAT</div></div>
+      </div>
+      ${(+n.protein>0)?`<button class="btn-ghost" style="margin-top:10px" onclick="logRecipeProtein('${r.id}')">＋ LOG ${+n.protein}g PROTEIN (1 SERVING)</button>`:''}`:''}
     <div style="display:flex;justify-content:space-between;align-items:center;margin:18px 0 8px">
       <div class="kicker">INGREDIENTS</div>
       ${ings.length?`<button style="font-size:10px;letter-spacing:1px;color:var(--copper-l);font-weight:700" onclick="addAllToShopping('${r.id}')">＋ ALL TO SHOPPING</button>`:''}</div>
@@ -1588,42 +1631,72 @@ function recipeHTML(){
     }).join('') : '<div class="note">No ingredients captured. Tap Edit to add them.</div>'}
     ${steps.length?`<div class="kicker" style="margin:18px 0 8px">METHOD</div>
       ${steps.map((s,i)=>`<div style="display:flex;gap:10px;margin-bottom:9px"><span class="big-num" style="font-size:15px;color:var(--copper-l);flex:0 0 auto">${i+1}</span><div style="font-size:13px;line-height:1.55;color:#cfccd7">${esc(s)}</div></div>`).join('')}`:''}
+    ${equip.length?`<div class="kicker" style="margin:18px 0 8px">EQUIPMENT</div><div style="display:flex;flex-wrap:wrap;gap:6px">${equip.map(x=>`<span class="tag t2" style="font-size:10px">${esc(x)}</span>`).join('')}</div>`:''}
     ${r.notes?`<div class="kicker" style="margin:18px 0 6px">NOTES</div><div style="font-size:12.5px;line-height:1.6;color:var(--mute2)">${esc(r.notes)}</div>`:''}
     <div style="display:flex;gap:10px;margin-top:20px">
       <button class="btn-ghost" style="color:var(--crimson-t);border-color:rgba(200,90,84,.4)" onclick="deleteRecipe('${r.id}')">DELETE</button>
       <button class="btn-bone" onclick="openEditRecipe('${r.id}')">EDIT</button></div>`;
 }
+function logRecipeProtein(id){ const r=recipeById(id); if(!r) return; const p=+rNutr(r).protein||0; if(p<=0) return;
+  addLogEntry((r.title||'Recipe')+' · 1 serving', p, 'from recipe'); save(); toast('Logged +'+p+'g protein'); }
 
 /* ---- add / edit recipe ---- */
-function openAddRecipe(){ OV={kind:'recipeedit', id:null, data:{title:'',source:'',image:'',servings:'',time:'',ingrText:'',stepText:'',tags:'',notes:'',paste:'',ocr:''}}; renderOverlay(true); }
-function openEditRecipe(id){ const r=recipeById(id); if(!r) return;
-  OV={kind:'recipeedit', id, data:{title:r.title||'',source:r.source||'',image:r.image||'',servings:r.servings||'',time:r.time||'',
-    ingrText:(r.ingredients||[]).join('\n'), stepText:(r.steps||[]).join('\n'), tags:(r.tags||[]).join(', '), notes:r.notes||'', paste:'', ocr:''}};
+function blankRecipeData(){ return {title:'',description:'',sourceName:'',sourceUrl:'',image:'',servings:'',prepTime:'',cookTime:'',totalTime:'',
+  cuisine:'',course:'',difficulty:'',rating:0,favorite:false,tags:'',ingrText:'',stepText:'',equipText:'',
+  calories:'',protein:'',carbs:'',fat:'',notes:'',paste:''}; }
+function openAddRecipe(){ OV={kind:'recipeedit', id:null, data:blankRecipeData()}; renderOverlay(true); }
+function openEditRecipe(id){ const r=recipeById(id); if(!r) return; const n=rNutr(r);
+  OV={kind:'recipeedit', id, data:{ title:r.title||'', description:r.description||'', sourceName:r.sourceName||'', sourceUrl:rSourceUrl(r),
+    image:r.image||'', servings:r.servings||'', prepTime:r.prepTime||'', cookTime:r.cookTime||'', totalTime:r.totalTime||r.time||'',
+    cuisine:r.cuisine||'', course:r.course||'', difficulty:r.difficulty||'', rating:r.rating||0, favorite:!!r.favorite,
+    tags:(r.tags||[]).join(', '), ingrText:(r.ingredients||[]).join('\n'), stepText:(r.steps||[]).join('\n'), equipText:(r.equipment||[]).join('\n'),
+    calories:n.calories||'', protein:n.protein||'', carbs:n.carbs||'', fat:n.fat||'', notes:r.notes||'', paste:'' }};
   renderOverlay(true); }
 function recipeEditHTML(){
   const d=OV.data; const isNew=OV.id==null;
+  const chip=(val,cur,field)=>`<button class="fchip ${cur===val?'on':''}" onclick="OV.data.${field}=(OV.data.${field}==='${val}'?'':'${val}');renderOverlay()">${esc(val)}</button>`;
+  const stars=[1,2,3,4,5].map(i=>`<button onclick="OV.data.rating=(OV.data.rating===${i}?0:${i});renderOverlay()" style="background:none;border:none;font-size:24px;line-height:1;cursor:pointer;color:${(d.rating||0)>=i?'var(--copper-l)':'var(--mute3)'}">${(d.rating||0)>=i?'★':'☆'}</button>`).join('');
   return `<div style="display:flex;justify-content:space-between;align-items:center"><div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">${isNew?'Add recipe':'Edit recipe'}</div>
       <button class="tag t3" onclick="closeOverlay()">CANCEL</button></div>
     <div class="kicker" style="margin-top:14px;color:var(--copper-l)">IMPORT</div>
-    <div style="display:flex;gap:8px;margin-top:8px">
-      <button class="btn-ghost" style="flex:1" onclick="document.getElementById('recipePhoto').click()">📷 PHOTO / SCREENSHOT</button>
-      <input type="file" id="recipePhoto" accept="image/*" style="display:none" onchange="onRecipePhoto(event)">
-    </div>
+    <button class="btn-ghost" style="margin-top:8px" onclick="document.getElementById('recipePhoto').click()">📷 PHOTO / SCREENSHOT → READ TEXT</button>
+    <input type="file" id="recipePhoto" accept="image/*" style="display:none" onchange="onRecipePhoto(event)">
     ${d.ocrBusy?`<div class="note" style="margin-top:8px;color:var(--copper-l)">Reading image… ${d.ocrPct!=null?Math.round(d.ocrPct*100)+'%':''}</div>`:''}
-    ${d.image?`<img src="${d.image}" alt="" style="width:100%;max-height:150px;object-fit:cover;border-radius:12px;margin-top:8px;border:1px solid var(--line2)">`:''}
+    ${d.image?`<div style="position:relative;margin-top:8px"><img src="${d.image}" alt="" style="width:100%;max-height:150px;object-fit:cover;border-radius:12px;border:1px solid var(--line2)">
+      <button onclick="OV.data.image='';renderOverlay()" style="position:absolute;top:8px;right:8px;background:rgba(11,11,13,.8);border:1px solid var(--line2);border-radius:8px;color:#e9e7ef;font-size:11px;padding:4px 8px;cursor:pointer">✕ REMOVE</button></div>`:''}
     <textarea class="field" rows="3" placeholder="…or paste the caption / recipe text here" oninput="OV.data.paste=this.value" style="resize:none;font-family:var(--mono);font-size:13px">${esc(d.paste||'')}</textarea>
     <button class="btn-ghost" style="margin-top:8px" onclick="parsePasteIntoFields()">⇩ PARSE PASTED TEXT INTO FIELDS</button>
-    <div class="note" style="margin-top:8px">Screenshot a reel and pick it above — PRANA reads the text on-device. Or paste the caption. Everything below is editable.</div>
+    <div class="kicker" style="margin-top:14px;color:var(--copper-l)">OR IMPORT FROM A WEB LINK</div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <input class="field" style="margin-top:0;flex:1" inputmode="url" placeholder="https://a-recipe-site.com/…" value="${esc(d.fetchUrl||'')}" oninput="OV.data.fetchUrl=this.value">
+      <button class="tag t2" style="padding:0 16px" onclick="fetchRecipeFromUrl()">${d.fetchBusy?'…':'FETCH'}</button></div>
+    <div class="note" style="margin-top:6px">${d.fetchBusy?'Downloading & reading the page…':'Pulls the title, ingredients, steps, times & nutrition from most recipe sites. (Instagram/TikTok can’t be fetched — screenshot those.)'}</div>
 
     <div class="kicker" style="margin-top:16px">TITLE</div><input class="field" value="${esc(d.title)}" oninput="OV.data.title=this.value">
-    <div class="kicker" style="margin-top:12px">SOURCE LINK (Instagram / web)</div><input class="field" inputmode="url" placeholder="paste the reel / recipe link" value="${esc(d.source)}" oninput="OV.data.source=this.value">
-    <div style="display:flex;gap:10px"><div style="flex:1"><div class="kicker" style="margin-top:12px">SERVINGS</div><input class="field" value="${esc(String(d.servings||''))}" oninput="OV.data.servings=this.value"></div>
-      <div style="flex:1"><div class="kicker" style="margin-top:12px">TIME (MIN)</div><input class="field" type="number" min="0" value="${esc(String(d.time||''))}" oninput="OV.data.time=this.value"></div></div>
+    <div class="kicker" style="margin-top:12px">DESCRIPTION</div><textarea class="field" rows="2" oninput="OV.data.description=this.value" style="resize:none">${esc(d.description)}</textarea>
+    <div style="display:flex;gap:10px"><div style="flex:1"><div class="kicker" style="margin-top:12px">SOURCE NAME</div><input class="field" placeholder="e.g. @chef / site" value="${esc(d.sourceName)}" oninput="OV.data.sourceName=this.value"></div>
+      <div style="flex:1"><div class="kicker" style="margin-top:12px">FAVORITE</div><button class="fchip ${d.favorite?'on':''}" style="margin-top:0;width:100%" onclick="OV.data.favorite=!OV.data.favorite;renderOverlay()">${d.favorite?'★ FAVORITE':'☆ MARK FAVORITE'}</button></div></div>
+    <div class="kicker" style="margin-top:12px">SOURCE LINK (Instagram / web)</div><input class="field" inputmode="url" placeholder="paste the reel / recipe link" value="${esc(d.sourceUrl)}" oninput="OV.data.sourceUrl=this.value">
+    <div style="display:flex;gap:8px"><div style="flex:1"><div class="kicker" style="margin-top:12px">SERVINGS</div><input class="field" value="${esc(String(d.servings||''))}" oninput="OV.data.servings=this.value"></div>
+      <div style="flex:1"><div class="kicker" style="margin-top:12px">PREP MIN</div><input class="field" type="number" min="0" value="${esc(String(d.prepTime||''))}" oninput="OV.data.prepTime=this.value"></div>
+      <div style="flex:1"><div class="kicker" style="margin-top:12px">COOK MIN</div><input class="field" type="number" min="0" value="${esc(String(d.cookTime||''))}" oninput="OV.data.cookTime=this.value"></div>
+      <div style="flex:1"><div class="kicker" style="margin-top:12px">TOTAL MIN</div><input class="field" type="number" min="0" placeholder="auto" value="${esc(String(d.totalTime||''))}" oninput="OV.data.totalTime=this.value"></div></div>
+    <div class="kicker" style="margin-top:14px">COURSE</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">${COURSE_OPTS.map(c=>chip(c,d.course,'course')).join('')}</div>
+    <div style="display:flex;gap:10px"><div style="flex:1"><div class="kicker" style="margin-top:12px">CUISINE</div><input class="field" placeholder="e.g. Italian" value="${esc(d.cuisine)}" oninput="OV.data.cuisine=this.value"></div></div>
+    <div class="kicker" style="margin-top:14px">DIFFICULTY</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">${DIFF_OPTS.map(c=>chip(c,d.difficulty,'difficulty')).join('')}</div>
+    <div class="kicker" style="margin-top:14px">YOUR RATING</div><div style="margin-top:2px">${stars}</div>
+    <div class="kicker" style="margin-top:12px">TAGS · COMMA-SEPARATED</div><input class="field" placeholder="e.g. high-protein, meal-prep" value="${esc(d.tags)}" oninput="OV.data.tags=this.value">
     <div class="kicker" style="margin-top:12px">INGREDIENTS · ONE PER LINE</div>
     <textarea class="field" rows="6" oninput="OV.data.ingrText=this.value" style="resize:vertical;font-family:var(--mono);font-size:13px">${esc(d.ingrText)}</textarea>
     <div class="kicker" style="margin-top:12px">METHOD · ONE STEP PER LINE</div>
     <textarea class="field" rows="6" oninput="OV.data.stepText=this.value" style="resize:vertical;font-family:var(--mono);font-size:13px">${esc(d.stepText)}</textarea>
-    <div class="kicker" style="margin-top:12px">TAGS · COMMA-SEPARATED</div><input class="field" placeholder="e.g. high-protein, dinner" value="${esc(d.tags)}" oninput="OV.data.tags=this.value">
+    <div class="kicker" style="margin-top:12px">EQUIPMENT · ONE PER LINE</div>
+    <textarea class="field" rows="3" placeholder="e.g. blender&#10;air fryer" oninput="OV.data.equipText=this.value" style="resize:vertical;font-family:var(--mono);font-size:13px">${esc(d.equipText||'')}</textarea>
+    <div class="kicker" style="margin-top:12px">NUTRITION · PER SERVING</div>
+    <div style="display:flex;gap:8px"><div style="flex:1"><div class="note" style="margin:4px 0">Calories</div><input class="field" style="margin-top:0" type="number" min="0" value="${esc(String(d.calories||''))}" oninput="OV.data.calories=this.value"></div>
+      <div style="flex:1"><div class="note" style="margin:4px 0">Protein g</div><input class="field" style="margin-top:0" type="number" min="0" value="${esc(String(d.protein||''))}" oninput="OV.data.protein=this.value"></div>
+      <div style="flex:1"><div class="note" style="margin:4px 0">Carbs g</div><input class="field" style="margin-top:0" type="number" min="0" value="${esc(String(d.carbs||''))}" oninput="OV.data.carbs=this.value"></div>
+      <div style="flex:1"><div class="note" style="margin:4px 0">Fat g</div><input class="field" style="margin-top:0" type="number" min="0" value="${esc(String(d.fat||''))}" oninput="OV.data.fat=this.value"></div></div>
     <div class="kicker" style="margin-top:12px">NOTES</div><textarea class="field" rows="2" oninput="OV.data.notes=this.value" style="resize:none">${esc(d.notes)}</textarea>
     <div style="display:flex;gap:10px;margin-top:18px">
       ${isNew?'':`<button class="btn-ghost" style="color:var(--crimson-t);border-color:rgba(200,90,84,.4)" onclick="deleteRecipe('${OV.id}')">DELETE</button>`}
@@ -1634,61 +1707,154 @@ function parsePasteFill(text, replace){
   const d=OV.data;
   if(p.title && (replace||!d.title)) d.title=p.title;
   if(p.servings && (replace||!d.servings)) d.servings=p.servings;
-  if(p.time && (replace||!d.time)) d.time=p.time;
+  if(p.time && (replace||!d.totalTime)) d.totalTime=p.time;
   if(p.ingredients.length){ d.ingrText = (replace||!d.ingrText)? p.ingredients.join('\n') : (d.ingrText+'\n'+p.ingredients.join('\n')); }
   if(p.steps.length){ d.stepText = (replace||!d.stepText)? p.steps.join('\n') : (d.stepText+'\n'+p.steps.join('\n')); }
 }
 function parsePasteIntoFields(){ const t=(OV.data.paste||'').trim(); if(!t){ toast('Paste some text first'); return; } parsePasteFill(t,false); OV.data.paste=''; renderOverlay(); toast('Parsed into fields'); }
 function saveRecipe(){
-  const d=OV.data;
+  const d=OV.data; const numOr=(v)=>{ const s=String(v||'').replace(/[^0-9.]/g,''); return s?+s:0; };
+  const prep=String(d.prepTime||'').replace(/[^0-9]/g,''), cook=String(d.cookTime||'').replace(/[^0-9]/g,'');
+  let total=String(d.totalTime||'').replace(/[^0-9]/g,''); if(!total && (prep||cook)) total=String((+prep||0)+(+cook||0));
   const rec={ id: OV.id||rid(),
-    title:(d.title||'').trim()||'Untitled recipe', source:(d.source||'').trim(), image:d.image||'',
-    servings:(String(d.servings||'')).trim(), time:(String(d.time||'')).replace(/[^0-9]/g,''),
+    title:(d.title||'').trim()||'Untitled recipe', description:(d.description||'').trim(),
+    sourceName:(d.sourceName||'').trim(), sourceUrl:(d.sourceUrl||'').trim(), image:d.image||'',
+    servings:(String(d.servings||'')).trim(), prepTime:prep, cookTime:cook, totalTime:total,
+    cuisine:(d.cuisine||'').trim(), course:(d.course||'').trim(), difficulty:(d.difficulty||'').trim(),
+    rating:+d.rating||0, favorite:!!d.favorite,
+    tags:(d.tags||'').split(',').map(s=>s.trim()).filter(Boolean),
     ingredients:(d.ingrText||'').split('\n').map(s=>s.trim()).filter(Boolean),
     steps:(d.stepText||'').split('\n').map(s=>s.trim()).filter(Boolean),
-    tags:(d.tags||'').split(',').map(s=>s.trim()).filter(Boolean),
+    equipment:(d.equipText||'').split('\n').map(s=>s.trim()).filter(Boolean),
+    nutrition:{calories:numOr(d.calories), protein:numOr(d.protein), carbs:numOr(d.carbs), fat:numOr(d.fat)},
     notes:(d.notes||'').trim(), createdAt: (recipeById(OV.id)||{}).createdAt || Date.now() };
   if(OV.id==null) S.recipes.push(rec);
   else S.recipes=S.recipes.map(r=>r.id===OV.id?rec:r);
   closeOverlay(); render(); toast('Recipe saved');
 }
-function deleteRecipe(id){ S.recipes=S.recipes.filter(r=>r.id!==id); closeOverlay(); render(); toast('Recipe deleted'); }
+function deleteRecipe(id){ S.recipes=S.recipes.filter(r=>r.id!==id); _delConfirm=null; if(OV.kind)closeOverlay(); render(); toast('Recipe deleted'); }
 
 /* ---- recipe photo -> downscale -> OCR (on-device, lazy CDN; graceful fallback) ---- */
 function onRecipePhoto(e){ const f=e.target.files&&e.target.files[0]; e.target.value=''; if(!f) return;
-  downscaleImage(f, 1100, 0.7, dataUrl=>{ OV.data.image=dataUrl; OV.data.ocrBusy=true; OV.data.ocrPct=0; renderOverlay();
-    ocrImage(dataUrl, pct=>{ OV.data.ocrPct=pct; const n=document.querySelector('#overlays .note'); }).then(text=>{
+  // keep a clean colour copy for display, and a contrast-boosted grayscale copy for recognition
+  processImage(f, (dataUrl, ocrSrc)=>{ OV.data.image=dataUrl; OV.data.ocrBusy=true; OV.data.ocrPct=0; renderOverlay();
+    ocrImage(ocrSrc||dataUrl, pct=>{ OV.data.ocrPct=pct;
+        const el=document.querySelector('#overlays .note'); if(el && OV.data.ocrBusy) el.textContent='Reading image… '+Math.round(pct*100)+'%';
+      }).then(text=>{
       OV.data.ocrBusy=false; OV.data.ocrPct=null;
-      if(text && text.trim().length>8){ parsePasteFill(text, false); toast('Read image — review the fields'); }
+      const clean=(text||'').replace(/[ \t]+\n/g,'\n').replace(/\n{3,}/g,'\n\n').trim();
+      if(clean.length>8){ parsePasteFill(clean, false); OV.data.paste=OV.data.paste||clean; toast('Read image — review the fields'); }
       else { toast('Couldn’t read much text — paste or type it'); }
       renderOverlay();
-    }).catch(()=>{ OV.data.ocrBusy=false; OV.data.ocrPct=null; renderOverlay(); toast('OCR unavailable offline — image saved; paste or type the text'); });
+    }).catch(()=>{ OV.data.ocrBusy=false; OV.data.ocrPct=null; renderOverlay(); toast('OCR needs a connection — image saved; paste or type the text'); });
   });
 }
-function downscaleImage(file, maxDim, quality, cb){
+// Load → scale into the OCR sweet spot (upscale tiny screenshots, cap huge ones) → return a
+// colour JPEG for display AND a grayscale + contrast-stretched JPEG that reads better in Tesseract.
+function processImage(file, cb){
   const r=new FileReader();
   r.onload=()=>{ const img=new Image(); img.onload=()=>{
-    let {width:w,height:h}=img; const scale=Math.min(1, maxDim/Math.max(w,h)); w=Math.round(w*scale); h=Math.round(h*scale);
-    const c=document.createElement('canvas'); c.width=w; c.height=h; c.getContext('2d').drawImage(img,0,0,w,h);
-    try{ cb(c.toDataURL('image/jpeg',quality)); }catch(e){ cb(r.result); }
-  }; img.onerror=()=>cb(r.result); img.src=r.result; };
+    try{
+      let w=img.naturalWidth||img.width, h=img.naturalHeight||img.height; const mx=Math.max(w,h);
+      let scale=1; if(mx>1600) scale=1600/mx; else if(mx<1000) scale=Math.min(2, 1400/mx);   // upscale small reel screenshots
+      w=Math.max(1,Math.round(w*scale)); h=Math.max(1,Math.round(h*scale));
+      const c=document.createElement('canvas'); c.width=w; c.height=h;
+      const ctx=c.getContext('2d'); ctx.drawImage(img,0,0,w,h);
+      const display=c.toDataURL('image/jpeg',0.82);
+      let ocr=display;
+      try{ const id=ctx.getImageData(0,0,w,h), px=id.data;
+        for(let i=0;i<px.length;i+=4){ let g=0.299*px[i]+0.587*px[i+1]+0.114*px[i+2]; g=(g-128)*1.45+132; px[i]=px[i+1]=px[i+2]=g<0?0:g>255?255:g; }
+        ctx.putImageData(id,0,0); ocr=c.toDataURL('image/jpeg',0.9);
+      }catch(e){}
+      cb(display, ocr);
+    }catch(e){ cb(r.result, r.result); }
+  }; img.onerror=()=>cb(r.result, r.result); img.src=r.result; };
   r.onerror=()=>toast('Could not read that image'); r.readAsDataURL(file);
 }
-let _tessLoading=null;
+let _tessLoading=null, _tessWorker=null;
 function loadTesseract(){
   if(window.Tesseract) return Promise.resolve(window.Tesseract);
   if(_tessLoading) return _tessLoading;
-  const urls=['https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js','https://unpkg.com/tesseract.js@5/dist/tesseract.min.js'];
+  const urls=['https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js','https://unpkg.com/tesseract.js@5/dist/tesseract.min.js','https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js'];
   _tessLoading=new Promise((resolve,reject)=>{ let i=0; const tryNext=()=>{ if(i>=urls.length){ reject(new Error('no cdn')); return; }
     const s=document.createElement('script'); s.src=urls[i++]; s.async=true;
     s.onload=()=>{ window.Tesseract?resolve(window.Tesseract):tryNext(); }; s.onerror=tryNext; document.head.appendChild(s); };
     tryNext(); });
   return _tessLoading;
 }
-async function ocrImage(dataUrl, onProgress){
-  const T=await loadTesseract();
-  const res=await T.recognize(dataUrl,'eng',{ logger:m=>{ if(m.status==='recognizing text'&&onProgress) onProgress(m.progress); } });
-  return (res&&res.data&&res.data.text)||'';
+function ocrImage(dataUrl, onProgress){
+  // race recognition against a timeout so a stuck worker never freezes the UI
+  return new Promise((resolve,reject)=>{
+    let done=false; const to=setTimeout(()=>{ if(!done){ done=true; reject(new Error('ocr timeout')); } }, 60000);
+    loadTesseract().then(T=>T.recognize(dataUrl,'eng',{ logger:m=>{ if(m.status==='recognizing text'&&onProgress) onProgress(m.progress); } }))
+      .then(res=>{ if(done) return; done=true; clearTimeout(to); resolve((res&&res.data&&res.data.text)||''); })
+      .catch(err=>{ if(done) return; done=true; clearTimeout(to); reject(err); });
+  });
+}
+
+/* ---- import a recipe from a web link (JSON-LD schema.org/Recipe, via a CORS proxy) ---- */
+function isoDurationToMin(s){ if(!s) return ''; const m=String(s).match(/P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?)?/i); if(!m) return ''; const t=(+m[1]||0)*1440+(+m[2]||0)*60+(+m[3]||0); return t?String(t):''; }
+function ldText(v){ if(!v) return []; if(typeof v==='string') return v.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+  if(Array.isArray(v)) return v.map(x=> typeof x==='string'?x:((x&&(x.text||x.name))||'')).map(x=>String(x).trim()).filter(Boolean); return []; }
+function ldInstructions(ri){ if(!ri) return []; if(typeof ri==='string') return ri.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+  if(Array.isArray(ri)){ const out=[]; ri.forEach(it=>{ if(typeof it==='string') out.push(it);
+    else if(it && String(it['@type']||'').toLowerCase()==='howtosection' && Array.isArray(it.itemListElement)) it.itemListElement.forEach(st=>out.push((st&&(st.text||st.name))||''));
+    else out.push((it&&(it.text||it.name))||''); }); return out.map(s=>String(s).trim()).filter(Boolean); } return []; }
+function firstRecipeNode(json){
+  const scan=node=>{ if(!node||typeof node!=='object') return null; const t=node['@type']; const types=Array.isArray(t)?t:[t];
+    if(types.some(x=>String(x).toLowerCase()==='recipe')) return node;
+    if(Array.isArray(node['@graph'])){ for(const g of node['@graph']){ const r=scan(g); if(r) return r; } } return null; };
+  if(Array.isArray(json)){ for(const n of json){ const r=scan(n); if(r) return r; } return null; } return scan(json);
+}
+function recipeFromLd(r){
+  const imgv=r.image; const img=Array.isArray(imgv)?(imgv[0]&&(imgv[0].url||imgv[0])):(imgv&&(imgv.url||imgv));
+  const n=r.nutrition||{}; const num=v=>{ const s=String(v==null?'':v).replace(/[^0-9.]/g,''); return s?String(Math.round(+s)):''; };
+  return { title:String(r.name||'').trim(), description:String(r.description||'').replace(/\s+/g,' ').trim(),
+    image:(typeof img==='string')?img:'', servings:String(Array.isArray(r.recipeYield)?r.recipeYield[0]:(r.recipeYield||'')).trim(),
+    prepTime:isoDurationToMin(r.prepTime), cookTime:isoDurationToMin(r.cookTime), totalTime:isoDurationToMin(r.totalTime),
+    cuisine:String(Array.isArray(r.recipeCuisine)?r.recipeCuisine[0]:(r.recipeCuisine||'')).trim(),
+    course:String(Array.isArray(r.recipeCategory)?r.recipeCategory[0]:(r.recipeCategory||'')).trim(),
+    tags:(typeof r.keywords==='string'?r.keywords.split(','):(Array.isArray(r.keywords)?r.keywords:[])).map(s=>String(s).trim()).filter(Boolean),
+    ingredients:ldText(r.recipeIngredient||r.ingredients), steps:ldInstructions(r.recipeInstructions),
+    calories:num(n.calories), protein:num(n.proteinContent), carbs:num(n.carbohydrateContent), fat:num(n.fatContent) };
+}
+function parseRecipeJsonLd(html){
+  const scripts=[...String(html||'').matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
+  for(const s of scripts){ let json; try{ json=JSON.parse(s[1].trim().replace(/^\s*<!--/,'').replace(/-->\s*$/,'')); }catch(e){ continue; }
+    const node=firstRecipeNode(json); if(node) return recipeFromLd(node); }
+  return null;
+}
+function metaContent(html, prop){
+  let m=new RegExp('<meta[^>]+(?:property|name)=["\']'+prop+'["\'][^>]*content=["\']([^"\']*)["\']','i').exec(html);
+  if(!m) m=new RegExp('<meta[^>]+content=["\']([^"\']*)["\'][^>]*(?:property|name)=["\']'+prop+'["\']','i').exec(html);
+  return m?m[1]:''; }
+function parseOgFallback(html){ const title=metaContent(html,'og:title')||((/<title[^>]*>([^<]+)<\/title>/i.exec(html)||[])[1]||'');
+  const image=metaContent(html,'og:image'); const desc=metaContent(html,'og:description');
+  if(!title&&!image) return null; return {title:title.trim(),description:desc.trim(),image:image.trim(),servings:'',prepTime:'',cookTime:'',totalTime:'',cuisine:'',course:'',tags:[],ingredients:[],steps:[],calories:'',protein:'',carbs:'',fat:''}; }
+async function fetchViaProxy(url){
+  const proxies=[u=>'https://api.allorigins.win/raw?url='+encodeURIComponent(u), u=>'https://corsproxy.io/?url='+encodeURIComponent(u), u=>'https://thingproxy.freeboard.io/fetch/'+u];
+  let lastErr;
+  for(const mk of proxies){ try{ const res=await fetch(mk(url)); if(res&&res.ok){ const t=await res.text(); if(t&&t.length>150) return t; } }catch(e){ lastErr=e; } }
+  throw lastErr||new Error('fetch failed');
+}
+async function fetchRecipeFromUrl(){
+  const url=(OV.data.fetchUrl||'').trim();
+  if(!/^https?:\/\//i.test(url)){ toast('Enter a full https:// link'); return; }
+  if(/instagram\.com|tiktok\.com|facebook\.com/i.test(url)){ toast('Instagram/TikTok can’t be fetched — screenshot it instead'); }
+  OV.data.fetchBusy=true; renderOverlay();
+  try{
+    const html=await fetchViaProxy(url);
+    const p=parseRecipeJsonLd(html)||parseOgFallback(html);
+    if(!p || (!p.title && !p.ingredients.length && !p.image)) throw new Error('no recipe');
+    const d=OV.data; d.sourceUrl=d.sourceUrl||url;
+    try{ if(!d.sourceName) d.sourceName=new URL(url).hostname.replace(/^www\./,''); }catch(e){}
+    ['title','description','image','servings','prepTime','cookTime','totalTime','cuisine','course','calories','protein','carbs','fat'].forEach(k=>{ if(p[k] && !d[k]) d[k]=p[k]; });
+    if(p.tags&&p.tags.length&&!d.tags) d.tags=p.tags.join(', ');
+    if(p.ingredients&&p.ingredients.length) d.ingrText=(d.ingrText?d.ingrText+'\n':'')+p.ingredients.join('\n');
+    if(p.steps&&p.steps.length) d.stepText=(d.stepText?d.stepText+'\n':'')+p.steps.join('\n');
+    d.fetchBusy=false; renderOverlay();
+    toast(p.ingredients&&p.ingredients.length? 'Imported '+p.ingredients.length+' ingredients — review below' : 'Imported page details — add ingredients');
+  }catch(e){ OV.data.fetchBusy=false; renderOverlay(); toast('Couldn’t fetch that page — paste the recipe text instead'); }
 }
 
 /* ---- recipe text parser (headers or heuristic) ---- */
