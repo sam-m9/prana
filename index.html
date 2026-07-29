@@ -384,7 +384,7 @@ function homeHTML(){
     <button class="row-item" style="margin-top:10px;justify-content:center;border-style:dashed" onclick="document.getElementById('catfile').click()">
       <span style="letter-spacing:1px;font-size:10px;color:var(--copper-l);font-weight:700">⤒ UPLOAD A CATEGORY · CSV / EXCEL → CSV</span>
     </button>
-    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v18</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v19</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -772,7 +772,7 @@ function renderOverlay(animate){
   const box=document.getElementById('overlays');
   if(!OV.kind){ box.innerHTML=''; return; }
   _ovGen++;   // an overlay is live → cancel any pending close-wipe
-  const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML,weight:weightHTML,log:logHTML,import:importHTML}[OV.kind])();
+  const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML,weight:weightHTML,log:logHTML,import:importHTML,dq:dqHTML}[OV.kind])();
   box.innerHTML=`<div class="backdrop" onclick="closeOverlay()"></div><div class="sheet" onclick="event.stopPropagation()"><div class="grab"></div>${inner}</div>`;
   requestAnimationFrame(()=>{ const bd=box.querySelector('.backdrop'), sh=box.querySelector('.sheet'); if(bd)bd.classList.add('show'); if(sh)sh.classList.add('show'); });
 }
@@ -1014,9 +1014,9 @@ function voiceHTML(){
   if(OV.step===1){
     return `<div style="text-align:center"><button id="micHalo" class="mic-halo${_listening?' live':''}" onclick="toggleMic()" aria-label="Toggle voice recording" title="Tap to start or stop recording">${micSvg(46)}</button>
       <div class="kicker" id="micLabel">${_listening?'● LISTENING — TAP THE MIC TO STOP':'TAP THE MIC TO SPEAK · OR JUST TYPE'}</div>
-      <textarea id="voiceInput" rows="3" placeholder="e.g. two boiled eggs and a scoop of whey" oninput="OV.data.transcript=this.value" style="width:100%;margin-top:14px;background:#0e0c12;border:1px solid var(--line2);border-radius:14px;padding:14px;color:#e9e7ef;font-size:16px;font-family:var(--mono);resize:none">${esc(d.transcript)}</textarea>
+      <textarea id="voiceInput" rows="3" placeholder="LOG:  “ate a chicken spinach wrap and a scoop of Isopure”&#10;ADD:  “add Chobani zero-sugar vanilla to yogurt, ingredients: milk, cultures, stevia”" oninput="OV.data.transcript=this.value" style="width:100%;margin-top:14px;background:#0e0c12;border:1px solid var(--line2);border-radius:14px;padding:14px;color:#e9e7ef;font-size:16px;font-family:var(--mono);resize:none">${esc(d.transcript)}</textarea>
       <button class="btn-bone" style="margin-top:14px" onclick="stopVoice()">■ ANALYZE</button>
-      <div class="note" style="margin-top:12px">On-device only — nothing leaves your phone. The mic records only while it's lit; iOS remembers your permission after the first time. If speech isn't supported, just type.</div></div>`;
+      <div class="note" style="margin-top:12px">Say what you <b>ate</b> to log protein — or say “<b>add …</b>” to put a product into the catalog (it runs the science and tiers or disqualifies it). On-device only; nothing leaves your phone. If speech isn't supported, just type.</div></div>`;
   }
   if(OV.step===2){
     return `<div style="text-align:center;padding:10px 0"><div class="spin"></div>
@@ -1037,13 +1037,115 @@ function stopVoice(){
   const el=document.getElementById('voiceInput'); if(el) OV.data.transcript=el.value;
   stopMic();
   OV.step=2; renderOverlay();
-  setTimeout(()=>{ if(OV.kind!=='voice') return; try{ localParse(OV.data.transcript||''); }catch(e){ OV.data.items=[]; OV.data.total=0; } OV.step=3; renderOverlay(); }, 700);
+  setTimeout(()=>{ if(OV.kind!=='voice') return;
+    const text=OV.data.transcript||'';
+    if(voiceIntent(text)==='add'){ startVoiceAdd(text); return; }   // route to add-a-product
+    try{ localParse(text); }catch(e){ OV.data.items=[]; OV.data.total=0; }
+    OV.step=3; renderOverlay();
+  }, 700);
+}
+// Decide whether the user is LOGGING food they ate or ADDING a product to the catalog.
+function voiceIntent(text){
+  const t=' '+(text||'').toLowerCase()+' ';
+  if(/\b(ate|eaten|eating|had|drank|drink|drinking|consumed|log(ged)?)\b/.test(t) && !/\bto (the |my )?(catalog|database|categor)/.test(t)) return 'log';
+  if(/\b(add|create|save|register|new)\b/.test(t) && /\b(product|item|catalog|catalogue|database|categor)/.test(t)) return 'add';
+  if(/^\s*(add|create)\b/.test((text||'').toLowerCase())) return 'add';
+  return 'log';
+}
+// Pull a product spec out of free speech and hand it to the add-food form (which runs the
+// classifier on save). Handles "add <name> from <store> to <category>, ingredients: a, b, c".
+function startVoiceAdd(text){
+  const low=(text||'').toLowerCase();
+  let ingr='', namePart=text||'';
+  const im=low.search(/ingredients?\b/);
+  if(im>=0){ ingr=(text.slice(im).replace(/^[^:]*ingredients?\s*:?\s*/i,'')||'').trim(); namePart=text.slice(0,im); }
+  let store='heb';
+  if(/whole foods/.test(low)) store='wf';
+  else if(/central market|online|amazon|direct|\.com/.test(low)) store='other';
+  else if(/h.?e.?b|heb/.test(low)) store='heb';
+  let cat=allCats()[0];
+  const cm=low.match(/(?:to|in|under)\s+(?:the\s+|my\s+)?([a-z& ]+?)\s*(?:category|categories|,|$)/);
+  if(cm){ const guess=cm[1].trim(); const found=allCats().find(c=>{ const cl=c.toLowerCase(); return cl===guess||cl.includes(guess)||guess.includes(cl); }); if(found) cat=found; }
+  let name=namePart
+    .replace(/^\s*(please\s+)?(add|create|save|register)\s+(a\s+|an\s+|the\s+)?(new\s+)?(product|item)?\s*/i,'')
+    .replace(/\bto (the |my )?(catalog|catalogue|database)\b/ig,'')
+    .replace(/\bfrom (whole foods|central market|h.?e.?b|heb|online|amazon)\b/ig,'')
+    .replace(/\b(to|in|under) (the |my )?[a-z& ]+? (category|categories)\b/ig,'')
+    .replace(/\s+(to|in|under)\s+(the |my )?[a-z& ]+?\s*,?\s*$/i,'')   // trailing "to <category>[,]" with no "category" word
+    .replace(/[,.\s]+$/,'').trim();
+  if(!name) name='New product';
+  const d=blankFood(); d.name=name; d.store=store; d.stores=[store]; d.cat=cat; d.ingr=ingr;
+  OV={kind:'edit', id:null, data:d, fromVoice:true};
+  renderOverlay();
+  toast(ingr? 'Dictated — review & save to run the science' : 'Add the ingredient list, then Save');
+}
+// Disqualification prompt — shown whenever an entered product trips the pre-filter.
+function showDisqualified(info){ OV={kind:'dq', data:info}; renderOverlay(true); }
+function reopenEdit(){ const d=OV.data; OV={kind:'edit', id:(d.pendingId!=null?d.pendingId:null), data:d.pending||blankFood(), fromVoice:!!d.fromVoice}; renderOverlay(); }
+function dqHTML(){
+  const d=OV.data;
+  const note={L1:'L1 — settled-science ban (industrial trans fat / PHO).',L2:'L2 — regulatory-gap additive, or added sugar hidden in a savory / staple food.',L3:'L3 — gut-disrupting seed oil, emulsifier / gum, artificial sweetener, polyol or fibre filler.'}[d.dqLevel]||'';
+  return `<div style="text-align:center"><div style="font-size:36px">⛔</div>
+      <div class="disp" style="font-family:var(--disp);font-weight:900;font-size:25px;margin-top:4px;color:var(--crimson-t)">Disqualified</div></div>
+    <div class="note" style="text-align:left;margin-top:10px"><b style="color:#e9e7ef">${esc(d.name||'This product')}</b>${d.cat?' · '+esc(d.cat):''}</div>
+    <div class="ladder" style="border-color:rgba(200,90,84,.4);margin-top:12px">
+      <div class="kicker" style="color:var(--crimson-t)">${esc(d.dqLevel||'')} · FAILED THE STRICT PRE-FILTER</div>
+      <div style="font-size:13px;line-height:1.6;margin-top:8px;color:#e9e7ef">${esc(d.reason||'Contains a disqualifying ingredient.')}</div>
+      ${d.ingredient?`<div style="font-size:11px;color:var(--mute2);margin-top:9px">Offending ingredient: <b style="color:var(--crimson-t)">${esc(d.ingredient)}</b></div>`:''}
+    </div>
+    <div class="note" style="margin-top:12px">${esc(note)} It won't be added to your safe catalog.</div>
+    <div style="display:flex;gap:10px;margin-top:18px">
+      <button class="btn-ghost" onclick="closeOverlay()">DISCARD</button>
+      ${d.pending?`<button class="btn-bone" onclick="reopenEdit()">↩ EDIT INGREDIENTS</button>`:''}</div>`;
 }
 function editVoice(){ OV.step=1; renderOverlay(); /* mic stays OFF until tapped */ }
 function confirmVoice(){
   const its=OV.data.items||[]; const tot=OV.data.total||0;
   its.forEach(it=>addLogEntry(it.name, it.protein, it.qty));
   closeOverlay(); render(); toast('Logged +'+tot+'g protein');
+}
+
+/* =====================================================================
+   SCIENCE CLASSIFIER — client-side implementation of the strict pre-filter
+   + Sweetener Matrix (docs/CATEGORIZATION_LOGIC.md). Given name + category +
+   raw ingredient text it returns {decision, dqLevel, reason, ingredient, flag,
+   tier}. Used for voice-add, manual add, and CSV import so anything entered is
+   either tagged correctly or disqualified with a reason.
+   ===================================================================== */
+const SWEET_CATS = new Set(['Desserts','Ice Cream','Jam','Chocolate','Candy & Gummies','Cookies','Dried Fruit','Protein Bar']);
+const CLS_RULES = [
+  {lvl:'L1', kind:'trans fat / hydrogenated oil', pats:[/partially hydrogenated[a-z ]*/, /\bhydrogenated [a-z ]*oil/, /\btrans[- ]fat/]},
+  {lvl:'L2', kind:'regulatory-gap additive', pats:[/potassium bromate/, /azodicarbonamide/, /allura red|red\s*(no\.?\s*)?40|red\s*#?\s*40/, /tartrazine|sunset yellow|yellow\s*[56]/, /brilliant blue|blue\s*[12]/, /titanium dioxide/, /\bbha\b/, /\bbht\b/, /\btbhq\b/, /propyl gallate/, /sodium benzoate/, /sodium (nitrite|nitrate)/]},
+  {lvl:'L3', kind:'industrial seed oil', pats:[/canola/, /soybean oil/, /\bsoy oil/, /sunflower oil/, /safflower/, /corn oil/, /cottonseed/, /vegetable oil/, /peanut oil/, /rapeseed/, /palm kernel/, /grapeseed/, /rice bran oil/]},
+  {lvl:'L3', kind:'emulsifier / gum', pats:[/carrageenan/, /cellulose gum/, /carboxymethyl\w*/, /polysorbate/, /xanthan/, /guar gum/, /locust bean gum/, /carob bean gum/, /gellan gum/, /\blecithin\b/, /mono-?\s*(and|&)?\s*di-?glycerides|monoglycerides?|diglycerides?/, /\bdatem\b/, /polyglycerol/]},
+  {lvl:'L3', kind:'artificial sweetener', pats:[/sucralose/, /aspartame/, /acesulfame/, /\bace-?k\b/, /saccharin/, /neotame/, /\bsplenda\b/]},
+  {lvl:'L3', kind:'sugar alcohol / polyol', pats:[/erythritol/, /xylitol/, /sorbitol/, /maltitol/, /\bisomalt\b/, /\bmannitol\b/]},
+  {lvl:'L3', kind:'engineered fibre filler', pats:[/soluble corn fib(er|re)/, /isomalto-?oligosaccharide|\bimo\b/, /polydextrose/, /vegetable glycerin/, /\bmaltodextrin\b/]},
+];
+const PROCESSED_SUGAR = [/high[- ]fructose corn syrup/, /\bhfcs\b/, /corn syrup/, /glucose syrup/, /invert sugar/];
+const NATURAL_SUGAR = [/\bcane sugar\b/, /coconut sugar/, /\bbrown sugar\b/, /\bhoney\b/, /\bmaple\b/, /molasses/, /\bagave\b/, /\bcane\b/, /\bsugar\b/, /\bdextrose\b/, /rice syrup/, /tapioca syrup/, /date (syrup|paste)/, /fruit juice concentrate/, /\ballulose\b/, /\bsyrup\b/];
+const ISOLATE_SIG = [/\bisolate\b/, /whey protein/, /pea protein/, /protein concentrate/, /micellar casein/, /\bsoy protein\b/, /rice protein/, /egg white protein/, /collagen peptides/];
+const TIER1_SIG = [/sprouted/, /sourdough/, /wild ferment/, /grass[- ]fed/, /\ba2\b/, /pasture[- ]?raised|pastured/, /raw milk/, /extra virgin olive oil/, /single[- ]origin/, /\bcultured\b/, /\bfermented\b/, /bronze[- ]die/, /100% grass/];
+function firstHit(text, pats){ for(const re of pats){ const m=text.match(re); if(m) return m[0].trim(); } return null; }
+function classify(name, cat, ingr){
+  let text=(' '+(ingr||'')+' '+(name||'')+' ').toLowerCase();
+  // neutralise negations so "sugar free" / "no added sugar" doesn't read as added sugar
+  const negScrub = text.replace(/sugar[- ]?free|no (added )?sugar|zero sugar|unsweetened|0g sugar|without sugar/g,' ');
+  const sweet = SWEET_CATS.has(cat);
+  for(const g of CLS_RULES){
+    const hit=firstHit(text, g.pats);
+    if(hit) return {decision:'disqualify', dqLevel:g.lvl, ingredient:hit, reason:`${g.lvl} · ${g.kind} — “${hit}”`, flag:null, tier:null};
+  }
+  const proc=firstHit(text, PROCESSED_SUGAR);
+  if(proc) return {decision:'disqualify', dqLevel:'L2', ingredient:proc, reason:`L2 · processed sugar syrup — “${proc}”`, flag:null, tier:null};
+  const natSugar=firstHit(negScrub, NATURAL_SUGAR);
+  if(natSugar && !sweet) return {decision:'disqualify', dqLevel:'L2', ingredient:natSugar, reason:`L2 · added sugar in a savory / staple item — “${natSugar}”`, flag:null, tier:null};
+  const isolate=firstHit(text, ISOLATE_SIG);
+  if(isolate) return {decision:'tier2', dqLevel:null, flag:'tool', tier:2, reason:`Clean engineered protein (${isolate}) with no gums or sweeteners — capped at Tier 2.`};
+  if(natSugar && sweet) return {decision:'tier3', dqLevel:null, flag:'sugar', tier:3, reason:`Matrix-approved sweetener in an inherently-sweet category (“${natSugar}”) — Tier 3.`};
+  const t1=firstHit(text, TIER1_SIG);
+  if(t1) return {decision:'tier1', dqLevel:null, flag:'clean', tier:1, reason:`Whole-food clean with a Tier-1 signal (${t1}).`};
+  return {decision:'tier2', dqLevel:null, flag:'clean', tier:2, reason:`Passes every hard filter — a clean, conventional Tier-2 pick.`};
 }
 
 /* ---- voice food parsing ----
@@ -1107,9 +1209,52 @@ function findQty(pre){
   }
   return article!=null?article:1;
 }
+// distinctive (brand-ish) tokens from a product name, minus generic food words
+const STOPTOK=new Set(['organic','with','protein','whey','milk','yogurt','greek','plain','unflavored','grass','free','range','natural','original','classic','premium','bars','cheese','butter','olive','extra','virgin','nonfat','whole','salt','dark','chocolate','cacao','vanilla','cream','sugar','style','family','farms','farm','creamery','organics','select','ingredients','flavor','flavored','powder','isolate','fine','pure','real','food','foods','sprouted','grain','bread','fresh','pressed','pure','zero','carb']);
+// every word that appears in the generic FOOD table — these are NEVER brand triggers, so
+// "chicken", "spinach", "whey", "eggs" route to the generic parser, not to catalog matching.
+const FOOD_WORDS=new Set(FOODS.flatMap(f=>f.keys.join(' ').split(' ')).filter(Boolean));
+// portion / vessel words — never brand triggers ("a BOWL of Fage" must not match a product named "…Bowl")
+const PORTION_WORDS=new Set(['bowl','bowls','cup','cups','plate','plates','glass','glasses','handful','slice','slices','piece','pieces','serving','servings','scoop','scoops','portion','portions','can','cans','link','links','fillet','fillets','breast','shake','shakes','rasher','rashers','bar','bars']);
+// when a real brand is named, its category's GENERIC phrasing means the same item — blank it so it isn't double-counted
+const CAT_GENERIC={
+  'Yogurt':['greek yogurt','yogurt','skyr'],
+  'Clear Whey':['protein shake','protein smoothie','whey protein','protein powder','scoop of whey','whey isolate','protein scoop','whey'],
+  'Cheese':['cottage cheese','cheese'],
+  'Nut Butter':['peanut butter','almond butter','nut butter'],
+  'Eggs':['egg whites','egg white','boiled egg','scrambled egg','fried egg','eggs','egg'],
+  'Plant Milk':['glass of milk','milk'],
+  'Protein Bar':['protein bar','protein bars'],
+};
+function sigToks(name){ return (name||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w=>w.length>=4 && !STOPTOK.has(w)); }
 function localParse(text){
   let t=(' '+(text||'').toLowerCase()+' ').replace(/[^a-z0-9\/\s]/g,' ').replace(/\s+/g,' ');
   const items=[]; let total=0;
+  // 1) CATALOG BRAND MATCH — if the user names a real product (Isopure, Fage, Naked…),
+  //    log one serving of THAT product using its verified per-serving protein.
+  try{
+    const prods=products(); const freq={}, ptoks={};
+    prods.forEach(p=>{ const s=sigToks(p.name); ptoks[p.id]=s; s.forEach(w=>freq[w]=(freq[w]||0)+1); });
+    const used=new Set();
+    // candidate triggers: distinctive (rare), NOT a generic food word or portion/vessel word
+    const present=[]; for(const w in freq){ if(freq[w]<=4 && !FOOD_WORDS.has(w) && !PORTION_WORDS.has(w) && t.indexOf(' '+w+' ')>=0) present.push(w); }
+    present.forEach(w=>{
+      let best=null, bs=0;
+      prods.forEach(p=>{ if(used.has(p.id)||!ptoks[p.id].includes(w))return; let s=0; ptoks[p.id].forEach(x=>{ if(t.indexOf(' '+x+' ')>=0)s++; }); if(s>bs){bs=s;best=p;} });
+      if(best && !used.has(best.id) && (best.protein||0)>0){
+        used.add(best.id);
+        const idx=t.indexOf(' '+w+' ');
+        const qty=findQty(t.slice(0,idx+1));
+        const g=Math.round((best.protein||0)*qty);
+        items.push({name:best.name, qty:(qty===1?'1 serving':qty+' servings')+' · ~'+best.protein+'g/serv · catalog', protein:g});
+        total+=g;
+        ptoks[best.id].forEach(x=>{ t=t.split(' '+x+' ').join('   '); });
+        // the named brand IS this category's food — blank the generic phrasing so it isn't double-counted
+        (CAT_GENERIC[best.cat]||[]).forEach(ph=>{ t=t.split(' '+ph+' ').join('   '); });
+      }
+    });
+  }catch(e){}
+  // 2) GENERIC FOOD TABLE on whatever text remains
   for(const f of FOODS){
     let mIdx=-1;
     for(const key of f.keys){ const i=t.indexOf(' '+key+' '); if(i>=0){ mIdx=i; break; } }
@@ -1118,7 +1263,6 @@ function localParse(text){
     const g=Math.round(f.protein*qty);
     const q=(qty===1?'1':(qty%1?qty.toFixed(2).replace(/0$/,''):qty))+' '+f.unit+(qty!==1&&!/\s/.test(f.unit)?'s':'')+' · ~'+f.protein+'g each';
     items.push({name:f.name, qty:q, protein:g}); total+=g;
-    // blank every alias of this food so a more-generic entry can't double-count it
     f.keys.forEach(k=>{ t=t.split(' '+k+' ').join('   '); });
   }
   if(!items.length){ items.push({name:'Mixed intake',qty:'rough estimate — edit after logging',protein:20}); total=20; }
@@ -1179,7 +1323,7 @@ function saveWeight(){
 }
 
 /* EDIT / ADD FOOD */
-function blankFood(){ return {id:null,name:'',size:'',price:0,protein:0,servings:1,store:'heb',stores:['heb'],cat:allCats()[0],tier:1,flags:['clean'],audit:'Custom entry.'}; }
+function blankFood(){ return {id:null,name:'',size:'',price:0,protein:0,servings:1,store:'heb',stores:['heb'],cat:allCats()[0],tier:1,flags:['clean'],audit:'Custom entry.',ingr:''}; }
 const FLAG_OPTS=[['clean','WHOLE FOOD · T1',1],['tool','CLEAN ISOLATE · T2',2],['sugar','SWEET-CATEGORY · T3',3]];
 function editHTML(){
   const d=OV.data; const isNew=OV.id==null;
@@ -1194,7 +1338,10 @@ function editHTML(){
       ${[['heb','H·E·B'],['wf','WHOLE FOODS'],['other','ONLINE']].map(([k,l])=>`<button class="fchip ${d.store===k?'on':''}" onclick="OV.data.store='${k}';OV.data.stores=['${k}'];renderOverlay()">${l}</button>`).join('')}</div>
     <div class="kicker" style="margin-top:14px">CATEGORY</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">
       ${allCats().map(c=>`<button class="fchip ${d.cat===c?'on':''}" onclick="setEditCat('${encodeURIComponent(c)}')">${esc(c)}</button>`).join('')}</div>
-    <div class="kicker" style="margin-top:14px">CLASSIFICATION</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">
+    <div class="kicker" style="margin-top:14px">INGREDIENT LIST <span style="color:var(--copper-l)">· AUTO-TIERED BY THE SCIENCE</span></div>
+    <textarea class="field" rows="3" placeholder="Paste the full ingredient statement — PRANA runs the strict pre-filter + Sweetener Matrix and tiers it, or disqualifies it with the reason." oninput="OV.data.ingr=this.value" style="resize:none;font-family:var(--mono);font-size:13px">${esc(d.ingr||'')}</textarea>
+    <div class="note" style="margin-top:6px">Leave blank to set the tier manually below.</div>
+    <div class="kicker" style="margin-top:14px">CLASSIFICATION <span style="color:var(--mute3)">· MANUAL (used only if no ingredients)</span></div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">
       ${FLAG_OPTS.map(([k,l,t])=>`<button class="fchip ${d.flags[0]===k?'on':''}" onclick="OV.data.flags=['${k}'];OV.data.tier=${t};renderOverlay()">${l}</button>`).join('')}</div>
     <div style="display:flex;gap:10px;margin-top:20px">
       ${isNew?'':`<button class="btn-ghost" style="color:var(--crimson-t);border-color:rgba(200,90,84,.4)" onclick="deleteFood()">DELETE</button>`}
@@ -1203,12 +1350,25 @@ function editHTML(){
 function saveEditFood(){
   const d=OV.data;
   d.price=Math.max(0,+d.price||0); d.protein=Math.max(0,+d.protein||0); d.servings=Math.max(1,Math.round(+d.servings||1));
-  d.name=d.name.trim()||'Untitled food'; d.size=d.size.trim()||'1 pack'; d.tlabel=d.tlabel||({1:'Gold Standard',2:'Clean Tool',3:'Safe Fallback'}[d.tier]);
+  d.name=(d.name||'').trim()||'Untitled food'; d.size=(d.size||'').trim()||'1 pack';
+  // If an ingredient list was provided, run the science: tag the tier or disqualify.
+  if((d.ingr||'').trim()){
+    const c=classify(d.name, d.cat, d.ingr);
+    if(c.decision==='disqualify'){
+      showDisqualified({name:d.name, cat:d.cat, dqLevel:c.dqLevel, reason:c.reason, ingredient:c.ingredient,
+        pending:Object.assign({},d), pendingId:OV.id, fromVoice:OV.fromVoice});
+      return;   // do NOT add a disqualified item to the safe catalog
+    }
+    d.tier=c.tier; d.flags=[c.flag]; d.audit=c.reason+' Tag: '+({1:'Gold Standard · Whole-Food Clean',2:'Practical Clean Tool (Tier 2)',3:'Acceptable Safe Fallback (Tier 3)'}[c.tier])+'.'; d.conf='medium';
+  }
+  d.tlabel=({1:'Gold Standard',2:'Clean Tool',3:'Safe Fallback'}[d.tier])||'Clean Tool';
   d.packProtein=Math.round(d.protein*d.servings*10)/10;
+  const wasVoice=OV.fromVoice;
   if(OV.id==null){ d.id=nextId(); S.prodAdds.push(Object.assign({},d)); }
   else if(S.prodAdds.some(x=>x.id===OV.id)){ S.prodAdds=S.prodAdds.map(x=>x.id===OV.id?Object.assign({},d,{id:OV.id}):x); }
   else { S.prodEdits[OV.id]=Object.assign({},S.prodEdits[OV.id],d,{id:OV.id}); }
-  closeOverlay(); render(); toast('Saved');
+  closeOverlay(); render();
+  toast((d.ingr||'').trim()? ('Added · Tier '+d.tier+(wasVoice?' (from voice)':'')) : 'Saved');
 }
 function deleteFood(){ const id=OV.id; if(id==null)return;
   if(S.prodAdds.some(x=>x.id===id)) S.prodAdds=S.prodAdds.filter(x=>x.id!==id);
@@ -1306,9 +1466,19 @@ function buildImport(text, fname){
   const cats=[...new Set(items.map(x=>x.cat).filter(Boolean))];
   const singleCat = cats.length? null : (fileCat||'Imported');
   if(singleCat) items.forEach(x=>x.cat=singleCat);
-  const finalCats=[...new Set(items.map(x=>x.cat))];
+  // run the science on any row that provided an ingredient list: disqualify or (re)tier it
+  const kept=[], disq=[];
+  items.forEach(x=>{
+    if((x.ingr||'').trim()){
+      const c=classify(x.name, x.cat, x.ingr);
+      if(c.decision==='disqualify'){ disq.push({name:x.name, cat:x.cat, dqLevel:c.dqLevel, reason:c.reason}); return; }
+      x.tier=c.tier; x.flag=c.flag; x.audit=c.reason;
+    }
+    kept.push(x);
+  });
+  const finalCats=[...new Set(kept.map(x=>x.cat))];
   const newCats=finalCats.filter(c=>!allCats().includes(c));
-  OV={kind:'import', data:{items, cats:finalCats, newCats, warnings, fname}};
+  OV={kind:'import', data:{items:kept, disq, cats:finalCats, newCats, warnings, fname}};
   renderOverlay(true);
 }
 function importHTML(){
@@ -1330,12 +1500,14 @@ function importHTML(){
       <div style="font-size:10px;color:var(--mute3)">${esc(x.cat)} · ${esc(x.size)} · ${STORE_SHORT[x.store]} · $${x.price.toFixed(2)} · ${x.protein}g×${x.servings}</div></div>
       <span class="tag t${x.tier}">T${x.tier}</span></div>`).join('')}
     ${n>6?`<div class="note">…and ${n-6} more.</div>`:''}
+    ${(d.disq&&d.disq.length)?`<div class="ladder" style="border-color:rgba(200,90,84,.35);margin-top:12px"><div class="kicker" style="color:var(--crimson-t)">⛔ ${d.disq.length} DISQUALIFIED · EXCLUDED</div>
+      <div style="font-size:10.5px;line-height:1.55;color:var(--mute2);margin-top:6px">${d.disq.slice(0,6).map(x=>`<b style="color:#e9e7ef">${esc(x.name)}</b> — ${esc(x.reason)}`).join('<br>')}${d.disq.length>6?'<br>…and '+(d.disq.length-6)+' more':''}</div></div>`:''}
     ${d.warnings.length?`<div class="ladder" style="border-color:rgba(207,154,74,.3);margin-top:12px"><div class="kicker" style="color:var(--copper-l)">${d.warnings.length} WARNING${d.warnings.length===1?'':'S'}</div>
       <div style="font-size:10.5px;line-height:1.5;color:var(--mute2);margin-top:6px">${d.warnings.slice(0,5).map(esc).join('<br>')}${d.warnings.length>5?'<br>…':''}</div></div>`:''}
     <div style="display:flex;gap:10px;margin-top:18px">
       <button class="btn-ghost" onclick="closeOverlay()">CANCEL</button>
-      <button class="btn-bone" onclick="commitImport()">＋ ADD ${n} TO DATABASE</button></div>
-    <div class="note" style="margin-top:10px">These merge into your local database as added products. Export a backup afterward to keep them safe.</div>`;
+      ${n>0?`<button class="btn-bone" onclick="commitImport()">＋ ADD ${n} TO DATABASE</button>`:''}</div>
+    <div class="note" style="margin-top:10px">${n>0?'The safe items merge into your local database as added products.':'Every row was disqualified — nothing to add.'} Rows with an ingredient list are auto-tiered by the science; rows without one keep the sheet's tier.</div>`;
 }
 function commitImport(){
   const d=OV.data; const TLABEL={1:'Gold Standard',2:'Clean Tool',3:'Safe Fallback'};

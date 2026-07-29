@@ -35,6 +35,21 @@ sweeteners), the **Sweetener Matrix** for inherently-sweet categories, A1/A2 cas
 fermentation, bronze-die pasta, engineered isolates — and the pseudoscience it deliberately ignores.
 Both the pre-filter and the Sweetener Matrix are viewable in-app from the Science panel.
 
+### Voice & the on-device science engine
+
+The mic does two jobs and routes automatically by what you say:
+
+- **Log** — “ate a chicken spinach wrap and a scoop of Isopure” parses quantities, composite dishes,
+  and **real catalog brands** (Isopure → one serving at its verified per-serving protein), then adds
+  each item as an editable row in the daily log.
+- **Add a product** — “add Chobani zero-sugar vanilla to yogurt, ingredients: milk, cultures, stevia”
+  opens the add-product form pre-filled and runs the **client-side science engine** (`classify()` — the
+  same strict pre-filter + Sweetener Matrix) on the ingredient list.
+
+Anything you enter with an ingredient list (voice, the manual Add-food form, or a CSV import row) is
+either **auto-tiered** or **disqualified with a prompt** naming the level (L1/L2/L3) and the exact
+offending ingredient. Disqualified items never enter the safe catalog.
+
 ## Deploy to Cloudflare Pages
 
 1. Push this repo to GitHub (already the case).
