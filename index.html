@@ -476,7 +476,7 @@ function homeHTML(){
     <button class="row-item" style="margin-top:10px;justify-content:center;border-style:dashed" onclick="document.getElementById('catfile').click()">
       <span style="letter-spacing:1px;font-size:10px;color:var(--copper-l);font-weight:700">⤒ UPLOAD A CATEGORY · CSV / EXCEL → CSV</span>
     </button>
-    <div class="note" style="margin-top:10px" id="backupNote">Recipes & photos are saved durably (IndexedDB) and backups include everything. · v24</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Recipes & photos are saved durably (IndexedDB) and backups include everything. · v25</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -812,8 +812,19 @@ function listHTML(){
       <button class="btn-ghost" style="width:auto;margin:18px auto 0;padding:14px 26px" onclick="go('rank')">OPEN RANK →</button></div>`:''}
     ${shop.length?`<div style="display:flex;justify-content:space-between;align-items:center;margin:18px 0 8px">
         <div class="kicker">TO BUY · ${active.length}</div>
-        ${done.length?`<button style="font-size:10px;letter-spacing:1px;color:var(--copper-l);font-weight:700" onclick="clearCheckedShop()">CLEAR ${done.length} CHECKED</button>`:''}</div>
-      ${active.map(shopRow).join('')||'<div class="note">All checked off. Nice.</div>'}
+        <div style="display:flex;gap:12px">
+          ${done.length?`<button style="font-size:10px;letter-spacing:1px;color:var(--copper-l);font-weight:700" onclick="clearCheckedShop()">CLEAR ${done.length} CHECKED</button>`:''}
+          <button style="font-size:10px;letter-spacing:1px;color:${_shopClearArm?'var(--crimson)':'var(--mute3)'};font-weight:700" onclick="clearAllShop()">${_shopClearArm?'TAP AGAIN TO CLEAR ALL':'CLEAR ALL'}</button></div></div>
+      ${active.length? (()=>{ const g=shopGroups(active); const gk=['heb','wf','other','un'].filter(k=>g[k].length);
+        const grouped = gk.length>1 || (gk.length===1 && gk[0]!=='un');
+        if(!grouped) return active.map(shopRow).join('');
+        const glabel={heb:STORE_LABEL.heb, wf:STORE_LABEL.wf, other:STORE_LABEL.other, un:'OTHER ITEMS'};
+        return gk.map(k=>`<div style="display:flex;align-items:center;gap:12px;margin:14px 0 8px">
+            <span class="grouptag ${k==='un'?'':'gt-'+k}" ${k==='un'?'style="background:var(--line2);color:var(--mute2)"':''}>${glabel[k]}</span>
+            <div style="flex:1;height:1px;background:var(--line2)"></div>
+            <span style="font-size:10px;letter-spacing:2px;color:var(--mute3)">${g[k].length}</span></div>
+          ${g[k].map(shopRow).join('')}`).join('');
+      })() : '<div class="note">All checked off. Nice.</div>'}
       ${done.length?`<div class="kicker" style="margin:16px 0 8px;color:var(--mute3)">IN THE CART · ${done.length}</div>${done.map(shopRow).join('')}`:''}`:''}
     ${picks.length?`<div class="kicker" style="margin:22px 0 4px">VERIFIED PICKS · TAP AN ITEM FOR OUT-OF-STOCK SWAPS</div>
       <div style="margin-top:8px">
@@ -826,11 +837,14 @@ function listHTML(){
     <div style="height:8px"></div>
   </div>`;
 }
-function shopRow(x){ const m=x.matchId!=null?byId(x.matchId):null;
+function shopRow(x){ const m=x.matchId!=null?byId(x.matchId):null; const c=x.count||1;
   return `<div class="drow" style="margin-bottom:7px;align-items:center;${x.checked?'opacity:.5':''}">
     <button onclick="toggleShopItem('${x.id}')" aria-label="toggle" style="flex:0 0 auto;width:24px;height:24px;border-radius:7px;border:1.5px solid ${x.checked?'var(--sage)':'var(--line2)'};background:${x.checked?'var(--sage)':'transparent'};color:#0b0b0d;font-size:14px;line-height:1;cursor:pointer">${x.checked?'✓':''}</button>
-    <div style="flex:1;min-width:0;margin-left:10px"><div style="font-size:13.5px;${x.checked?'text-decoration:line-through':''}">${esc(x.text)}</div>
+    <div style="flex:1;min-width:0;margin-left:10px"><div style="font-size:13.5px;${x.checked?'text-decoration:line-through':''}">${esc(x.text)}${c>1?` <span style="color:var(--copper-l);font-weight:700">×${c}</span>`:''}</div>
       ${m?`<div style="font-size:10px;color:var(--sage-l);margin-top:2px">✓ PRANA · ${esc(m.name)} · ${cpgStr(m.cpg)}/g</div>`:''}</div>
+    ${x.checked?'':`<div style="display:flex;align-items:center;gap:2px;flex:0 0 auto;margin-left:6px">
+      <button onclick="bumpShop('${x.id}',-1)" aria-label="less" style="width:26px;height:26px;border-radius:8px;border:1px solid var(--line2);background:none;color:var(--mute2);font-size:15px;line-height:1;cursor:pointer">−</button>
+      <button onclick="bumpShop('${x.id}',1)" aria-label="more" style="width:26px;height:26px;border-radius:8px;border:1px solid var(--line2);background:none;color:var(--mute2);font-size:14px;line-height:1;cursor:pointer">＋</button></div>`}
     <button onclick="delShopItem('${x.id}')" aria-label="remove" style="flex:0 0 auto;margin-left:8px;color:var(--crimson-t);font-size:16px;background:none;border:none;cursor:pointer">✕</button></div>`; }
 function listItem(p){
   const oos=S.outStock[p.id];
@@ -1756,11 +1770,44 @@ function imageHTML(){ const r=recipeById(OV.id); const rimg=r&&recipeImg(r); if(
     <div class="note" style="margin-top:8px">Your uploaded photo — pinch to zoom.</div>`; }
 
 /* ---- recipe detail ---- */
-function openRecipe(id){ OV={kind:'recipe', id, data:{}}; renderOverlay(true); }
+function openRecipe(id){ OV={kind:'recipe', id, data:{scale:1}}; renderOverlay(true); }
+/* --- serving scaler: multiply ingredient quantities by a factor --- */
+const UFRAC={'½':.5,'¼':.25,'¾':.75,'⅓':1/3,'⅔':2/3,'⅛':.125,'⅜':.375,'⅝':.625,'⅞':.875};
+function fmtQty(v){ if(!isFinite(v)) return ''; if(Math.abs(v-Math.round(v))<1e-6) return String(Math.round(v));
+  const whole=Math.floor(v), frac=v-whole; const map=[[.125,'⅛'],[.25,'¼'],[1/3,'⅓'],[.375,'⅜'],[.5,'½'],[.625,'⅝'],[2/3,'⅔'],[.75,'¾'],[.875,'⅞']];
+  for(const [val,g] of map){ if(Math.abs(frac-val)<.045) return (whole>0?whole+' ':'')+g; }
+  return String(Math.round(v*100)/100); }
+function scaleIngredientLine(text, f){ if(!f||f===1||!isFinite(f)) return text;
+  return String(text).replace(/(\d+\s+\d+\/\d+|\d+\/\d+|\d*\.?\d+|[½¼¾⅓⅔⅛⅜⅝⅞])/g, (m)=>{ let val;
+    if(UFRAC[m]!=null) val=UFRAC[m];
+    else if(m.indexOf('/')>=0){ const parts=m.trim().split(/\s+/); if(parts.length===2){ const ab=parts[1].split('/'); val=(+parts[0])+(+ab[0]/+ab[1]); } else { const ab=m.split('/'); val=+ab[0]/+ab[1]; } }
+    else val=parseFloat(m);
+    if(!isFinite(val)) return m; const out=fmtQty(val*f); return out||m; }); }
+function setScale(f){ OV.data.scale=f; renderOverlay(); }
+/* --- share / export a single recipe as plain text --- */
+function recipeToText(r){ const L=[]; const ings=r.ingredients||[], steps=r.steps||[], n=rNutr(r); const f=1;
+  L.push((r.title||'Recipe').toUpperCase());
+  const meta=[rTotal(r)?rTotal(r)+' min':'', r.servings?'serves '+r.servings:'', r.cuisine||'', r.course||''].filter(Boolean).join(' · ');
+  if(meta) L.push(meta);
+  if(r.description) L.push('\n'+r.description);
+  if((+n.calories||+n.protein||+n.carbs||+n.fat)>0) L.push('\nPer serving: '+[n.calories?n.calories+' kcal':'', n.protein?n.protein+'g protein':'', n.carbs?n.carbs+'g carbs':'', n.fat?n.fat+'g fat':''].filter(Boolean).join(', '));
+  if(ings.length){ L.push('\nINGREDIENTS'); ings.forEach(i=>L.push('• '+i)); }
+  if(steps.length){ L.push('\nMETHOD'); steps.forEach((s,i)=>L.push((i+1)+'. '+s)); }
+  if(r.notes) L.push('\nNOTES\n'+r.notes);
+  if(rSourceUrl(r)) L.push('\nSource: '+(r.sourceName?r.sourceName+' — ':'')+rSourceUrl(r));
+  L.push('\n— shared from PRANA'); return L.join('\n'); }
+function downloadText(name, text){ const blob=new Blob([text],{type:'text/plain'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },1500); }
+function shareRecipe(id){ const r=recipeById(id); if(!r) return; const text=recipeToText(r); const title=r.title||'Recipe';
+  try{ if(navigator.share){ navigator.share({title, text}).catch(()=>{}); return; } }catch(e){}
+  try{ if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(()=>toast('Recipe copied to clipboard')).catch(()=>downloadText('recipe-'+id+'.txt',text)); return; } }catch(e){}
+  downloadText('recipe-'+((r.title||'recipe').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'recipe')+'.txt', text); }
 function recipeById(id){ return S.recipes.find(r=>r.id===id); }
 function recipeHTML(){
   const r=recipeById(OV.id); if(!r) return '<div class="note">Recipe not found.</div>';
   const ings=r.ingredients||[], steps=r.steps||[], equip=r.equipment||[], n=rNutr(r), tot=rTotal(r), rimg=recipeImg(r);
+  const scale=OV.data.scale||1, baseServ=parseFloat(r.servings)||0;
   const meta=[tot?tot+' min':'', r.servings?'serves '+r.servings:'', r.difficulty?esc(r.difficulty):'', r.cuisine?esc(r.cuisine):'', r.course?esc(r.course):''].filter(Boolean).join(' · ');
   const stars = r.rating>0? '★★★★★'.slice(0,r.rating)+'☆☆☆☆☆'.slice(0,5-r.rating) : '';
   const hasN = (+n.calories||+n.protein||+n.carbs||+n.fat)>0;
@@ -1789,9 +1836,13 @@ function recipeHTML(){
     <div style="display:flex;justify-content:space-between;align-items:center;margin:18px 0 8px">
       <div class="kicker">INGREDIENTS</div>
       ${ings.length?`<button style="font-size:10px;letter-spacing:1px;color:var(--copper-l);font-weight:700" onclick="addAllToShopping('${r.id}')">＋ ALL TO SHOPPING</button>`:''}</div>
+    ${ings.length?`<div style="display:flex;align-items:center;gap:6px;margin-bottom:12px;flex-wrap:wrap">
+      <span style="font-size:10px;letter-spacing:1px;color:var(--mute3);font-weight:700;margin-right:2px">SCALE</span>
+      ${[[0.5,'½×'],[1,'1×'],[1.5,'1½×'],[2,'2×'],[3,'3×']].map(([f,l])=>`<button class="fchip ${Math.abs(scale-f)<1e-6?'on':''}" style="padding:6px 11px" onclick="setScale(${f})">${l}</button>`).join('')}
+      ${baseServ?`<span style="font-size:10px;color:var(--mute2);margin-left:4px">makes ~${fmtQty(baseServ*scale)} servings</span>`:''}</div>`:''}
     ${ings.length? ings.map((ing,i)=>{ const m=catalogMatchIngredient(ing);
       return `<div class="drow" style="margin-bottom:7px;align-items:center">
-        <div style="flex:1;min-width:0"><div style="font-size:13.5px">${esc(ing)}</div>${m?`<div style="font-size:10px;color:var(--sage-l);margin-top:2px">✓ PRANA: ${esc(m.name)}</div>`:''}</div>
+        <div style="flex:1;min-width:0"><div style="font-size:13.5px">${esc(scaleIngredientLine(ing, scale))}</div>${m?`<div style="font-size:10px;color:var(--sage-l);margin-top:2px">✓ PRANA: ${esc(m.name)}</div>`:''}</div>
         <button onclick="addIngredientToShopping('${r.id}',${i})" title="Add to shopping" style="flex:0 0 auto;margin-left:10px;font-size:12px;letter-spacing:.5px;color:var(--copper-l);background:none;border:1px solid var(--line2);border-radius:9px;padding:6px 9px;cursor:pointer">＋</button></div>`;
     }).join('') : '<div class="note">No ingredients captured. Tap Edit to add them.</div>'}
     ${steps.length?`<div class="kicker" style="margin:18px 0 8px">METHOD</div>
@@ -1800,6 +1851,7 @@ function recipeHTML(){
     ${r.notes?`<div class="kicker" style="margin:18px 0 6px">NOTES</div><div style="font-size:12.5px;line-height:1.6;color:var(--mute2)">${esc(r.notes)}</div>`:''}
     <div style="display:flex;gap:10px;margin-top:20px">
       <button class="btn-ghost" style="color:var(--crimson-t);border-color:rgba(200,90,84,.4)" onclick="deleteRecipe('${r.id}')">DELETE</button>
+      <button class="btn-ghost" onclick="shareRecipe('${r.id}')">↗ SHARE</button>
       <button class="btn-bone" onclick="openEditRecipe('${r.id}')">EDIT</button></div>`;
 }
 function logRecipeProtein(id){ const r=recipeById(id); if(!r) return; const n=rNutr(r); const p=+n.protein||0; if(p<=0) return;
@@ -2078,21 +2130,36 @@ function catalogMatchIngredient(text){
   products().forEach(p=>{ const hay=(p.name+' '+p.cat).toLowerCase(); let s=0; words.forEach(w=>{ if(hay.includes(w)) s++; }); if(s>bs){bs=s;best=p;} });
   return bs>=1?best:null;
 }
+// normalized key so duplicate ingredients (from different recipes / manual adds) merge into one line
+function shopKey(text){ return stripQty(text) || (text||'').toLowerCase().trim(); }
+function pushShop(text, recipeId){ text=(text||'').trim(); if(!text) return false; const key=shopKey(text);
+  const m=catalogMatchIngredient(text);
+  const ex=key && S.shopping.find(s=>!s.checked && s.key===key);
+  if(ex){ ex.count=(ex.count||1)+1; if(ex.matchId==null&&m) ex.matchId=m.id; return false; }
+  S.shopping.push({id:sid(), text, key, recipeId:recipeId||null, matchId:m?m.id:null, checked:false, count:1}); return true;
+}
 function addIngredientToShopping(recipeId, idx){ const r=recipeById(recipeId); if(!r) return;
   const text=(r.ingredients||[])[idx]; if(!text) return;
-  const m=catalogMatchIngredient(text);
-  S.shopping.push({id:sid(), text, recipeId, matchId:m?m.id:null, checked:false});
-  save(); if(OV.kind==='recipe') renderOverlay(); render(); toast('Added to your shopping list');
+  const fresh=pushShop(text, recipeId);
+  save(); if(OV.kind==='recipe') renderOverlay(); render(); toast(fresh?'Added to your shopping list':'Already on your list — quantity bumped');
 }
-function addAllToShopping(recipeId){ const r=recipeById(recipeId); if(!r) return; let n=0;
-  (r.ingredients||[]).forEach(text=>{ const m=catalogMatchIngredient(text); S.shopping.push({id:sid(),text,recipeId,matchId:m?m.id:null,checked:false}); n++; });
-  save(); closeOverlay(); go('list'); toast('Added '+n+' to your shopping list');
+function addAllToShopping(recipeId){ const r=recipeById(recipeId); if(!r) return; let added=0, merged=0;
+  (r.ingredients||[]).forEach(text=>{ if(pushShop(text, recipeId)) added++; else merged++; });
+  save(); closeOverlay(); go('list'); toast('Added '+added+' item'+(added===1?'':'s')+(merged?' · '+merged+' merged':''));
 }
-function addManualShop(){ const t=(newShopText||'').trim(); if(!t) return; const m=catalogMatchIngredient(t);
-  S.shopping.push({id:sid(),text:t,recipeId:null,matchId:m?m.id:null,checked:false}); newShopText=''; render(); }
-function toggleShopItem(id){ const x=S.shopping.find(s=>s.id===id); if(x){ x.checked=!x.checked; render(); } }
-function delShopItem(id){ S.shopping=S.shopping.filter(s=>s.id!==id); render(); }
-function clearCheckedShop(){ S.shopping=S.shopping.filter(s=>!s.checked); render(); toast('Cleared checked items'); }
+function addManualShop(){ const t=(newShopText||'').trim(); if(!t) return; pushShop(t,null); newShopText=''; save(); render(); }
+function toggleShopItem(id){ const x=S.shopping.find(s=>s.id===id); if(x){ x.checked=!x.checked; save(); render(); } }
+function delShopItem(id){ S.shopping=S.shopping.filter(s=>s.id!==id); save(); render(); }
+function bumpShop(id, d){ const x=S.shopping.find(s=>s.id===id); if(!x) return; x.count=Math.max(1,(x.count||1)+d); save(); render(); }
+function clearCheckedShop(){ S.shopping=S.shopping.filter(s=>!s.checked); save(); render(); toast('Cleared checked items'); }
+let _shopClearArm=false, _shopClearT;
+function clearAllShop(){ if(!S.shopping.length) return;
+  if(!_shopClearArm){ _shopClearArm=true; render(); clearTimeout(_shopClearT); _shopClearT=setTimeout(()=>{ _shopClearArm=false; if(S.screen==='list') render(); },2600); return; }
+  _shopClearArm=false; clearTimeout(_shopClearT); S.shopping=[]; save(); render(); toast('Shopping list cleared'); }
+// group active items by the store of their catalog match (unmatched → their own group)
+function shopGroups(active){ const g={heb:[],wf:[],other:[],un:[]};
+  active.forEach(x=>{ const m=x.matchId!=null?byId(x.matchId):null; const k=(m&&g[m.store])?m.store:'un'; g[k].push(x); });
+  return g; }
 
 /* ---------- boot ---------- */
 (function(){ const h=(location.hash||'').replace('#','');
