@@ -231,7 +231,9 @@ const DEFAULT = {
   ingested:[], rankTier:'ALL', dbCats:[], dbSort:'gd', dbQuery:'',
   catExtra:[], prodEdits:{}, prodAdds:[], prodDeleted:[],
   reduceMotion:false, proteinTarget:160, weightLb:0,
-  recipes:[], shopping:[], cookTab:'recipes', lastBackup:0
+  recipes:[], shopping:[], cookTab:'recipes', lastBackup:0,
+  macros:{calories:false,carbs:false,fat:false},   // protein is always tracked; these are opt-in
+  remind:{on:false,hour:19,lastNudge:''}
 };
 let S = load();
 function load(){
@@ -241,6 +243,8 @@ function load(){
   // list/queue/log are all user-built.
   if(!s) s=Object.assign({}, DEFAULT);
   if(!Array.isArray(s.log)) s.log=[];
+  if(!s.macros||typeof s.macros!=='object') s.macros={calories:false,carbs:false,fat:false};
+  if(!s.remind||typeof s.remind!=='object') s.remind={on:false,hour:19,lastNudge:''};
   // one-time migration: fold a legacy single-number daily total into the itemised log
   if(s.dailyProtein>0 && !s.log.some(e=>e.date===today())){
     s.log.push({id:'seed'+Date.now(), name:'Earlier today', detail:'carried over', protein:Math.round(s.dailyProtein), date:today(), ts:Date.now()});
@@ -248,15 +252,35 @@ function load(){
   s.dailyProtein=0;   // superseded by the log; kept only so old backups still import
   return s;
 }
-/* ---------- daily protein log ---------- */
+/* ---------- daily protein + macro log ---------- */
+const MACRO_KEYS=['calories','carbs','fat'];
+const MACRO_META={calories:{label:'Calories',short:'KCAL',unit:''}, carbs:{label:'Carbs',short:'CARBS',unit:'g'}, fat:{label:'Fat',short:'FAT',unit:'g'}};
 function today(){ return new Date().toISOString().slice(0,10); }
 function logToday(){ return S.log.filter(e=>e.date===today()); }
-function dayProtein(){ return logToday().reduce((s,e)=>s+(+e.protein||0),0); }
-function addLogEntry(name, protein, detail){
-  const p=Math.max(0,Math.round(+protein||0));
-  S.log.push({id:'l'+Date.now()+'_'+Math.floor(Math.random()*1e4), name:(name||'Item').toString().trim()||'Item', detail:detail||'', protein:p, date:today(), ts:Date.now()});
+function daySum(field, date){ const d=date||today(); return S.log.filter(e=>e.date===d).reduce((s,e)=>s+(+e[field]||0),0); }
+function dayProtein(date){ return daySum('protein', date); }
+function anyMacroOn(){ return MACRO_KEYS.some(k=>S.macros[k]); }
+function enabledMacros(){ return MACRO_KEYS.filter(k=>S.macros[k]); }
+function toggleMacro(k){ S.macros[k]=!S.macros[k]; save(); renderOverlay(); render(); }
+// macros carries any of {calories,carbs,fat}; values are captured even when a macro is toggled off,
+// so turning it on later still shows the history.
+function addLogEntry(name, protein, detail, macros){
+  const p=Math.max(0,Math.round(+protein||0)); const m=macros||{};
+  S.log.push({id:'l'+Date.now()+'_'+Math.floor(Math.random()*1e4), name:(name||'Item').toString().trim()||'Item', detail:detail||'',
+    protein:p, calories:Math.max(0,Math.round(+m.calories||0)), carbs:Math.max(0,Math.round(+m.carbs||0)), fat:Math.max(0,Math.round(+m.fat||0)),
+    date:today(), ts:Date.now()});
 }
 function delLogEntry(id){ S.log=S.log.filter(e=>e.id!==id); renderOverlay(); render(); }
+// short "1450 kcal · 120g C · 60g F" line for whichever macros are enabled
+function macroLine(src){ return enabledMacros().map(k=>{
+    const v=Math.round(+src[k]||0); if(k==='calories') return v+' kcal'; return v+'g '+(k==='carbs'?'C':'F'); }).join(' · '); }
+/* reminders — on-open nudge now; real background push arrives with the Worker (Batch 2) */
+function toggleRemind(){ S.remind.on=!S.remind.on; S.remind.lastNudge=''; save(); renderOverlay(); render(); }
+function setRemindHour(h){ S.remind.hour=Math.max(0,Math.min(23,+h||19)); save(); renderOverlay(); }
+function remindHour(){ const h=+S.remind.hour; return (S.remind.hour===''||S.remind.hour==null||isNaN(h))?19:Math.max(0,Math.min(23,h)); }
+function nudgeDue(){ return S.remind.on && (new Date().getHours()>=remindHour()) && dayProtein()<targetProtein() && S.remind.lastNudge!==today(); }
+function dismissNudge(){ S.remind.lastNudge=today(); save(); render(); }
+function hour12(h){ h=+h; const ap=h<12?'AM':'PM'; let hh=h%12; if(hh===0)hh=12; return hh+' '+ap; }
 let saveT;
 function save(){ clearTimeout(saveT); saveT=setTimeout(()=>{ const o=Object.assign({_p:1,_savedAt:new Date().toISOString()},S); try{localStorage.setItem(PKEY,JSON.stringify(o));}catch(e){ toast('Storage full — export a backup'); } },120); }
 
@@ -380,6 +404,11 @@ function homeHTML(){
       <button class="mic" onclick="openVoice()" title="Log protein by voice" aria-label="Log protein by voice"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#cf9a4a" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3" fill="#cf9a4a" stroke="none"/><path d="M5 11a7 7 0 0 0 14 0"/><line x1="12" y1="18" x2="12" y2="21.2"/><line x1="8.4" y1="21.2" x2="15.6" y2="21.2"/></svg></button>
     </div>
 
+    ${nudgeDue()?`<div class="card" style="margin-top:16px;padding:16px;display:flex;align-items:center;gap:12px;border:1px solid rgba(207,154,74,.45);background:rgba(207,154,74,.08)">
+      <div style="flex:1"><div style="font-weight:700;font-size:13px;color:var(--copper-l)">⏰ ${proteinToGo()}</div>
+        <div style="font-size:11px;color:var(--mute2);margin-top:3px">You’re at ${dayProtein()}g of ${targetProtein()}g today.</div></div>
+      <button class="tag" style="border-color:var(--copper);color:var(--copper-l)" onclick="event.stopPropagation();openLog()">LOG</button>
+      <button aria-label="Dismiss" onclick="event.stopPropagation();dismissNudge()" style="background:none;border:none;color:var(--mute3);font-size:16px;cursor:pointer;line-height:1">✕</button></div>`:''}
     <button class="card porcelain" style="margin-top:16px;padding:22px;width:100%;text-align:left;display:block" onclick="openLog()">
       <div style="display:flex;justify-content:space-between;align-items:center">
         <div style="font-size:10px;letter-spacing:3px;color:#6b675c;font-weight:700">PROTEIN · TODAY</div>
@@ -391,6 +420,9 @@ function homeHTML(){
         <div style="font-size:10.5px;letter-spacing:1.5px;color:#6b675c;font-weight:700">${proteinToGo()}</div>
         <div style="font-size:10px;letter-spacing:1px;color:var(--copper-d);font-weight:700">${nItems} ITEM${nItems===1?'':'S'} · TAP TO EDIT →</div>
       </div>
+      ${anyMacroOn()?`<div style="display:flex;gap:18px;margin-top:14px;padding-top:13px;border-top:1px solid rgba(38,36,31,.12)">
+        ${enabledMacros().map(k=>`<div><span class="big-num" style="font-size:19px;color:#26241f">${Math.round(daySum(k))}</span><span style="font-size:9px;color:#6b675c;letter-spacing:1px;margin-left:3px;font-weight:700">${MACRO_META[k].short}</span></div>`).join('')}
+      </div>`:''}
     </button>
 
     <button class="card slate" style="margin-top:14px;padding:18px;width:100%;text-align:left" onclick="go('queue')">
@@ -444,7 +476,7 @@ function homeHTML(){
     <button class="row-item" style="margin-top:10px;justify-content:center;border-style:dashed" onclick="document.getElementById('catfile').click()">
       <span style="letter-spacing:1px;font-size:10px;color:var(--copper-l);font-weight:700">⤒ UPLOAD A CATEGORY · CSV / EXCEL → CSV</span>
     </button>
-    <div class="note" style="margin-top:10px" id="backupNote">Recipes & photos are saved durably (IndexedDB) and backups include everything. · v23</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Recipes & photos are saved durably (IndexedDB) and backups include everything. · v24</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -832,7 +864,8 @@ function openScience(){ OV={kind:'science'}; renderOverlay(true); }
 function openIngest(){ OV={kind:'ingest',step:1,data:{q:'',cands:[],pick:null,scanned:false}}; renderOverlay(true); }
 function openVoice(){ OV={kind:'voice',step:1,data:{transcript:'',items:[],total:0}}; renderOverlay(true); /* mic stays OFF until the user taps it */ }
 function openWeight(){ OV={kind:'weight',data:{lb: S.weightLb||'', }}; renderOverlay(true); }
-function openLog(){ OV={kind:'log',data:{name:'',protein:''}}; renderOverlay(true); }
+function openLog(){ OV={kind:'log',data:{name:'',protein:'',calories:'',carbs:'',fat:''}}; renderOverlay(true); }
+function openHistory(){ OV={kind:'history',data:{}}; renderOverlay(true); }
 function openAddFood(){ OV={kind:'edit',id:null,data:blankFood()}; renderOverlay(true); }
 function openEditFood(id){ const p=byId(id); OV={kind:'edit',id,data:Object.assign({},p)}; renderOverlay(true); }
 let _ovGen=0;   // bumped whenever an overlay is (re)rendered; lets a deferred close bail if a new sheet opened
@@ -844,7 +877,7 @@ function renderOverlay(animate){
   const box=document.getElementById('overlays');
   if(!OV.kind){ box.innerHTML=''; return; }
   _ovGen++;   // an overlay is live → cancel any pending close-wipe
-  const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML,weight:weightHTML,log:logHTML,import:importHTML,dq:dqHTML,recipe:recipeHTML,recipeedit:recipeEditHTML,imgview:imageHTML}[OV.kind])();
+  const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML,weight:weightHTML,log:logHTML,history:historyHTML,import:importHTML,dq:dqHTML,recipe:recipeHTML,recipeedit:recipeEditHTML,imgview:imageHTML}[OV.kind])();
   box.innerHTML=`<div class="backdrop" onclick="closeOverlay()"></div><div class="sheet" onclick="event.stopPropagation()"><div class="sheettop"><div class="grab"></div><button class="sheetx" onclick="closeOverlay()" aria-label="Close">✕</button></div>${inner}</div>`;
   requestAnimationFrame(()=>{ const bd=box.querySelector('.backdrop'), sh=box.querySelector('.sheet'); if(bd)bd.classList.add('show'); if(sh)sh.classList.add('show'); });
 }
@@ -1173,7 +1206,7 @@ function dqHTML(){
 function editVoice(){ OV.step=1; renderOverlay(); /* mic stays OFF until tapped */ }
 function confirmVoice(){
   const its=OV.data.items||[]; const tot=OV.data.total||0;
-  its.forEach(it=>addLogEntry(it.name, it.protein, it.qty));
+  its.forEach(it=>addLogEntry(it.name, it.protein, it.qty, {calories:it.calories, carbs:it.carbs, fat:it.fat}));
   closeOverlay(); render(); toast('Logged +'+tot+'g protein');
 }
 
@@ -1345,33 +1378,99 @@ function localParse(text){
    manual) is an editable row; add or delete freely and the home total tracks live. */
 function logHTML(){
   const items=logToday().slice().reverse(); const total=dayProtein(); const tgt=targetProtein();
-  const pct=Math.min(100,Math.round(total/tgt*100));
+  const pct=Math.min(100,Math.round(total/tgt*100)); const ens=enabledMacros();
+  const totLine = ens.map(k=>{ const v=Math.round(daySum(k)); return `<span style="color:#cfccd7;font-weight:700">${v}</span> ${k==='calories'?'kcal':(k==='carbs'?'g C':'g F')}`; }).join(' · ');
   return `<div style="display:flex;justify-content:space-between;align-items:center">
-      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">Protein today</div>
+      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">Today’s intake</div>
       <button class="tag t2" onclick="closeOverlay()">DONE</button></div>
-    <div class="tile" style="text-align:center;margin-top:14px"><div style="font-size:9px;letter-spacing:2px;color:var(--mute3)">LOGGED TODAY · TARGET ${tgt}g</div>
+    <div class="tile" style="text-align:center;margin-top:14px"><div style="font-size:9px;letter-spacing:2px;color:var(--mute3)">PROTEIN TODAY · TARGET ${tgt}g</div>
       <div class="big-num" style="font-size:44px;margin-top:4px">${total}<span style="font-size:20px">g</span></div>
       <div class="bar" style="margin-top:12px"><i style="width:${pct}%;background:linear-gradient(90deg,var(--copper-d),var(--copper))"></i></div>
-      <div style="font-size:10px;letter-spacing:1.5px;color:var(--mute3);margin-top:10px;font-weight:700">${esc(proteinToGo())}</div></div>
+      <div style="font-size:10px;letter-spacing:1.5px;color:var(--mute3);margin-top:10px;font-weight:700">${esc(proteinToGo())}</div>
+      ${ens.length?`<div style="font-size:11px;color:var(--mute2);margin-top:10px;letter-spacing:.3px">${totLine}</div>`:''}</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 8px">
+      <div class="kicker" style="margin:0">ALSO TRACK</div>
+      <button onclick="openHistory()" style="background:none;border:none;color:var(--copper-l);font-size:10px;letter-spacing:1px;font-weight:700;cursor:pointer">📈 HISTORY →</button></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      ${MACRO_KEYS.map(k=>`<button class="fchip ${S.macros[k]?'on':''}" onclick="toggleMacro('${k}')">${S.macros[k]?'✓ ':''}${MACRO_META[k].label}</button>`).join('')}
+    </div>
+    <div class="note" style="margin-top:7px">${anyMacroOn()?'Protein always shows. Toggle any macro off to hide it — logged values are kept either way.':'Only protein is tracked. Tap a macro above to start tracking it too.'}</div>
     <div class="kicker" style="margin:18px 0 8px">TODAY’S ENTRIES</div>
-    ${items.length? items.map(e=>`<div class="drow" style="margin-bottom:8px;align-items:center">
-        <div style="flex:1;min-width:0"><div style="font-weight:600">${esc(e.name)}</div>${e.detail?`<div style="font-size:10px;color:var(--mute3)">${esc(e.detail)}</div>`:''}</div>
+    ${items.length? items.map(e=>{ const ml=macroLine(e); return `<div class="drow" style="margin-bottom:8px;align-items:center">
+        <div style="flex:1;min-width:0"><div style="font-weight:600">${esc(e.name)}</div>
+          <div style="font-size:10px;color:var(--mute3)">${e.detail?esc(e.detail):''}${(e.detail&&ml)?' · ':''}${ml}</div></div>
         <div class="big-num" style="font-size:20px">${e.protein}<span style="font-size:11px">g</span></div>
-        <button onclick="delLogEntry('${e.id}')" aria-label="Delete entry" title="Delete" style="margin-left:12px;color:var(--crimson-t);font-size:17px;background:none;border:none;line-height:1;cursor:pointer">✕</button></div>`).join('')
+        <button onclick="delLogEntry('${e.id}')" aria-label="Delete entry" title="Delete" style="margin-left:12px;color:var(--crimson-t);font-size:17px;background:none;border:none;line-height:1;cursor:pointer">✕</button></div>`; }).join('')
       : '<div class="note">Nothing logged yet today. Add an item below, or use the mic.</div>'}
     <div class="kicker" style="margin:18px 0 8px">ADD AN ITEM</div>
     <div style="display:flex;gap:8px">
       <input class="field" style="margin-top:0;flex:2" placeholder="e.g. Grilled chicken breast" value="${esc(OV.data.name||'')}" oninput="OV.data.name=this.value">
-      <input class="field" style="margin-top:0;flex:1;min-width:0" type="number" inputmode="decimal" min="0" placeholder="grams" value="${esc(String(OV.data.protein||''))}" oninput="OV.data.protein=this.value">
+      <input class="field" style="margin-top:0;flex:1;min-width:0" type="number" inputmode="decimal" min="0" placeholder="protein g" value="${esc(String(OV.data.protein||''))}" oninput="OV.data.protein=this.value">
     </div>
+    ${ens.length?`<div style="display:flex;gap:8px;margin-top:8px">
+      ${ens.map(k=>`<div style="flex:1"><div class="note" style="margin:0 0 3px">${MACRO_META[k].label}${MACRO_META[k].unit?' '+MACRO_META[k].unit:''}</div>
+        <input class="field" style="margin-top:0" type="number" inputmode="decimal" min="0" value="${esc(String(OV.data[k]||''))}" oninput="OV.data.${k}=this.value"></div>`).join('')}
+    </div>`:''}
     <button class="btn-bone" style="margin-top:10px" onclick="addManualLog()">+ ADD TO TODAY</button>
     <button class="row-item" style="margin-top:10px;justify-content:center" onclick="openVoice()"><span style="font-size:11px;letter-spacing:1px;color:var(--copper-l)">🎙  LOG BY VOICE INSTEAD</span></button>`;
 }
 function addManualLog(){
   const d=OV.data; const pr=+d.protein||0;
   if(pr<=0){ toast('Enter grams of protein'); return; }
-  addLogEntry((d.name||'').trim()||'Manual entry', pr, 'added manually');
-  OV.data={name:'',protein:''}; renderOverlay(); render(); toast('Added +'+Math.round(pr)+'g');
+  addLogEntry((d.name||'').trim()||'Manual entry', pr, 'added manually', {calories:d.calories,carbs:d.carbs,fat:d.fat});
+  OV.data={name:'',protein:'',calories:'',carbs:'',fat:''}; renderOverlay(); render(); toast('Added +'+Math.round(pr)+'g');
+}
+
+/* ---------- HISTORY & TRENDS ---------- */
+function lastNDates(n){ const out=[]; const base=new Date(); for(let i=n-1;i>=0;i--){ const t=new Date(base); t.setDate(base.getDate()-i); out.push(t.toISOString().slice(0,10)); } return out; }
+function metOn(date){ return dayProtein(date)>=targetProtein(); }
+function currentStreak(){ let s=0; const base=new Date(); let i=metOn(today())?0:1; base.setDate(base.getDate()-i);
+  for(;;){ const ds=base.toISOString().slice(0,10); if(metOn(ds)){ s++; base.setDate(base.getDate()-1); } else break; } return s; }
+function avgSum(field,n){ const ds=lastNDates(n); return Math.round(ds.reduce((s,d)=>s+daySum(field,d),0)/n); }
+function daysLogged(){ return new Set(S.log.map(e=>e.date)).size; }
+function historyHTML(){
+  const tgt=targetProtein(); const days=lastNDates(14);
+  const vals=days.map(d=>dayProtein(d)); const maxV=Math.max(tgt, ...vals, 1);
+  const wk=['S','M','T','W','T','F','S']; const streak=currentStreak(); const avg7=avgSum('protein',7); const hit7=days.slice(-7).filter(d=>metOn(d)).length;
+  const ens=enabledMacros();
+  const bars=days.map(d=>{ const v=dayProtein(d); const h=Math.round(v/maxV*100); const met=v>=tgt;
+    const wd=wk[new Date(d+'T00:00:00').getUTCDay()];
+    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0">
+      <div style="width:100%;height:96px;display:flex;align-items:flex-end"><div title="${d}: ${v}g" style="width:100%;height:${Math.max(3,h)}%;border-radius:4px 4px 2px 2px;background:${met?'linear-gradient(180deg,var(--sage-l),var(--sage))':'linear-gradient(180deg,#4b3f2e,#33302b)'}"></div></div>
+      <div style="font-size:8px;color:var(--mute3)">${wd}</div></div>`; }).join('');
+  const tgtPct=Math.round((1-tgt/maxV)*100);
+  return `<div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">History &amp; trends</div>
+      <button class="tag t2" onclick="openLog()">← LOG</button></div>
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:30px;color:${streak>0?'var(--sage-l)':'#cfccd7'}">${streak}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:3px">DAY STREAK ${streak>0?'🔥':''}</div></div>
+      <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:30px">${avg7}<span style="font-size:13px">g</span></div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:3px">7-DAY AVG</div></div>
+      <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:30px">${hit7}<span style="font-size:13px">/7</span></div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:3px">TARGET HIT</div></div>
+    </div>
+    <div class="kicker" style="margin:20px 0 8px">PROTEIN · LAST 14 DAYS</div>
+    <div class="tile" style="padding:14px 12px">
+      <div style="position:relative">
+        <div style="position:absolute;left:0;right:0;top:${Math.max(0,Math.min(96,tgtPct))}%;border-top:1px dashed rgba(207,154,74,.55);height:0"></div>
+        <div style="display:flex;gap:4px;align-items:flex-end">${bars}</div>
+      </div>
+      <div style="font-size:9px;color:var(--copper-l);margin-top:8px;text-align:right">— — target ${tgt}g</div>
+    </div>
+    ${ens.length?`<div class="kicker" style="margin:20px 0 8px">7-DAY AVERAGES</div>
+      <div style="display:flex;gap:10px">
+        ${ens.map(k=>{ const v=avgSum(k,7); return `<div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:22px">${v}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:3px">${MACRO_META[k].short}/DAY</div></div>`; }).join('')}
+      </div>`:''}
+    <div class="note" style="margin-top:16px">Based on ${daysLogged()} day${daysLogged()===1?'':'s'} logged. Green bars hit your ${tgt}g target.</div>
+    <div class="kicker" style="margin:22px 0 8px">DAILY REMINDER</div>
+    <div class="row-item" style="justify-content:space-between">
+      <div style="flex:1"><div style="font-weight:600;font-size:14px">Remind me to hit my protein</div>
+        <div style="font-size:10px;color:var(--mute3);margin-top:2px">${S.remind.on?('A nudge at '+hour12(remindHour())+' on days you’re under target'):'Off'}</div></div>
+      <button class="fchip ${S.remind.on?'on':''}" onclick="toggleRemind()">${S.remind.on?'ON':'OFF'}</button>
+    </div>
+    ${S.remind.on?`<div style="display:flex;align-items:center;gap:10px;margin-top:10px">
+      <div class="note" style="margin:0">Nudge time</div>
+      <input class="field" style="margin:0;width:90px" type="number" min="0" max="23" value="${remindHour()}" oninput="setRemindHour(this.value)">
+      <div class="note" style="margin:0">${hour12(remindHour())}</div></div>
+    <div class="note" style="margin-top:8px">Shows when you open PRANA after this hour. Reminders that reach you while the app is closed need the push service (coming in the reliability update).</div>`:''}`;
 }
 
 /* WEIGHT → PROTEIN TARGET */
@@ -1703,8 +1802,8 @@ function recipeHTML(){
       <button class="btn-ghost" style="color:var(--crimson-t);border-color:rgba(200,90,84,.4)" onclick="deleteRecipe('${r.id}')">DELETE</button>
       <button class="btn-bone" onclick="openEditRecipe('${r.id}')">EDIT</button></div>`;
 }
-function logRecipeProtein(id){ const r=recipeById(id); if(!r) return; const p=+rNutr(r).protein||0; if(p<=0) return;
-  addLogEntry((r.title||'Recipe')+' · 1 serving', p, 'from recipe'); save(); toast('Logged +'+p+'g protein'); }
+function logRecipeProtein(id){ const r=recipeById(id); if(!r) return; const n=rNutr(r); const p=+n.protein||0; if(p<=0) return;
+  addLogEntry((r.title||'Recipe')+' · 1 serving', p, 'from recipe', {calories:n.calories, carbs:n.carbs, fat:n.fat}); save(); toast('Logged +'+p+'g protein'); }
 
 /* ---- add / edit recipe ---- */
 function blankRecipeData(){ return {title:'',description:'',sourceName:'',sourceUrl:'',image:'',servings:'',prepTime:'',cookTime:'',totalTime:'',
