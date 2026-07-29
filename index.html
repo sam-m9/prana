@@ -233,7 +233,7 @@ const DEFAULT = {
   reduceMotion:false, proteinTarget:160, weightLb:0,
   recipes:[], shopping:[], cookTab:'recipes', lastBackup:0,
   macros:{calories:false,carbs:false,fat:false},   // protein is always tracked; these are opt-in
-  remind:{on:false,hour:19,lastNudge:''}
+  remind:{on:false,hour:19,lastNudge:''}, workerUrl:''
 };
 let S = load();
 function load(){
@@ -476,7 +476,10 @@ function homeHTML(){
     <button class="row-item" style="margin-top:10px;justify-content:center;border-style:dashed" onclick="document.getElementById('catfile').click()">
       <span style="letter-spacing:1px;font-size:10px;color:var(--copper-l);font-weight:700">⤒ UPLOAD A CATEGORY · CSV / EXCEL → CSV</span>
     </button>
-    <div class="note" style="margin-top:10px" id="backupNote">Recipes & photos are saved durably (IndexedDB) and backups include everything. · v25</div>
+    <div class="kicker" style="margin:18px 0 6px">WEB FETCH SERVICE · OPTIONAL</div>
+    <input class="field" style="margin-top:0" placeholder="https://prana-proxy.you.workers.dev" value="${esc(S.workerUrl||'')}" oninput="S.workerUrl=this.value.trim(); save()">
+    <div class="note" style="margin-top:6px">Paste your own Cloudflare Worker URL to make recipe link-import reliable (${S.workerUrl?'<span style="color:var(--sage-l)">active</span>':'blank = public proxies'}). Setup: <b>worker/WORKER_SETUP.md</b>.</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Recipes & photos are saved durably (IndexedDB) and backups include everything. · v27</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -778,8 +781,8 @@ function dataHTML(){
       list.map((p,i)=>`<div class="drow ${i===0?'':''}" style="margin-bottom:9px;${i===0?'border-color:rgba(207,154,74,.5);background:linear-gradient(180deg,rgba(207,154,74,.08),transparent)':''}">
         <button style="display:flex;align-items:center;gap:11px;flex:1;min-width:0;text-align:left" onclick="openDrawer(${p.id})">
           <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
-          <span style="flex:1;min-width:0"><span class="pname" style="font-size:15px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</span>
-          <span style="font-size:10px;color:var(--mute3)">${esc(p.cat)} · ${esc(p.size||'—')} · ${STORE_SHORT[p.store]}</span></span>
+          <span style="flex:1;min-width:0"><span class="pname" style="font-size:15px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}${isStale(p)?' <span title="Verification may be stale" style="color:var(--copper-l);font-size:11px">▲</span>':''}${p.overridden?' <span title="Kept by override" style="color:var(--crimson-t);font-size:11px">⚠</span>':''}</span>
+          <span style="font-size:10px;color:var(--mute3)">${esc(p.cat)} · ${esc(p.size||'—')} · ${STORE_SHORT[p.store]}${p.verifiedAt?' · '+esc(verifiedLabel(p)):''}</span></span>
         </button>
         <span style="text-align:right"><span class="big-num" style="font-size:22px;display:block">${p.gd.toFixed(1)}</span><span style="font-size:9px;color:var(--mute3)">${cpgStr(p.cpg)}/g</span></span>
         <button class="mini-btn" onclick="openEditFood(${p.id})">✎</button>
@@ -954,6 +957,11 @@ function drawerHTML(){
       <div style="font-size:11.5px;line-height:1.55;margin-top:8px;color:#cfccd7">${esc(p.ingr)}</div>
       ${p.src&&p.src.length?`<div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px">${p.src.map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener" style="font-size:10px;letter-spacing:.5px;color:var(--copper-l);text-decoration:none;border:1px solid var(--line2);border-radius:8px;padding:5px 9px">SOURCE ${i+1} ↗</a>`).join('')}</div>`:''}
       <div style="font-size:9.5px;letter-spacing:1px;color:var(--mute3);margin-top:9px">CONFIDENCE · ${esc((p.conf||'high').toUpperCase())} — ingredient statement verified online, not from the label alone.</div></div>`:''}
+    ${(p.verifiedAt||(p.ingr||'').trim())?`<div class="ladder" style="margin-top:10px${isStale(p)?';border-color:rgba(207,154,74,.4)':''}">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+        <span style="font-size:10px;letter-spacing:1.5px;font-weight:700;color:${isStale(p)?'var(--copper-l)':'var(--mute2)'}">${isStale(p)?'▲ MAY BE STALE':'FRESHNESS'}</span>
+        ${(p.ingr||'').trim()?`<button onclick="reVerify(${p.id})" style="font-size:10px;letter-spacing:1px;color:var(--copper-l);font-weight:700;background:none;border:1px solid var(--line2);border-radius:8px;padding:5px 9px;cursor:pointer">↻ RE-VERIFY</button>`:''}</div>
+      <div style="font-size:11px;color:var(--mute3);margin-top:7px">${p.verifiedAt?esc(verifiedLabel(p)):'Not yet re-verified'}${isStale(p)?' · re-check its ingredients':''}${p.overridden?' · ⚠ kept by override':''}</div></div>`:''}
     <button class="btn-ghost" style="margin-top:16px" onclick="toggleOverride(${p.id})">${over?'↺ REVERT OVERRIDE':'■ OVERRIDE TO TIER 1'}</button>
     <div style="display:flex;gap:10px;margin-top:10px">
       <button class="${inList?'btn-ghost':'btn-bone'}" onclick="toggleList(${p.id})">${inList?'✓ IN LIST':'+ ADD TO LIST'}</button>
@@ -961,6 +969,22 @@ function drawerHTML(){
     </div>`;
 }
 function toggleOverride(id){ if(S.overrides[id]) delete S.overrides[id]; else S.overrides[id]=true; renderOverlay(); render(); }
+/* catalog freshness — verified-date + one-tap re-verify (re-runs the science on stored ingredients) */
+const STALE_DAYS=180;
+function isStale(p){ return !!p.verifiedAt && (Date.now()-p.verifiedAt) > STALE_DAYS*864e5; }
+function verifiedLabel(p){ if(!p.verifiedAt) return ''; const days=Math.floor((Date.now()-p.verifiedAt)/864e5);
+  if(days<=0) return 'verified today'; if(days<7) return 'verified '+days+'d ago'; if(days<60) return 'verified '+Math.floor(days/7)+'w ago'; return 'verified '+Math.floor(days/30)+'mo ago'; }
+function reVerify(id){ const p=byId(id); if(!p) return;
+  if(!(p.ingr||'').trim()){ toast('No stored ingredients — deep re-verify needs the web-fetch service'); return; }
+  const c=classify(p.name, p.cat, p.ingr);
+  if(c.decision==='disqualify'){ showDisqualified({name:p.name,cat:p.cat,dqLevel:c.dqLevel,reason:c.reason,ingredient:c.ingredient,pending:Object.assign({},p),pendingId:id}); return; }
+  const patch={tier:c.tier, flags:[c.flag], conf:'medium', verifiedAt:Date.now(),
+    audit:c.reason+' Tag: '+({1:'Gold Standard · Whole-Food Clean',2:'Practical Clean Tool (Tier 2)',3:'Acceptable Safe Fallback (Tier 3)'}[c.tier])+'.',
+    tlabel:({1:'Gold Standard',2:'Clean Tool',3:'Safe Fallback'}[c.tier])||'Clean Tool'};
+  if(S.prodAdds.some(x=>x.id===id)) S.prodAdds=S.prodAdds.map(x=>x.id===id?Object.assign({},x,patch):x);
+  else S.prodEdits[id]=Object.assign({}, S.prodEdits[id], patch, {id});
+  save(); renderOverlay(); render(); toast('Re-verified · Tier '+c.tier);
+}
 
 /* SCIENCE */
 // THE LOGIC — five universal, category-agnostic biological principles. Every product,
@@ -1212,10 +1236,21 @@ function dqHTML(){
       <div style="font-size:13px;line-height:1.6;margin-top:8px;color:#e9e7ef">${esc(d.reason||'Contains a disqualifying ingredient.')}</div>
       ${d.ingredient?`<div style="font-size:11px;color:var(--mute2);margin-top:9px">Offending ingredient: <b style="color:var(--crimson-t)">${esc(d.ingredient)}</b></div>`:''}
     </div>
-    <div class="note" style="margin-top:12px">${esc(note)} It won't be added to your safe catalog.</div>
+    <div class="note" style="margin-top:12px">${esc(note)} By default it won't be added to your safe catalog.</div>
     <div style="display:flex;gap:10px;margin-top:18px">
       <button class="btn-ghost" onclick="closeOverlay()">DISCARD</button>
-      ${d.pending?`<button class="btn-bone" onclick="reopenEdit()">↩ EDIT INGREDIENTS</button>`:''}</div>`;
+      ${d.pending?`<button class="btn-bone" onclick="reopenEdit()">↩ EDIT INGREDIENTS</button>`:''}</div>
+    ${d.pending?`<button class="row-item" style="margin-top:10px;justify-content:center;border-style:dashed;border-color:rgba(200,90,84,.4)" onclick="overrideDisqualified()">
+      <span style="font-size:10px;letter-spacing:1px;color:var(--crimson-t);font-weight:700">⚠ KEEP ANYWAY — FORCE TO TIER 3</span></button>
+    <div class="note" style="margin-top:7px;font-size:10px">Overrides your judgement over the science. It’s tagged Tier 3 and marked as an unverified override so you always know.</div>`:''}`;
+}
+function overrideDisqualified(){ const d=Object.assign({}, OV.data.pending||{}); if(!OV.data.pending) return;
+  d.price=Math.max(0,+d.price||0); d.protein=Math.max(0,+d.protein||0); d.servings=Math.max(1,Math.round(+d.servings||1));
+  d.name=(d.name||'').trim()||'Untitled food'; d.size=(d.size||'').trim()||'1 pack';
+  d.tier=3; d.flags=['override']; d.conf='low'; d.overridden=true; d.verifiedAt=Date.now();
+  d.audit='⚠ Kept by manual override despite failing the strict pre-filter'+(OV.data.ingredient?' ("'+OV.data.ingredient+'")':'')+'. Forced to Tier 3 — NOT verified clean.';
+  commitFood(d, OV.data.pendingId!=null?OV.data.pendingId:null);
+  closeOverlay(); render(); toast('Kept as Tier 3 · override');
 }
 function editVoice(){ OV.step=1; renderOverlay(); /* mic stays OFF until tapped */ }
 function confirmVoice(){
@@ -1544,16 +1579,20 @@ function saveEditFood(){
         pending:Object.assign({},d), pendingId:OV.id, fromVoice:OV.fromVoice});
       return;   // do NOT add a disqualified item to the safe catalog
     }
-    d.tier=c.tier; d.flags=[c.flag]; d.audit=c.reason+' Tag: '+({1:'Gold Standard · Whole-Food Clean',2:'Practical Clean Tool (Tier 2)',3:'Acceptable Safe Fallback (Tier 3)'}[c.tier])+'.'; d.conf='medium';
+    d.tier=c.tier; d.flags=[c.flag]; d.audit=c.reason+' Tag: '+({1:'Gold Standard · Whole-Food Clean',2:'Practical Clean Tool (Tier 2)',3:'Acceptable Safe Fallback (Tier 3)'}[c.tier])+'.'; d.conf='medium'; d.verifiedAt=Date.now();
   }
-  d.tlabel=({1:'Gold Standard',2:'Clean Tool',3:'Safe Fallback'}[d.tier])||'Clean Tool';
-  d.packProtein=Math.round(d.protein*d.servings*10)/10;
   const wasVoice=OV.fromVoice;
-  if(OV.id==null){ d.id=nextId(); S.prodAdds.push(Object.assign({},d)); }
-  else if(S.prodAdds.some(x=>x.id===OV.id)){ S.prodAdds=S.prodAdds.map(x=>x.id===OV.id?Object.assign({},d,{id:OV.id}):x); }
-  else { S.prodEdits[OV.id]=Object.assign({},S.prodEdits[OV.id],d,{id:OV.id}); }
+  commitFood(d, OV.id);
   closeOverlay(); render();
   toast((d.ingr||'').trim()? ('Added · Tier '+d.tier+(wasVoice?' (from voice)':'')) : 'Saved');
+}
+// shared commit tail — packProtein + write into prodAdds/prodEdits
+function commitFood(d, id){
+  d.tlabel=({1:'Gold Standard',2:'Clean Tool',3:'Safe Fallback'}[d.tier])||'Clean Tool';
+  d.packProtein=Math.round((+d.protein||0)*(+d.servings||1)*10)/10;
+  if(id==null){ d.id=nextId(); S.prodAdds.push(Object.assign({},d)); }
+  else if(S.prodAdds.some(x=>x.id===id)){ S.prodAdds=S.prodAdds.map(x=>x.id===id?Object.assign({},d,{id}):x); }
+  else { S.prodEdits[id]=Object.assign({},S.prodEdits[id],d,{id}); }
 }
 function deleteFood(){ const id=OV.id; if(id==null)return;
   if(S.prodAdds.some(x=>x.id===id)) S.prodAdds=S.prodAdds.filter(x=>x.id!==id);
@@ -2051,10 +2090,15 @@ function metaContent(html, prop){
 function parseOgFallback(html){ const title=metaContent(html,'og:title')||((/<title[^>]*>([^<]+)<\/title>/i.exec(html)||[])[1]||'');
   const image=metaContent(html,'og:image'); const desc=metaContent(html,'og:description');
   if(!title&&!image) return null; return {title:title.trim(),description:desc.trim(),image:image.trim(),servings:'',prepTime:'',cookTime:'',totalTime:'',cuisine:'',course:'',tags:[],ingredients:[],steps:[],calories:'',protein:'',carbs:'',fat:''}; }
-async function fetchViaProxy(url){
-  const proxies=[u=>'https://api.allorigins.win/raw?url='+encodeURIComponent(u), u=>'https://corsproxy.io/?url='+encodeURIComponent(u), u=>'https://thingproxy.freeboard.io/fetch/'+u];
-  let lastErr;
-  for(const mk of proxies){ try{ const res=await fetch(mk(url)); if(res&&res.ok){ const t=await res.text(); if(t&&t.length>150) return t; } }catch(e){ lastErr=e; } }
+// your own Cloudflare Worker (if configured) is tried first, then public proxies as fallback
+function proxyUrls(url){ const list=[]; const w=(S.workerUrl||'').trim().replace(/\/+$/,'');
+  if(w) list.push(w+'/fetch?url='+encodeURIComponent(url));
+  list.push('https://api.allorigins.win/raw?url='+encodeURIComponent(url));
+  list.push('https://corsproxy.io/?url='+encodeURIComponent(url));
+  list.push('https://thingproxy.freeboard.io/fetch/'+url);
+  return list; }
+async function fetchViaProxy(url){ let lastErr;
+  for(const p of proxyUrls(url)){ try{ const res=await fetch(p); if(res&&res.ok){ const t=await res.text(); if(t&&t.length>150) return t; } }catch(e){ lastErr=e; } }
   throw lastErr||new Error('fetch failed');
 }
 async function fetchRecipeFromUrl(){
