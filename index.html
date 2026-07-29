@@ -385,7 +385,7 @@ function homeHTML(){
     <button class="row-item" style="margin-top:10px;justify-content:center;border-style:dashed" onclick="document.getElementById('catfile').click()">
       <span style="letter-spacing:1px;font-size:10px;color:var(--copper-l);font-weight:700">⤒ UPLOAD A CATEGORY · CSV / EXCEL → CSV</span>
     </button>
-    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v21</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Everything is stored locally on this device. · v22</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -706,29 +706,41 @@ function toggleList(id){ S.listIds=S.listIds.includes(id)?S.listIds.filter(x=>x!
 
 /* ---------------- LIST ---------------- */
 function listHTML(){
-  const items=S.listIds.map(byId).filter(Boolean);
-  const stores=[...new Set(items.map(p=>p.store))];
-  if(items.length===0){
-    return `<div class="pad" style="padding-top:20px"><div class="h-title">SHOPPING LIST</div><div class="h-sub">0 VERIFIED ITEMS</div>
-      <div style="text-align:center;padding:70px 0"><div style="font-size:40px">🛒</div>
-      <div class="note" style="margin-top:14px">Your list is empty. Add clean staples from the rank.</div>
-      <button class="btn-ghost" style="width:auto;margin:20px auto 0;padding:14px 26px" onclick="go('rank')">OPEN RANK →</button></div></div>`;
-  }
+  const picks=S.listIds.map(byId).filter(Boolean);
+  const stores=[...new Set(picks.map(p=>p.store))];
+  const shop=S.shopping||[]; const active=shop.filter(x=>!x.checked), done=shop.filter(x=>x.checked);
   const order=['heb','wf','other'];
+  const empty = picks.length===0 && shop.length===0;
   return `<div class="pad" style="padding-top:20px">
-    <div class="h-title">SHOPPING LIST</div><div class="h-sub">${items.length} VERIFIED ITEMS · ${stores.length} STORE${stores.length>1?'S':''}</div>
-    <div class="note" style="margin-top:8px;font-size:10px">Tap an item to mark it out of stock — PRANA suggests clean swaps.</div>
-    <div style="margin-top:12px">
-    ${order.filter(st=>items.some(p=>p.store===st)).map(st=>{
-      const g=items.filter(p=>p.store===st);
-      return `<div style="display:flex;align-items:center;gap:12px;margin:14px 0 8px">
-        <span class="grouptag gt-${st}">${STORE_LABEL[st]}</span><div style="flex:1;height:1px;background:var(--line2)"></div>
-        <span style="font-size:10px;letter-spacing:2px;color:var(--mute3)">${g.length} ITEM${g.length>1?'S':''}</span></div>
-      ${g.map(p=>listItem(p)).join('')}`;
-    }).join('')}
-    </div><div style="height:8px"></div>
+    <div class="h-title">SHOPPING LIST</div><div class="h-sub">${active.length+picks.length} TO BUY${stores.length?' · '+stores.length+' STORE'+(stores.length>1?'S':''):''}</div>
+    <div style="display:flex;gap:8px;margin-top:14px">
+      <input class="field" style="margin-top:0;flex:1" placeholder="Add an item…" value="${esc(newShopText)}" oninput="newShopText=this.value" onkeydown="if(event.key==='Enter')addManualShop()">
+      <button class="tag t2" style="padding:0 16px" onclick="addManualShop()">＋ ADD</button></div>
+    ${empty?`<div style="text-align:center;padding:48px 0"><div style="font-size:40px">🛒</div>
+      <div class="note" style="margin-top:14px">Your list is empty. Add an item above, add clean staples from the Rank, or push a recipe's ingredients from Cook.</div>
+      <button class="btn-ghost" style="width:auto;margin:18px auto 0;padding:14px 26px" onclick="go('rank')">OPEN RANK →</button></div>`:''}
+    ${shop.length?`<div style="display:flex;justify-content:space-between;align-items:center;margin:18px 0 8px">
+        <div class="kicker">TO BUY · ${active.length}</div>
+        ${done.length?`<button style="font-size:10px;letter-spacing:1px;color:var(--copper-l);font-weight:700" onclick="clearCheckedShop()">CLEAR ${done.length} CHECKED</button>`:''}</div>
+      ${active.map(shopRow).join('')||'<div class="note">All checked off. Nice.</div>'}
+      ${done.length?`<div class="kicker" style="margin:16px 0 8px;color:var(--mute3)">IN THE CART · ${done.length}</div>${done.map(shopRow).join('')}`:''}`:''}
+    ${picks.length?`<div class="kicker" style="margin:22px 0 4px">VERIFIED PICKS · TAP AN ITEM FOR OUT-OF-STOCK SWAPS</div>
+      <div style="margin-top:8px">
+      ${order.filter(st=>picks.some(p=>p.store===st)).map(st=>{ const g=picks.filter(p=>p.store===st);
+        return `<div style="display:flex;align-items:center;gap:12px;margin:14px 0 8px">
+          <span class="grouptag gt-${st}">${STORE_LABEL[st]}</span><div style="flex:1;height:1px;background:var(--line2)"></div>
+          <span style="font-size:10px;letter-spacing:2px;color:var(--mute3)">${g.length} ITEM${g.length>1?'S':''}</span></div>
+        ${g.map(p=>listItem(p)).join('')}`; }).join('')}
+      </div>`:''}
+    <div style="height:8px"></div>
   </div>`;
 }
+function shopRow(x){ const m=x.matchId!=null?byId(x.matchId):null;
+  return `<div class="drow" style="margin-bottom:7px;align-items:center;${x.checked?'opacity:.5':''}">
+    <button onclick="toggleShopItem('${x.id}')" aria-label="toggle" style="flex:0 0 auto;width:24px;height:24px;border-radius:7px;border:1.5px solid ${x.checked?'var(--sage)':'var(--line2)'};background:${x.checked?'var(--sage)':'transparent'};color:#0b0b0d;font-size:14px;line-height:1;cursor:pointer">${x.checked?'✓':''}</button>
+    <div style="flex:1;min-width:0;margin-left:10px"><div style="font-size:13.5px;${x.checked?'text-decoration:line-through':''}">${esc(x.text)}</div>
+      ${m?`<div style="font-size:10px;color:var(--sage-l);margin-top:2px">✓ PRANA · ${esc(m.name)} · ${cpgStr(m.cpg)}/g</div>`:''}</div>
+    <button onclick="delShopItem('${x.id}')" aria-label="remove" style="flex:0 0 auto;margin-left:8px;color:var(--crimson-t);font-size:16px;background:none;border:none;cursor:pointer">✕</button></div>`; }
 function listItem(p){
   const oos=S.outStock[p.id];
   const swaps=oos?products().filter(x=>x.cat===p.cat&&x.id!==p.id&&x.effTier<3).sort((a,b)=>b.gd-a.gd).slice(0,3):[];
@@ -1530,17 +1542,10 @@ function commitImport(){
    ===================================================================== */
 let recipeQuery='', newShopText='';
 function rid(){ return 'r'+Date.now()+'_'+Math.floor(Math.random()*1e4); }
-function setCookTab(t){ S.cookTab=t; var d=document.getElementById('device'); if(d)d.scrollTop=0; render(); }
 function cookHTML(){
-  const tab=S.cookTab==='shopping'?'shopping':'recipes';
-  const seg=`<div class="rocker" style="width:100%;margin-top:16px">
-      <button class="${tab==='recipes'?'on':''}" style="flex:1" onclick="setCookTab('recipes')">RECIPES</button>
-      <button class="${tab==='shopping'?'on':''}" style="flex:1" onclick="setCookTab('shopping')">SHOPPING${S.shopping.length?' · '+S.shopping.filter(x=>!x.checked).length:''}</button>
-    </div>`;
   return `<div class="pad" style="padding-top:14px">
-    <div class="wordmark" style="font-size:34px">COOK</div><div class="subword">RECIPES · SHOPPING LIST</div>
-    ${seg}
-    ${tab==='recipes'?recipesInner():shoppingInner()}
+    <div class="wordmark" style="font-size:34px">COOK</div><div class="subword">YOUR RECIPE BOOK</div>
+    ${recipesInner()}
     <div style="height:8px"></div></div>`;
 }
 function recipesInner(){
@@ -1674,8 +1679,7 @@ function recipeEditHTML(){
 
     <div class="kicker" style="margin-top:16px">TITLE</div><input class="field" value="${esc(d.title)}" oninput="OV.data.title=this.value">
     <div class="kicker" style="margin-top:12px">DESCRIPTION</div><textarea class="field" rows="2" oninput="OV.data.description=this.value" style="resize:none">${esc(d.description)}</textarea>
-    <div style="display:flex;gap:10px"><div style="flex:1"><div class="kicker" style="margin-top:12px">SOURCE NAME</div><input class="field" placeholder="e.g. @chef / site" value="${esc(d.sourceName)}" oninput="OV.data.sourceName=this.value"></div>
-      <div style="flex:1"><div class="kicker" style="margin-top:12px">FAVORITE</div><button class="fchip ${d.favorite?'on':''}" style="margin-top:0;width:100%" onclick="OV.data.favorite=!OV.data.favorite;renderOverlay()">${d.favorite?'★ FAVORITE':'☆ MARK FAVORITE'}</button></div></div>
+    <div class="kicker" style="margin-top:12px">SOURCE NAME</div><input class="field" placeholder="e.g. @chef / site" value="${esc(d.sourceName)}" oninput="OV.data.sourceName=this.value">
     <div class="kicker" style="margin-top:12px">SOURCE LINK (Instagram / web)</div><input class="field" inputmode="url" placeholder="paste the reel / recipe link" value="${esc(d.sourceUrl)}" oninput="OV.data.sourceUrl=this.value">
     <div style="display:flex;gap:8px"><div style="flex:1"><div class="kicker" style="margin-top:12px">SERVINGS</div><input class="field" value="${esc(String(d.servings||''))}" oninput="OV.data.servings=this.value"></div>
       <div style="flex:1"><div class="kicker" style="margin-top:12px">PREP MIN</div><input class="field" type="number" min="0" value="${esc(String(d.prepTime||''))}" oninput="OV.data.prepTime=this.value"></div>
@@ -1684,7 +1688,10 @@ function recipeEditHTML(){
     <div class="kicker" style="margin-top:14px">COURSE</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">${COURSE_OPTS.map(c=>chip(c,d.course,'course')).join('')}</div>
     <div style="display:flex;gap:10px"><div style="flex:1"><div class="kicker" style="margin-top:12px">CUISINE</div><input class="field" placeholder="e.g. Italian" value="${esc(d.cuisine)}" oninput="OV.data.cuisine=this.value"></div></div>
     <div class="kicker" style="margin-top:14px">DIFFICULTY</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">${DIFF_OPTS.map(c=>chip(c,d.difficulty,'difficulty')).join('')}</div>
-    <div class="kicker" style="margin-top:14px">YOUR RATING</div><div style="margin-top:2px">${stars}</div>
+    <div style="display:flex;gap:10px;align-items:center;margin-top:14px">
+      <div style="flex:1"><div class="kicker">YOUR RATING</div><div style="margin-top:2px">${stars}</div></div>
+      <button class="fchip ${d.favorite?'on':''}" style="flex:0 0 auto;align-self:flex-end" onclick="OV.data.favorite=!OV.data.favorite;renderOverlay()">${d.favorite?'★ FAVORITE':'☆ FAVORITE'}</button>
+    </div>
     <div class="kicker" style="margin-top:12px">TAGS · COMMA-SEPARATED</div><input class="field" placeholder="e.g. high-protein, meal-prep" value="${esc(d.tags)}" oninput="OV.data.tags=this.value">
     <div class="kicker" style="margin-top:12px">INGREDIENTS · ONE PER LINE</div>
     <textarea class="field" rows="6" oninput="OV.data.ingrText=this.value" style="resize:vertical;font-family:var(--mono);font-size:13px">${esc(d.ingrText)}</textarea>
@@ -1914,31 +1921,11 @@ function addIngredientToShopping(recipeId, idx){ const r=recipeById(recipeId); i
   const text=(r.ingredients||[])[idx]; if(!text) return;
   const m=catalogMatchIngredient(text);
   S.shopping.push({id:sid(), text, recipeId, matchId:m?m.id:null, checked:false});
-  save(); if(OV.kind==='recipe') renderOverlay(); render(); toast('Added to shopping');
+  save(); if(OV.kind==='recipe') renderOverlay(); render(); toast('Added to your shopping list');
 }
 function addAllToShopping(recipeId){ const r=recipeById(recipeId); if(!r) return; let n=0;
   (r.ingredients||[]).forEach(text=>{ const m=catalogMatchIngredient(text); S.shopping.push({id:sid(),text,recipeId,matchId:m?m.id:null,checked:false}); n++; });
-  save(); toast('Added '+n+' to shopping'); S.cookTab='shopping'; closeOverlay(); render();
-}
-function shoppingInner(){
-  const items=S.shopping;
-  const active=items.filter(x=>!x.checked), done=items.filter(x=>x.checked);
-  const row=x=>{ const m=x.matchId!=null?byId(x.matchId):null;
-    return `<div class="drow" style="margin-bottom:7px;align-items:center;${x.checked?'opacity:.5':''}">
-      <button onclick="toggleShopItem('${x.id}')" aria-label="toggle" style="flex:0 0 auto;width:24px;height:24px;border-radius:7px;border:1.5px solid ${x.checked?'var(--sage)':'var(--line2)'};background:${x.checked?'var(--sage)':'transparent'};color:#0b0b0d;font-size:14px;line-height:1;cursor:pointer">${x.checked?'✓':''}</button>
-      <div style="flex:1;min-width:0;margin-left:10px"><div style="font-size:13.5px;${x.checked?'text-decoration:line-through':''}">${esc(x.text)}</div>
-        ${m?`<div style="font-size:10px;color:var(--sage-l);margin-top:2px">✓ PRANA · ${esc(m.name)} · ${cpgStr(m.cpg)}/g</div>`:''}</div>
-      <button onclick="delShopItem('${x.id}')" aria-label="remove" style="flex:0 0 auto;margin-left:8px;color:var(--crimson-t);font-size:16px;background:none;border:none;cursor:pointer">✕</button></div>`; };
-  return `<div style="margin-top:16px">
-    <div style="display:flex;gap:8px">
-      <input class="field" style="margin-top:0;flex:1" placeholder="Add an item…" value="${esc(newShopText)}" oninput="newShopText=this.value" onkeydown="if(event.key==='Enter')addManualShop()">
-      <button class="tag t2" style="padding:0 16px" onclick="addManualShop()">＋ ADD</button></div>
-    ${items.length?`<div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 8px">
-      <div class="kicker">TO BUY · ${active.length}</div>
-      ${done.length?`<button style="font-size:10px;letter-spacing:1px;color:var(--copper-l);font-weight:700" onclick="clearCheckedShop()">CLEAR ${done.length} CHECKED</button>`:''}</div>`:''}
-    ${active.map(row).join('')||(items.length?'':'<div class="note" style="text-align:center;padding:26px 10px">Your shopping list is empty. Add items here, or open a recipe and tap ＋ on its ingredients.</div>')}
-    ${done.length?`<div class="kicker" style="margin:16px 0 8px;color:var(--mute3)">IN THE CART · ${done.length}</div>${done.map(row).join('')}`:''}
-  </div>`;
+  save(); closeOverlay(); go('list'); toast('Added '+n+' to your shopping list');
 }
 function addManualShop(){ const t=(newShopText||'').trim(); if(!t) return; const m=catalogMatchIngredient(t);
   S.shopping.push({id:sid(),text:t,recipeId:null,matchId:m?m.id:null,checked:false}); newShopText=''; render(); }

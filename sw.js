@@ -1,5 +1,5 @@
 /* PRANA service worker — offline-first cache for a fully static PWA */
-const CACHE = 'prana-v21';
+const CACHE = 'prana-v22';
 const ASSETS = [
   './',
   './index.html',
