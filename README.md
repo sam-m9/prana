@@ -26,6 +26,11 @@ It is a single static site — no server, no build step, no tracking. All state 
 - **RANK** — 3D carousel of every product sorted by g/$, with an evidence detail card.
 - **DATA** — search / multi-select category filter / sort, add-edit-delete foods & categories.
 - **LIST** — approved items grouped by store, with out-of-stock swap suggestions.
+- **COOK** — a recipe book + shopping list. Add a recipe by **photo/screenshot** (on-device OCR reads
+  the text), by **pasting** the caption/recipe, or by saving a **link**; PRANA auto-parses it into title /
+  ingredients / method / servings / time, all editable. Tap ＋ on any ingredient (or "add all") to push it
+  to the **shopping list**, which matches items to the PRANA catalog where it can and keeps the rest as free
+  text — checkable rows, manual add, clear-checked.
 
 Tap any product anywhere to open the **Evidence Drawer** — a category-agnostic **five-principle audit**,
 the gut-mechanism summary, the **verified ingredient deck with source links**, and a manual "override to
