@@ -1,5 +1,5 @@
 /* PRANA service worker — offline-first cache for a fully static PWA */
-const CACHE = 'prana-v28';
+const CACHE = 'prana-v29';
 const ASSETS = [
   './',
   './index.html',
@@ -41,4 +41,20 @@ self.addEventListener('fetch', (e) => {
       return r;
     }).catch(() => cached))
   );
+});
+
+/* ---- push reminders: the push-worker sends a bodyless push; the text lives here ---- */
+self.addEventListener('push', (e) => {
+  let title = 'PRANA', body = 'Time to hit your protein target.';
+  try { if (e.data) { const d = e.data.json(); if (d.title) title = d.title; if (d.body) body = d.body; } } catch (err) {}
+  e.waitUntil(self.registration.showNotification(title, {
+    body, icon: './icons/icon-256.png', badge: './icons/favicon.png', tag: 'prana-reminder', renotify: true,
+  }));
+});
+self.addEventListener('notificationclick', (e) => {
+  e.notification.close();
+  e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
+    for (const c of list) { if ('focus' in c) return c.focus(); }
+    if (self.clients.openWindow) return self.clients.openWindow('./');
+  }));
 });

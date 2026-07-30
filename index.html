@@ -234,7 +234,8 @@ const DEFAULT = {
   recipes:[], shopping:[], cookTab:'recipes', lastBackup:0,
   macros:{calories:false,carbs:false,fat:false},   // protein is always tracked; these are opt-in
   remind:{on:false,hour:19,lastNudge:''}, workerUrl:'',
-  gdriveClientId:'', gdrive:{connected:false,fileId:'',lastSync:0}
+  gdriveClientId:'', gdrive:{connected:false,fileId:'',lastSync:0},
+  pushUrl:'', vapidPublic:'', push:{on:false,endpoint:''}
 };
 let S = load();
 function load(){
@@ -247,6 +248,7 @@ function load(){
   if(!s.macros||typeof s.macros!=='object') s.macros={calories:false,carbs:false,fat:false};
   if(!s.remind||typeof s.remind!=='object') s.remind={on:false,hour:19,lastNudge:''};
   if(!s.gdrive||typeof s.gdrive!=='object') s.gdrive={connected:false,fileId:'',lastSync:0};
+  if(!s.push||typeof s.push!=='object') s.push={on:false,endpoint:''};
   // one-time migration: fold a legacy single-number daily total into the itemised log
   if(s.dailyProtein>0 && !s.log.some(e=>e.date===today())){
     s.log.push({id:'seed'+Date.now(), name:'Earlier today', detail:'carried over', protein:Math.round(s.dailyProtein), date:today(), ts:Date.now()});
@@ -278,11 +280,42 @@ function macroLine(src){ return enabledMacros().map(k=>{
     const v=Math.round(+src[k]||0); if(k==='calories') return v+' kcal'; return v+'g '+(k==='carbs'?'C':'F'); }).join(' · '); }
 /* reminders — on-open nudge now; real background push arrives with the Worker (Batch 2) */
 function toggleRemind(){ S.remind.on=!S.remind.on; S.remind.lastNudge=''; save(); renderOverlay(); render(); }
-function setRemindHour(h){ S.remind.hour=Math.max(0,Math.min(23,+h||19)); save(); renderOverlay(); }
+function setRemindHour(h){ S.remind.hour=Math.max(0,Math.min(23,+h||19)); save(); repushHour(); renderOverlay(); }
 function remindHour(){ const h=+S.remind.hour; return (S.remind.hour===''||S.remind.hour==null||isNaN(h))?19:Math.max(0,Math.min(23,h)); }
 function nudgeDue(){ return S.remind.on && (new Date().getHours()>=remindHour()) && dayProtein()<targetProtein() && S.remind.lastNudge!==today(); }
 function dismissNudge(){ S.remind.lastNudge=today(); save(); render(); }
 function hour12(h){ h=+h; const ap=h<12?'AM':'PM'; let hh=h%12; if(hh===0)hh=12; return hh+' '+ap; }
+/* real web push — needs the push worker URL + VAPID public key (worker/PUSH_SETUP.md) */
+function pushConfigured(){ return !!(S.pushUrl||'').trim() && !!(S.vapidPublic||'').trim(); }
+function pushSupported(){ return ('serviceWorker' in navigator) && ('PushManager' in window) && ('Notification' in window); }
+function urlB64ToUint8(b64){ const pad='='.repeat((4-b64.length%4)%4); const s=(b64+pad).replace(/-/g,'+').replace(/_/g,'/'); const raw=atob(s); const a=new Uint8Array(raw.length); for(let i=0;i<raw.length;i++)a[i]=raw.charCodeAt(i); return a; }
+function utcReminderHour(){ const d=new Date(); d.setHours((+S.remind.hour||19),0,0,0); return d.getUTCHours(); }
+function pushBase(){ return (S.pushUrl||'').trim().replace(/\/+$/,''); }
+// navigator.serviceWorker.ready never resolves if no SW ever activates — bound the wait
+function swReady(ms){ return Promise.race([ navigator.serviceWorker.ready, new Promise((_,rej)=>setTimeout(()=>rej(new Error('sw not ready')), ms||5000)) ]); }
+async function enablePush(){
+  if(!pushConfigured()){ toast('Add the push URL + VAPID key first'); return; }
+  if(!pushSupported()){ toast('Push not supported here — on iPhone, Add to Home Screen first'); return; }
+  try{
+    const perm=await Notification.requestPermission(); if(perm!=='granted'){ toast('Allow notifications to enable reminders'); return; }
+    const reg=await swReady();
+    let sub=await reg.pushManager.getSubscription();
+    if(!sub) sub=await reg.pushManager.subscribe({userVisibleOnly:true, applicationServerKey:urlB64ToUint8((S.vapidPublic||'').trim())});
+    const res=await fetch(pushBase()+'/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({subscription:sub.toJSON(), hour:utcReminderHour()})});
+    if(!res.ok) throw new Error('subscribe '+res.status);
+    S.push={on:true, endpoint:sub.endpoint}; S.remind.on=true; save(); renderOverlay(); render(); toast('Push reminders on');
+  }catch(e){ toast('Could not enable push — see PUSH_SETUP.md'); }
+}
+async function disablePush(){
+  try{ const reg=await swReady(); const sub=await reg.pushManager.getSubscription();
+    if(sub){ if(pushBase()) await fetch(pushBase()+'/unsubscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({endpoint:sub.endpoint})}).catch(()=>{}); await sub.unsubscribe().catch(()=>{}); }
+  }catch(e){}
+  S.push={on:false,endpoint:''}; save(); renderOverlay(); render(); toast('Push reminders off');
+}
+function togglePush(){ if(S.push&&S.push.on) disablePush(); else enablePush(); }
+// hour changed while push is on → re-register so the worker's UTC-hour match stays correct
+function repushHour(){ if(!(S.push&&S.push.on)||!pushConfigured()||!pushSupported()) return;
+  swReady().then(reg=>reg.pushManager.getSubscription()).then(sub=>{ if(sub) fetch(pushBase()+'/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({subscription:sub.toJSON(), hour:utcReminderHour()})}).catch(()=>{}); }).catch(()=>{}); }
 let saveT;
 function save(){ clearTimeout(saveT); saveT=setTimeout(()=>{ const o=Object.assign({_p:1,_savedAt:new Date().toISOString()},S); try{localStorage.setItem(PKEY,JSON.stringify(o));}catch(e){ toast('Storage full — export a backup'); } },120); }
 
@@ -553,7 +586,7 @@ function homeHTML(){
     <div class="kicker" style="margin:18px 0 6px">WEB FETCH SERVICE · OPTIONAL</div>
     <input class="field" style="margin-top:0" placeholder="https://prana-proxy.you.workers.dev" value="${esc(S.workerUrl||'')}" oninput="S.workerUrl=this.value.trim(); save()">
     <div class="note" style="margin-top:6px">Paste your own Cloudflare Worker URL to make recipe link-import reliable (${S.workerUrl?'<span style="color:var(--sage-l)">active</span>':'blank = public proxies'}). Setup: <b>worker/WORKER_SETUP.md</b>.</div>
-    <div class="note" style="margin-top:10px" id="backupNote">Recipes & photos are saved durably (IndexedDB) and backups include everything. · v28</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Recipes & photos are saved durably (IndexedDB) and backups include everything. · v29</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -1593,7 +1626,17 @@ function historyHTML(){
       <div class="note" style="margin:0">Nudge time</div>
       <input class="field" style="margin:0;width:90px" type="number" min="0" max="23" value="${remindHour()}" oninput="setRemindHour(this.value)">
       <div class="note" style="margin:0">${hour12(remindHour())}</div></div>
-    <div class="note" style="margin-top:8px">Shows when you open PRANA after this hour. Reminders that reach you while the app is closed need the push service (coming in the reliability update).</div>`:''}`;
+    <div class="note" style="margin-top:8px">This nudge shows when you open PRANA after ${hour12(remindHour())} on days you're under target.</div>
+    <div class="ladder" style="margin-top:12px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+        <div style="font-size:12px;font-weight:700;color:#cfccd7">Push to my phone <span style="font-size:9px;color:var(--mute3);font-weight:400">· even when PRANA is closed</span></div>
+        <button class="fchip ${S.push&&S.push.on?'on':''}" onclick="togglePush()">${S.push&&S.push.on?'ON':'OFF'}</button></div>
+      ${(S.push&&S.push.on)
+        ? `<div class="note" style="margin-top:8px;color:var(--sage-l)">On — a notification will reach you at ${hour12(remindHour())}.</div>`
+        : `<input class="field" style="margin-top:8px" placeholder="Push worker URL (…workers.dev)" value="${esc(S.pushUrl||'')}" oninput="S.pushUrl=this.value.trim();save()">
+           <input class="field" style="margin-top:8px" placeholder="VAPID public key" value="${esc(S.vapidPublic||'')}" oninput="S.vapidPublic=this.value.trim();save()">
+           <div class="note" style="margin-top:6px">Setup: <b>worker/PUSH_SETUP.md</b>. On iPhone, Add PRANA to your Home Screen first.</div>`}
+    </div>`:''}`;
 }
 
 /* WEIGHT → PROTEIN TARGET */
