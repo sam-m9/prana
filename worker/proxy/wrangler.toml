@@ -1,0 +1,5 @@
+# Cloudflare config for the fetch proxy. Used by Git-connected auto-deploy
+# (Workers Builds) and by `wrangler deploy`. See ../GIT_DEPLOY.md.
+name = "prana-proxy"
+main = "worker.js"
+compatibility_date = "2024-11-01"

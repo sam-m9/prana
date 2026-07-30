@@ -1,0 +1,18 @@
+# Cloudflare config for the push-reminder worker. Used by Git-connected
+# auto-deploy (Workers Builds) and by `wrangler deploy`. See ../GIT_DEPLOY.md.
+name = "prana-push"
+main = "push-worker.js"
+compatibility_date = "2024-11-01"
+
+# KV: create a namespace called `subs`, then paste its ID here and commit.
+[[kv_namespaces]]
+binding = "SUBS"
+id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+
+# Hourly cron — fires the reminder check.
+[triggers]
+crons = ["0 * * * *"]
+
+# NOTE: VAPID_PUBLIC / VAPID_PRIVATE / VAPID_SUBJECT are SECRETS — do NOT put
+# them here. Set them once in the dashboard (Settings → Variables, encrypted) or
+# with `wrangler secret put VAPID_PRIVATE`. They persist across auto-deploys.

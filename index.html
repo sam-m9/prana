@@ -233,7 +233,8 @@ const DEFAULT = {
   reduceMotion:false, proteinTarget:160, weightLb:0,
   recipes:[], shopping:[], cookTab:'recipes', lastBackup:0,
   macros:{calories:false,carbs:false,fat:false},   // protein is always tracked; these are opt-in
-  remind:{on:false,hour:19,lastNudge:''}, workerUrl:''
+  remind:{on:false,hour:19,lastNudge:''}, workerUrl:'',
+  gdriveClientId:'', gdrive:{connected:false,fileId:'',lastSync:0}
 };
 let S = load();
 function load(){
@@ -245,6 +246,7 @@ function load(){
   if(!Array.isArray(s.log)) s.log=[];
   if(!s.macros||typeof s.macros!=='object') s.macros={calories:false,carbs:false,fat:false};
   if(!s.remind||typeof s.remind!=='object') s.remind={on:false,hour:19,lastNudge:''};
+  if(!s.gdrive||typeof s.gdrive!=='object') s.gdrive={connected:false,fileId:'',lastSync:0};
   // one-time migration: fold a legacy single-number daily total into the itemised log
   if(s.dailyProtein>0 && !s.log.some(e=>e.date===today())){
     s.log.push({id:'seed'+Date.now(), name:'Earlier today', detail:'carried over', protein:Math.round(s.dailyProtein), date:today(), ts:Date.now()});
@@ -327,6 +329,65 @@ function lastBackupLabel(){ if(!S.lastBackup) return 'never backed up'; const da
 function storageBytes(){ let ls=0; try{ ls=JSON.stringify(S).length; }catch(e){} let img=0; for(const k in IMG){ img+=(IMG[k]?IMG[k].length:0); } return {ls,img,total:ls+img}; }
 function fmtKB(n){ return n<1024?n+' B':(n<1048576?(n/1024).toFixed(0)+' KB':(n/1048576).toFixed(1)+' MB'); }
 function refreshStorageEstimate(){ try{ if(navigator.storage&&navigator.storage.estimate){ navigator.storage.estimate().then(e=>{ _storeEst=e; }); } }catch(e){} }
+
+/* =====================================================================
+   GOOGLE DRIVE — optional true hands-off cloud backup. After a one-time
+   consent, the app silently uploads a single rolling file (overwritten in
+   place) whenever a backup is due and the app is open. Needs the user's own
+   OAuth Client ID (public, not a secret); see worker/GDRIVE_SETUP.md.
+   All calls no-op gracefully when GIS isn't loaded or no client ID is set.
+   ===================================================================== */
+let _gis=null, _gToken='', _gTokenExp=0, _gisLoading=null;
+const DRIVE_FILENAME='prana-backup.json';
+function driveConfigured(){ return !!(S.gdriveClientId||'').trim(); }
+function loadGIS(){ if(_gisLoading) return _gisLoading;
+  _gisLoading=new Promise((res,rej)=>{ try{
+    if(window.google&&google.accounts&&google.accounts.oauth2){ _gis=google.accounts.oauth2; return res(_gis); }
+    const s=document.createElement('script'); s.src='https://accounts.google.com/gsi/client'; s.async=true; s.defer=true;
+    s.onload=()=>{ try{ _gis=google.accounts.oauth2; res(_gis); }catch(e){ rej(e); } };
+    s.onerror=()=>rej(new Error('GIS load failed')); document.head.appendChild(s);
+  }catch(e){ rej(e); } }); return _gisLoading; }
+// get an access token; prompt:'' = silent (only works after prior consent)
+function driveToken(prompt){ return new Promise((res,rej)=>{
+  if(_gToken && Date.now()<_gTokenExp-60000) return res(_gToken);
+  loadGIS().then(gis=>{ try{
+    const tc=gis.initTokenClient({ client_id:(S.gdriveClientId||'').trim(), scope:'https://www.googleapis.com/auth/drive.file',
+      callback:(resp)=>{ if(resp&&resp.access_token){ _gToken=resp.access_token; _gTokenExp=Date.now()+(+resp.expires_in||3600)*1000; res(_gToken); } else rej(new Error('no token')); },
+      error_callback:(e)=>rej(e||new Error('auth error')) });
+    tc.requestAccessToken({prompt: prompt==null?'consent':prompt});
+  }catch(e){ rej(e); } }).catch(rej); }); }
+async function driveUpload(){ const token=await driveToken(S.gdrive.connected?'':'consent');
+  const body=JSON.stringify(collectBackup());
+  const meta={name:DRIVE_FILENAME, mimeType:'application/json'};
+  if(S.gdrive.fileId){ // overwrite the same file (media update) → single rolling file
+    const res=await fetch('https://www.googleapis.com/upload/drive/v3/files/'+encodeURIComponent(S.gdrive.fileId)+'?uploadType=media',
+      {method:'PATCH', headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json'}, body});
+    if(res.status===404){ S.gdrive.fileId=''; return driveUpload(); } // file was deleted — recreate
+    if(!res.ok) throw new Error('drive update '+res.status);
+  } else { // create once (multipart: metadata + media)
+    const boundary='pranab'+Math.random().toString(36).slice(2);
+    const multipart='--'+boundary+'\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n'+JSON.stringify(meta)+
+      '\r\n--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+body+'\r\n--'+boundary+'--';
+    const res=await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id',
+      {method:'POST', headers:{'Authorization':'Bearer '+token,'Content-Type':'multipart/related; boundary='+boundary}, body:multipart});
+    if(!res.ok) throw new Error('drive create '+res.status);
+    const j=await res.json(); S.gdrive.fileId=j.id;
+  }
+  S.gdrive.connected=true; S.gdrive.lastSync=Date.now(); S.lastBackup=Date.now(); save(); return true;
+}
+function connectDrive(){ if(!driveConfigured()){ toast('Paste your Google client ID first'); return; }
+  toast('Opening Google sign-in…');
+  driveUpload().then(()=>{ render(); toast('Google Drive connected · backed up'); })
+    .catch(e=>{ toast('Drive connect failed — check the client ID & origin'); }); }
+function driveBackupNow(){ if(!driveConfigured()) return;
+  driveUpload().then(()=>{ render(); toast('Backed up to Google Drive'); }).catch(()=>toast('Drive backup failed — reconnect')); }
+function disconnectDrive(){ try{ if(_gToken&&window.google&&google.accounts&&google.accounts.oauth2) google.accounts.oauth2.revoke(_gToken,()=>{}); }catch(e){}
+  _gToken=''; _gTokenExp=0; S.gdrive={connected:false,fileId:'',lastSync:0}; save(); render(); toast('Google Drive disconnected'); }
+function driveLastSyncLabel(){ if(!S.gdrive.lastSync) return 'not synced yet'; const days=Math.floor((Date.now()-S.gdrive.lastSync)/864e5);
+  return days<=0?'synced today':('synced '+days+'d ago'); }
+// on open, if connected and a backup is due, silently upload (no tap after first consent)
+async function driveAutoSync(){ if(!driveConfigured()||!S.gdrive.connected||!backupDue()) return;
+  try{ await driveUpload(); render(); }catch(e){ /* silent token expired — user will reconnect */ } }
 
 /* ---------- live product composition ---------- */
 function products(){
@@ -473,13 +534,26 @@ function homeHTML(){
       <button class="btn-bone" onclick="backupNow()">⤓ BACK UP NOW</button>
       <button class="btn-ghost" onclick="document.getElementById('importfile').click()">RESTORE</button>
     </div>
+    <div class="kicker" style="margin:18px 0 6px">CLOUD BACKUP · GOOGLE DRIVE</div>
+    ${S.gdrive.connected?`<div class="tile" style="text-align:left">
+        <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;color:var(--sage-l);font-weight:700">✓ Connected</span>
+          <span style="font-size:10px;color:var(--mute3)">${esc(driveLastSyncLabel())}</span></div>
+        <div class="note" style="margin-top:6px">Backs up automatically to one rolling file in your Drive whenever you open PRANA and it's been 2 weeks.</div>
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <button class="btn-bone" onclick="driveBackupNow()">⤴ BACK UP TO DRIVE NOW</button>
+          <button class="btn-ghost" onclick="disconnectDrive()">DISCONNECT</button></div></div>`
+      : `<input class="field" style="margin-top:0" placeholder="Google OAuth Client ID (…apps.googleusercontent.com)" value="${esc(S.gdriveClientId||'')}" oninput="S.gdriveClientId=this.value.trim();save()" onchange="render()">
+        ${driveConfigured()
+          ? `<button class="btn-bone" style="margin-top:10px" onclick="connectDrive()">⤴ CONNECT GOOGLE DRIVE</button>`
+          : `<button class="btn-ghost" style="margin-top:10px;opacity:.5" disabled>⤴ CONNECT GOOGLE DRIVE</button>`}
+        <div class="note" style="margin-top:6px">Paste your Google client ID for true hands-off cloud backup, then Connect (one Google sign-in, then automatic). Setup: <b>worker/GDRIVE_SETUP.md</b>. Blank = local/iCloud backups only.</div>`}
     <button class="row-item" style="margin-top:10px;justify-content:center;border-style:dashed" onclick="document.getElementById('catfile').click()">
       <span style="letter-spacing:1px;font-size:10px;color:var(--copper-l);font-weight:700">⤒ UPLOAD A CATEGORY · CSV / EXCEL → CSV</span>
     </button>
     <div class="kicker" style="margin:18px 0 6px">WEB FETCH SERVICE · OPTIONAL</div>
     <input class="field" style="margin-top:0" placeholder="https://prana-proxy.you.workers.dev" value="${esc(S.workerUrl||'')}" oninput="S.workerUrl=this.value.trim(); save()">
     <div class="note" style="margin-top:6px">Paste your own Cloudflare Worker URL to make recipe link-import reliable (${S.workerUrl?'<span style="color:var(--sage-l)">active</span>':'blank = public proxies'}). Setup: <b>worker/WORKER_SETUP.md</b>.</div>
-    <div class="note" style="margin-top:10px" id="backupNote">Recipes & photos are saved durably (IndexedDB) and backups include everything. · v27</div>
+    <div class="note" style="margin-top:10px" id="backupNote">Recipes & photos are saved durably (IndexedDB) and backups include everything. · v28</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -2216,6 +2290,7 @@ window.addEventListener('hashchange',()=>{ const h=(location.hash||'').replace('
   try{ if(navigator.storage&&navigator.storage.persist) navigator.storage.persist().catch(()=>{}); }catch(e){}
   refreshStorageEstimate();
   render();                                   // repaint with images hydrated from IndexedDB
+  try{ driveAutoSync(); }catch(e){}           // silent cloud backup if connected + due
 })();
 if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
 </script>
