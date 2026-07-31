@@ -665,7 +665,7 @@ function homeHTML(){
       <div style="flex:1;min-width:0"><div style="font-weight:600">Upload a category</div>
       <div style="font-size:12px;color:var(--mute2);margin-top:4px">CSV / Excel → CSV</div></div>
       <span style="color:var(--mute3)">→</span></button>
-    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v34</div>
+    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v35</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -1643,7 +1643,10 @@ const CAT_GENERIC={
   'Plant Milk':['glass of milk','milk'],
   'Protein Bar':['protein bar','protein bars'],
 };
-function sigToks(name){ return (name||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w=>w.length>=4 && !STOPTOK.has(w)); }
+// distinctive brand tokens — strip parenthetical size descriptors first ("(half gallon)","(per lb)")
+// so measure/quantity words never become brand triggers, and drop known qty/measure words.
+const NONBRAND_TOK=new Set([...Object.keys(QTYWORD),...Object.keys(WEIGHT_UNITS),'half','quarter','third','gallon','gallons','dozen','quart','quarts','pint','pints','liter','litre','liters','pack','packs','count','carton','loaf','case']);
+function sigToks(name){ return (name||'').toLowerCase().replace(/\([^)]*\)/g,' ').replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w=>w.length>=4 && !STOPTOK.has(w) && !NONBRAND_TOK.has(w)); }
 function fmtCount(c){ return c===1?'1':(c%1?String(Math.round(c*100)/100):String(c)); }
 function localParse(text){
   let t=(' '+(text||'').toLowerCase()+' ').replace(/[^a-z0-9\/\s]/g,' ').replace(/\s+/g,' ');
@@ -1656,7 +1659,7 @@ function localParse(text){
     prods.forEach(p=>{ const s=sigToks(p.name); ptoks[p.id]=s; s.forEach(w=>freq[w]=(freq[w]||0)+1); });
     const used=new Set();
     // candidate triggers: distinctive (rare), NOT a generic food word or portion/vessel word
-    const present=[]; for(const w in freq){ if(freq[w]<=4 && !FOOD_WORDS.has(w) && !PORTION_WORDS.has(w) && t.indexOf(' '+w+' ')>=0) present.push(w); }
+    const present=[]; for(const w in freq){ if(freq[w]<=4 && !FOOD_WORDS.has(w) && !PORTION_WORDS.has(w) && !NONBRAND_TOK.has(w) && t.indexOf(' '+w+' ')>=0) present.push(w); }
     present.forEach(w=>{
       let best=null, bs=0;
       prods.forEach(p=>{ if(used.has(p.id)||!ptoks[p.id].includes(w))return; let s=0; ptoks[p.id].forEach(x=>{ if(t.indexOf(' '+x+' ')>=0)s++; }); if(s>bs){bs=s;best=p;} });
