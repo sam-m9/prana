@@ -30,7 +30,7 @@
   --crimson:#c85a54; --crimson-t:#e6c9c6;
   --sage:#93b39a; --sage-l:#a6c9ad;
   --peri:#b8c0e0;
-  --mute:#7f7c89; --mute2:#8b8894; --mute3:#5f5c68;
+  --mute:#8a8794; --mute2:#9a97a3; --mute3:#6f6c79;
   --line:#1f1d24; --line2:#2a2731;
   --t1:#e2dec9; --t2:#cf9a4a; --t3:#c85a54;
   --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -71,11 +71,11 @@ input{font-family:inherit}
 
 /* ---------- typography helpers ---------- */
 .disp{font-family:var(--disp);font-weight:900;letter-spacing:-.02em;line-height:.9}
-.kicker{font-size:10px;letter-spacing:3px;color:var(--mute);font-weight:500}
+.kicker{font-size:10.5px;letter-spacing:2.2px;color:var(--mute);font-weight:600}
 .wordmark{font-family:var(--disp);font-weight:900;letter-spacing:9px;font-size:34px;text-align:center;color:#f0eee6}
 .subword{text-align:center;font-size:9px;letter-spacing:3px;color:var(--mute3);margin-top:8px}
 .h-title{font-family:var(--disp);font-weight:800;letter-spacing:3px;text-align:center;font-size:21px;color:#f0eee6}
-.h-sub{text-align:center;font-size:9.5px;letter-spacing:2px;color:var(--mute3);margin-top:6px}
+.h-sub{text-align:center;font-size:10.5px;letter-spacing:2px;color:var(--mute2);margin-top:6px}
 .big-num{font-family:var(--disp);font-weight:900;letter-spacing:-.03em}
 
 /* ---------- generic cards ---------- */
@@ -84,7 +84,7 @@ input{font-family:inherit}
   box-shadow:0 18px 40px -20px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.5)}
 .slate{background:linear-gradient(160deg,#54545e,#2f2f36 55%,#1b1b21);border:1px solid rgba(207,154,74,.28)}
 .pill{border-radius:999px}
-.tag{font-size:9.5px;letter-spacing:2px;font-weight:700;padding:5px 11px;border-radius:8px;display:inline-block}
+.tag{font-size:10.5px;letter-spacing:1.5px;font-weight:700;padding:5px 11px;border-radius:8px;display:inline-block}
 .tag.t1{background:rgba(226,222,201,.14);color:var(--t1);border:1px solid rgba(226,222,201,.3)}
 .tag.onbone{background:rgba(38,36,31,.10);color:#3b382f;border:1px solid rgba(38,36,31,.28)}
 .tag.t2{background:rgba(207,154,74,.16);color:var(--copper-l);border:1px solid rgba(207,154,74,.4)}
@@ -180,7 +180,7 @@ input{font-family:inherit}
 .ladder{border:1px solid var(--line2);border-radius:16px;padding:15px;margin-top:9px;background:#0d0b11}
 .lvl-pass{color:var(--sage)} .lvl-fail{color:var(--crimson)} .lvl-flag{color:var(--copper-l)} .lvl-idle{color:var(--mute3)}
 .field{width:100%;background:#0e0c12;border:1px solid var(--line2);border-radius:13px;padding:13px 14px;color:#e9e7ef;font-size:16px;margin-top:7px}
-.fchip{font-size:10px;letter-spacing:.5px;font-weight:700;padding:9px 12px;border-radius:11px;border:1px solid var(--line2);color:var(--mute2)}
+.fchip{font-size:11px;letter-spacing:.5px;font-weight:700;padding:9px 13px;border-radius:11px;border:1px solid var(--line2);color:var(--mute2)}
 .fchip.on{border-color:var(--copper);color:var(--copper-l);background:rgba(207,154,74,.10)}
 .btn-bone{background:linear-gradient(160deg,var(--bone1),var(--bone3));color:var(--ink);font-weight:700;letter-spacing:1px;padding:15px;border-radius:15px;text-align:center;width:100%}
 .btn-ghost{background:#141218;border:1px solid var(--line2);color:#cfccd7;font-weight:700;letter-spacing:1px;padding:15px;border-radius:15px;text-align:center;width:100%}
@@ -192,7 +192,7 @@ input{font-family:inherit}
 @keyframes pulse{0%{transform:scale(.8);opacity:.9}100%{transform:scale(1.5);opacity:0}}
 @keyframes spin{to{transform:rotate(360deg)}}
 .spin{width:46px;height:46px;border-radius:50%;border:3px solid rgba(207,154,74,.18);border-top-color:var(--copper);animation:spin .9s linear infinite;margin:14px auto}
-.note{font-size:11px;color:var(--mute);text-align:center;line-height:1.6}
+.note{font-size:12.5px;color:var(--mute2);text-align:center;line-height:1.55}
 .reduce *{animation:none!important;transition:none!important}
 a.link{color:var(--copper-l);text-decoration:none;border-bottom:1px solid rgba(207,154,74,.35)}
 .toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%) translateY(20px);z-index:10002;
@@ -602,7 +602,7 @@ function homeHTML(){
     ${top.map((p,i)=>`<button class="row-item ${i===0?'hl':''}" style="margin-bottom:9px;gap:11px" onclick="openDrawer(${p.id})">
       <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
       <div style="flex:1;min-width:0"><div class="pname" style="font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</div>
-      <div style="font-size:10px;color:var(--mute3);margin-top:2px">${cpgStr(p.cpg)}/g · ${STORE_SHORT[p.store]}</div></div>
+      <div style="font-size:12px;color:var(--mute2);margin-top:4px">${cpgStr(p.cpg)}/g · ${STORE_SHORT[p.store]}</div></div>
       <div style="display:flex;align-items:baseline;gap:3px;flex:0 0 auto"><span class="big-num" style="font-size:26px">${p.gd.toFixed(1)}</span><span style="font-size:9px;color:var(--mute3)">g/$</span></div>
     </button>`).join('')}
 
@@ -611,7 +611,7 @@ function homeHTML(){
     <button class="row-item" onclick="openScience()">
       <span style="font-size:20px">🧬</span>
       <div style="flex:1"><div style="font-weight:600">Why these rules exist</div>
-      <div style="font-size:10px;color:var(--mute3);margin-top:2px">5 universal principles · 3 tiers · the hard exclusions</div></div>
+      <div style="font-size:12px;color:var(--mute2);margin-top:4px">5 universal principles · 3 tiers · the hard exclusions</div></div>
       <span style="color:var(--mute3)">→</span>
     </button>
 
@@ -620,24 +620,24 @@ function homeHTML(){
     <button class="row-item" onclick="openDrive()">
       <span style="font-size:19px">☁️</span>
       <div style="flex:1;min-width:0"><div style="font-weight:600">Cloud backup</div>
-      <div style="font-size:10px;color:var(--mute3);margin-top:2px">${S.gdrive.connected?('Google Drive · <span style="color:var(--sage-l)">on</span> · '+esc(driveLastSyncLabel())):'Google Drive · not set up'}</div></div>
+      <div style="font-size:12px;color:var(--mute2);margin-top:4px">${S.gdrive.connected?('Google Drive · <span style="color:var(--sage-l)">on</span> · '+esc(driveLastSyncLabel())):'Google Drive · not set up'}</div></div>
       <span style="color:var(--mute3)">→</span></button>
     <button class="row-item" style="margin-top:10px" onclick="openWebFetch()">
       <span style="font-size:19px">🔗</span>
       <div style="flex:1;min-width:0"><div style="font-weight:600">Web fetch service</div>
-      <div style="font-size:10px;color:var(--mute3);margin-top:2px">${S.workerUrl?'<span style="color:var(--sage-l)">Active</span> · link-import via your Worker':'Optional · not set (using public proxies)'}</div></div>
+      <div style="font-size:12px;color:var(--mute2);margin-top:4px">${S.workerUrl?'<span style="color:var(--sage-l)">Active</span> · link-import via your Worker':'Optional · not set (using public proxies)'}</div></div>
       <span style="color:var(--mute3)">→</span></button>
     <button class="row-item" style="margin-top:10px" onclick="document.getElementById('importfile').click()">
       <span style="font-size:19px">↩︎</span>
       <div style="flex:1;min-width:0"><div style="font-weight:600">Restore from a backup</div>
-      <div style="font-size:10px;color:var(--mute3);margin-top:2px">Load a prana-backup.json file (e.g. downloaded from Drive)</div></div>
+      <div style="font-size:12px;color:var(--mute2);margin-top:4px">Load a prana-backup.json file (e.g. downloaded from Drive)</div></div>
       <span style="color:var(--mute3)">→</span></button>
     <button class="row-item" style="margin-top:10px" onclick="document.getElementById('catfile').click()">
       <span style="font-size:19px">⤒</span>
       <div style="flex:1;min-width:0"><div style="font-weight:600">Upload a category</div>
-      <div style="font-size:10px;color:var(--mute3);margin-top:2px">CSV / Excel → CSV</div></div>
+      <div style="font-size:12px;color:var(--mute2);margin-top:4px">CSV / Excel → CSV</div></div>
       <span style="color:var(--mute3)">→</span></button>
-    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v30</div>
+    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v31</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -797,10 +797,10 @@ function rankHTML(){
 function fcard(p,i){
   const t=p.effTier;
   return `<div class="fcard ${surfClass(t)}" data-i="${i}" onclick="flowTo(${i})">
-    <div style="display:flex;justify-content:space-between;font-size:8px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'}">
+    <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'}">
       <span>${String(i+1).padStart(2,'0')}/${rankedView().length}</span><span class="tag t${t}" style="padding:2px 6px;font-size:7px">T${t}</span></div>
     <div class="big-num" style="font-size:42px;text-align:center;margin-top:22px;color:${t===2?'var(--copper-l)':(t===1?'var(--ink)':'#efeee6')}">${p.gd.toFixed(1)}</div>
-    <div style="text-align:center;font-size:8px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'};margin-top:2px">g/$ · ${p.band[0]}</div>
+    <div style="text-align:center;font-size:9px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'};margin-top:2px">g/$ · ${p.band[0]}</div>
     <div class="pname" style="margin-top:auto;text-align:center;font-weight:700;font-size:12px;color:${t===1?'var(--ink)':'#efeee6'};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}</div>
   </div>`;
 }
@@ -813,7 +813,7 @@ function detailCard(p,maxgd){
       <div class="disp clamp2" style="font-family:var(--disp);font-weight:800;font-size:21px;margin-top:5px;color:${t===1?'var(--ink)':'#efeee6'};letter-spacing:-.01em;line-height:1.02">${esc(p.name)}</div>
       <div style="font-size:10px;color:${t===1?'#6b675c':'var(--mute3)'};margin-top:6px">${esc(p.size)} · pack $${p.price.toFixed(2)} · ${cpgStr(p.cpg)}/g</div></div>
       <div style="text-align:right;flex:0 0 auto"><div class="big-num" style="font-size:38px;color:${t===2?'var(--copper-l)':(t===1?'var(--ink)':'#efeee6')}">${p.gd.toFixed(1)}</div>
-      <div style="font-size:8px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'}">g protein / $</div></div>
+      <div style="font-size:9px;letter-spacing:1px;color:${t===1?'#6b675c':'var(--mute)'}">g protein / $</div></div>
     </div>
     <div style="display:flex;justify-content:space-between;font-size:9px;letter-spacing:1px;margin-top:14px;color:${t===1?'#6b675c':'var(--mute)'}">
       <span class="${p.band[1]}" style="font-weight:700">${p.band[0]} VALUE</span><span>vs best ${maxgd.toFixed(0)} g/$</span></div>
@@ -1644,15 +1644,15 @@ function historyHTML(){
     const wd=wk[new Date(d+'T00:00:00').getUTCDay()];
     return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0">
       <div style="width:100%;height:96px;display:flex;align-items:flex-end"><div title="${d}: ${v}g" style="width:100%;height:${Math.max(3,h)}%;border-radius:4px 4px 2px 2px;background:${met?'linear-gradient(180deg,var(--sage-l),var(--sage))':'linear-gradient(180deg,#4b3f2e,#33302b)'}"></div></div>
-      <div style="font-size:8px;color:var(--mute3)">${wd}</div></div>`; }).join('');
+      <div style="font-size:9px;color:var(--mute3)">${wd}</div></div>`; }).join('');
   const tgtPct=Math.round((1-tgt/maxV)*100);
   return `<div style="display:flex;justify-content:space-between;align-items:center">
       <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">History &amp; trends</div>
       <button class="tag t2" onclick="openLog()">← LOG</button></div>
     <div style="display:flex;gap:10px;margin-top:14px">
-      <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:30px;color:${streak>0?'var(--sage-l)':'#cfccd7'}">${streak}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:3px">DAY STREAK ${streak>0?'🔥':''}</div></div>
-      <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:30px">${avg7}<span style="font-size:13px">g</span></div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:3px">7-DAY AVG</div></div>
-      <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:30px">${hit7}<span style="font-size:13px">/7</span></div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:3px">TARGET HIT</div></div>
+      <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:30px;color:${streak>0?'var(--sage-l)':'#cfccd7'}">${streak}</div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:3px">DAY STREAK ${streak>0?'🔥':''}</div></div>
+      <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:30px">${avg7}<span style="font-size:13px">g</span></div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:3px">7-DAY AVG</div></div>
+      <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:30px">${hit7}<span style="font-size:13px">/7</span></div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:3px">TARGET HIT</div></div>
     </div>
     <div class="kicker" style="margin:20px 0 8px">PROTEIN · LAST 14 DAYS</div>
     <div class="tile" style="padding:14px 12px">
@@ -1664,13 +1664,13 @@ function historyHTML(){
     </div>
     ${ens.length?`<div class="kicker" style="margin:20px 0 8px">7-DAY AVERAGES</div>
       <div style="display:flex;gap:10px">
-        ${ens.map(k=>{ const v=avgSum(k,7); return `<div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:22px">${v}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:3px">${MACRO_META[k].short}/DAY</div></div>`; }).join('')}
+        ${ens.map(k=>{ const v=avgSum(k,7); return `<div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:22px">${v}</div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:3px">${MACRO_META[k].short}/DAY</div></div>`; }).join('')}
       </div>`:''}
     <div class="note" style="margin-top:16px">Based on ${daysLogged()} day${daysLogged()===1?'':'s'} logged. Green bars hit your ${tgt}g target.</div>
     <div class="kicker" style="margin:22px 0 8px">DAILY REMINDER</div>
     <div class="row-item" style="justify-content:space-between">
       <div style="flex:1"><div style="font-weight:600;font-size:14px">Remind me to hit my protein</div>
-        <div style="font-size:10px;color:var(--mute3);margin-top:2px">${S.remind.on?('A nudge at '+hour12(remindHour())+' on days you’re under target'):'Off'}</div></div>
+        <div style="font-size:12px;color:var(--mute2);margin-top:4px">${S.remind.on?('A nudge at '+hour12(remindHour())+' on days you’re under target'):'Off'}</div></div>
       <button class="fchip ${S.remind.on?'on':''}" onclick="toggleRemind()">${S.remind.on?'ON':'OFF'}</button>
     </div>
     ${S.remind.on?`<div style="display:flex;align-items:center;gap:10px;margin-top:10px">
@@ -2028,16 +2028,16 @@ function recipeHTML(){
     ${(r.tags||[]).length?`<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px">${r.tags.map(t=>`<span class="tag t2" style="font-size:9px">${esc(t)}</span>`).join('')}</div>`:''}
     ${rSourceUrl(r)?`<a href="${esc(rSourceUrl(r))}" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;font-size:11px;color:var(--copper-l);text-decoration:none;border:1px solid var(--line2);border-radius:9px;padding:6px 11px">🔗 ${esc(r.sourceName||'OPEN SOURCE')} ↗</a>`:(r.sourceName?`<div style="font-size:11px;color:var(--mute3);margin-top:10px">Source: ${esc(r.sourceName)}</div>`:'')}
     ${(tot||r.prepTime||r.cookTime)?`<div style="display:flex;gap:8px;margin-top:14px">
-      ${r.prepTime?`<div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:20px">${esc(String(r.prepTime))}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">PREP MIN</div></div>`:''}
-      ${r.cookTime?`<div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:20px">${esc(String(r.cookTime))}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">COOK MIN</div></div>`:''}
-      ${tot?`<div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:20px">${esc(tot)}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">TOTAL MIN</div></div>`:''}
+      ${r.prepTime?`<div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:20px">${esc(String(r.prepTime))}</div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:2px">PREP MIN</div></div>`:''}
+      ${r.cookTime?`<div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:20px">${esc(String(r.cookTime))}</div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:2px">COOK MIN</div></div>`:''}
+      ${tot?`<div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:20px">${esc(tot)}</div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:2px">TOTAL MIN</div></div>`:''}
     </div>`:''}
     ${hasN?`<div class="kicker" style="margin:18px 0 8px">NUTRITION · PER SERVING</div>
       <div style="display:flex;gap:8px">
-        <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:19px">${+n.calories||0}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">KCAL</div></div>
-        <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:19px;color:var(--copper-l)">${+n.protein||0}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">PROTEIN</div></div>
-        <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:19px">${+n.carbs||0}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">CARBS</div></div>
-        <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:19px">${+n.fat||0}</div><div style="font-size:8px;letter-spacing:1px;color:var(--mute3);margin-top:2px">FAT</div></div>
+        <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:19px">${+n.calories||0}</div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:2px">KCAL</div></div>
+        <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:19px;color:var(--copper-l)">${+n.protein||0}</div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:2px">PROTEIN</div></div>
+        <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:19px">${+n.carbs||0}</div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:2px">CARBS</div></div>
+        <div class="tile" style="flex:1;text-align:center"><div class="big-num" style="font-size:19px">${+n.fat||0}</div><div style="font-size:9px;letter-spacing:1px;color:var(--mute3);margin-top:2px">FAT</div></div>
       </div>
       ${(+n.protein>0)?`<button class="btn-ghost" style="margin-top:10px" onclick="logRecipeProtein('${r.id}')">＋ LOG ${+n.protein}g PROTEIN (1 SERVING)</button>`:''}`:''}
     <div style="display:flex;justify-content:space-between;align-items:center;margin:18px 0 8px">
