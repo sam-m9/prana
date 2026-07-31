@@ -220,13 +220,33 @@ const MECH = D.mech, CLEANNOTES = D.cleanNotes, SCIENCE = D.science, CAT_EMOJI =
 const PROTEIN_TARGET = 160;              // fallback if no weight set
 const PROTEIN_PER_KG = 2.0;              // clean-bulk hypertrophy target (doc: 1.6–2.2 g/kg)
 function targetProtein(){ return S.proteinTarget>0 ? S.proteinTarget : PROTEIN_TARGET; }
-const STORE_LABEL = {heb:'H·E·B', wf:'WHOLE FOODS', other:'ONLINE / DIRECT'};
-const STORE_SHORT = {heb:'H·E·B', wf:'WHOLE FOODS', other:'ONLINE'};
+/* ---------- stores registry (built-in + user-added, extensible) ---------- */
+const DEFAULT_STORES = [
+  {id:'heb',    name:'H-E-B',                     short:'H·E·B'},
+  {id:'wf',     name:'Whole Foods',               short:'WHOLE FOODS'},
+  {id:'cm',     name:'Central Market',            short:'CENTRAL MKT'},
+  {id:'radius', name:'Radius Butcher & Grocery',  short:'RADIUS'},
+  {id:'lp',     name:'Local Pastures',            short:'LOCAL PASTURES'},
+  {id:'ng',     name:'Natural Grocers',           short:'NAT GROCERS'},
+  {id:'wv',     name:'Wheatsville Co-op',         short:'WHEATSVILLE'},
+  {id:'other',  name:'Online / Direct',           short:'ONLINE'},
+];
+const BUILTIN_STORE_IDS = new Set(DEFAULT_STORES.map(s=>s.id));
+function storeList(){ return (S.storesList&&S.storesList.length)?S.storesList:DEFAULT_STORES; }
+function storeMeta(id){ return storeList().find(s=>s.id===id) || {id, name:id, short:(id||'').toUpperCase()}; }
+function storeShort(id){ return storeMeta(id).short; }
+function storeLabel(id){ return storeMeta(id).name; }
+// a product is sold at its stores[] (fallback to the single legacy store field)
+function effectiveStores(p){ return (p&&p.stores&&p.stores.length)?p.stores:(p&&p.store?[p.store]:[]); }
+function primaryStore(p){ return effectiveStores(p)[0]||'other'; }
+// keep the old lookups working (a few templates still index by id)
+const STORE_LABEL = new Proxy({},{get:(_,k)=>storeLabel(k)});
+const STORE_SHORT = new Proxy({},{get:(_,k)=>storeShort(k)});
 
 /* ---------- persistence ---------- */
 const PKEY='prana.appdata.v1';
 const DEFAULT = {
-  screen:'home', stores:['heb','wf','other'], dailyProtein:0, log:[],
+  screen:'home', storesList: DEFAULT_STORES.map(o=>Object.assign({},o)), stores: DEFAULT_STORES.map(s=>s.id), dailyProtein:0, log:[],
   listIds:[], outStock:{}, overrides:{}, decisions:{}, history:[], qIndex:0,
   ingested:[], rankTier:'ALL', dbCats:[], dbSort:'gd', dbQuery:'',
   catExtra:[], prodEdits:{}, prodAdds:[], prodDeleted:[],
@@ -250,6 +270,12 @@ function load(){
   if(!s.gdrive||typeof s.gdrive!=='object') s.gdrive={connected:false,fileIdA:'',fileIdB:'',lastWritten:'',lastSync:0};
   if(!('fileIdA' in s.gdrive)){ s.gdrive.fileIdA=s.gdrive.fileId||''; s.gdrive.fileIdB=''; s.gdrive.lastWritten=s.gdrive.fileId?'A':''; delete s.gdrive.fileId; } // migrate single-file
   if(!s.push||typeof s.push!=='object') s.push={on:false,endpoint:''};
+  // stores registry: seed if missing; always ensure the built-in stores exist (adds new ones on upgrade)
+  if(!Array.isArray(s.storesList)||!s.storesList.length) s.storesList=DEFAULT_STORES.map(o=>Object.assign({},o));
+  else DEFAULT_STORES.forEach(d=>{ if(!s.storesList.some(x=>x.id===d.id)) s.storesList.push(Object.assign({},d)); });
+  if(!Array.isArray(s.stores)||!s.stores.length) s.stores=s.storesList.map(x=>x.id);
+  s.stores=s.stores.filter(id=>s.storesList.some(x=>x.id===id));
+  if(!s.stores.length) s.stores=s.storesList.map(x=>x.id);
   // one-time migration: fold a legacy single-number daily total into the itemised log
   if(s.dailyProtein>0 && !s.log.some(e=>e.date===today())){
     s.log.push({id:'seed'+Date.now(), name:'Earlier today', detail:'carried over', protein:Math.round(s.dailyProtein), date:today(), ts:Date.now()});
@@ -538,8 +564,8 @@ function navHTML(){
 
 /* ---------------- HOME ---------------- */
 function storeScoped(){
-  const act = new Set(S.stores.length?S.stores:['heb','wf','other']);
-  return products().filter(p=>act.has(p.store)).sort((a,b)=>b.gd-a.gd);
+  const act = new Set(S.stores.length?S.stores:storeList().map(s=>s.id));
+  return products().filter(p=>effectiveStores(p).some(s=>act.has(s))).sort((a,b)=>b.gd-a.gd);
 }
 function proteinToGo(){
   const d=dayProtein(), t=targetProtein();
@@ -555,9 +581,11 @@ function homeHTML(){
   return `<div class="pad" style="padding-top:14px">
     <div class="wordmark">PRANA</div><div class="subword">CLEAN · EATING · INTELLIGENCE</div>
     <div style="display:flex;gap:10px;margin-top:22px;align-items:stretch">
-      <div class="rocker">
-        ${['heb','wf','other'].map(k=>`<button class="${S.stores.includes(k)?'on':''}" onclick="toggleStore('${k}')">${STORE_SHORT[k]}</button>`).join('')}
-      </div>
+      <button class="rocker" onclick="openStores()" style="flex:1;display:flex;align-items:center;justify-content:space-between;padding:0 16px;text-align:left;cursor:pointer">
+        <span style="min-width:0"><span style="font-size:9px;letter-spacing:2px;color:var(--mute3);font-weight:700;display:block">SHOPPING AT</span>
+          <span style="font-size:13px;color:#e9e7ef;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;max-width:190px">${storeSummary()}</span></span>
+        <span style="color:var(--mute2);font-size:12px;flex:0 0 auto;margin-left:8px">▾</span>
+      </button>
       <button class="mic" onclick="openVoice()" title="Log protein by voice" aria-label="Log protein by voice"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#cf9a4a" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3" fill="#cf9a4a" stroke="none"/><path d="M5 11a7 7 0 0 0 14 0"/><line x1="12" y1="18" x2="12" y2="21.2"/><line x1="8.4" y1="21.2" x2="15.6" y2="21.2"/></svg></button>
     </div>
 
@@ -637,7 +665,7 @@ function homeHTML(){
       <div style="flex:1;min-width:0"><div style="font-weight:600">Upload a category</div>
       <div style="font-size:12px;color:var(--mute2);margin-top:4px">CSV / Excel → CSV</div></div>
       <span style="color:var(--mute3)">→</span></button>
-    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v32</div>
+    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v33</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -647,7 +675,53 @@ function toggleStore(k){
   const has=S.stores.includes(k);
   if(has && S.stores.length===1){ toast('At least one store must stay on'); return; }
   S.stores = has? S.stores.filter(x=>x!==k) : S.stores.concat(k);
-  render();
+  save(); if(OV.kind==='stores') renderOverlay(); render();
+}
+// count of catalog products available at a store (any of its stores[])
+function storeCount(id){ return products().filter(p=>effectiveStores(p).includes(id)).length; }
+function storeSummary(){ const on=S.stores||[]; const all=storeList();
+  if(!on.length) return 'No stores'; if(on.length===all.length) return 'All stores';
+  if(on.length<=2) return on.map(storeShort).join(' · ');
+  return on.length+' stores'; }
+function openStores(){ OV={kind:'stores', data:{adding:false, name:''}}; renderOverlay(true); }
+function addStoreFromInput(){ const nm=(OV.data.name||'').trim(); if(!nm) return;
+  let base=nm.toLowerCase().replace(/[^a-z0-9]+/g,'').slice(0,12)||'store'; let id=base, n=1;
+  while(storeList().some(s=>s.id===id)) id=base+(++n);
+  const short=nm.toUpperCase().slice(0,14);
+  S.storesList.push({id, name:nm, short}); S.stores=S.stores.concat(id);
+  OV.data.adding=false; OV.data.name=''; save(); renderOverlay(); render(); toast('Added '+nm); }
+function renameStore(id){ const cur=storeMeta(id); const nm=prompt('Rename store', cur.name); if(nm==null) return;
+  const t=nm.trim(); if(!t) return; const s=S.storesList.find(x=>x.id===id); if(s){ s.name=t; s.short=t.toUpperCase().slice(0,14); save(); renderOverlay(); render(); } }
+let _storeDelArm=null, _storeDelT;
+function deleteStore(id){ if(BUILTIN_STORE_IDS.has(id)){ toast('Built-in stores can be hidden, not deleted'); return; }
+  if(_storeDelArm!==id){ _storeDelArm=id; renderOverlay(); clearTimeout(_storeDelT); _storeDelT=setTimeout(()=>{_storeDelArm=null; if(OV.kind==='stores')renderOverlay();},2600); return; }
+  _storeDelArm=null; clearTimeout(_storeDelT);
+  // untag the store from any custom products; base catalog is read-only so unaffected
+  (S.prodAdds||[]).forEach(p=>{ if(Array.isArray(p.stores)) p.stores=p.stores.filter(x=>x!==id); if(p.store===id) p.store=p.stores&&p.stores[0]||'other'; });
+  Object.values(S.prodEdits||{}).forEach(p=>{ if(Array.isArray(p.stores)) p.stores=p.stores.filter(x=>x!==id); });
+  S.storesList=S.storesList.filter(x=>x.id!==id); S.stores=S.stores.filter(x=>x!==id);
+  save(); renderOverlay(); render(); toast('Store deleted'); }
+function storesHTML(){ const d=OV.data;
+  return `<div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">Your stores</div>
+      <button class="tag t2" onclick="closeOverlay()">DONE</button></div>
+    <div class="note" style="text-align:left;margin-top:10px">Tap to toggle which stores you're shopping — the app scopes to these. A product can belong to several stores. Empty stores fill in as products are tagged to them.</div>
+    <div style="margin-top:14px">
+    ${storeList().map(s=>{ const on=S.stores.includes(s.id); const cnt=storeCount(s.id); const arm=_storeDelArm===s.id;
+      return `<div class="drow" style="margin-bottom:8px;align-items:center;${on?'':'opacity:.6'}">
+        <button onclick="toggleStore('${s.id}')" aria-label="toggle" style="flex:0 0 auto;width:26px;height:26px;border-radius:8px;border:1.5px solid ${on?'var(--sage)':'var(--line2)'};background:${on?'var(--sage)':'transparent'};color:#0b0b0d;font-size:15px;line-height:1;cursor:pointer">${on?'✓':''}</button>
+        <div style="flex:1;min-width:0;margin-left:11px"><div style="font-weight:600;font-size:14.5px">${esc(s.name)}</div>
+          <div style="font-size:11px;color:var(--mute2);margin-top:1px">${cnt} product${cnt===1?'':'s'}${BUILTIN_STORE_IDS.has(s.id)?'':' · custom'}</div></div>
+        <button onclick="renameStore('${s.id}')" aria-label="rename" style="flex:0 0 auto;color:var(--mute2);background:none;border:none;font-size:14px;cursor:pointer;padding:6px">✎</button>
+        ${BUILTIN_STORE_IDS.has(s.id)?'':`<button onclick="deleteStore('${s.id}')" aria-label="delete" style="flex:0 0 auto;color:${arm?'var(--crimson)':'var(--mute3)'};background:none;border:none;font-size:14px;cursor:pointer;padding:6px;font-weight:${arm?'700':'400'}">${arm?'SURE?':'✕'}</button>`}
+      </div>`; }).join('')}
+    </div>
+    ${d.adding
+      ? `<div style="display:flex;gap:8px;margin-top:6px">
+          <input class="field" style="margin-top:0;flex:1" placeholder="New store name" value="${esc(d.name||'')}" oninput="OV.data.name=this.value" onkeydown="if(event.key==='Enter')addStoreFromInput()">
+          <button class="tag t2" style="padding:0 16px" onclick="addStoreFromInput()">ADD</button></div>`
+      : `<button class="row-item" style="justify-content:center;border-style:dashed" onclick="OV.data.adding=true;renderOverlay()">
+          <span style="letter-spacing:1px;font-size:11px;color:var(--copper-l);font-weight:700">＋ ADD A STORE</span></button>`}`;
 }
 
 /* ---------------- QUEUE ---------------- */
@@ -1052,7 +1126,7 @@ function renderOverlay(animate){
   const box=document.getElementById('overlays');
   if(!OV.kind){ box.innerHTML=''; return; }
   _ovGen++;   // an overlay is live → cancel any pending close-wipe
-  const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML,weight:weightHTML,log:logHTML,history:historyHTML,import:importHTML,dq:dqHTML,recipe:recipeHTML,recipeedit:recipeEditHTML,imgview:imageHTML,wfetch:wfetchHTML,gdrive:gdriveHTML}[OV.kind])();
+  const inner = ({drawer:drawerHTML,science:scienceHTML,ingest:ingestHTML,voice:voiceHTML,edit:editHTML,weight:weightHTML,log:logHTML,history:historyHTML,import:importHTML,dq:dqHTML,recipe:recipeHTML,recipeedit:recipeEditHTML,imgview:imageHTML,wfetch:wfetchHTML,gdrive:gdriveHTML,stores:storesHTML}[OV.kind])();
   box.innerHTML=`<div class="backdrop" onclick="closeOverlay()"></div><div class="sheet" onclick="event.stopPropagation()"><div class="sheettop"><div class="grab"></div><button class="sheetx" onclick="closeOverlay()" aria-label="Close">✕</button></div>${inner}</div>`;
   requestAnimationFrame(()=>{ const bd=box.querySelector('.backdrop'), sh=box.querySelector('.sheet'); if(bd)bd.classList.add('show'); if(sh)sh.classList.add('show'); });
 }
@@ -1766,6 +1840,10 @@ function saveWeight(){
 
 /* EDIT / ADD FOOD */
 function blankFood(){ return {id:null,name:'',size:'',price:0,protein:0,servings:1,store:'heb',stores:['heb'],cat:allCats()[0],tier:1,flags:['clean'],audit:'Custom entry.',ingr:''}; }
+function toggleFoodStore(id){ const d=OV.data; let arr=(d.stores&&d.stores.length)?d.stores.slice():(d.store?[d.store]:[]);
+  arr = arr.includes(id) ? arr.filter(x=>x!==id) : arr.concat(id);
+  if(!arr.length) arr=[id];                 // keep at least one store
+  d.stores=arr; d.store=arr[0]; renderOverlay(); }
 const FLAG_OPTS=[['clean','WHOLE FOOD · T1',1],['tool','CLEAN ISOLATE · T2',2],['sugar','SWEET-CATEGORY · T3',3]];
 function editHTML(){
   const d=OV.data; const isNew=OV.id==null;
@@ -1776,8 +1854,8 @@ function editHTML(){
       <div style="flex:1"><div class="kicker" style="margin-top:12px">PRICE ($)</div><input class="field" type="number" min="0" step="0.01" value="${d.price}" oninput="OV.data.price=+this.value"></div></div>
     <div style="display:flex;gap:10px"><div style="flex:1"><div class="kicker" style="margin-top:12px">PROTEIN / SERVING (g)</div><input class="field" type="number" min="0" value="${d.protein}" oninput="OV.data.protein=+this.value"></div>
       <div style="flex:1"><div class="kicker" style="margin-top:12px">SERVINGS / PACK</div><input class="field" type="number" min="1" value="${d.servings}" oninput="OV.data.servings=+this.value"></div></div>
-    <div class="kicker" style="margin-top:14px">STORE</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">
-      ${[['heb','H·E·B'],['wf','WHOLE FOODS'],['other','ONLINE']].map(([k,l])=>`<button class="fchip ${d.store===k?'on':''}" onclick="OV.data.store='${k}';OV.data.stores=['${k}'];renderOverlay()">${l}</button>`).join('')}</div>
+    <div class="kicker" style="margin-top:14px">SOLD AT · TAP ALL THAT APPLY</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">
+      ${storeList().map(s=>`<button class="fchip ${(d.stores||[d.store]).includes(s.id)?'on':''}" onclick="toggleFoodStore('${s.id}')">${esc(s.short)}</button>`).join('')}</div>
     <div class="kicker" style="margin-top:14px">CATEGORY</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:7px">
       ${allCats().map(c=>`<button class="fchip ${d.cat===c?'on':''}" onclick="setEditCat('${encodeURIComponent(c)}')">${esc(c)}</button>`).join('')}</div>
     <div class="kicker" style="margin-top:14px">INGREDIENT LIST <span style="color:var(--copper-l)">· AUTO-TIERED BY THE SCIENCE</span></div>
