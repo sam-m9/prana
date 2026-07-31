@@ -637,7 +637,7 @@ function homeHTML(){
       <div style="flex:1;min-width:0"><div style="font-weight:600">Upload a category</div>
       <div style="font-size:12px;color:var(--mute2);margin-top:4px">CSV / Excel → CSV</div></div>
       <span style="color:var(--mute3)">→</span></button>
-    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v31</div>
+    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v32</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -1327,7 +1327,7 @@ function voiceHTML(){
   return `<div style="display:flex;justify-content:space-between;align-items:center"><div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">Parsing review</div>
       <button class="tag t2" onclick="editVoice()">↺ RE-RECORD</button></div>
     <div class="note" style="text-align:left;margin-top:10px">Heard: “${esc(d.transcript)}”</div>
-    <div style="margin-top:12px">${d.items.map(it=>`<div class="drow" style="margin-bottom:8px"><div style="flex:1"><div style="font-weight:600">${esc(it.name)}</div><div style="font-size:10px;color:var(--mute3)">${esc(it.qty)}</div></div><div class="big-num" style="font-size:22px">${it.protein}<span style="font-size:12px">g</span></div></div>`).join('')||'<div class="note">No protein foods detected.</div>'}</div>
+    <div style="margin-top:12px">${d.items.map(it=>`<div class="drow" style="margin-bottom:8px"><div style="flex:1;min-width:0"><div style="font-weight:600">${esc(it.name)}</div><div style="font-size:11.5px;color:var(--mute2);margin-top:2px">${esc(it.qty)}</div></div><div class="big-num" style="font-size:22px;flex:0 0 auto">${it.protein}<span style="font-size:12px">g</span></div></div>`).join('')||'<div class="note">No protein foods detected.</div>'}</div>
     <div class="tile" style="text-align:center;margin-top:12px"><div style="font-size:9px;letter-spacing:2px;color:var(--mute3)">TOTAL PROTEIN</div><div class="big-num" style="font-size:40px;margin-top:4px">${d.total}<span style="font-size:20px">g</span></div></div>
     <div style="display:flex;gap:10px;margin-top:16px">
       <button class="btn-ghost" onclick="editVoice()">EDIT</button>
@@ -1471,56 +1471,87 @@ function numToken(tok){ if(tok==null) return null; if(QTYWORD[tok]!=null) return
   const n=parseFloat(tok); return isFinite(n)?n:null; }
 // Ordered MOST-SPECIFIC first (multi-word dishes before the bare ingredient), so
 // "chicken spinach wrap" scores as a wrap, not as plain chicken. protein = grams per unit.
+// protein = grams per UNIT (count); p100 = grams per 100g (used when a weight is spoken).
 const FOODS=[
   {name:'Chicken & spinach wrap', unit:'wrap', protein:30, keys:['chicken spinach wrap','chicken and spinach wrap','chicken spinach roll','spinach chicken wrap']},
   {name:'Chicken wrap', unit:'wrap', protein:28, keys:['chicken wrap','grilled chicken wrap']},
   {name:'Turkey wrap', unit:'wrap', protein:27, keys:['turkey wrap']},
   {name:'Protein shake', unit:'shake', protein:25, keys:['protein shake','protein smoothie']},
-  {name:'Whey protein', unit:'scoop', protein:24, keys:['whey protein','scoop of whey','protein powder','protein scoop','whey isolate','whey']},
-  {name:'Greek yogurt', unit:'cup', protein:17, keys:['greek yogurt','skyr']},
-  {name:'Cottage cheese', unit:'cup', protein:24, keys:['cottage cheese']},
-  {name:'Grilled chicken breast', unit:'breast', protein:31, keys:['grilled chicken breast','chicken breast','grilled chicken','roast chicken']},
-  {name:'Ground beef', unit:'serving', protein:25, keys:['ground beef','minced beef']},
-  {name:'Steak / beef', unit:'serving', protein:26, keys:['steak','beef']},
-  {name:'Salmon', unit:'fillet', protein:22, keys:['salmon']},
-  {name:'Tuna', unit:'can', protein:26, keys:['can of tuna','tuna']},
-  {name:'Shrimp', unit:'serving', protein:24, keys:['shrimp','prawns']},
-  {name:'Egg whites', unit:'serving', protein:11, keys:['egg whites','egg white']},
-  {name:'Egg', unit:'egg', protein:6, keys:['boiled egg','scrambled egg','fried egg','eggs','egg']},
+  {name:'Whey protein', unit:'scoop', protein:24, p100:80, keys:['whey protein','scoop of whey','protein powder','protein scoop','whey isolate','whey']},
+  {name:'Greek yogurt', unit:'cup', protein:17, p100:10, keys:['greek yogurt','skyr']},
+  {name:'Cottage cheese', unit:'cup', protein:24, p100:11, keys:['cottage cheese']},
+  {name:'Grilled chicken breast', unit:'breast', protein:31, p100:31, keys:['grilled chicken breast','chicken breast','grilled chicken','roast chicken']},
+  {name:'Ground beef', unit:'serving', protein:25, p100:26, keys:['ground beef','minced beef']},
+  {name:'Steak / beef', unit:'serving', protein:26, p100:27, keys:['steak','beef']},
+  {name:'Salmon', unit:'fillet', protein:22, p100:25, keys:['salmon']},
+  {name:'Tuna', unit:'can', protein:26, p100:29, keys:['can of tuna','tuna']},
+  {name:'Shrimp', unit:'serving', protein:24, p100:24, keys:['shrimp','prawns']},
+  {name:'Cod / white fish', unit:'fillet', protein:20, p100:23, keys:['cod','white fish','tilapia','halibut']},
+  {name:'Egg whites', unit:'serving', protein:11, p100:11, keys:['egg whites','egg white']},
+  {name:'Egg', unit:'egg', protein:6, p100:13, keys:['boiled egg','scrambled egg','fried egg','eggs','egg']},
   {name:'Protein bar', unit:'bar', protein:20, keys:['protein bar','protein bars']},
-  {name:'Tempeh', unit:'serving', protein:18, keys:['tempeh']},
-  {name:'Tofu', unit:'serving', protein:10, keys:['tofu']},
-  {name:'Lentils / dal', unit:'cup', protein:18, keys:['lentils','lentil','dal','daal']},
-  {name:'Beans / chickpeas', unit:'cup', protein:15, keys:['chickpeas','black beans','beans','rajma']},
-  {name:'Peanut / nut butter', unit:'2 tbsp', protein:7, keys:['peanut butter','almond butter','nut butter']},
-  {name:'Almonds / nuts', unit:'handful', protein:6, keys:['almonds','cashews','walnuts','mixed nuts','nuts']},
-  {name:'Milk', unit:'cup', protein:8, keys:['glass of milk','milk']},
-  {name:'Cheese', unit:'slice', protein:7, keys:['cheese']},
-  {name:'Turkey', unit:'serving', protein:29, keys:['turkey']},
-  {name:'Ham / deli', unit:'serving', protein:18, keys:['ham','deli meat']},
-  {name:'Bacon', unit:'2 rashers', protein:12, keys:['bacon']},
-  {name:'Sausage', unit:'link', protein:14, keys:['sausage','sausages']},
+  {name:'Paneer', unit:'serving', protein:20, p100:18, keys:['paneer']},
+  {name:'Tempeh', unit:'serving', protein:18, p100:19, keys:['tempeh']},
+  {name:'Tofu', unit:'serving', protein:10, p100:8, keys:['tofu']},
+  {name:'Edamame', unit:'cup', protein:17, p100:11, keys:['edamame']},
+  {name:'Lentils / dal', unit:'cup', protein:18, p100:9, keys:['lentils','lentil','dal','daal']},
+  {name:'Beans / chickpeas', unit:'cup', protein:15, p100:8, keys:['chickpeas','black beans','beans','rajma']},
+  {name:'Peanut / nut butter', unit:'2 tbsp', protein:7, p100:25, keys:['peanut butter','almond butter','nut butter']},
+  {name:'Almonds / nuts', unit:'handful', protein:6, p100:21, keys:['almonds','cashews','walnuts','mixed nuts','nuts']},
+  {name:'Beef jerky', unit:'serving', protein:11, p100:33, keys:['beef jerky','jerky']},
+  {name:'Milk', unit:'cup', protein:8, p100:3.4, keys:['glass of milk','milk']},
+  {name:'Cheese', unit:'slice', protein:7, p100:25, keys:['cheese']},
+  {name:'Turkey', unit:'serving', protein:29, p100:29, keys:['turkey']},
+  {name:'Ham / deli', unit:'serving', protein:18, p100:18, keys:['ham','deli meat']},
+  {name:'Bacon', unit:'2 rashers', protein:12, p100:37, keys:['bacon']},
+  {name:'Sausage', unit:'link', protein:14, p100:18, keys:['sausage','sausages']},
   {name:'Burger', unit:'burger', protein:25, keys:['hamburger','cheeseburger','burger']},
   {name:'Burrito', unit:'burrito', protein:20, keys:['burrito']},
   {name:'Sandwich', unit:'sandwich', protein:18, keys:['sandwich']},
   {name:'Pizza', unit:'slice', protein:12, keys:['slice of pizza','pizza']},
-  {name:'Oats / oatmeal', unit:'bowl', protein:6, keys:['oatmeal','porridge','oats']},
-  {name:'Quinoa', unit:'cup', protein:8, keys:['quinoa']},
-  {name:'Rice', unit:'cup', protein:5, keys:['rice']},
-  {name:'Pasta', unit:'plate', protein:8, keys:['pasta','spaghetti']},
-  {name:'Bread / toast', unit:'slice', protein:4, keys:['slice of bread','toast','bread']},
-  {name:'Hummus', unit:'serving', protein:5, keys:['hummus']},
+  {name:'Oats / oatmeal', unit:'bowl', protein:6, p100:13, keys:['oatmeal','porridge','oats']},
+  {name:'Quinoa', unit:'cup', protein:8, p100:4.4, keys:['quinoa']},
+  {name:'Rice', unit:'cup', protein:5, p100:2.7, keys:['rice']},
+  {name:'Pasta', unit:'plate', protein:8, p100:5, keys:['pasta','spaghetti']},
+  {name:'Bread / toast', unit:'slice', protein:4, p100:9, keys:['slice of bread','toast','bread']},
+  {name:'Hummus', unit:'serving', protein:5, p100:8, keys:['hummus']},
 ];
-function findQty(pre){
-  const toks=pre.trim().split(' ').filter(Boolean).slice(-3);
+const WEIGHT_UNITS={g:1,gram:1,grams:1,gm:1,gms:1,gramme:1,grammes:1,oz:28.35,ounce:28.35,ounces:28.35,kg:1000,kilo:1000,kilos:1000,kilogram:1000,kilograms:1000,lb:453.6,lbs:453.6,pound:453.6,pounds:453.6};
+// count nearest the food — handles "two and a half", "1 1/2", worded & decimal numbers.
+// Lookback is bounded at separators so "two eggs AND a scoop" doesn't leak the 2 onto the scoop.
+const QTY_STOP=new Set(['and','with','plus','then','also','but','while']);
+function findCountQty(pre){
+  const toks=pre.trim().split(/\s+/).filter(Boolean);
+  // compound number phrase that legitimately uses 'and' ("two and a half")
+  let m=toks.slice(-6).join(' ').match(/(a|an|one|two|three|four|five|six|seven|eight|nine|ten|\d+(?:\.\d+)?)\s+and\s+(?:a\s+)?(half|quarter|third)\b/);
+  if(m){ const base=numToken(m[1]); const frac={half:.5,quarter:.25,third:1/3}[m[2]]; if(base!=null) return base+frac; }
+  // local noun phrase: collect tokens back to the nearest separator
+  const local=[]; for(let i=toks.length-1;i>=0;i--){ if(QTY_STOP.has(toks[i])) break; local.unshift(toks[i]); }
+  m=local.join(' ').match(/(\d+)\s+(\d+\/\d+)/); if(m) return (+m[1])+numToken(m[2]);   // mixed "1 1/2"
   let article=null;   // "a"/"an" is a weak default — a real number or fraction wins ("half a chicken")
-  for(let i=toks.length-1;i>=0;i--){ const tok=toks[i], q=numToken(tok);
+  for(let i=local.length-1;i>=0;i--){ const tok=local[i], q=numToken(tok);
     if(q==null) continue;
     if(tok==='a'||tok==='an'){ if(article==null) article=q; continue; }
     return q;
   }
   return article!=null?article:1;
 }
+// {grams} when a weight is spoken ("150 grams of chicken", "6 oz salmon"), else {count}
+function parseAmount(pre){
+  const tail=pre.trim().split(/\s+/).filter(Boolean).slice(-6);
+  for(let i=tail.length-1;i>=0;i--){ const u=tail[i];
+    if(WEIGHT_UNITS[u]!=null){ const n=numToken(tail[i-1]); if(n!=null) return {grams:n*WEIGHT_UNITS[u]}; } }
+  return {count: findCountQty(pre)};
+}
+// stated macros anywhere in the utterance ("40 g protein", "300 calories", "20 carbs", "10g fat")
+function extractMacros(text){ const t=' '+(text||'').toLowerCase()+' ';
+  const sum=(re)=>{ let s=0,m; const g=new RegExp(re,'g'); while((m=g.exec(t))!==null) s+=parseFloat(m[1])||0; return s; };
+  return {
+    protein: sum('(\\d+(?:\\.\\d+)?)\\s*(?:g|gm|gs|grams?)\\s+(?:of\\s+)?protein'),   // needs a gram unit so "1 protein shake" isn't a macro
+    calories: sum('(\\d+(?:\\.\\d+)?)\\s*(?:calories?|kcals?|cals?)\\b'),
+    carbs: sum('(\\d+(?:\\.\\d+)?)\\s*(?:g|grams?)?\\s*(?:of\\s+)?(?:carbs?|carbohydrates?)\\b'),
+    fat: sum('(\\d+(?:\\.\\d+)?)\\s*(?:g|grams?)?\\s*(?:of\\s+)?fat\\b'),
+  }; }
 // distinctive (brand-ish) tokens from a product name, minus generic food words
 const STOPTOK=new Set(['organic','with','protein','whey','milk','yogurt','greek','plain','unflavored','grass','free','range','natural','original','classic','premium','bars','cheese','butter','olive','extra','virgin','nonfat','whole','salt','dark','chocolate','cacao','vanilla','cream','sugar','style','family','farms','farm','creamery','organics','select','ingredients','flavor','flavored','powder','isolate','fine','pure','real','food','foods','sprouted','grain','bread','fresh','pressed','pure','zero','carb']);
 // every word that appears in the generic FOOD table — these are NEVER brand triggers, so
@@ -1539,9 +1570,11 @@ const CAT_GENERIC={
   'Protein Bar':['protein bar','protein bars'],
 };
 function sigToks(name){ return (name||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w=>w.length>=4 && !STOPTOK.has(w)); }
+function fmtCount(c){ return c===1?'1':(c%1?String(Math.round(c*100)/100):String(c)); }
 function localParse(text){
   let t=(' '+(text||'').toLowerCase()+' ').replace(/[^a-z0-9\/\s]/g,' ').replace(/\s+/g,' ');
-  const items=[]; let total=0;
+  let items=[]; let total=0;
+  const macros=extractMacros(text);
   // 1) CATALOG BRAND MATCH — if the user names a real product (Isopure, Fage, Naked…),
   //    log one serving of THAT product using its verified per-serving protein.
   try{
@@ -1556,9 +1589,9 @@ function localParse(text){
       if(best && !used.has(best.id) && (best.protein||0)>0){
         used.add(best.id);
         const idx=t.indexOf(' '+w+' ');
-        const qty=findQty(t.slice(0,idx+1));
+        const qty=findCountQty(t.slice(0,idx+1));
         const g=Math.round((best.protein||0)*qty);
-        items.push({name:best.name, qty:(qty===1?'1 serving':qty+' servings')+' · ~'+best.protein+'g/serv · catalog', protein:g});
+        items.push({name:best.name, qty:(qty===1?'1 serving':fmtCount(qty)+' servings')+' · ~'+best.protein+'g/serv · catalog', protein:g});
         total+=g;
         ptoks[best.id].forEach(x=>{ t=t.split(' '+x+' ').join('   '); });
         // the named brand IS this category's food — blank the generic phrasing so it isn't double-counted
@@ -1566,18 +1599,39 @@ function localParse(text){
       }
     });
   }catch(e){}
-  // 2) GENERIC FOOD TABLE on whatever text remains
+  // 2) GENERIC FOOD TABLE on whatever text remains — weight-aware ("150g of chicken")
   for(const f of FOODS){
     let mIdx=-1;
     for(const key of f.keys){ const i=t.indexOf(' '+key+' '); if(i>=0){ mIdx=i; break; } }
     if(mIdx<0) continue;
-    const qty=findQty(t.slice(0,mIdx+1));
-    const g=Math.round(f.protein*qty);
-    const q=(qty===1?'1':(qty%1?qty.toFixed(2).replace(/0$/,''):qty))+' '+f.unit+(qty!==1&&!/\s/.test(f.unit)?'s':'')+' · ~'+f.protein+'g each';
+    const amt=parseAmount(t.slice(0,mIdx+1)); let g, q;
+    if(amt.grams!=null){ const grams=Math.round(amt.grams);
+      g = f.p100!=null ? Math.round(f.p100*grams/100) : Math.round(f.protein);
+      q = grams+'g · ~'+(f.p100!=null?f.p100+'g protein / 100g':f.protein+'g/serving'); }
+    else { const c=amt.count; g=Math.round(f.protein*c);
+      q=fmtCount(c)+' '+f.unit+(c!==1&&!/\s/.test(f.unit)?'s':'')+' · ~'+f.protein+'g each'; }
     items.push({name:f.name, qty:q, protein:g}); total+=g;
     f.keys.forEach(k=>{ t=t.split(' '+k+' ').join('   '); });
   }
-  if(!items.length){ items.push({name:'Mixed intake',qty:'rough estimate — edit after logging',protein:20}); total=20; }
+  // 3) STATED PROTEIN — a spoken gram figure is authoritative for a single item, or stands alone
+  const sp=Math.round(macros.protein);
+  if(sp>0){
+    if(items.length===1){ total-=items[0].protein; items[0].protein=sp; total+=sp; items[0].qty=items[0].qty+' · '+sp+'g protein stated'; }
+    else if(items.length===0){ items.push({name:'Logged intake', qty:sp+'g protein (stated)', protein:sp}); total=sp; }
+  }
+  // 4) fallback when nothing parsed
+  if(!items.length){
+    if(macros.calories||macros.carbs||macros.fat){ items.push({name:'Logged intake', qty:'', protein:0}); }
+    else { items.push({name:'Mixed intake',qty:'rough estimate — edit after logging',protein:20}); total=20; }
+  }
+  // 5) attach spoken calories/carbs/fat to the primary item
+  if(macros.calories||macros.carbs||macros.fat){ const it=items[0];
+    if(macros.calories) it.calories=Math.round(macros.calories);
+    if(macros.carbs) it.carbs=Math.round(macros.carbs);
+    if(macros.fat) it.fat=Math.round(macros.fat);
+    const extra=[macros.calories?Math.round(macros.calories)+' kcal':'', macros.carbs?Math.round(macros.carbs)+'g C':'', macros.fat?Math.round(macros.fat)+'g F':''].filter(Boolean).join(' · ');
+    it.qty = it.qty ? it.qty+' · '+extra : extra;
+  }
   OV.data.items=items; OV.data.total=total;
 }
 
