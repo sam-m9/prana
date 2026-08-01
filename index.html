@@ -237,7 +237,7 @@ function storeMeta(id){ return storeList().find(s=>s.id===id) || {id, name:id, s
 function storeShort(id){ return storeMeta(id).short; }
 function storeLabel(id){ return storeMeta(id).name; }
 // a product is sold at its stores[] (fallback to the single legacy store field)
-function effectiveStores(p){ return (p&&p.stores&&p.stores.length)?p.stores:(p&&p.store?[p.store]:[]); }
+function effectiveStores(p){ const s=(p&&p.stores&&p.stores.length)?p.stores:(p&&p.store?[p.store]:[]); return s.length?s:['other']; }
 function primaryStore(p){ return effectiveStores(p)[0]||'other'; }
 // keep the old lookups working (a few templates still index by id)
 const STORE_LABEL = new Proxy({},{get:(_,k)=>storeLabel(k)});
@@ -665,7 +665,7 @@ function homeHTML(){
       <div style="flex:1;min-width:0"><div style="font-weight:600">Upload a category</div>
       <div style="font-size:12px;color:var(--mute2);margin-top:4px">CSV / Excel → CSV</div></div>
       <span style="color:var(--mute3)">→</span></button>
-    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v36</div>
+    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v37</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -835,7 +835,8 @@ function pt(e){ const t=e.touches&&e.touches[0]; return {x: e.clientX!=null?e.cl
 /* ---------------- RANK ---------------- */
 let flowSel=0;
 function rankedView(){
-  let list=products().sort((a,b)=>b.gd-a.gd);
+  const act=activeStoreSet();
+  let list=products().filter(p=>effectiveStores(p).some(s=>act.has(s))).sort((a,b)=>b.gd-a.gd);
   if(S.rankTier!=='ALL'){ const t=+S.rankTier[1]; list=list.filter(p=>p.effTier===t); }
   return list;
 }
@@ -963,10 +964,17 @@ function refreshRankSel(){
 
 /* ---------------- DATA ---------------- */
 let catMenuOpen=false, newCatName='';
+function activeStoreSet(){ return new Set(S.stores.length?S.stores:storeList().map(s=>s.id)); }
+// compact store tag for a product row: "H·E·B +2"
+function storeTagline(p){ const s=effectiveStores(p); if(!s.length) return ''; return s.length===1?storeShort(s[0]):storeShort(s[0])+' +'+(s.length-1); }
 function dbFiltered(){
   let list=products();
+  const act=activeStoreSet();
+  list=list.filter(p=>effectiveStores(p).some(s=>act.has(s)));                     // scope to the stores you're shopping
   if(S.dbCats.length) list=list.filter(p=>S.dbCats.includes(p.cat));
-  if(S.dbQuery.trim()){ const q=S.dbQuery.toLowerCase(); list=list.filter(p=>p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)); }
+  if(S.dbQuery.trim()){ const q=S.dbQuery.toLowerCase();
+    list=list.filter(p=>p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)
+      || effectiveStores(p).some(s=>storeLabel(s).toLowerCase().includes(q)||storeShort(s).toLowerCase().includes(q))); }  // search by store name too
   const s=S.dbSort;
   list.sort((a,b)=> s==='gd'?b.gd-a.gd : s==='cpg'?a.cpg-b.cpg : s==='protein'?(b.protein*b.servings)-(a.protein*a.servings) : a.price-b.price);
   return list;
@@ -980,7 +988,10 @@ function dataHTML(){
   const catLabel = S.dbCats.length===0?'All categories':S.dbCats.length===1?S.dbCats[0]:`${S.dbCats.length} categories`;
   return `<div class="pad" style="padding-top:16px">
     <div class="h-title">FOOD DATABASE</div><div class="h-sub">${products().length} VERIFIED PRODUCTS</div>
-    <div class="searchwrap" style="margin-top:18px"><input class="search" placeholder="Search products…" value="${esc(S.dbQuery)}" oninput="S.dbQuery=this.value;dbLive()"></div>
+    <button onclick="openStores()" style="display:flex;align-items:center;gap:6px;margin:12px auto 0;background:none;border:1px solid var(--line2);border-radius:11px;padding:7px 13px;color:var(--mute2);cursor:pointer">
+      <span style="font-size:9px;letter-spacing:1.5px;color:var(--mute3);font-weight:700">SHOPPING AT</span>
+      <span style="font-size:11px;color:#e9e7ef;font-weight:600">${esc(storeSummary())}</span><span style="font-size:11px;color:var(--mute3)">▾</span></button>
+    <div class="searchwrap" style="margin-top:14px"><input class="search" placeholder="Search products or stores…" value="${esc(S.dbQuery)}" oninput="S.dbQuery=this.value;dbLive()"></div>
     <div style="display:flex;gap:10px;margin-top:12px">
       <button class="selbtn" onclick="catMenuOpen=!catMenuOpen;render()">${catLabel} <span style="color:var(--mute3)">▾</span></button>
       <button class="icon-btn" onclick="openAddFood()" aria-label="Add a food">+</button>
@@ -1014,7 +1025,7 @@ function dataHTML(){
         <button style="display:flex;align-items:center;gap:11px;flex:1;min-width:0;text-align:left" onclick="openDrawer(${p.id})">
           <span class="dot-t" style="background:${tierDotColor(p.effTier)}"></span>
           <span style="flex:1;min-width:0"><span class="pname" style="font-size:15px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(p.name)}${isStale(p)?' <span title="Verification may be stale" style="color:var(--copper-l);font-size:11px">▲</span>':''}${p.overridden?' <span title="Kept by override" style="color:var(--crimson-t);font-size:11px">⚠</span>':''}</span>
-          <span style="font-size:10px;color:var(--mute3)">${esc(p.cat)} · ${esc(p.size||'—')} · ${STORE_SHORT[p.store]}${p.verifiedAt?' · '+esc(verifiedLabel(p)):''}</span></span>
+          <span style="font-size:10px;color:var(--mute3)">${esc(p.cat)} · ${esc(p.size||'—')} · ${esc(storeTagline(p))}${p.verifiedAt?' · '+esc(verifiedLabel(p)):''}</span></span>
         </button>
         <span style="text-align:right"><span class="big-num" style="font-size:22px;display:block">${p.gd.toFixed(1)}</span><span style="font-size:9px;color:var(--mute3)">${cpgStr(p.cpg)}/g</span></span>
         <button class="mini-btn" onclick="openEditFood(${p.id})">✎</button>
@@ -1050,12 +1061,11 @@ function listHTML(){
         <div style="display:flex;gap:12px">
           ${done.length?`<button style="font-size:10px;letter-spacing:1px;color:var(--copper-l);font-weight:700" onclick="clearCheckedShop()">CLEAR ${done.length} CHECKED</button>`:''}
           <button style="font-size:10px;letter-spacing:1px;color:${_shopClearArm?'var(--crimson)':'var(--mute3)'};font-weight:700" onclick="clearAllShop()">${_shopClearArm?'TAP AGAIN TO CLEAR ALL':'CLEAR ALL'}</button></div></div>
-      ${active.length? (()=>{ const g=shopGroups(active); const gk=['heb','wf','other','un'].filter(k=>g[k].length);
+      ${active.length? (()=>{ const g=shopGroups(active); const gk=storeList().map(s=>s.id).concat('un').filter(k=>g[k]&&g[k].length);
         const grouped = gk.length>1 || (gk.length===1 && gk[0]!=='un');
         if(!grouped) return active.map(shopRow).join('');
-        const glabel={heb:STORE_LABEL.heb, wf:STORE_LABEL.wf, other:STORE_LABEL.other, un:'OTHER ITEMS'};
         return gk.map(k=>`<div style="display:flex;align-items:center;gap:12px;margin:14px 0 8px">
-            <span class="grouptag ${k==='un'?'':'gt-'+k}" ${k==='un'?'style="background:var(--line2);color:var(--mute2)"':''}>${glabel[k]}</span>
+            <span class="grouptag ${['heb','wf','other'].includes(k)?'gt-'+k:''}" ${['heb','wf','other'].includes(k)?'':'style="background:var(--line2);color:var(--mute2)"'}>${k==='un'?'OTHER ITEMS':esc(storeShort(k))}</span>
             <div style="flex:1;height:1px;background:var(--line2)"></div>
             <span style="font-size:10px;letter-spacing:2px;color:var(--mute3)">${g[k].length}</span></div>
           ${g[k].map(shopRow).join('')}`).join('');
@@ -1435,16 +1445,15 @@ function startVoiceAdd(text){
   const im=low.search(/ingredients?\b/);
   if(im>=0){ ingr=(text.slice(im).replace(/^[^:]*ingredients?\s*:?\s*/i,'')||'').trim(); namePart=text.slice(0,im); }
   let store='heb';
-  if(/whole foods/.test(low)) store='wf';
-  else if(/central market|online|amazon|direct|\.com/.test(low)) store='other';
-  else if(/h.?e.?b|heb/.test(low)) store='heb';
+  const STORE_SPEAK=[[/whole foods/,'wf'],[/central market/,'cm'],[/radius/,'radius'],[/local pastures/,'lp'],[/natural grocers/,'ng'],[/wheatsville/,'wv'],[/online|amazon|\.com|direct/,'other'],[/h.?e.?b|heb/,'heb']];
+  for(const [re,id] of STORE_SPEAK){ if(re.test(low) && storeList().some(s=>s.id===id)){ store=id; break; } }
   let cat=allCats()[0];
   const cm=low.match(/(?:to|in|under)\s+(?:the\s+|my\s+)?([a-z& ]+?)\s*(?:category|categories|,|$)/);
   if(cm){ const guess=cm[1].trim(); const found=allCats().find(c=>{ const cl=c.toLowerCase(); return cl===guess||cl.includes(guess)||guess.includes(cl); }); if(found) cat=found; }
   let name=namePart
     .replace(/^\s*(please\s+)?(add|create|save|register)\s+(a\s+|an\s+|the\s+)?(new\s+)?(product|item)?\s*/i,'')
     .replace(/\bto (the |my )?(catalog|catalogue|database)\b/ig,'')
-    .replace(/\bfrom (whole foods|central market|h.?e.?b|heb|online|amazon)\b/ig,'')
+    .replace(/\bfrom (whole foods|central market|radius|local pastures|natural grocers|wheatsville|h.?e.?b|heb|online|amazon)\b/ig,'')
     .replace(/\b(to|in|under) (the |my )?[a-z& ]+? (category|categories)\b/ig,'')
     .replace(/\s+(to|in|under)\s+(the |my )?[a-z& ]+?\s*,?\s*$/i,'')   // trailing "to <category>[,]" with no "category" word
     .replace(/[,.\s]+$/,'').trim();
@@ -2504,8 +2513,8 @@ function clearAllShop(){ if(!S.shopping.length) return;
   if(!_shopClearArm){ _shopClearArm=true; render(); clearTimeout(_shopClearT); _shopClearT=setTimeout(()=>{ _shopClearArm=false; if(S.screen==='list') render(); },2600); return; }
   _shopClearArm=false; clearTimeout(_shopClearT); S.shopping=[]; save(); render(); toast('Shopping list cleared'); }
 // group active items by the store of their catalog match (unmatched → their own group)
-function shopGroups(active){ const g={heb:[],wf:[],other:[],un:[]};
-  active.forEach(x=>{ const m=x.matchId!=null?byId(x.matchId):null; const k=(m&&g[m.store])?m.store:'un'; g[k].push(x); });
+function shopGroups(active){ const g={un:[]}; storeList().forEach(s=>g[s.id]=[]);
+  active.forEach(x=>{ const m=x.matchId!=null?byId(x.matchId):null; const st=m?primaryStore(m):null; const k=(st&&g[st])?st:'un'; g[k].push(x); });
   return g; }
 
 /* ---------- boot ---------- */
