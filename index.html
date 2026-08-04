@@ -698,7 +698,7 @@ function homeHTML(){
       <div style="flex:1;min-width:0"><div style="font-weight:600">Upload a category</div>
       <div style="font-size:12px;color:var(--mute2);margin-top:4px">CSV / Excel → CSV</div></div>
       <span style="color:var(--mute3)">→</span></button>
-    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v38</div>
+    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v39</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -1434,7 +1434,7 @@ function voiceHTML(){
       <div class="kicker" id="micLabel">${_listening?'● LISTENING — TAP THE MIC TO STOP':'TAP THE MIC TO SPEAK · OR JUST TYPE'}</div>
       <textarea id="voiceInput" rows="3" placeholder="LOG:  “ate a chicken spinach wrap and a scoop of Isopure”&#10;ADD:  “add Chobani zero-sugar vanilla to yogurt, ingredients: milk, cultures, stevia”" oninput="OV.data.transcript=this.value" style="width:100%;margin-top:14px;background:#0e0c12;border:1px solid var(--line2);border-radius:14px;padding:14px;color:#e9e7ef;font-size:16px;font-family:var(--mono);resize:none">${esc(d.transcript)}</textarea>
       <button class="btn-bone" style="margin-top:14px" onclick="stopVoice()">■ ANALYZE</button>
-      <div class="note" style="margin-top:12px">Say what you <b>ate</b> to log protein — or say “<b>add …</b>” to put a product into the catalog (it runs the science and tiers or disqualifies it). On-device only; nothing leaves your phone. If speech isn't supported, just type.</div></div>`;
+      <div class="note" style="margin-top:12px">Say what you <b>ate</b> to log protein — or say “<b>add …</b>” to put a product into the catalog (it runs the science and tiers or disqualifies it). Sent to PRANA's AI parser for analysis; if it's unreachable or rate-limited, falls back to on-device parsing automatically. If speech isn't supported, just type.</div></div>`;
   }
   if(OV.step===2){
     return `<div style="text-align:center;padding:10px 0"><div class="spin"></div>
@@ -1444,8 +1444,9 @@ function voiceHTML(){
   return `<div style="display:flex;justify-content:space-between;align-items:center"><div class="disp" style="font-family:var(--disp);font-weight:800;font-size:22px">Parsing review</div>
       <button class="tag t2" onclick="editVoice()">↺ RE-RECORD</button></div>
     <div class="note" style="text-align:left;margin-top:10px">Heard: “${esc(d.transcript)}”</div>
-    <div style="margin-top:12px">${d.items.map(it=>`<div class="drow" style="margin-bottom:8px"><div style="flex:1;min-width:0"><div style="font-weight:600">${esc(it.name)}</div><div style="font-size:11.5px;color:var(--mute2);margin-top:2px">${esc(it.qty)}</div></div><div class="big-num" style="font-size:22px;flex:0 0 auto">${it.protein}<span style="font-size:12px">g</span></div></div>`).join('')||'<div class="note">No protein foods detected.</div>'}</div>
+    <div style="margin-top:12px">${d.items.map(it=>`<div class="drow" style="margin-bottom:8px"><div style="flex:1;min-width:0"><div style="font-weight:600">${esc(it.name)}</div><div style="font-size:11.5px;color:var(--mute2);margin-top:2px">${esc(it.qty)}</div></div><div class="big-num" style="font-size:22px;flex:0 0 auto">${it.protein!=null?it.protein:'—'}${it.protein!=null?'<span style="font-size:12px">g</span>':''}</div></div>`).join('')||'<div class="note">No protein foods detected.</div>'}</div>
     <div class="tile" style="text-align:center;margin-top:12px"><div style="font-size:9px;letter-spacing:2px;color:var(--mute3)">TOTAL PROTEIN</div><div class="big-num" style="font-size:40px;margin-top:4px">${d.total}<span style="font-size:20px">g</span></div></div>
+    ${d.aiQuality?`<div class="note" style="margin-top:8px">AI protein quality — ${[d.aiQuality.pe!=null?'PE ratio '+d.aiQuality.pe:'', d.aiQuality.diaas!=null?'DIAAS tier '+d.aiQuality.diaas:''].filter(Boolean).join(' · ')}</div>`:''}
     <div style="display:flex;gap:10px;margin-top:16px">
       <button class="btn-ghost" onclick="editVoice()">EDIT</button>
       <button class="btn-bone" onclick="confirmVoice()">CONFIRM +${d.total}g</button></div>
@@ -1455,10 +1456,11 @@ function stopVoice(){
   const el=document.getElementById('voiceInput'); if(el) OV.data.transcript=el.value;
   stopMic();
   OV.step=2; renderOverlay();
-  setTimeout(()=>{ if(OV.kind!=='voice') return;
+  setTimeout(async ()=>{ if(OV.kind!=='voice') return;
     const text=OV.data.transcript||'';
     if(voiceIntent(text)==='add'){ startVoiceAdd(text); return; }   // route to add-a-product
-    try{ localParse(text); }catch(e){ OV.data.items=[]; OV.data.total=0; }
+    try{ await localParse(text); }catch(e){ OV.data.items=[]; OV.data.total=0; }
+    if(OV.kind!=='voice') return;   // sheet was dismissed while the parser call was in flight
     OV.step=3; renderOverlay();
   }, 700);
 }
@@ -1529,7 +1531,13 @@ function overrideDisqualified(){ const d=Object.assign({}, OV.data.pending||{});
 function editVoice(){ OV.step=1; renderOverlay(); /* mic stays OFF until tapped */ }
 function confirmVoice(){
   const its=OV.data.items||[]; const tot=OV.data.total||0;
-  its.forEach(it=>addLogEntry(it.name, it.protein, it.qty, {calories:it.calories, carbs:it.carbs, fat:it.fat}));
+  if(OV.data.aiSourced){
+    // AI parse returns aggregate macros for the whole utterance, not a per-item split — one log entry.
+    const nm=(OV.data.aiNames&&OV.data.aiNames.length)?OV.data.aiNames.join(', '):'Voice log';
+    addLogEntry(nm, tot, 'AI analysis', Object.assign({}, OV.data.aiMacros||{}));
+  } else {
+    its.forEach(it=>addLogEntry(it.name, it.protein, it.qty, {calories:it.calories, carbs:it.carbs, fat:it.fat}));
+  }
   closeOverlay(); render(); toast('Logged +'+tot+'g protein');
 }
 
@@ -1690,7 +1698,9 @@ const CAT_GENERIC={
 const NONBRAND_TOK=new Set([...Object.keys(QTYWORD),...Object.keys(WEIGHT_UNITS),'half','quarter','third','gallon','gallons','dozen','quart','quarts','pint','pints','liter','litre','liters','pack','packs','count','carton','loaf','case']);
 function sigToks(name){ return (name||'').toLowerCase().replace(/\([^)]*\)/g,' ').replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w=>w.length>=4 && !STOPTOK.has(w) && !NONBRAND_TOK.has(w)); }
 function fmtCount(c){ return c===1?'1':(c%1?String(Math.round(c*100)/100):String(c)); }
-function localParse(text){
+/* on-device heuristic parser (regex/keyword-table). This is the offline fallback for
+   localParse() below, and remains fully self-contained: nothing it does ever leaves the phone. */
+function localParseHeuristic(text){
   let t=(' '+(text||'').toLowerCase()+' ').replace(/[^a-z0-9\/\s]/g,' ').replace(/\s+/g,' ');
   let items=[]; let total=0;
   const macros=extractMacros(text);
@@ -1751,7 +1761,63 @@ function localParse(text){
     const extra=[macros.calories?Math.round(macros.calories)+' kcal':'', macros.carbs?Math.round(macros.carbs)+'g C':'', macros.fat?Math.round(macros.fat)+'g F':''].filter(Boolean).join(' · ');
     it.qty = it.qty ? it.qty+' · '+extra : extra;
   }
+  OV.data.aiSourced=false; OV.data.aiQuality=null;
   OV.data.items=items; OV.data.total=total;
+}
+
+/* =====================================================================
+   PRANA PARSER — AI-backed nutrition parsing (AWS Lambda -> Gemini). Sends the
+   raw voice transcript off-device for real language understanding, in place of
+   the regex/keyword table above. Falls back to the on-device heuristic parser
+   (localParseHeuristic) on any failure — network error, timeout, non-2xx, the
+   daily Gemini quota (429), or an unexpected response shape — so voice logging
+   never dead-ends even when the parser is unreachable or rate-limited.
+   ===================================================================== */
+const PRANA_PARSER_URL = "https://qnhxxeyf3lecnohzcaperd7kwm0ofsgg.lambda-url.us-east-1.on.aws/";
+async function localParse(text){
+  if(!text || !text.trim()){ localParseHeuristic(text); return; }
+  let timer;
+  try{
+    const ctrl = (typeof AbortController!=='undefined') ? new AbortController() : null;
+    if(ctrl) timer=setTimeout(()=>ctrl.abort(), 12000);   // never let a hung Lambda/Gemini call freeze the review screen
+    const res = await fetch(PRANA_PARSER_URL, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({transcript:text}),
+      signal: ctrl?ctrl.signal:undefined,
+    });
+    if(timer) clearTimeout(timer);
+    if(res.status===429){
+      console.warn('PRANA parser: daily Gemini limit reached — falling back to on-device parsing');
+      toast('Daily AI limit reached — using on-device parsing');
+      localParseHeuristic(text); return;
+    }
+    if(!res.ok) throw new Error('PRANA parser HTTP '+res.status);
+    const result = await res.json();
+    const data = result && result.data;
+    if(!data) throw new Error('PRANA parser: no data in response');
+    applyAiParse(data);
+  }catch(e){
+    if(timer) clearTimeout(timer);
+    console.warn('PRANA parser unavailable, using on-device parsing:', e);
+    localParseHeuristic(text);
+  }
+}
+// Maps { food_items, protein_g, carbs_g, fat_g, pe_ratio, diaas_tier } onto the review UI.
+// food_items is an aggregate list (no confirmed per-item macro breakdown), so each row shows
+// the identified food name without a fabricated per-item gram figure — the true total is the
+// single TOTAL PROTEIN figure driven by protein_g.
+function applyAiParse(data){
+  const raw = Array.isArray(data.food_items) ? data.food_items : [];
+  const names = raw.map(x => typeof x==='string' ? x : ((x&&(x.name||x.food||x.label))||'Item')).filter(Boolean);
+  const total = Math.max(0, Math.round(+data.protein_g||0));
+  const items = names.length
+    ? names.map(n=>({name:n, qty:'AI analysis', protein:null}))
+    : [{name:'Logged intake', qty:'AI analysis', protein:total}];
+  if(items.length===1 && items[0].protein==null) items[0].protein=total;   // single item: show the real number, not a dash
+  OV.data.items=items; OV.data.total=total; OV.data.aiSourced=true; OV.data.aiNames=names;
+  OV.data.aiMacros={ carbs:Math.max(0,Math.round(+data.carbs_g||0)), fat:Math.max(0,Math.round(+data.fat_g||0)) };
+  OV.data.aiQuality = (data.pe_ratio!=null||data.diaas_tier!=null) ? {pe:data.pe_ratio, diaas:data.diaas_tier} : null;
 }
 
 /* DAILY PROTEIN LOG — the Protein·Today card opens this. Every logged item (voice or
