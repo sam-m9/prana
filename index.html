@@ -698,7 +698,7 @@ function homeHTML(){
       <div style="flex:1;min-width:0"><div style="font-weight:600">Upload a category</div>
       <div style="font-size:12px;color:var(--mute2);margin-top:4px">CSV / Excel → CSV</div></div>
       <span style="color:var(--mute3)">→</span></button>
-    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v39</div>
+    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v40</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -1402,36 +1402,78 @@ function ingestPick(id){ OV.data.pick=id; OV.step=3; renderOverlay();
   setTimeout(()=>{ if(OV.kind!=='ingest'||OV.step!==3) return; /* user dismissed during analysis */
     if(!S.ingested.includes(id)) S.ingested.push(id); S.qIndex=S.ingested.length-1; closeOverlay(); go('queue'); toast('Added to review queue'); },1300); }
 
-/* VOICE */
+/* =====================================================================
+   VOICE CAPTURE — Web Speech API, single-utterance mode. Tap the mic, say one
+   meal ("ate two eggs and a scoop of whey"), recognition stops automatically
+   and the transcript flows straight into the parser pipeline (localParse, see
+   the PRANA PARSER section). Nothing is ever logged without an explicit
+   CONFIRM tap on the review screen that follows — capture and parsing never
+   skip that step. Typing into the textarea + tapping ANALYZE remains a fully
+   independent manual path (goes through the same stopVoice()/localParse()
+   pipeline) for when speech isn't supported, misheard, or just not wanted.
+   ===================================================================== */
 let recog=null, _listening=false;
 function micSvg(s){ return `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="#cf9a4a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3" fill="#cf9a4a" stroke="none"/><path d="M5 11a7 7 0 0 0 14 0"/><line x1="12" y1="18" x2="12" y2="21.2"/><line x1="8.4" y1="21.2" x2="15.6" y2="21.2"/></svg>`; }
 function setMicUI(){
   const h=document.getElementById('micHalo'); if(h) h.classList.toggle('live',_listening);
-  const l=document.getElementById('micLabel'); if(l) l.textContent=_listening?'● LISTENING — TAP THE MIC TO STOP':'TAP THE MIC TO SPEAK · OR JUST TYPE';
+  const l=document.getElementById('micLabel'); if(l) l.textContent=_listening?'● LISTENING — SPEAK NOW':'TAP THE MIC TO SPEAK · OR JUST TYPE';
+}
+// user-friendly text for each SpeechRecognition error code — a pure function so it's testable
+// without a real microphone, and so onerror never has to guess at copy inline.
+function micErrorMessage(code){
+  return {
+    'no-speech': "Didn't catch that — try again",
+    'audio-capture': 'No microphone found',
+    'not-allowed': 'Microphone permission denied — check Settings',
+    'network': 'Speech service unavailable — try typing instead',
+  }[code] || 'Speech recognition error — try again or type';
+}
+// Runs a finished transcript through the same analyze pipeline whether it came from real
+// speech recognition or (for testing) a direct call. Guards against an empty result and
+// against double-firing if the sheet already moved past step 1 (e.g. ANALYZE was tapped
+// manually right as recognition also delivered a result).
+async function handleMicResult(transcript){
+  const t=(transcript||'').trim();   // defensive: never rely solely on the caller having trimmed already
+  const el=document.getElementById('voiceInput'); if(el) el.value=t;
+  OV.data.transcript=t;
+  if(!t) return;   // whitespace-only or empty — a raw JS truthiness check would miss "   "
+  if(OV.kind!=='voice' || OV.step!==1) return;
+  OV.step=2; renderOverlay();
+  if(voiceIntent(t)==='add'){ startVoiceAdd(t); return; }
+  try{ await localParse(t); }catch(e){ OV.data.items=[]; OV.data.total=0; }
+  if(OV.kind!=='voice') return;   // sheet was dismissed while the parser call was in flight
+  OV.step=3; renderOverlay();
 }
 function startRecognition(){
   // Best-effort speech-to-text. iOS standalone PWAs often don't support it, so the
   // text field below always works as a manual fallback — we never block on this.
-  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SR){ toast('Speech not supported here — type instead'); return; }
-  try{ recog=new SR(); recog.continuous=true; recog.interimResults=true; recog.lang='en-US';
-    recog.onresult=e=>{ let t=''; for(let i=0;i<e.results.length;i++) t+=e.results[i][0].transcript;
-      OV.data.transcript=t; const el=document.getElementById('voiceInput'); if(el) el.value=t; };
-    recog.onerror=()=>{ _listening=false; setMicUI(); };
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SpeechRecognition){ toast('Speech not supported here — type instead'); return; }
+  try{
+    recog=new SpeechRecognition();
+    recog.lang='en-US';
+    recog.interimResults=false;   // only the final result — never send partial fragments to the parser
+    recog.continuous=false;       // stops automatically after one utterance (single meal dictation)
+    recog.onstart=()=>{ _listening=true; setMicUI(); };
+    recog.onresult=e=>{ const transcript=(e.results[0][0].transcript||'').trim(); handleMicResult(transcript); };
+    recog.onerror=e=>{ _listening=false; setMicUI();
+      console.warn('Speech recognition error:', e.error);
+      if(e.error!=='aborted') toast(micErrorMessage(e.error));   // 'aborted' = the user stopped it themselves — no need to nag
+    };
     recog.onend=()=>{ _listening=false; setMicUI(); };
-    recog.start(); _listening=true; setMicUI();
+    recog.start();
   }catch(e){ recog=null; _listening=false; setMicUI(); }
 }
 // Stop and fully tear down recognition (called on toggle-off AND whenever a sheet closes).
 function stopMic(){ _listening=false;
-  try{ if(recog){ recog.onresult=null; recog.onerror=null; recog.onend=null; recog.stop(); recog=null; } }catch(e){} }
-// The mic is a toggle: tap once to start, tap again to stop. It never turns itself on.
+  try{ if(recog){ recog.onstart=null; recog.onresult=null; recog.onerror=null; recog.onend=null; recog.stop(); recog=null; } }catch(e){} }
+// The mic is a toggle: tap once to start, tap again to stop early. It never turns itself on.
 function toggleMic(){ if(_listening){ stopMic(); setMicUI(); } else { startRecognition(); } }
 function voiceHTML(){
   const d=OV.data;
   if(OV.step===1){
     return `<div style="text-align:center"><button id="micHalo" class="mic-halo${_listening?' live':''}" onclick="toggleMic()" aria-label="Toggle voice recording" title="Tap to start or stop recording">${micSvg(46)}</button>
-      <div class="kicker" id="micLabel">${_listening?'● LISTENING — TAP THE MIC TO STOP':'TAP THE MIC TO SPEAK · OR JUST TYPE'}</div>
+      <div class="kicker" id="micLabel">${_listening?'● LISTENING — SPEAK NOW':'TAP THE MIC TO SPEAK · OR JUST TYPE'}</div>
       <textarea id="voiceInput" rows="3" placeholder="LOG:  “ate a chicken spinach wrap and a scoop of Isopure”&#10;ADD:  “add Chobani zero-sugar vanilla to yogurt, ingredients: milk, cultures, stevia”" oninput="OV.data.transcript=this.value" style="width:100%;margin-top:14px;background:#0e0c12;border:1px solid var(--line2);border-radius:14px;padding:14px;color:#e9e7ef;font-size:16px;font-family:var(--mono);resize:none">${esc(d.transcript)}</textarea>
       <button class="btn-bone" style="margin-top:14px" onclick="stopVoice()">■ ANALYZE</button>
       <div class="note" style="margin-top:12px">Say what you <b>ate</b> to log protein — or say “<b>add …</b>” to put a product into the catalog (it runs the science and tiers or disqualifies it). Sent to PRANA's AI parser for analysis; if it's unreachable or rate-limited, falls back to on-device parsing automatically. If speech isn't supported, just type.</div></div>`;
