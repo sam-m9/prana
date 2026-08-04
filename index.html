@@ -392,33 +392,65 @@ function refreshStorageEstimate(){ try{ if(navigator.storage&&navigator.storage.
 
 /* =====================================================================
    GOOGLE DRIVE — optional true hands-off cloud backup. After a one-time
-   consent, the app silently uploads a single rolling file (overwritten in
-   place) whenever a backup is due and the app is open. Needs the user's own
-   OAuth Client ID (public, not a secret); see worker/GDRIVE_SETUP.md.
-   All calls no-op gracefully when GIS isn't loaded or no client ID is set.
+   consent, the app uploads a single rolling file (overwritten in place)
+   whenever a backup is due and the app is open. Needs the user's own OAuth
+   Client ID (public, not a secret); see worker/GDRIVE_SETUP.md.
+
+   Uses a full-page REDIRECT (implicit grant), not a popup: iOS blocks the
+   popup handshake for a Home-Screen "standalone" PWA (it reports back as an
+   origin/redirect mismatch even with correct Console config), but a plain
+   top-level navigation to Google and back works in every context, popup or
+   standalone alike. All calls no-op gracefully when no client ID is set.
    ===================================================================== */
-let _gis=null, _gToken='', _gTokenExp=0, _gisLoading=null;
+let _gToken='', _gTokenExp=0;
 function driveConfigured(){ return !!(S.gdriveClientId||'').trim(); }
-function loadGIS(){ if(_gisLoading) return _gisLoading;
-  _gisLoading=new Promise((res,rej)=>{ try{
-    if(window.google&&google.accounts&&google.accounts.oauth2){ _gis=google.accounts.oauth2; return res(_gis); }
-    const s=document.createElement('script'); s.src='https://accounts.google.com/gsi/client'; s.async=true; s.defer=true;
-    s.onload=()=>{ try{ _gis=google.accounts.oauth2; res(_gis); }catch(e){ rej(e); } };
-    s.onerror=()=>rej(new Error('GIS load failed')); document.head.appendChild(s);
-  }catch(e){ rej(e); } }); return _gisLoading; }
-// get an access token; prompt:'' = silent (only works after prior consent)
-function driveToken(prompt){ return new Promise((res,rej)=>{
-  if(_gToken && Date.now()<_gTokenExp-60000) return res(_gToken);
-  loadGIS().then(gis=>{ try{
-    const tc=gis.initTokenClient({ client_id:(S.gdriveClientId||'').trim(), scope:'https://www.googleapis.com/auth/drive.file',
-      callback:(resp)=>{ if(resp&&resp.access_token){ _gToken=resp.access_token; _gTokenExp=Date.now()+(+resp.expires_in||3600)*1000; res(_gToken); } else rej(new Error('no token')); },
-      error_callback:(e)=>rej(e||new Error('auth error')) });
-    tc.requestAccessToken({prompt: prompt==null?'consent':prompt});
-  }catch(e){ rej(e); } }).catch(rej); }); }
+function driveTokenValid(){ return !!_gToken && Date.now()<_gTokenExp-60000; }
+// the exact URL Google redirects back to — must be registered verbatim under
+// "Authorized redirect URIs" in Google Cloud Console (add both the Safari and
+// Home-Screen-icon URLs; see worker/GDRIVE_SETUP.md).
+function gdriveRedirectUri(){ return location.origin+location.pathname; }
+function gRandState(){ return Math.random().toString(36).slice(2)+Date.now().toString(36); }
+function gAuthUrl(promptMode, state){
+  const p=new URLSearchParams({ client_id:(S.gdriveClientId||'').trim(), redirect_uri:gdriveRedirectUri(),
+    response_type:'token', scope:'https://www.googleapis.com/auth/drive.file', include_granted_scopes:'true',
+    prompt:promptMode, state });
+  return 'https://accounts.google.com/o/oauth2/v2/auth?'+p.toString();
+}
+// navigate away to Google, remembering what to do when we land back here
+function beginDriveAuth(promptMode, pendingAction){
+  const state=gRandState();
+  try{ sessionStorage.setItem('prana_gdrive_state', state); sessionStorage.setItem('prana_gdrive_pending', pendingAction||'connect'); }catch(e){}
+  location.href=gAuthUrl(promptMode, state);
+}
+// called once on boot: consumes Google's redirect-back (#access_token=…) if present.
+// Returns true if there was something to consume (so boot() knows not to also fire driveAutoSync).
+function consumeDriveAuthReturn(){
+  const h=location.hash||'';
+  if(h.indexOf('access_token')<0 && h.indexOf('error')<0) return false;
+  const params=new URLSearchParams(h.replace(/^#/,''));
+  let expectedState=null, pending=null;
+  try{ expectedState=sessionStorage.getItem('prana_gdrive_state'); pending=sessionStorage.getItem('prana_gdrive_pending');
+    sessionStorage.removeItem('prana_gdrive_state'); sessionStorage.removeItem('prana_gdrive_pending'); }catch(e){}
+  try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}   // always scrub the token out of the URL
+  const returnedState=params.get('state');
+  if(!returnedState || returnedState!==expectedState) return true;   // CSRF guard — ignore anything we didn't initiate
+  const token=params.get('access_token');
+  if(token){
+    _gToken=token; _gTokenExp=Date.now()+(parseInt(params.get('expires_in'),10)||3600)*1000;
+    if(pending==='connect') driveUpload().then(()=>{ render(); toast('Google Drive connected · backed up'); }).catch(()=>toast('Drive connect failed — try again'));
+    else if(pending==='backupNow') driveUpload().then(()=>{ renderOverlay(); render(); toast('Backed up to Google Drive'); }).catch(()=>toast('Drive backup failed — reconnect'));
+    else if(pending==='autoSync') driveUpload().then(()=>render()).catch(()=>{});
+  } else if(pending==='connect'||pending==='backupNow'){
+    toast('Drive connect failed — check the client ID & Google sign-in');
+  }
+  return true;
+}
 // TWO-FILE ROTATION: each backup overwrites the OLDER of two Drive files
 // (prana-backup-A.json / -B.json), so the previous backup always survives.
 function driveNextSlot(){ return S.gdrive.lastWritten==='A' ? 'B' : 'A'; }
-async function driveUpload(){ const token=await driveToken(S.gdrive.connected?'':'consent');
+async function driveUpload(){
+  if(!driveTokenValid()) throw new Error('no token');
+  const token=_gToken;
   const body=JSON.stringify(collectBackup());
   const slot = driveNextSlot();   // write the one we didn't write last time (overwrites the older file)
   const idKey = slot==='A' ? 'fileIdA' : 'fileIdB';
@@ -442,18 +474,19 @@ async function driveUpload(){ const token=await driveToken(S.gdrive.connected?''
 }
 function driveFileCount(){ return (S.gdrive.fileIdA?1:0)+(S.gdrive.fileIdB?1:0); }
 function connectDrive(){ if(!driveConfigured()){ toast('Save your Google client ID first'); return; }
-  toast('Opening Google sign-in…');
-  driveUpload().then(()=>{ renderOverlay(); render(); toast('Google Drive connected · backed up'); })
-    .catch(e=>{ toast('Drive connect failed — check the client ID & origin'); }); }
+  if(driveTokenValid()){ driveUpload().then(()=>{ renderOverlay(); render(); toast('Google Drive connected · backed up'); }).catch(()=>toast('Drive connect failed — try again')); return; }
+  beginDriveAuth('consent','connect'); }
 function driveBackupNow(){ if(!driveConfigured()) return;
-  driveUpload().then(()=>{ renderOverlay(); render(); toast('Backed up to Google Drive'); }).catch(()=>toast('Drive backup failed — reconnect')); }
-function disconnectDrive(){ try{ if(_gToken&&window.google&&google.accounts&&google.accounts.oauth2) google.accounts.oauth2.revoke(_gToken,()=>{}); }catch(e){}
+  if(driveTokenValid()){ driveUpload().then(()=>{ renderOverlay(); render(); toast('Backed up to Google Drive'); }).catch(()=>toast('Drive backup failed — reconnect')); return; }
+  beginDriveAuth(S.gdrive.connected?'none':'consent','backupNow'); }
+function disconnectDrive(){ if(_gToken){ try{ fetch('https://oauth2.googleapis.com/revoke?token='+encodeURIComponent(_gToken),{method:'POST'}).catch(()=>{}); }catch(e){} }
   _gToken=''; _gTokenExp=0; S.gdrive={connected:false,fileIdA:'',fileIdB:'',lastWritten:'',lastSync:0}; save(); renderOverlay(); render(); toast('Google Drive disconnected'); }
 function driveLastSyncLabel(){ if(!S.gdrive.lastSync) return 'not synced yet'; const days=Math.floor((Date.now()-S.gdrive.lastSync)/864e5);
   return days<=0?'synced today':('synced '+days+'d ago'); }
-// on open, if connected and a backup is due (14 days), silently upload (no tap after first consent)
+// on open, if connected and a backup is due (14 days), sync — silent redirect if no cached token (no tap after first consent)
 async function driveAutoSync(){ if(!driveConfigured()||!S.gdrive.connected||!backupDue()) return;
-  try{ await driveUpload(); render(); }catch(e){ /* silent token expired — user reconnects from the sheet */ } }
+  if(driveTokenValid()){ try{ await driveUpload(); render(); }catch(e){} return; }
+  beginDriveAuth('none','autoSync'); }
 
 /* ---- WEB FETCH SERVICE sheet (locked field + Edit/Save) ---- */
 function openWebFetch(){ OV={kind:'wfetch', data:{editing:false, val:S.workerUrl||''}}; renderOverlay(true); }
@@ -506,7 +539,7 @@ function gdriveHTML(){ const d=OV.data;
          <button class="btn-ghost" style="width:auto;padding:12px 22px;margin-top:10px" onclick="OV.data.editing=true;renderOverlay()">✎ EDIT</button>`}
     ${driveConfigured()
       ? `<button class="btn-bone" style="margin-top:14px" onclick="connectDrive()">⤴ CONNECT GOOGLE DRIVE</button>
-         <div class="note" style="margin-top:6px">One Google sign-in (choose samarthmaira9@gmail.com), then it's automatic.</div>`
+         <div class="note" style="margin-top:6px">Briefly leaves the app to sign in with Google (choose samarthmaira9@gmail.com) — you'll land right back here, then it's automatic.</div>`
       : `<button class="btn-ghost" style="margin-top:14px;opacity:.5" disabled>⤴ CONNECT GOOGLE DRIVE</button>
          <div class="note" style="margin-top:6px">Save a client ID above to enable Connect.</div>`}`;
 }
@@ -665,7 +698,7 @@ function homeHTML(){
       <div style="flex:1;min-width:0"><div style="font-weight:600">Upload a category</div>
       <div style="font-size:12px;color:var(--mute2);margin-top:4px">CSV / Excel → CSV</div></div>
       <span style="color:var(--mute3)">→</span></button>
-    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v37</div>
+    <div class="note" style="margin-top:12px" id="backupNote">Your data lives on this device; Cloud backup keeps a safe copy in Google Drive. · v38</div>
     <input type="file" id="importfile" accept="application/json" style="display:none" onchange="onImportFile(event)">
     <input type="file" id="catfile" accept=".csv,.tsv,text/csv,text/tab-separated-values" style="display:none" onchange="onCatFile(event)">
     <div style="height:8px"></div>
@@ -2528,7 +2561,8 @@ window.addEventListener('hashchange',()=>{ const h=(location.hash||'').replace('
   try{ if(navigator.storage&&navigator.storage.persist) navigator.storage.persist().catch(()=>{}); }catch(e){}
   refreshStorageEstimate();
   render();                                   // repaint with images hydrated from IndexedDB
-  try{ driveAutoSync(); }catch(e){}           // silent cloud backup if connected + due
+  let handledAuthReturn=false; try{ handledAuthReturn=consumeDriveAuthReturn(); }catch(e){}   // returning from Google's redirect?
+  if(!handledAuthReturn){ try{ driveAutoSync(); }catch(e){} }                                 // else: silent cloud backup if connected + due
 })();
 if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
 </script>
